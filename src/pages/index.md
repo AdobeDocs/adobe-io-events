@@ -1,84 +1,36 @@
----
-title: Overview - Adobe Analytics
-description: This is the overview page of Adobe Analytics
-contributors:
-  - https://github.com/icaraps 
----
+<Hero slots="heading, text"/>
 
-<Hero slots="heading, text"/> 
+# Adobe I/O Events Docs
 
-# Adobe Analytics API
+Adobe I/O Events offer you a powerful way to integrate your application with Adobe services and solutions. Starting with Creative Cloud Assets, Adobe Experience Manager, and Adobe Analytics Triggers, we are adding events across our entire range of technologies.
 
-Adobe Product API offers limitless ways to integrate your most important customer data into key business processes. Adobe Product API offer limitless ways.
 
-<Resources slots="heading, links"/>
+## Reactive and event-driven applications
 
-#### Resources
+Adobe I/O Events enables building reactive, event-driven applications, based on events originating from various Adobe services, such as Creative Cloud, Adobe Experience Manager, and Analytics Triggers.
 
-* [Quickstart Guide](https://www.adobe.io/apis/experiencecloud/analytics/docs.html)
-* [Adobe Analytics Github Repo](https://github.com/AdobeDocs/analytics-2.0-apis)
+Events are triggered by an **Event Provider**, like Adobe Creative Cloud Assets, whenever a certain real-world action occurs, such as creating a new asset.
 
-## Overview
+To start listening for events, register you application, specifying which **Event Types** from which **Event Providers** it wants to receive.
+Whenever a matching event gets triggered, your application is notified.
 
-This documentation provides instructions for Adobe Analytics 2.0 APIs. For working with Analytics 1.4 APIs, see [Analytics 1.4 API Documentation](https://github.com/AdobeDocs/analytics-1.4-apis).
+## Prerequisites
+* For **Creative Cloud Events**: you would need an active Adobe ID.
+* For **Experience Cloud Events**: you would need to have entitlements for Adobe services in Experience Cloud in your organization, and administrative permission for your org to create integrations.
+* For **Experience Platform Events**: same as above, you will require the appropriate permissions and access to Experience Platform from your organization.
 
-The Adobe Analytics APIs are a collection of APIs that power Adobe Analytics products like Analysis Workspace. 
-The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data.
-You can also create reports to explore, get insights, or answer important questions about your data.
+## Getting Started
+- [Introduction to Webhooks](guides/index.md)
+- [Introduction to Journaling](guides/journaling_intro.md)   
+   
+- Jump to the Adobe Developer Console documentation to learn how to [add Events to a project](/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) 
+- Discover the [available events](guides/using/index.md)
 
-## Discover 
+## Going Further
+- Automate your Adobe I/O Events integrations, using 
+  * [Adobe I/O Events API](guides/api/index.md)  
+  * [Adobe I/O Events CLI](guides/cli/index.md) 
+  * [Adobe I/O Events SDK](guides/sdk/index.md) 
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+- [Ask questions, report bugs, make feature requests, and spark discussions](support/index.md).
 
-### Get Started
-
-[Quickstart Guide](guides/)
-    
-Get started with the Adobe Analytics APIs.
-
-<DiscoverBlock slots="heading, link, text"/> 
-
-### Guides
-
-[Calculated Metrics API](guides/calculated_metrics_api/) 
-     
-Returns information on the user's company that is necessary for making other Adobe Analytics API calls.
-
-<DiscoverBlock slots="link, text"/>
-
-[Segments API](guides/segments_api/) 
-
-Provides configuration guidance and best practices for the /segments endpoint.
-
-<DiscoverBlock slots="link, text"/>
-
-[Reporting Guide API](guides/reporting_api/)
-
-Provides configuration guidance and best practices for the /reports endpoint.
-
-<DiscoverBlock slots="link, text"/>
-
-[Migrating from 1.4 to 2.0](guides/migrating/)
-
-For help migrating from the 1.4 versions of the Analytics API to the newer and more capable /reports API.   
-
-<DiscoverBlock width="100%" slots="heading, link, text"/>
-
-### API References
-
-[Try the API](api/) 
-
-Try the Analytics API with Swagger UI. Explore, make calls, with full endpoint descriptions.
-
-## Contributing 
-
-We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions 
-or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/gatsby-theme-spectrum-example), and submit a pull 
-request with your contribution. For more information, refer to the [contributing page](support/contribute/).
-
-## API Requests & Rate Limits
-
-The timeout for API requests through adobe.io is currently *60 seconds*.
-
-The default rate limit for an Adobe Analytics Company is *120 requests per minute*. (The limit is enforced as *12 requests every 6 seconds*).
-When rate limiting is being enforced you will get `429` HTTP response codes with the following response body: `{"error_code":"429050","message":"Too many requests"}`    

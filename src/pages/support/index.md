@@ -1,51 +1,44 @@
----
-title: Support - Adobe Analytics
-description: This is the support page of Adobe Analytics 
----
+<Hero slots="heading, text"/>
 
-<Hero slots="heading, text" background="rgb(19, 93, 183)"/>
-
-# Support
+# Adobe I/O Events Support
 
 Learn where to ask questions, report bugs, make feature requests, and spark discussions.
 
-## Feedback
+## Overview
 
-You've got a place to start discussions.
+<DiscoverBlock slots="link, text"/>
 
-<DiscoverBlock slots="image, heading, link, text" width="25%"/>
+[Debugging Common Issues](debug.md)
 
-![Adobe Experience Cloud](experience_cloud.png)
+Learn how to debug and troubleshoot the most common scenarios that you may encounter.
 
-### Developer forum
 
-[Get started](https://adobe.io)
+<DiscoverBlock slots="link, text"/>
 
-Open discussion and support with community experts and Adobe staff.
+[Debug Tracing](tracing.md)
 
-<DiscoverBlock slots="link, text" width="25%"/>
+Learn how to use debug tracing to inspect event request and response activity.
 
-[Experience league](https://adobe.io) 
 
-Tutorials and videos for the whole community.
 
-<DiscoverBlock slots="link, text" width="25%"/>
+<DiscoverBlock slots="link, text"/>
 
-[Experience forum](https://adobe.io) 
+[FAQ](faq.md)
 
-Forum to get help and help others
+A knowledge base of frequently asked questions. This is a great starting place to find an answer before asking your question.
 
-## Community
 
-You've got a place to join the conversation.
 
-<DiscoverBlock slots="image, heading, link, text" width="100%"/>
+<DiscoverBlock slots="link, text"/>
 
-![Stack Overflow](stack-overflow.png)
+[Forums](https://forums.adobe.com/community/adobe-io/adobe-io-events)
 
-### Stack Overflow
+This is the place to report bugs, ask questions, make feature requests, or start a discussion. 
+You'll find official Adobe developers and community members available to help you out.
 
-[Explore](https://adobe.io)
 
-Developer Q&A using a specific tag.
-
+<!-- - [Request docs from the Customer Care Support team - see details]()
+  - [Initial Triage doc]()
+  - [Troubleshooting Tools & Access to these tools]()
+  - [Troubleshooting workflow]()
+  - [Technical Enablement]()  -->

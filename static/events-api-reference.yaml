@@ -1,0 +1,1069 @@
+swagger: '2.0'
+info:
+  title: Adobe I/O Events API
+  version: '2.0'
+host: api-stage.adobe.io
+basePath: /
+tags:
+  - name: Providers
+  - name: Event Metadata
+  - name: Sample Event
+  - name: Registrations
+  - name: Tracing
+  - name: Journaling
+paths:
+  '/events/providers/{providerId}/eventmetadata/{eventCode}':
+    get:
+      tags:
+        - Event Metadata
+      summary: Get the Event Metadata associated with a given Adobe I/O Events Provider ID and event code
+      operationId: getByProviderIdAndEventCode
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/eventCode'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EventMetadataHalModel'
+  '/events/providers/{providerId}/eventmetadata':
+    get:
+      tags:
+        - Event Metadata
+      summary: List the Event Metadata associated with a given Adobe I/O Events Provider ID
+      description: ''
+      operationId: getByProviderId
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EventMetadataCollectionHalModel'
+  '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers/{providerId}/eventmetadata':
+    post:
+      tags:
+        - Event Metadata
+      summary: Create an Adobe I/O Events Provider Event Metadata
+      description: ''
+      operationId: post
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+        - in: body
+          name: body
+          description: The Input Model necessary to create an Adobe I/O Events Provider Event Metadata
+          required: false
+          schema:
+            $ref: '#/definitions/EventMetadataInputModel'
+      responses:
+        '201':
+          description: The created Adobe I/O Events Provider Event Metadata.
+          schema:
+            $ref: '#/definitions/EventMetadataHalModel'
+    delete:
+      tags:
+        - Event Metadata
+      summary: Delete all Event Metadata associated with the given Adobe I/O Events Provider ID
+      description: ''
+      operationId: deleteByProviderId
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+      responses:
+        '204':
+          description: Successful deletion
+        '404':
+          description: The providerId does not exist
+  '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers/{providerId}/eventmetadata/{eventCode}':
+    put:
+      tags:
+        - Event Metadata
+      summary: Update an Adobe I/O Events Provider Event Metadata
+      description: ''
+      operationId: putEventMetadata
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/eventCode'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+        - in: body
+          name: body
+          description: The Input Model necessary to update an Adobe I/O Events Provider Event Metadata
+          required: false
+          schema:
+            $ref: '#/definitions/EventMetadataInputModel'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EventMetadataHalModel'
+    patch:
+      tags:
+        - Event Metadata
+      summary: PATCH an Adobe I/O Events Provider Event Metadata using JSON Patch
+      description: ''
+      operationId: patchEventMetadata
+      consumes:
+        - application/json-patch+json
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/eventCode'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+        - in: body
+          name: body
+          description: 'A JSON Patch of the EventMetadata Input Model see https://tools.ietf.org/html/rfc6902, http://jsonpatch.com/'
+          required: false
+          schema:
+            $ref: '#/definitions/JsonPatch'
+        - $ref: '#/parameters/contentTypeJSONPatch'
+      responses:
+        '200':
+          description: The updated/patched Event Metadata
+          schema:
+            $ref: '#/definitions/EventMetadataHalModel'
+        '204':
+          description: If the patch had no effect
+    delete:
+      tags:
+        - Event Metadata
+      summary: Delete the Event Metadata associated with the given Adobe I/O Events Provider ID and event code
+      description: ''
+      operationId: deleteByProviderIdAndEventCode
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/eventCode'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+      responses:
+        '204':
+          description: Successful deletion
+        '404':
+          description: The event metadata does not exist
+  '/events/{consumerOrgId}/providers':
+    get:
+      tags:
+        - Providers
+      summary: List all Adobe I/O Events Providers entitled to the provided Organization ID
+      description: ''
+      operationId: getProvidersByConsumerOrgId
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ProviderCollectionHalModel'
+  '/events/providers/{id}':
+    get:
+      tags:
+        - Providers
+      summary: View Adobe I/O Events Provider by ID
+      description: ''
+      operationId: getProvidersById
+      produces:
+        - application/hal+json
+      parameters:
+        - name: id
+          in: path
+          description: The requested provider Id
+          required: true
+          type: string
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+        - name: eventmetadata
+          in: query
+          description: The optional boolean to fetch or not this provider's event metadata
+          required: false
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ProviderHalModel'
+  '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers':
+    post:
+      tags:
+        - Providers
+      summary: Create an Adobe I/O Events Provider
+      description: ''
+      operationId: createProvider
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+        - in: body
+          name: body
+          description: The Input Model necessary to create an Adobe I/O Events Provider
+          required: false
+          schema:
+            $ref: '#/definitions/ProviderInputModel'
+      responses:
+        '201':
+          description: The created Adobe I/O Events Provider.
+          schema:
+            $ref: '#/definitions/ProviderHalModel'
+  '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers/{providerId}':
+    put:
+      tags:
+        - Providers
+      summary: Update an Adobe I/O Events Provider
+      description: ''
+      operationId: putProvider
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+        - in: body
+          name: body
+          description: The Input Model necessary to update an Adobe I/O Events Provider
+          required: false
+          schema:
+            $ref: '#/definitions/ProviderInputModel'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ProviderHalModel'
+    patch:
+      tags:
+        - Providers
+      summary: PATCH an Adobe I/O Events Provider using JSON Patch
+      description: ''
+      operationId: patchProvider
+      consumes:
+        - application/json-patch+json
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+        - $ref: '#/parameters/contentTypeJSONPatch'
+        - in: body
+          name: body
+          description: 'A JSON Patch of the Provider Input Model see https://tools.ietf.org/html/rfc6902, http://jsonpatch.com/'
+          required: false
+          schema:
+            $ref: '#/definitions/JsonPatch'
+      responses:
+        '200':
+          description: The updated/patched provider
+          schema:
+            $ref: '#/definitions/ProviderHalModel'
+        '204':
+          description: If the patch had no effect
+    delete:
+      tags:
+        - Providers
+      summary: Delete an Adobe I/O Events Provider by ID
+      description: ''
+      operationId: deleteProvider
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+      responses:
+        '204':
+          description: Successful deletion
+        '404':
+          description: The providerId does not exist
+  '/events/providers/{providerId}/eventmetadata/{eventCode}/sample_event':
+    get:
+      tags:
+        - Sample Event
+      summary: Get a sample event HAL JSON model of the provided Adobe I/O Events Provider ID and event code
+      description: ''
+      operationId: getSampleByProviderIdAndEventCode
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/eventCode'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/accept-hal-json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/TheSampleEventHALmodel'
+    head:
+      tags:
+        - Sample Event
+      summary: Check if a sample event is available for the provided Adobe I/O Events Provider ID and event code
+      description: ''
+      operationId: checkSampleEvent
+      parameters:
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/eventCode'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+      responses:
+        '200':
+          description: If a sample event is available
+        '404':
+          description: If no sample event is available
+  '/events/organizations/{consumerOrgId}/integrations/{credentialId}/{registrationId}/validate':
+    get:
+      tags:
+        - Journaling
+      summary: Validate and get all Events from journal
+      operationId: getValidateEventsFromJournal
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/credentialId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/x-ims-org-id'
+        - name: x-adobe-io-events-url-links
+          in: header
+          required: false
+          type: boolean
+        - name: limit
+          in: query
+          required: false
+          type: integer
+          format: int32
+        - name: since
+          in: query
+          required: false
+          type: string
+      responses:
+        default:
+          description: successful operation
+  '/events/organizations/{consumerOrgId}/integrations/{credentialId}/{registrationId}':
+    get:
+      tags:
+        - Journaling
+      summary: Get all Events for a registration from journal
+      operationId: getEventsFromJournal
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/credentialId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/x-ims-org-id'
+        - name: x-adobe-io-events-url-links
+          in: header
+          required: false
+          type: boolean        
+        - name: limit
+          in: query
+          required: false
+          type: integer
+          format: int32
+        - name: since
+          in: query
+          required: false
+          type: string
+        - name: seek
+          in: query
+          required: false
+          type: string
+        - name: latest
+          in: query
+          required: false
+          type: boolean
+      responses:
+        default:
+          description: successful operation
+  '/events/organizations/{consumerOrgId}/integrations/{credentialId}/registrations':
+    get:
+      tags:
+        - Registrations
+      summary: List all registration details
+      operationId: getRegistrations
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/credentialId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/x-ims-org-id'
+        - name: delivery_type
+          in: query
+          required: false
+          type: string
+          enum:
+            - WEBHOOK
+            - JOURNAL
+            - WEBHOOK_BATCH
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Registration'
+    post:
+      tags:
+        - Registrations
+      summary: Create a Webhook/Journal registration for given integration
+      operationId: createRegistrationCli
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/credentialId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/x-ims-org-id'
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/Registration'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Registration'
+  '/events/organizations/{consumerOrgId}/integrations/{credentialId}/registrations/{registrationId}':
+    get:
+      tags:
+        - Registrations
+      summary: Get registration details based on Organization ID, Integration ID, and Registration ID
+      operationId: getRegistrationDetails
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/credentialId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/x-ims-org-id'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Registration'
+    delete:
+      tags:
+        - Registrations
+      summary: Delete registration details based on Organization ID, Integration ID, and Registration ID
+      operationId: deleteRegistrationDetails
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/credentialId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/x-ims-org-id'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Registration'
+  '/events/organizations/{consumerOrgId}/integrations/{credentialId}/tracing/{registrationId}':
+    get:
+      tags:
+        - Tracing
+      summary: Get tracing details for a specific webhook
+      operationId: getTracesApi
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/credentialId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/x-ims-org-id'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TracingRequestResponse'
+parameters:
+  consumerOrgId:
+    name: consumerOrgId
+    in: path
+    description: Your consumer organization Id (owning the Adobe I/O Events Provider)
+    required: true
+    type: string
+  projectId:
+    name: projectId
+    in: path
+    description: The project Id where the Adobe I/O Events Provider belongs
+    required: true
+    type: string
+  workspaceId:      
+    name: workspaceId
+    in: path
+    description: The workspace Id where the Adobe I/O Events Provider belongs
+    required: true
+    type: string
+  providerId:
+    name: providerId
+    in: path
+    description: The requested provider ID.
+    required: true
+    type: string
+  eventCode:
+    name: eventCode
+    in: path
+    description: The requested eventmetadata event code
+    required: true
+    type: string
+  credentialId:
+    name: credentialId
+    in: path
+    description: The credential Id associated with the credential in the project/workspace you created your registration in
+    required: true
+    type: string
+  registrationId:
+    name: registrationId
+    in: path
+    required: true
+    type: string
+  authorization:
+    name: Authorization
+    description: 'Authorization access token in the format "Bearer {TOKEN}".' 
+    required: true
+    type: string
+    in: header
+  x-api-key:
+    name: x-api-key
+    description: 'API key whiltelisted at Adobe.io'
+    required: true
+    type: string
+    in: header
+  x-ims-org-id:
+    name: x-ims-org-id
+    in: header
+    required: false
+    type: string
+  content-type:
+    name: Content-Type
+    description: Type of content being sent in the body of the request. Should be 'application/json'.
+    required: true
+    type: string
+    in: header
+    default: application/json
+  accept-hal-json:
+    name: Accept
+    in: header
+    required: true
+    type: string
+    description: Content type accepted in the response.
+    default: application/hal+json
+  contentTypeJSONPatch:
+    name: Content-Type
+    in: header
+    required: true
+    type: string
+    default: application/json-patch+json
+definitions:
+  CreateEnterpriseIntegrationResponse:
+    type: object
+    properties:
+      id:
+        type: string
+      apiKey:
+        type: string
+      orgId:
+        type: string
+      technicalAccountId:
+        type: string
+      trace:
+        $ref: '#/definitions/CreateEnterpriseIntegrationResponse'
+  SubscribeItem:
+    type: object
+    properties:
+      sdkCode:
+        type: string
+      licenceConfigs:
+        type: array
+        items:
+          $ref: '#/definitions/LicenseConfig'
+      roles:
+        type: array
+        items:
+          $ref: '#/definitions/Role'
+      trace:
+        $ref: '#/definitions/SubscribeItem'
+  LicenseConfig:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      productId:
+        type: string
+      description:
+        type: string
+      selected:
+        type: boolean
+  Role:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      code:
+        type: string
+      name:
+        type: string
+  EventMetadataHalModel:
+    type: object
+    properties:
+      description:
+        type: string
+        description: 'The description of this Event, as shown on the Adobe Developer Console'
+      label:
+        type: string
+        description: 'The label of this Event, as shown on the Adobe Developer Console'
+      event_code:
+        type: string
+        description: 'This event_code describes the type of event. Ideally it should be prefixed with a reverse-DNS name  (dictating the organization which defines the semantics of this event type) It is equivalent to the CloudEvents'' type. See https://github.com/cloudevents/spec/blob/master/spec.md#type'
+      _embedded:
+        type: object
+        properties:
+          sample_event:
+            description: A sample event HAL Model
+            $ref: '#/definitions/TheSampleEventHALmodel'
+      _links:
+        type: object
+        properties:
+          'rel:sample_event':
+            $ref: '#/definitions/HALLink'
+          'rel:update':
+            description: 'The link to the workspace context to perform update and delete operations.This link will only be set if the Events Provider is yours to update, and not Adobe''s.'
+            $ref: '#/definitions/HALLink'
+          self:
+            $ref: '#/definitions/HALLink'
+    description: The Adobe I/O Events Provider Event Metadata HAL model
+  HALLink:
+    type: object
+    properties:
+      href:
+        type: string
+      templated:
+        type: boolean
+      type:
+        type: string
+      deprecation:
+        type: string
+        format: url
+      name:
+        type: string
+      profile:
+        type: string
+        format: uri
+      title:
+        type: string
+      hreflang:
+        type: string
+      seen:
+        type: string
+  TheSampleEventHALmodel:
+    type: object
+    properties:
+      format:
+        type: string
+        description: 'The delivery format associated with this event sample,`adobe_io`, `cloud_events` '
+      sample_payload:
+        type: string
+        description: A generated sample Json Payload as expected in the webhook or journal deliveries of Adobe I/O Events
+      _links:
+        type: object
+        properties:
+          self:
+            $ref: '#/definitions/HALLink'
+  EventMetadataCollectionHalModel:
+    type: object
+    properties:
+      _embedded:
+        type: object
+        properties:
+          eventmetadata:
+            type: array
+            description: Adobe I/O Events Providers Event Metadata collection.
+            items:
+              $ref: '#/definitions/EventMetadataHalModel'
+      _links:
+        type: object
+        properties:
+          self:
+            $ref: '#/definitions/HALLink'
+    description: Adobe I/O Events Providers Event Metadata Collection HAL model
+  JsonPatch:
+    type: object
+  EventMetadataInputModel:
+    type: object
+    required:
+      - description
+      - event_code
+      - label
+    properties:
+      description:
+        type: string
+        description: 'The description of this Event Metadata, as shown on the Adobe Developer Console'
+        minLength: 1
+        maxLength: 255
+        pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
+      label:
+        type: string
+        description: 'The label of this Event Metadata, as shown on the Adobe Developer Console'
+        minLength: 1
+        maxLength: 255
+        pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
+      event_code:
+        type: string
+        description: 'The event_code of this Event Metadata.  This event_code describes the type of event. Ideally it should be prefixed with a reverse-DNS name  (dictating the organization which defines the semantics of this event type) It is equivalent to the CloudEvents'' type.  see https://github.com/cloudevents/spec/blob/master/spec.md#type'
+        minLength: 1
+        maxLength: 255
+        pattern: '[\w-_\.]+'
+      sample_event_template:
+        type: string
+        description: An optional base64 encoded sample event template
+        minLength: 0
+        maxLength: 87382
+        pattern: '^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$'
+    description: The Input Model necessary to POST/PUT an Adobe I/O Events Provider Event Metadata
+  ProviderHalModel:
+    type: object
+    properties:
+      id:
+        type: string
+        description: The Id of this Events Provider
+      label:
+        type: string
+        description: 'The label of this Events Provider, as shown on the Adobe Developer Console'
+      description:
+        type: string
+        description: 'The description of this Events Provider, as shown on the Adobe Developer Console'
+      source:
+        type: string
+        description: 'A URI-reference (this provider id prefixed with `urn:uuid:`), identifying the context in which an event happened. Producers MUST ensure that source + event.id is unique for each distinct event. See https://github.com/cloudevents/spec/blob/master/spec.md#source-1'
+        readOnly: true
+      docs_url:
+        type: string
+        description: 'The documentation url of this Events Provider, as shown on the Adobe Developer Console'
+      publisher:
+        type: string
+        description: 'The publisher is `Adobe` for Adobe Cloud Solution. In the case of multi-instances or on-premise Adobe solutions:  the publisher will be set to the organization_id owning this solution. In the case of event-providers registered by an organization using Adobe I/O registration API:  the publisher will be set to the organization_id which registered this events provider'
+      _embedded:
+        type: object
+        properties:
+          eventmetadata:
+            type: array
+            description: The list of event metadata associated with this Events Provider
+            items:
+              $ref: '#/definitions/EventMetadataHalModel'
+      _links:
+        type: object
+        properties:
+          'rel:eventmetadata':
+            description: The links to the event metadata associated with this Events Provider
+            $ref: '#/definitions/HALLink'
+          'rel:update':
+            description: 'The link to the workspace context to perform update and delete operations.This link will only be set if the Events Provider is yours to update, and not Adobe''s.'
+            $ref: '#/definitions/HALLink'
+          self:
+            description: link to self
+            $ref: '#/definitions/HALLink'
+    description: The Adobe I/O Events Provider HAL model
+  ProviderCollectionHalModel:
+    type: object
+    properties:
+      _embedded:
+        type: object
+        properties:
+          providers:
+            type: array
+            description: Adobe I/O Events Providers collection.
+            items:
+              $ref: '#/definitions/ProviderHalModel'
+      _links:
+        type: object
+        properties:
+          self:
+            $ref: '#/definitions/HALLink'
+    description: Adobe I/O Events Providers Collection HAL model
+  ProviderInputModel:
+    type: object
+    required:
+      - label
+    properties:
+      label:
+        type: string
+        description: 'The label of this Events Provider, as shown on the Adobe Developer Console'
+        minLength: 1
+        maxLength: 255
+        pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
+      description:
+        type: string
+        description: 'The description of this Events Provider, as shown on the Adobe Developer Console'
+        minLength: 0
+        maxLength: 255
+        pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
+      docs_url:
+        type: string
+        description: 'The documentation url of this Events Provider, as shown on the Adobe Developer Console'
+        minLength: 0
+        maxLength: 255
+        pattern: 'https?://(([^/:.\s]+(\.[^/:.\s]+)*)|([0-9](\.[0-9]{3})))(:[0-9]+)?((/[^?#\s]+)(\?[^#\s]+)?(#.+)?)?/?'
+    description: The Input Model necessary to POST/PUT an Adobe I/O Events Provider
+  EventsOfInterest:
+    type: object
+    properties:
+      event_code:
+        type: string
+        minLength: 1
+        maxLength: 255
+      event_label:
+        type: string
+      event_description:
+        type: string
+      provider_id:
+        type: string
+        minLength: 1
+        maxLength: 38
+      provider:
+        type: string
+        minLength: 1
+        maxLength: 255
+      provider_label:
+        type: string
+      provider_description:
+        type: string
+      provider_docs_url:
+        type: string
+      event_delivery_format:
+        type: string
+  Registration:
+    type: object
+    required:
+      - client_id
+      - name
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+        minLength: 3
+        maxLength: 255
+      description:
+        type: string
+        minLength: 0
+        maxLength: 5000
+      client_id:
+        type: string
+        minLength: 3
+        maxLength: 255
+      parent_client_id:
+        type: string
+        minLength: 0
+        maxLength: 255
+      webhook_url:
+        type: string
+        minLength: 0
+        maxLength: 4000
+      status:
+        type: string
+        enum:
+          - ACCEPTED
+          - VERIFIED
+          - VERIFICATION_FAILED
+          - HOOK_UNREACHABLE
+          - DELETED
+      type:
+        type: string
+        enum:
+          - USER
+          - APP
+      integration_status:
+        type: string
+        enum:
+          - ENABLED
+          - DISABLED
+      events_of_interest:
+        type: array
+        uniqueItems: true
+        items:
+          $ref: '#/definitions/EventsOfInterest'
+      registration_id:
+        type: string
+        minLength: 0
+        maxLength: 255
+      delivery_type:
+        type: string
+        enum:
+          - WEBHOOK
+          - JOURNAL
+          - WEBHOOK_BATCH
+      events_url:
+        type: string
+      created_date:
+        type: string
+      updated_date:
+        type: string
+      runtime_action:
+        type: string
+        minLength: 0
+        maxLength: 255
+  Trace:
+    type: object
+    properties:
+      tracingRequest:
+        $ref: '#/definitions/TracingRequest'
+      tracingResponse:
+        $ref: '#/definitions/TracingResponse'
+      ts:
+        type: integer
+        format: int64
+      deliveryTime:
+        type: integer
+        format: int64
+      insightsInfo:
+        type: array
+        uniqueItems: true
+        items:
+          $ref: '#/definitions/TraceInsightsInfo'
+  TraceInsightsInfo:
+    type: object
+    properties:
+      providerName:
+        type: string
+      eventCode:
+        type: string
+      eventIds:
+        type: array
+        items:
+          type: string
+  TracingRequest:
+    type: object
+    properties:
+      requestUrl:
+        type: string
+      requestMethod:
+        type: string
+      contentType:
+        type: string
+      requestBody:
+        type: string
+      requestHeaders:
+        type: object
+        additionalProperties:
+          type: array
+          items:
+            type: string
+  TracingRequestResponse:
+    type: object
+    properties:
+      event:
+        type: string
+      id:
+        type: string
+      date:
+        type: string
+      clientId:
+        type: string
+      registrationId:
+        type: string
+      trace:
+        $ref: '#/definitions/Trace'
+  TracingResponse:
+    type: object
+    properties:
+      responseBody:
+        type: string
+      responseCode:
+        type: integer
+        format: int32
+      responseTime:
+        type: integer
+        format: int64
+      responseHeaders:
+        type: object
+        additionalProperties:
+          type: array
+          items:
+            type: string
