@@ -40,14 +40,8 @@ module.exports = {
         path: 'guides',
         pages: [
           {
-            title: 'Introduction to Webhooks',
-            path: 'guides/index.md',
-            pages: [
-              {
-                title: 'Runtime Actions As Webhook',
-                path: 'guides/runtime_webhooks.md'
-              }
-            ]
+            title: 'Runtime Actions As Webhook',
+            path: 'guides/index.md'
           },
           {
             title: 'Introduction to Journaling',
@@ -140,10 +134,6 @@ module.exports = {
           {
             title: 'Marketo User Audit Data Stream',
             path: 'guides/using/marketo-user-audit-data-stream-setup.md'
-          },
-          {
-            title: 'Custom Events',
-            path: 'guides/using/custom_events.md'
           }
         ]
       },
