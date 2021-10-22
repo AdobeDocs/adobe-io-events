@@ -41,7 +41,7 @@ module.exports = {
         pages: [
           {
             title: 'Runtime Actions As Webhook',
-            path: 'guides/index.md'
+            path: 'guides/runtime_webhooks.md'
           },
           {
             title: 'Introduction to Journaling',
