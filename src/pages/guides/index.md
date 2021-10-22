@@ -138,10 +138,10 @@ content-type: application/json
 {"validationUrl": "https://csm.adobe.io/csm/webhooks/validate?id=<guid1>&challenge=<guid2>"}
 ```
 
-To complete verification, you need to send a GET request to it using a web browser or a REST client.
+To complete verification, you need to send a GET request to it using a web browser/cURL or any simple REST client.
 
-```http
-GET https://csm.adobe.io/csm/webhooks/validate?id=<guid1>&challenge=<guid2>
+```bash
+curl -L -X GET 'https://csm.adobe.io/csm/webhooks/validate?id=<guid1>&challenge=<guid2>'
 ```
 
 The custom URL is valid for **5 minutes**. If the validation is not completed within 5 minutes, your webhook is marked `Disabled`.
