@@ -40,8 +40,12 @@ module.exports = {
         path: 'guides',
         pages: [
           {
-            title: 'Runtime Actions As Webhook',
+            title: 'Introduction to Adobe I/O Events Webhooks',
             path: 'guides/index.md'
+          },
+          {
+            title: 'Runtime Actions As Webhook',
+            path: 'guides/runtime_webhooks.md'
           },
           {
             title: 'Introduction to Journaling',

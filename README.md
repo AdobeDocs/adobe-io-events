@@ -19,7 +19,7 @@ $ npm run dev
 For the documentation developer, please read these sections on how to:
 - [Arrange the structure content of your docs](https://github.com/adobe/aio-theme#content-structure)
 - [Linking to pages](https://github.com/adobe/aio-theme#links)
-- [Using assets](https://github.com/adobe/aio-theme-aio#assets)
+- [Using assets](https://github.com/adobe/aio-theme#assets)
 - [Setting Global Navigation](https://github.com/adobe/aio-theme#global-navigation)
 - [Setting Side Navigation](https://github.com/adobe/aio-theme#side-navigation)
 - [Using content blocks](https://github.com/adobe/aio-theme#jsx-blocks)
