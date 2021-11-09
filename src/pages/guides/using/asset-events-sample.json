@@ -1,0 +1,183 @@
+{
+  "data": {
+    "xdmEntity": {
+      "event:resources": {
+        "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
+          "event:action": "created",
+          "gromit:metadataOrderingVersion": 3,
+          "event:embedded": {
+            "_links": {
+              "http://ns.adobe.com/adobecloud/rel/ac/check": [
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/acl/check/urn:aaid:sc:AP:ae4f56c7-1c0c-4595-a6d8-71336d977e39{?privilege,relation}",
+                  "templated": true
+                }
+              ],
+              "http://ns.adobe.com/adobecloud/rel/ac/effective": [
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/acl/effective/urn:aaid:sc:AP:ae4f56c7-1c0c-4595-a6d8-71336d977e39"
+                }
+              ],
+              "http://ns.adobe.com/adobecloud/rel/ac/policy": [
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/acl/policy/urn:aaid:sc:AP:ae4f56c7-1c0c-4595-a6d8-71336d977e39"
+                }
+              ],
+              "http://ns.adobe.com/adobecloud/rel/bulk": [
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/id/urn:aaid:sc:AP:ae4f56c7-1c0c-4595-a6d8-71336d977e39/:bulk",
+                  "mode": "id"
+                },
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/relpath/urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc/files/Testingabc/test.txt/:bulk",
+                  "mode": "path"
+                }
+              ],
+              "http://ns.adobe.com/adobecloud/rel/directory": [
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/id/urn:aaid:sc:AP:ffaf7d7a-a673-4d39-bfd4-37ae1e5c7bd1/:page{?resource,orderBy,start,limit,type,embed}",
+                  "mode": "id",
+                  "templated": true
+                },
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/relpath/urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc/files/Testingabc/:page{?resource,orderBy,start,limit,type,embed}",
+                  "mode": "path",
+                  "templated": true
+                }
+              ],
+              "http://ns.adobe.com/adobecloud/rel/directory/base": [
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/id/urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc/:page{?resource,orderBy,start,limit,type,embed}",
+                  "mode": "id",
+                  "templated": true,
+                  "assetId": "urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc"
+                },
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/relpath/urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc/root/:page{?resource,orderBy,start,limit,type,embed}",
+                  "mode": "path",
+                  "templated": true,
+                  "assetId": "urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc"
+                }
+              ],
+              "http://ns.adobe.com/adobecloud/rel/metadata/application": [
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/id/urn:aaid:sc:AP:ae4f56c7-1c0c-4595-a6d8-71336d977e39/:applicationmetadata",
+                  "mode": "id",
+                  "type": "application/json"
+                },
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/relpath/urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc/files/Testingabc/test.txt/:applicationmetadata",
+                  "mode": "path",
+                  "type": "application/json"
+                }
+              ],
+              "http://ns.adobe.com/adobecloud/rel/metadata/embedded": [
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/id/urn:aaid:sc:AP:ae4f56c7-1c0c-4595-a6d8-71336d977e39/:embeddedmetadata",
+                  "mode": "id"
+                },
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/relpath/urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc/files/Testingabc/test.txt/:embeddedmetadata",
+                  "mode": "path"
+                }
+              ],
+              "http://ns.adobe.com/adobecloud/rel/metadata/repository": [
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/id/urn:aaid:sc:AP:ae4f56c7-1c0c-4595-a6d8-71336d977e39/:repometadata",
+                  "mode": "id",
+                  "type": "application/json"
+                },
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/relpath/urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc/files/Testingabc/test.txt/:repometadata",
+                  "mode": "path",
+                  "type": "application/json"
+                }
+              ],
+              "http://ns.adobe.com/adobecloud/rel/page": [
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/id/urn:aaid:sc:AP:ae4f56c7-1c0c-4595-a6d8-71336d977e39/:page{?resource,orderBy,start,limit,property,version}",
+                  "mode": "id",
+                  "templated": true,
+                  "type": "application/vnd.adobe.versions+json"
+                },
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/relpath/urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc/files/Testingabc/test.txt/:page{?resource,orderBy,start,limit,property,version}",
+                  "mode": "path",
+                  "templated": true,
+                  "type": "application/vnd.adobe.versions+json"
+                }
+              ],
+              "http://ns.adobe.com/adobecloud/rel/primary": [
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/id/urn:aaid:sc:AP:ae4f56c7-1c0c-4595-a6d8-71336d977e39",
+                  "mode": "id"
+                },
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/relpath/urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc/files/Testingabc/test.txt",
+                  "mode": "path"
+                }
+              ],
+              "http://ns.adobe.com/adobecloud/rel/repository": {
+                "href": "https://platform-cs-stage.adobe.io/content/directory/repo/urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc/repositoryResource"
+              },
+              "version-history": [
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/id/urn:aaid:sc:AP:ae4f56c7-1c0c-4595-a6d8-71336d977e39/:versions",
+                  "mode": "id"
+                },
+                {
+                  "href": "https://platform-cs-stage-jpn3.adobe.io/content/storage/relpath/urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc/files/Testingabc/test.txt/:versions",
+                  "mode": "path"
+                }
+              ]
+            },
+            "repo:assetId": "urn:aaid:sc:AP:ae4f56c7-1c0c-4595-a6d8-71336d977e39",
+            "repo:state": "ACTIVE",
+            "repo:createDate": "2021-11-05T17:43:15.162Z",
+            "repo:etag": "d41d8cd98f00b204e9800998ecf8427e",
+            "repo:repositoryId": "urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc",
+            "repo:name": "test.txt",
+            "dc:format": "text/plain",
+            "repo:version": "0",
+            "storage:region": "JPN3",
+            "repo:createdBy": "0756D11D57A470137F000101@AdobeID",
+            "repo:size": 0,
+            "repo:modifiedBy": "0756D11D57A470137F000101@AdobeID",
+            "repo:assetClass": "file",
+            "repo:path": "/files/Testingabc/test.txt",
+            "storage:assignee": {
+              "id": "0756D11D57A470137F000101@AdobeID",
+              "type": "user"
+            },
+            "repo:modifyDate": "2021-11-05T17:43:15.162Z",
+            "repo:id": "urn:aaid:sc:AP:ae4f56c7-1c0c-4595-a6d8-71336d977e39"
+          },
+          "gromit:hierarchyOrderingVersion": 1636134195264
+        },
+        "http://ns.adobe.com/adobecloud/rel/primary": {
+          "event:action": "created"
+        }
+      },
+      "event:sequence": -1,
+      "event:repository": {
+        "repo:owner": {
+          "id": "0756D11D57A470137F000101@AdobeID",
+          "type": "user"
+        }
+      }
+    }
+  },
+  "id": "79d681ca-17c2-4f06-9af1-5026a21298a3",
+  "source": "urn:uuid:urn:aaid:sc:AP:7979848c-9e23-52fb-8d06-7bf6c6d81ddc",
+  "specversion": "1.0",
+  "type": "com.adobe.platform.events.file_created",
+  "datacontenttype": "application/json",
+  "dataschema": "http://ns.adobe.com/adobecloud/repository/event/asset",
+  "time": "2021-11-05T17:43:15.162Z",
+  "xactionid": "MIfWg1kcVscqSfDUNpniIZn1vFTukRpf-4-SC-4",
+  "recipient": {
+    "userid": "0756D11D57A470137F000101@AdobeID"
+  },
+  "dataschemaversion": "0.9",
+  "event_id": "1e0b0a10-fec5-4763-a680-f8ed97e3fbb8"
+}
