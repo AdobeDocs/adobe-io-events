@@ -10,7 +10,7 @@ When you get to the step about the _Add events_ dialog, refer to [Asset Events P
 
 For Asset Events providers, you have the option of selecting which type of authentication to use, either **Service Account (JWT)** or **OAuth**. 
 
-![](../../img/credentials.png)
+![UI for selecting authentication type](../../img/credentials.png)
 
 ### Service Account (JWT)
 
