@@ -148,10 +148,4 @@ The previous storage region.
 
 <br/>
 
-**event:ancestorIds** _array_
-
-The `assetId` of each parent [asset](<(asset-events-glossary.md#asset)>) in the `repo:path` at the time it is updated by the Processor. This value is not intended for consumption outside of Content Platform. The assetId at index 0 is the ID of the root [directory](asset-events-glossary.md#directory); all following IDs represent the IDs of the next descendants up to the parent of the current asset. If the current asset is the root directory of the [repository](asset-events-glossary.md#repository), this array is empty.
-
-<br/>
-
 </details>

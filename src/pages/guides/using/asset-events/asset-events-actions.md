@@ -4,19 +4,19 @@
 
 ## Overview
 
-Asset Events are initiated by actions, which are operations (create, update, move, etc.) made on the [resources](asset-events-glossary#resource) of [assets](asset-events-glossary#asset). You can determine which action has been made on which resource by looking at certain properties in the [Asset Events object](asset-events-object.md).
+Asset Events are initiated by actions, which are operations (create, update, move, etc.) made on the [resources](asset-events-glossary#resource) of [assets](asset-events-glossary#asset). You can determine which action has been made on which resource by looking at certain [Asset Events properties](asset-events-properties.md).
 
 1. The `event:resources` object contains the Resource Change objects, which describe [resources](asset-events-glossary#resource) that have been impacted by an action. Resources are identified by their associated link relations.
 
-   ![event:resources object in JSON-formatted Asset Event](../img/resources.png)
+   ![event:resources object in JSON-formatted Asset Event](../../img/resources.png)
 
 2. One of the Resource Change objects always represents the [Repository Metadata Resource](asset-events-glossary.md#repository-metadata-resource), given that this [resource](asset-events-glossary#resource) is required to be embedded in the event (i.e., as the value of `event:embedded`). This is the case even if the Repository Metadata Resource wasn't affected by the action that triggered the event. (The value of `event:action` indicates in what way a resource was affected, or if it was affected at all. The possible values for this property are `none`, `updated`, `created`, and `deleted`.)
 
-   ![Repository Metadata object in JSON-formatted Asset Event](../img/repo-metadata.png)
+   ![Repository Metadata object in JSON-formatted Asset Event](../../img/repo-metadata.png)
 
 3. Below is an example of a Resource Change object that signals a [resource](asset-events-glossary#resource) **has** been affected by an action. (In this case, the [Primary Resource](asset-events-glossary.md#primary-resource) has been updated.)
 
-   ![Primary Resource object whose event:updated property has the value of "updated."](../img/primary.png)
+   ![Primary Resource object whose event:updated property has the value of "updated."](../../img/primary.png)
 
 4. When an [asset](asset-events-glossary#asset) has been moved, discarded, or restored, the `event:updated` property will be present in the Resource Change object that represents the [Repository Metadata Resource](asset-events-glossary.md#repository-metadata-resource). The value of this property is an object that, depending on the action, contains one or more of the following properties:
 
@@ -27,7 +27,7 @@ Asset Events are initiated by actions, which are operations (create, update, mov
    - `repo:state`: the previous state of the asset
      - **Note**: This property is only present when the asset has been either discarded or restored.
 
-   ![event:updated object with a repo:path property](../img/event-updated.png)
+   ![event:updated object with a repo:path property](../../img/event-updated.png)
 
 <br/>
 
@@ -47,7 +47,7 @@ An event is triggered by the creation of a [file](asset-events-glossary#file)/[d
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
@@ -75,7 +75,7 @@ An event is triggered by an update to a [file](asset-events-glossary#file)/[dire
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
@@ -110,7 +110,7 @@ In `event:resources`, the [Repository Metadata Resource](asset-events-glossary.m
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
@@ -128,7 +128,7 @@ In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-re
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
@@ -164,7 +164,7 @@ The `event:updated` object contains two properties that describe the source loca
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
@@ -187,7 +187,7 @@ In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-re
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
@@ -210,7 +210,7 @@ An Event is triggered by discarding a [file](asset-events-glossary#file)/[direct
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
@@ -236,7 +236,7 @@ An Event is triggered by restoring a [file](asset-events-glossary#file)/[directo
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
@@ -269,7 +269,7 @@ In `event:resources`, both the [Repository Metadata Resource](asset-events-gloss
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
@@ -290,7 +290,7 @@ In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-re
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
@@ -313,7 +313,7 @@ An Event is triggered by the creation or update of a file's/directory's [Embedde
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/metadata/embedded": {
@@ -340,7 +340,7 @@ In `event:resources`, the ACL Policy Resource is listed as `created`.
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/ac/policy": {
@@ -361,7 +361,7 @@ In `event:resources`, the ACL Policy Resource is listed as `updated`.
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com/adobecloud/rel/ac/policy": {
@@ -398,7 +398,7 @@ An Event is triggered by the upload of a [Manifest Resource](asset-events-glossa
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com.adobecloud/rel/metadata/repository": {
@@ -440,7 +440,7 @@ An Event is triggered by the update of the [Manifest Resource](asset-events-glos
 
 ```json
 {
-  "body": {
+  "data": {
     "xdmEntity": {
       "event:resources": {
         "http://ns.adobe.com.adobecloud/rel/metadata/repository": {
@@ -459,52 +459,6 @@ An Event is triggered by the update of the [Manifest Resource](asset-events-glos
           "event:action": "updated"
         },
         "http://ns.adobe.com/adobecloud/rel/rendition": {
-          "event:action": "updated"
-        }
-      }
-    }
-  }
-}
-```
-
----
-
-#### Created Component
-
-An Event is triggered by the upload of a [Component Resource](asset-events-glossary.md#component) to a [Composite](asset-events-glossary#composite). In `event:resources`, the Component Resource is listed as `created`.
-
-```json
-{
-  "body": {
-    "xdmEntity": {
-      "event:resources": {
-        "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
-          "event:action": "none"
-        },
-        "http://ns.adobe.com/adobecloud/rel/component": {
-          "event:action": "created"
-        }
-      }
-    }
-  }
-}
-```
-
----
-
-#### Updated Component
-
-An Event is triggered by the update of a [Component Resource](asset-events-glossary.md#component) of a [Composite](asset-events-glossary#composite). In `event:resources`, the Component Resource is listed as `updated`.
-
-```json
-{
-  "body": {
-    "xdmEntity": {
-      "event:resources": {
-        "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
-          "event:action": "none"
-        },
-        "http://ns.adobe.com/adobecloud/rel/component": {
           "event:action": "updated"
         }
       }
