@@ -232,7 +232,7 @@ An Event is triggered by discarding a [file](asset-events-glossary#file)/[direct
 
 #### Restored
 
-An Event is triggered by restoring a [file](asset-events-glossary#file)/[directory](asset-events-glossary#directory). In `event:resources`, the [Repository Metadata Resource](asset-events-glossary.md#repository-metadata-resource) is listed as `updated`. The value of `repo:state` is the previous state of the [asset](asset-events-glossary#asset). (The current state is `ACTIVE`.)
+An Event is triggered by restoring a [file](asset-events-glossary#file)/[directory](asset-events-glossary#directory). In `event:resources`, the [Repository Metadata Resource](asset-events-glossary.md#repository-metadata-resource) is listed as `updated`. The value of `repo:state` in `event:updated` is the previous state of the [asset](asset-events-glossary#asset). (The current state is `ACTIVE`.)
 
 ```json
 {
