@@ -206,7 +206,7 @@ In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-re
 
 #### Discarded
 
-An Event is triggered by discarding a [file](asset-events-glossary#file)/[directory](asset-events-glossary#directory). In `event:resources`, the [Repository Metadata Resource](asset-events-glossary.md#repository-metadata-resource) is listed as `updated`. The value of `repo:state` is the previous state of the [asset](asset-events-glossary#asset). (The current state is `DISCARDED`.)
+An Event is triggered by discarding a [file](asset-events-glossary#file)/[directory](asset-events-glossary#directory). In `event:resources`, the [Repository Metadata Resource](asset-events-glossary.md#repository-metadata-resource) is listed as `updated`. The value of `repo:state` in `event:updated` is the previous state of the [asset](asset-events-glossary#asset). (The current state is `DISCARDED`.)
 
 ```json
 {
