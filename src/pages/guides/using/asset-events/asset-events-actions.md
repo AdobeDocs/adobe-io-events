@@ -1,7 +1,5 @@
 # Asset Events Actions
 
-<br/>
-
 ## Overview
 
 Asset Events are initiated by actions, which are operations (create, update, move, etc.) made on the [resources](asset-events-glossary#resource) of [assets](asset-events-glossary#asset). You can determine which action has been made on which resource by looking at certain [Asset Events properties](asset-events-properties.md).
@@ -327,56 +325,6 @@ An Event is triggered by the creation or update of a file's/directory's [Embedde
   }
 }
 ```
-
----
-
-#### Created/Updated ACL Policy Resource
-
-An Event is triggered by the creation of a file's/directory's [ACL Policy Resource](asset-events-glossary.md#acl-policy-resource).
-
-##### Created
-
-In `event:resources`, the ACL Policy Resource is listed as `created`.
-
-```json
-{
-  "data": {
-    "xdmEntity": {
-      "event:resources": {
-        "http://ns.adobe.com/adobecloud/rel/ac/policy": {
-          "event:action": "created"
-        },
-        "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
-          "event:action": "none"
-        }
-      }
-    }
-  }
-}
-```
-
-##### Updated
-
-In `event:resources`, the ACL Policy Resource is listed as `updated`.
-
-```json
-{
-  "data": {
-    "xdmEntity": {
-      "event:resources": {
-        "http://ns.adobe.com/adobecloud/rel/ac/policy": {
-          "event:action": "updated"
-        },
-        "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
-          "event:action": "none"
-        }
-      }
-    }
-  }
-}
-```
-
-<br/>
 
 ---
 

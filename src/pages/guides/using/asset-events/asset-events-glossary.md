@@ -107,18 +107,7 @@ The Versions Resource provides the set of all available versions of an [asset](#
 
 --- 
 
-### XCM
-
-The Experience Content Model (XCM) is the set of models applied by the platform to content and content metadata. These models are expressed in [JSON Schema](https://json-schema.org/). Many of the models are based on open and standard vocabularies, including those defined by or incorporated into [XMP](#xmp). XCM leverages some of the meta-properties defined by [XDM](#xdm), but it is not an application of XDM.
-
----
-
 ### XDM
 
-The Experience Data Model (XDM) is a technology for modeling data used at Adobe, along with associated models. It is a stylized use of [JSON Schema](https://json-schema.org/) and [JSON-LD](https://json-ld.org/), and is a publicly documented specification, made available under a Creative Commons license. Content Platform uses meta-properties defined by XDM to augment the JSON Schema-based models defined in [XCM](#xcm).
+The Experience Data Model (XDM) is a technology for modeling data used at Adobe, along with associated models. It is a stylized use of [JSON Schema](https://json-schema.org/) and [JSON-LD](https://json-ld.org/), and is a publicly documented specification, made available under a Creative Commons license.
 
----
-
-### XMP
-
-The Extensible Metadata Platform (XMP) is an ISO standard for defining and storing metadata in an open-ended set of vocabularies. ([Click here](https://www.adobe.com/devnet/xmp.html) for more information.)

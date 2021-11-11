@@ -126,10 +126,6 @@ module.exports = {
                 path: "guides/using/asset-events/asset-events-configuration.md",
               },
               {
-                title: "Available Asset Events",
-                path: "guides/using/asset-events/asset-events-available.md",
-              },
-              {
                 title: "Asset Events Actions",
                 path: "guides/using/asset-events/asset-events-actions.md",
               },

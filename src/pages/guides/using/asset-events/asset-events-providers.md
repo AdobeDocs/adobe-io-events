@@ -48,27 +48,27 @@ For Creative Cloud Libraries, you can subscribe to the following events:
 
 For Adobe Illustrator Cloud Docs, you can subscribe to the following events:
 
-- Adobe Illustrator Cloud Document Created
-- Adobe Illustrator Cloud Document Deleted
-- Adobe Illustrator Cloud Document Updated
+- Cloud Doc Created
+- Cloud Doc Deleted
+- Cloud Doc Updated
 
-## Photoshop Cloud Docs
+## Adobe Photoshop Cloud Docs
 
-![UI for subscribing to events for Photoshop Cloud Docs](../../img/ps_cloud_doc.png)
+![UI for subscribing to events for Adobe Photoshop Cloud Docs](../../img/ps_cloud_doc.png)
 
-For Photoshop Cloud Docs, you can subscribe to the following events:
+For Adobe Photoshop Cloud Docs, you can subscribe to the following events:
 
-- Photoshop Cloud Document Created
-- Photoshop Cloud Document Deleted
-- Photoshop Cloud Document Updated 
+- Cloud Doc Created
+- Cloud Doc Deleted
+- Cloud Doc Updated 
 
-## XD Cloud Docs
+## Adobe XD Cloud Docs
 
-![UI for subscribing to events for XD Cloud Docs](../../img/xd_cloud_doc.png)
+![UI for subscribing to events for Adobe XD Cloud Docs](../../img/xd_cloud_doc.png)
 
-For XD Cloud Docs, you can subscribe to the following events:
+For Adobe XD Cloud Docs, you can subscribe to the following events:
 
-- XD Cloud Document Created
-- XD Cloud Document Deleted
-- XD Cloud Document Updated 
+- Cloud Doc Created
+- Cloud Doc Deleted
+- Cloud Doc Updated 
 

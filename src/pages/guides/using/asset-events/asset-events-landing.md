@@ -5,7 +5,6 @@ An Asset Event is a record of change (creation, update, or deletion) to one or m
 To learn more, see the following pages:
 
 - [Asset Events Configuration](asset-events-configuration.md)
-- [Available Asset Events](asset-events-available.md)
 - [Asset Events Actions](asset-events-actions.md)
 - [Asset Events Properties](asset-events-properties.md)
 - [Asset Events Providers](asset-events-providers.md)
