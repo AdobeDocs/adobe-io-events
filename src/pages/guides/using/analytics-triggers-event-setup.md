@@ -109,7 +109,7 @@ When you are ready to [add events to your project](/apis/experienceplatform/cons
 
 Once you have completed the event registration, you will be taken to the *Registration Details* page where you will be able to see the details of your new registration. 
 
-For more information, read the [Introduction to Webhooks](../intro/webhooks_intro.md). 
+For more information, read the [Introduction to Webhooks](../index.md). 
 
 *The following image shows an example of an event registration using Adobe XD. Results for Adobe Analytics will be similar.*
 

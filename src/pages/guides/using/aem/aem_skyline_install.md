@@ -32,7 +32,7 @@ if you are new to this.
 ## Verify Events are being emitted from 'AEM as a Cloud Service'
 
 Now you can start verifying that your AEM as a Cloud Service environment is emitting events to Adobe I/O.
-To do that register a new [webhook](../../intro/webhooks_intro.md) or start pulling events from this new source using the [journaling API](../api/journaling_api.md).
+To do that register a new [webhook](../../index.md) or start pulling events from this new source using the [journaling API](../api/journaling_api.md).
 
 Make sure you register to receive `OSGI Ping Event`
 

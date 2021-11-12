@@ -50,8 +50,8 @@ Please reach out to your Adobe account manager for licensing related questions.
 
 ### Which subscription types do I/O Events support?  
 
-I/O Events supports [webhooks](../guides/intro/webhooks_intro.md) for near-real time notifications (push) 
-as well as [a Journaling API](../guides/intro/journaling_intro.md) (pull) to grab groups of events at a time.
+I/O Events supports [webhooks](../guides/index.md) for near-real time notifications (push) 
+as well as [a Journaling API](../guides/journaling_intro.md) (pull) to grab groups of events at a time.
 
 ### Are there other ways to access I/O Events?
 
@@ -81,12 +81,12 @@ it will re-trigger a webhook challenge request, and eventually a webhook re-acti
 
 While your webhook is marked `Disabled`, Adobe will continue to log events in your Journal, 
 allowing you to retrieve all events for the past 7 days 
-(see our [Journaling](../guides/intro/journaling_intro.md) documentation).
+(see our [Journaling](../guides/journaling_intro.md) documentation).
 
 ### Does every Adobe I/O Events webhook HTTP requests come with a signature? 
      
 Yes, to allow your webhook to reject forged requests, 
-Adobe I/O Events adds a  [`x-adobe-signature`](../guides/intro/webhooks_intro.md#authenticating-events) 
+Adobe I/O Events adds a  [`x-adobe-signature`](../guides/index.md#security-considerations) 
 header to every single HTTP request it makes to your webhook URL (even the first `challenge` GET request)
       
 ### Do Adobe I/O Events notifications come from a range of static IPs? 
@@ -101,7 +101,7 @@ Reminder: each Adobe I/O Events HTTP request
 holds an signature header (see the previous question), however if this is not enough 
 and if the above is a non-negotiable requirement, 
 you may choose to use the pull model instead, 
-and leverage our [Journaling API](../guides/intro/journaling_intro.md).          
+and leverage our [Journaling API](../guides/journaling_intro.md).          
 
 
 ### What is the size of notifications when in batch delivery style?
