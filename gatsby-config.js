@@ -138,6 +138,10 @@ module.exports = {
           {
             title: 'Marketo User Audit Data Stream',
             path: 'guides/using/marketo-user-audit-data-stream-setup.md'
+          },
+          {
+            title: 'Custom Events',
+            path: 'guides/using/custom_events.md'
           }
         ]
       },
