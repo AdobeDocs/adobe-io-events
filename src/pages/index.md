@@ -23,7 +23,7 @@ Whenever a matching event gets triggered, your application is notified.
 - [Introduction to Webhooks](guides/index.md)
 - [Introduction to Journaling](guides/journaling_intro.md)   
    
-- Jump to the Adobe Developer Console documentation to learn how to [add Events to a project](/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) 
+- Jump to the Adobe Developer Console documentation to learn how to [add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md)
 - Discover the [available events](guides/using/index.md)
 
 ## Going Further
