@@ -79,7 +79,7 @@ Once you have completed the event registration, you will be taken to the *Regist
 
 For more information, read the [Introduction to Webhooks](../index.md). 
 
-*The following image shows an example of an event registration using Adobe XD. Results for Creative Cloud Assets will be similar.*
+*The following image shows an example of an event registration using Creative Cloud Libraries. Results for Creative Cloud Assets will be similar.*
 
 ![Event Registration Details tab in Adobe Developer Console](../img/events-registration-details.png)
 
