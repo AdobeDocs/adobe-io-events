@@ -6,9 +6,11 @@ import CodeBreakStyles from '../../components/CodeBreakStyles'
 
 With Adobe I/O Events webhooks, your application can sign up to be notified whenever certain events occur. For example, when a user uploads a file to Adobe Creative Cloud Assets, this action generates an event. With the right webhook in place, your application is instantly notified that this event happened.
 
-To start receiving events, you register a webhook, specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. 
+To start receiving events, you create an event registration specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. 
 
-There are two ways to consume events. 1. webhooks 2. journaling. 
+There are two ways to consume events:
+1. [Webhooks](../index.md)
+2. [Journaling](../journaling_intro.md)
 
 To learn more about webhooks, read the [Introduction to Adobe I/O Events Webhooks](../index.md).
 
@@ -16,7 +18,7 @@ For more information on journaling, read the [Subscribe to Events Using Journali
 
 For information on installing and using the SDK, please begin by reading the [getting started guide](sdk_getting_started.md).
 
-## Create a Webhook or Journal Registration
+## Create a Webhook or Journal Event Registration
 
 You can register a webhook endpoint by providing the `webhook_url` as part of the request body. If you want to register only a journal URL, you can set the `delivery_type` to `JOURNAL` in the request body and leave the `webhook_url` empty.
 

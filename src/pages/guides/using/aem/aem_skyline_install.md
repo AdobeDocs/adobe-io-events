@@ -22,9 +22,7 @@ The Adobe I/O Events integration is currently being exposed through an integrati
 ## Verify your AEM Cloud Service is showing in the Adobe Developer Console
    
 Once the previous steps are completed, a new AEM as a Cloud Service provider should appear in the Events Providers list in the Adobe Developer Console.
-Please refer to the Adobe Developer Console documentation on how to [add Events to a project](/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) 
-if you are new to this.
- 
+Please refer to the Adobe Developer Console documentation on how to [add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) if you are new to this.
 
   ![Adobe Developer Console showing an AEM Events Provider](../../img/add_skyline_event_provider.png "Adobe Developer Console showing an AEM Events Provider")
  
@@ -32,7 +30,7 @@ if you are new to this.
 ## Verify Events are being emitted from 'AEM as a Cloud Service'
 
 Now you can start verifying that your AEM as a Cloud Service environment is emitting events to Adobe I/O.
-To do that register a new [webhook](../../intro/webhooks_intro.md) or start pulling events from this new source using the [journaling API](../api/journaling_api.md).
+To do that register a new [webhook](../../index.md) or start pulling events from this new source using the [journaling API](../api/journaling_api.md).
 
 Make sure you register to receive `OSGI Ping Event`
 

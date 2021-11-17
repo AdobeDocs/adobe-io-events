@@ -5,7 +5,7 @@
 A Journal, is an ordered list of events - much like a ledger or a log where new entries (events) are added to the end of the ledger and the ledger keeps growing. 
 Your application can start reading the ledger from any position and then continue reading "newer" entries (events) in the ledger, much like turning pages forward.
 
-[Journaling](../intro/journaling_intro.md), in contrast to [webhooks](../intro/webhooks_intro.md), is a _pull_ model of consuming events, whereas webhooks are a _push_ model. 
+[Journaling](../journaling_intro.md), in contrast to [webhooks](../index.md), is a _pull_ model of consuming events, whereas webhooks are a _push_ model. 
 In journaling your application will issue a series of API calls to pull batches of one or more events from the journal. 
 The Journaling API response contains event data and the unique position in the journal for every event returned in that batch. 
 

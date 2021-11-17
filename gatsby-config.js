@@ -125,7 +125,7 @@ module.exports = {
           },
           {
             title: 'Cloud Manager Events',
-            path: '/experience-cloud/cloud-manager/guides/getting-started/create-event-integration/'
+            path: 'https://www.adobe.io/apis/experiencecloud/cloud-manager/docs.html#!AdobeDocs/cloudmanager-api-docs/master/create-event-integration.md'
           },
           {
             title: 'Adobe Experience Platform Events',
@@ -138,6 +138,10 @@ module.exports = {
           {
             title: 'Marketo User Audit Data Stream',
             path: 'guides/using/marketo-user-audit-data-stream-setup.md'
+          },
+          {
+            title: 'Custom Events',
+            path: 'guides/using/custom_events.md'
           }
         ]
       },

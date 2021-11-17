@@ -33,4 +33,4 @@ If 3 > 4 is working, it means that your Triggers payload is arriving at the Adob
 
 ### Debug 4 > 5
 
-If 4 > 5 is working, it means that your webhook is valid and ready to receive events. You can verify your connection by selecting **Retry** for your webhook on the Adobe Developer Console UI. You should receive a challenge. Your webhook needs to be able to return the challenge to be marked as a valid webhook. If it is marked as failed on the console UI, visit the topic [Set up Webhook: Example](../using/aem-event-setup.md#settingupawebhookexample) for sample webhook code.
+If 4 > 5 is working, it means that your webhook is valid and ready to receive events. You can verify your connection by selecting **Retry** for your webhook on the Adobe Developer Console UI. You should receive a challenge. Your webhook needs to be able to return the challenge to be marked as a valid webhook. If it is marked as Disabled on the console UI, visit the topic [Set up Webhook: Example](../guides/index.md#your-first-webhook) for sample webhook code.
