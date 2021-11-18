@@ -15,9 +15,9 @@ The Adobe I/O Events integration is currently being exposed through an integrati
 3. [prepare the Adobe I/O Events service user keystore](aem_keystore_setup.md) 
 4. [set up your workspace in the Adobe Developer Console, and as OSGI configuration](aem_console_setup.md)
 
-
-3. [Deploy the code](https://docs.adobe.com/content/help/en/experience-manager-cloud-manager/using/how-to-use/deploying-code.html) 
-3. [Finalize the Adobe IMS configuration in AEM](aem_ims_config.md)
+5. [Deploy the code](https://docs.adobe.com/content/help/en/experience-manager-cloud-manager/using/how-to-use/deploying-code.html)
+6. [Finalize the Adobe IMS configuration in AEM](aem_ims_config.md)
+7. [Trigger the final Adobe I/O Events health checks](aem_healthcheck_servlet.md)
    
 ## Verify your AEM Cloud Service is showing in the Adobe Developer Console
    
@@ -46,5 +46,5 @@ If not, [have a look at your logs](https://docs.adobe.com/content/help/en/experi
 
 You can also use the [developer console](https://docs.adobe.com/content/help/en/experience-manager-learn/cloud-service/debugging/debugging-aem-as-a-cloud-service/developer-console.html) to verify the state of the `aem-event-proxy` bundle.
 
-Note that if you using a localhost instance for test, developement purpose you may also perform a few [health checks](aem_on_premise_healthcheck.md)
+Note that if you using a localhost instance for test, developement purpose you may also perform a few [health checks](aem_healthcheck_6.4.md)
 or even [configuration fine tuning](aem_advanced_configurations.md).

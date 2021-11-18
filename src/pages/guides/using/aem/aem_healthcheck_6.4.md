@@ -1,4 +1,8 @@
-# Adobe I/O Events Sling Health Checks
+# Adobe I/O Events (AEM 6.4 and prior) Sling Health Checks
+
+Note we strongly recommend you go through an upgrade and instead use either
+* our [AEM version 6.5 package](aem_on_premise_install_6.5.md),
+* our [`AEM as cloud service` support](aem_skyline_install.md).
 
 ## Bundle configuration health heck 
 
@@ -18,7 +22,7 @@ This verifies that your IMS related configurations are correct and working.
    ![Health check for eventproxy,ims](../../img/events_aem_22.png "Health check for ims-events")
 
 
-## IO Events registration health check 
+## Adobe I/O Events registration health check 
 
 In order to check that the AEM instance registered itself as an Adobe I/O Events Provider,
  execute a sling health check using the `csm-events` tag.
