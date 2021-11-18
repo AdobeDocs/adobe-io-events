@@ -101,40 +101,44 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         {
             "event_id": "cf904f43-56bc-4f80-935d-a484de6e4181",
             "event": {
-                "specversion": "1.0",
-                "id": "b77c743a-8e28-40f2-8aab-9541bbc85e68",
-                "type": "com.adobe.platform.marketo.audit.user.email",
-                "source": "https://www.marketo.com",
-                "time": "2020-05-28T19:14:44.807Z",
-                "datacontenttype": "application/json",
-                "dataschema": "V1.0",
-                "data": {
-                    "componentId": 232459,
-                    "componentType": "Email",
-                    "eventAction": "approve",
-                    "munchkinId": "123-ABC-456",
-                    "imsOrgId": "49C579695EA927530A494036@AdobeOrg",
-                    "user": 253
+                "body": {
+                    "specversion": "1.0",
+                    "id": "b77c743a-8e28-40f2-8aab-9541bbc85e68",
+                    "type": "com.adobe.platform.marketo.audit.user.email",
+                    "source": "https://www.marketo.com",
+                    "time": "2020-05-28T19:14:44.807Z",
+                    "datacontenttype": "application/json",
+                    "dataschema": "V2.0",
+                    "data": {
+                        "componentId": 232459,
+                        "componentType": "Email",
+                        "eventAction": "approve",
+                        "munchkinId": "123-ABC-456",
+                        "imsOrgId": "49C579695EA927530A494036@AdobeOrg",
+                        "userId": "user@marketo.com"
+                    }
                 }
             }
         },
         {
             "event_id": "e931c3ec-9d76-406b-ac89-626e9650813a",
             "event": {
-                "specversion": "1.0",
-                "id": "afcb6581-198c-4056-a395-6f77cf242d05",
-                "type": "com.adobe.platform.marketo.audit.user.landingpage",
-                "source": "https://www.marketo.com",
-                "time": "2020-05-28T19:14:46.221Z",
-                "datacontenttype": "application/json",
-                "dataschema": "V1.0",
-                "data": {
-                    "componentId": 123321,
-                    "componentType": "Landing Page",
-                    "eventAction": "approve",
-                    "munchkinId": "123-ABC-456",
-                    "imsOrgId": "49C579695EA927530A494036@AdobeOrg",
-                    "user": 253
+                "body": {
+                    "specversion": "1.0",
+                    "id": "afcb6581-198c-4056-a395-6f77cf242d05",
+                    "type": "com.adobe.platform.marketo.audit.user.landingpage",
+                    "source": "https://www.marketo.com",
+                    "time": "2020-05-28T19:14:46.221Z",
+                    "datacontenttype": "application/json",
+                    "dataschema": "V2.0",
+                    "data": {
+                        "componentId": 123321,
+                        "componentType": "Landing Page",
+                        "eventAction": "approve",
+                        "munchkinId": "123-ABC-456",
+                        "imsOrgId": "49C579695EA927530A494036@AdobeOrg",
+                        "userId": "user@marketo.com"
+                    }
                 }
             }
         }
@@ -145,20 +149,22 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
     {
         "event_id": "a9ef9c3c-bafe-48b8-9eae-bc63dfaed28c",
         "event": {
-            "specversion": "1.0",
-            "id": "72dd1983-decb-4390-afde-2fa1307c9770",
-            "type": "com.adobe.platform.marketo.audit.user.email",
-            "source": "https://www.marketo.com",
-            "time": "2020-05-28T19:20:47.283Z",
-            "datacontenttype": "application/json",
-            "dataschema": "V1.0",
-            "data": {
-                "componentId": 232459,
-                "componentType": "Email",
-                "eventAction": "approve",
-                "munchkinId": "123-ABC-456",
-                "imsOrgId": "49C579695EA927530A494036@AdobeOrg",
-                "user": 253
+            "body": {
+                "specversion": "1.0",
+                "id": "72dd1983-decb-4390-afde-2fa1307c9770",
+                "type": "com.adobe.platform.marketo.audit.user.email",
+                "source": "https://www.marketo.com",
+                "time": "2020-05-28T19:20:47.283Z",
+                "datacontenttype": "application/json",
+                "dataschema": "V2.0",
+                "data": {
+                    "componentId": 232459,
+                    "componentType": "Email",
+                    "eventAction": "approve",
+                    "munchkinId": "123-ABC-456",
+                    "imsOrgId": "49C579695EA927530A494036@AdobeOrg",
+                    "userId": "user@marketo.com"
+                }
             }
         }
     }
@@ -181,7 +187,7 @@ componentType | Type of the asset in Marketo
 eventAction | Asset action that occurred in Marketo
 munchkinId | Internal Marketo subscription identifier
 imsOrgId | Internal Adobe organization identifier
-user | ID of the user in Marketo who completed the action
+userId | Email ID of the user in Marketo who completed the action
 
 ### Event List
 *Note - This is a snapshot listing of most available events.  There may be some events that don't show up or no longer exist.*
