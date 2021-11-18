@@ -18,7 +18,7 @@ Unlike other Cloud Platform event providers, Creative Cloud Assets does not requ
 
 ## Create a webhook
 
-In order to receive events you first need to create a webhook. For more on webhooks, see [Adobe I/O Events Webhooks](../intro/webhooks_intro.md). The webhook you ultimately use should be part of the app you develop. For now, however, it&rsquo;s easy to set up a simple webhook to test your integration&rsquo;s connection with Adobe Events. 
+In order to receive events you first need to create a webhook. For more on webhooks, see [Adobe I/O Events Webhooks](../index.md). The webhook you ultimately use should be part of the app you develop. For now, however, it&rsquo;s easy to set up a simple webhook to test your integration&rsquo;s connection with Adobe Events. 
 
 Several tools exist on the web that can be used for this purpose: [ngrok](https://ngrok.com/), [Postman](https://www.getpostman.com/), and more. For this example, use ngrok. Ngrok is a utility for enabling secure introspectable tunnels to your localhost. With ngrok, you can securely expose a local web server to the internet and run your own personal web services from your own machine, safely encrypted behind your local NAT or firewall.
 
@@ -71,15 +71,15 @@ Integrations are created as part of a project within Adobe Developer Console. Th
 
 For detailed instructions on completing these steps, please begin by reading the [Adobe Developer Console Getting Started guide](https://www.adobe.com/go/devs_console_getting_started). 
 
-When you are ready to [add events to your project](/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) follow the steps provided, making sure to select **Creative Cloud Assets**.
+When you are ready to [add events to your project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) follow the steps provided, making sure to select **Creative Cloud Assets**.
 
 In addition to selecting the events you would like to register for, you will be required to specify your webhook URL. Do this by pasting in the URL you got from ngrok with the path under localhost to your webhook file, adding `/webhook` to the end. For example, `https://595ae592.ngrok.io/webhook`. 
 
 Once you have completed the event registration, you will be taken to the *Registration Details* page where you will be able to see the details of your new registration. 
 
-For more information, read the [Introduction to Webhooks](../intro/webhooks_intro.md). 
+For more information, read the [Introduction to Webhooks](../index.md). 
 
-*The following image shows an example of an event registration using Adobe XD. Results for Creative Cloud Assets will be similar.*
+*The following image shows an example of an event registration using Creative Cloud Libraries. Results for Creative Cloud Assets will be similar.*
 
 ![Event Registration Details tab in Adobe Developer Console](../img/events-registration-details.png)
 

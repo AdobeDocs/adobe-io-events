@@ -105,13 +105,13 @@ Integrations are created as part of a project within Adobe Developer Console. Th
 
 For detailed instructions on completing these steps, please begin by reading the [Adobe Developer Console Getting Started guide](https://www.adobe.com/go/devs_console_getting_started). 
 
-When you are ready to [add events to your project](/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) follow the steps provided, making sure to select **Analytics Triggers**.
+When you are ready to [add events to your project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) follow the steps provided, making sure to select **Analytics Triggers**.
 
 Once you have completed the event registration, you will be taken to the *Registration Details* page where you will be able to see the details of your new registration. 
 
-For more information, read the [Introduction to Webhooks](../intro/webhooks_intro.md). 
+For more information, read the [Introduction to Webhooks](../index.md). 
 
-*The following image shows an example of an event registration using Adobe XD. Results for Adobe Analytics will be similar.*
+*The following image shows an example of an event registration using Creative Cloud Libraries. Results for Adobe Analytics will be similar.*
 
 ![Event Registration Details tab in Adobe Developer Console](../img/events-registration-details.png)
 

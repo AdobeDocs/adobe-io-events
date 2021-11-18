@@ -75,7 +75,7 @@ To associate `Event Metadata` with the above:
        }'
 
 With the 2 commands above, your `Custom Events Provider` is ready to be used, 
-you can register [webhooks](../intro/webhooks_intro.md) against it;
+you can register [webhooks](../index.md) against it;
 to start emitting events on its behalf use our [Events Publishing API](eventsingress_api.md).
 
 To delete your `Custom Events Provider`:
