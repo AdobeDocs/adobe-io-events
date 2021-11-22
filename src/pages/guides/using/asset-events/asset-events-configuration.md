@@ -1,6 +1,6 @@
 # Asset Events Configuration
 
-To configure Asset Events, refer to [Add Events](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md), keeping in mind the following amendments to the **Add Events** and **Credentials** sections:
+To configure Asset Events, refer to [Add Events](/console/docs/guides/services/services-add-event/), keeping in mind the following amendments to the **Add Events** and **Credentials** sections:
 
 ## Add Events Section
 

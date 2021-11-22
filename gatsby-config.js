@@ -278,5 +278,9 @@ module.exports = {
       prefix: '/app-builder',
       url: 'https://developer-stage.adobe.com'
     },
+    {
+      prefix: '/console/docs/guides',
+      url: 'https://developer-stage.adobe.com'
+    },
   ],
 };
