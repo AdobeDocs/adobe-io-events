@@ -21,7 +21,7 @@ You can read more about Adobe I/O Events adoption to CloudEvents format [here](h
 Events are delivered in near real time, so consumers can respond immediately to events as they occur. This helps in orchestrating streamline workflows, improve marketing performance, and create custom experiences that leverage the data more effectively. 
 
 - **Build Cloud Native Adobe Apps**: 
-Build custom apps that interact with core Adobe services, and automate processes with event-based integrations using [Adobe Developer App Builder](https://www.adobe.io/app-builder/) which comes with the ability to publish/consume Custom I/O Events. 
+Build custom apps that interact with core Adobe services, and automate processes with event-based integrations using [Adobe Developer App Builder](/app-builder/docs/overview/) which comes with the ability to publish/consume Custom I/O Events. 
 
 ## Get Started
 

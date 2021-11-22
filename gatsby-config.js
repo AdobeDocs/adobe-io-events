@@ -274,5 +274,9 @@ module.exports = {
       prefix: '/experience-cloud/cloud-manager',
       url: 'https://developer-stage.adobe.com'
     },
+    {
+      prefix: '/app-builder',
+      url: 'https://developer-stage.adobe.com'
+    },
   ],
 };
