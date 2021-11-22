@@ -282,5 +282,9 @@ module.exports = {
       prefix: '/console/docs/guides',
       url: 'https://developer-stage.adobe.com'
     },
+    {
+      prefix: '/authentication',
+      url: 'https://developer.adobe.com'
+    },
   ],
 };

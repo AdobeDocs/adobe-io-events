@@ -141,9 +141,9 @@ For more information on JSON Web Tokens, see [Introduction to JSON Web Tokens](h
 
 To establish a secure service-to-service session with the `Adobe I/O Events` API, you must create a JSON Web Token (JWT) that encapsulates the identity of your integration, and then exchange it for an access token.
 
-Every request to an `Adobe I/O Events` API must then include this (JWT exchange originated) access token in the Authorization header, along with the API Key that was generated when you created the Service Account Integration in the Adobe Developer Console (see our [JWT Service Account Authentication](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWT.md) documentation for more details).
+Every request to an `Adobe I/O Events` API must then include this (JWT exchange originated) access token in the Authorization header, along with the API Key that was generated when you created the Service Account Integration in the Adobe Developer Console (see our [JWT Service Account Authentication](/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWT.md) documentation for more details).
 
-Note that you should pay special attention to your [JWT Metascopes](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/Scopes.md) describing the set of authorization scopes you want to claim with this jwt token (see next question for details)
+Note that you should pay special attention to your [JWT Metascopes](/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/Scopes.md) describing the set of authorization scopes you want to claim with this jwt token (see next question for details)
 
 ### What are the metascopes my JWT token should claim? What are the access token authorization scopes expected by `Adobe I/O Events` APIs?
 
@@ -152,7 +152,7 @@ Note that you should pay special attention to your [JWT Metascopes](https://www.
 
 ### Where can I find more documentation on JWT Service accounts and how to set them up? 
 
-See our [JWT (Service Account) Authentication](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWT.md) documentation.
+See our [JWT (Service Account) Authentication](/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWT.md) documentation.
 
 ### Do you have sample libraries for JWT? 
 
