@@ -12,7 +12,7 @@ This documentation below is specific to AEM on premise version 6.4.x.
    2. [set up your workspace in the Adobe Developer Console](aem_console_setup.md)
    3. [Finalize the Adobe IMS configuration in AEM](aem_ims_config.md)
 5. Optionally you may
-   1. perform a few [health checks](aem_on_premise_healthcheck.md)
+   1. perform a few [health checks](aem_healthcheck_6.4.md)
    2. do some more [configuration fine tuning](aem_advanced_configurations.md)
 
  

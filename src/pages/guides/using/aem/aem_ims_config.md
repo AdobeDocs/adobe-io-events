@@ -23,7 +23,7 @@ Once the above is complete:
 
 3. Fill in the various entries expected to configure the IMS account associated with the integration
  you just [created in the Adobe Developer Console](aem_console_setup.md):
-* For **Title**: specify **Adobe IO Events** (or any other title that makes sense to you).
+* For **Title**: specify **Adobe I/O Events** (or any other title that makes sense to you).
 * For **Authorization Server**: it should be `https://ims-na1.adobelogin.com` (unless the URL shown in the **JWT** tab of your integration page in the Adobe Developer Console is different),
 * For **API key**: Provide the `CLIENT ID` available in the `Credentials details` tab of your credentials `Service Account (JWT)` page in your Adobe Developer Console workspace
 * For **Client Secret**: Provide the `CLIENT SECRET` available in the `Credentials details` tab of your credentials `Service Account (JWT)` page in your Adobe Developer Console workspace
