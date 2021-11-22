@@ -92,16 +92,8 @@ module.exports = {
                 path: "guides/using/aem/aem_ims_config.md",
               },
               {
-                title: "AEM 6.3 and prior Cloud Services configuration",
-                path: "guides/using/aem/aem_cloud_service_config_6.3.md",
-              },
-              {
                 title: "AEM - Adobe I/O Events - advanced configurations",
                 path: "guides/using/aem/aem_advanced_configurations.md",
-              },
-              {
-                title: "Adobe I/O Events (AEM 6.4 and prior) Sling Health Checks",
-                path: "guides/using/aem/aem_healthcheck_6.4.md",
               },
               {
                 title: "Adobe I/O Events health checks",
@@ -110,10 +102,6 @@ module.exports = {
               {
                 title: "AEM Link Externalizer Configuration",
                 path: "guides/using/aem/aem_on_premise_link_externalizer.md",
-              },
-              {
-                title: "Install the AEM (on-premise) event proxy package",
-                path: "guides/using/aem/aem_on_premise_package_install.md",
               },
               {
                 title: "AEM FAQ",

@@ -1,4 +1,5 @@
-# Trigger Adobe I/O Events health checks
+# Trigger Adobe I/O Events health checks (applicable to AEM 6.5 and later versions)
+
 
 Once all your configurations are completed, in order to verify **and enable**
 Adobe I/O Events emission, you must trigger the `Adobe I/O Events Servlet Health Check`.

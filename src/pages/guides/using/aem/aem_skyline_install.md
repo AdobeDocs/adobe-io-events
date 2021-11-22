@@ -10,7 +10,7 @@ To integrate with AEM On Premise, please refer to the other associated [document
 The Adobe I/O Events integration is currently being exposed through an integration package which requires you to follow the below deployment instructions. This configuration will change in future once Adobe I/O Events is exposed as a configuration in AEM as a Cloud Service. 
 
 1. [Download the code](https://github.com/AdobeDocs/adobeio-events/releases/tag/2020_07_20_13_00). Please download the latest version of the package. 
-2. Unzip this archive, and merge it with your own existing Cloud Manager git repo, see [Experience Manager Cloud Manager - Help - Accessing Git ](https://docs.adobe.com/content/help/en/experience-manager-cloud-manager/using/managing-code/accessing-git.html) for further instructions
+2. Unzip this archive, and merge it with your own existing Cloud Manager git repo, see [Experience Manager Cloud Manager - Help - Accessing Git ](https://experienceleague.adobe.com/docs/experience-manager-cloud-manager/using/managing-code/setup-cloud-manager-git-integration.html) for further instructions
 
 3. [prepare the Adobe I/O Events service user keystore](aem_keystore_setup.md) 
 4. [set up your workspace in the Adobe Developer Console, and as OSGI configuration](aem_console_setup.md)
