@@ -12,9 +12,7 @@
 
 (() => {
   let prefixPath =
-    window.location.host.indexOf("localhost") === 0
-      ? ""
-      : "events/docs/";
+    window.location.host.indexOf("localhost") === 0 ? "" : "events/docs/";
   let redirectPath = "";
 
   if (
@@ -40,6 +38,85 @@
         break;
       case "#!adobedocs/adobeio-events/master/using/aem-event-setup.md":
         redirectPath = prefixPath + "guides/using/aem/";
+        break;
+      case "#!adobedocs/adobeio-events/master/aem/aem_on_premise_install_6.4.md":
+        redirectPath =
+          prefixPath + "guides/using/aem/aem_on_premise_install_6.4/";
+        break;
+      case "#!adobedocs/adobeio-events/master/aem/aem_on_premise_install_6.5.md":
+        redirectPath = prefixPath + "guides/using/aem/";
+        break;
+      case "#!adobedocs/adobeio-events/master/aem/aem_skyline_install.md":
+        redirectPath = prefixPath + "guides/using/aem/aem_skyline_install/";
+        break;
+
+      case "#!adobedocs/adobeio-events/master/aem/aem_keystore_setup.md":
+        redirectPath = prefixPath + "guides/using/aem/aem_keystore_setup/";
+        break;
+      case "#!adobedocs/adobeio-events/master/aem/aem_console_setup.md":
+        redirectPath = prefixPath + "guides/using/aem/aem_console_setup/";
+        break;
+      case "#!adobedocs/adobeio-events/master/aem/aem_ims_config.md":
+        redirectPath = prefixPath + "guides/using/aem/aem_ims_config/";
+        break;
+      case "#!adobedocs/adobeio-events/master/aem/aem_advanced_configurations.md":
+        redirectPath =
+          prefixPath + "guides/using/aem/aem_advanced_configurations/";
+        break;
+      case "#!adobedocs/adobeio-events/master/aem/aem_healthcheck_6_4.md":
+        redirectPath =
+          prefixPath + "guides/using/aem/aem_on_premise_healthcheck/";
+        break;
+      case "#!adobedocs/adobeio-events/master/aem/aem_healthcheck_servlet.md":
+        redirectPath =
+          prefixPath + "guides/using/aem/aem_on_premise_link_externalizer/";
+        break;
+      case "#!adobedocs/adobeio-events/master/aem/aem_on_premise_package_install.md":
+        redirectPath =
+          prefixPath + "guides/using/aem/aem_on_premise_package_install/";
+        break;
+      case "#!adobedocs/adobeio-events/master/aem/aem_faq.md":
+        redirectPath = prefixPath + "guides/using/aem/aem_faq/";
+        break;
+      case "#!adobedocs/adobeio-events/master/using/analytics-triggers-event-setup.md":
+        redirectPath =
+          prefixPath + "guides/using/analytics-triggers-event-setup/";
+        break;
+      case "#!adobedocs/adobeio-events/master/using/cc-asset-event-setup.md":
+        redirectPath = prefixPath + "guides/using/cc-asset-event-setup/";
+        break;
+      case "#!adobedocs/adobeio-events/master/using/cloudmanager.md":
+        window.location.href =
+          "https://developer.adobe.com/experience-cloud/cloud-manager/guides/getting-started/create-event-integration/";
+        break;
+      case "#!adobedocs/adobeio-events/master/using/experience-platform-event-setup.md":
+        redirectPath =
+          prefixPath + "guides/using/experience-platform-event-setup/";
+        break;
+      case "#!adobedocs/adobeio-events/master/using/privacy-event-setup.md":
+        redirectPath = prefixPath + "guides/using/privacy-event-setup/";
+        break;
+      case "#!adobedocs/adobeio-events/master/using/marketo-user-audit-data-stream-setup.md":
+        redirectPath =
+          prefixPath + "guides/using/marketo-user-audit-data-stream-setup/";
+        break;
+      case "#!adobedocs/adobeio-events/master/using/custom_events.md":
+        redirectPath = prefixPath + "guides/using/custom_events/";
+        break;
+      case "#!adobedocs/adobeio-events/master/api/api.md":
+        redirectPath = prefixPath + "guides/api/";
+        break;
+      case "#!adobedocs/adobeio-events/master/api/journaling_api.md":
+        redirectPath = prefixPath + "guides/api/journaling_api/";
+        break;
+      case "#!adobedocs/adobeio-events/master/api/registration_api.md":
+        redirectPath = prefixPath + "guides/api/registration_api/";
+        break;
+      case "#!adobedocs/adobeio-events/master/api/provider_api.md":
+        redirectPath = prefixPath + "guides/api/provider_api/";
+        break;
+      case "#!adobedocs/adobeio-events/master/api/eventsingress_api.md":
+        redirectPath = prefixPath + "guides/api/eventsingress_api/";
         break;
     }
     window.location.href =
