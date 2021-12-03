@@ -10,7 +10,7 @@ For long-running (async) actions and guaranteed event handling you should consid
 The Runtime cli will let you create a runtime action and hook it up with an integration via Adobe Developer Console. Read [here](/apis/experienceplatform/runtime/docs.html#!adobedocs/adobeio-runtime/master/getting-started/setup.md) to setup your cli with Runtime plugin which is required as pre-requisite.
 
 - Go to Developer Console and start creating an event registration
-- Add [Runtime](/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-enable-runtime.md) to your project, this will create the required auth and runtime namespace for you.
+- Add [Runtime](/developer-console/docs/guides/services/#enable-runtime) to your project, this will create the required auth and runtime namespace for you.
 - Go to `aio-cli` and create and deploy your user-action in your namespace. 
 - Come back to Developer Console and you will see the deployed runtime action in your namespace under the `User Defined Actions` section. Refresh the page if you don't see the action.
 - Now set up an event registration using the runtime action you just deployed. You would need to select the `Runtime Action` option in your `Configure event registration` page. Choose your runtime action from the dropdown and click `Save configured events`.

@@ -47,7 +47,7 @@ To bootstrap the project code, create a directory and run the following commands
 
 3. From within the project, you must then select the appropriate workspace.
 
-    If you have followed the steps for [creating a new project](/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md), there will only be one workspace available: Production.
+    If you have followed the steps for [creating a new project](/developer-console/docs/guides/projects/projects-empty/), there will only be one workspace available: Production.
 
     ```shell
     ➜  project aio app init
@@ -213,7 +213,7 @@ You will also receive the action URL which can be invoked from your application 
 You can now invoke the action using the [UI](#user-interface) or a [CuRL command](#curl-command) by providing the following required headers and parameters:
 
 * **Headers:**
-    * **Authorization:**  JWT Token that contains the `adobeio_api` scope which can be obtained by adding the I/O Management API in the Adobe Developer Console. This token should be prepended with the word "Bearer". For more information, see the [service account integration documentation](/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/ServiceAccountIntegration.md).
+    * **Authorization:**  JWT Token that contains the `adobeio_api` scope which can be obtained by adding the I/O Management API in the Adobe Developer Console. This token should be prepended with the word "Bearer". For more information, see the [service account integration documentation](/developer-console/docs/guides/authentication/ServiceAccountIntegration/).
     * **x-gw-ims-org-id:** The IMS Organization ID which can be obtained from the `config.json` file or in the Adobe Developer Console. 
 
 * **Parameters:**

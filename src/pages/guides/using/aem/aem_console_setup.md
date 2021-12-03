@@ -8,7 +8,7 @@ verify you are holding a `System Administrator` role
  !["System Administrator shown in the console](../../img/console_role_system_admin.png "System Administrator shown in the console") 
 
 Then, if you have no project nor workspace created yet (or if you are new to this,
-please refer to the [step-by-step instructions for creating an empty project in Adobe Developer Console](/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)),
+please refer to the [step-by-step instructions for creating an empty project in Adobe Developer Console](/developer-console/docs/guides/projects/projects-empty/)),
 and create your project's workspace.
 
 For your AEM to be authorized to emit events against Adobe I/O, 

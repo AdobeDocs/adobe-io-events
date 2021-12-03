@@ -264,18 +264,14 @@ module.exports = {
   proxy: [
     {
       prefix: '/experience-cloud/cloud-manager',
-      url: 'https://developer-stage.adobe.com'
+      url: 'https://developer.adobe.com'
     },
     {
       prefix: '/app-builder',
-      url: 'https://developer-stage.adobe.com'
+      url: 'https://developer.adobe.com'
     },
     {
-      prefix: '/console/docs/guides',
-      url: 'https://developer-stage.adobe.com'
-    },
-    {
-      prefix: '/authentication',
+      prefix: '/developer-console/docs/guides',
       url: 'https://developer.adobe.com'
     },
   ],
