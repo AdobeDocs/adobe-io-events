@@ -14,7 +14,7 @@ There are no events for the following activities:
 - Renaming a file. This is because assets are tracked in Creative Cloud by GUIDs, and the GUID doesn&rsquo;t change when the file is renamed. Creative Cloud recognizes that the asset hasn&rsquo;t changed, and can still find the asset by the same GUID. Any URL paths you create to that file, however, would change, since they do include the filename.
 
 ## Access events
-Unlike other Cloud Platform event providers, Creative Cloud Assets does not require an enterprise account, or administrative status, to gain access for creating integrations or receiving events. However, the integrations you create will still need to authenticate the same way any other Adobe integrations do. Consider what kind of authentication your integration needs before you start, and follow the correct procedure (see [Adobe Authentication](/apis/cloudplatform/console/authentication/gettingstarted.html)) to get the access rights your integration needs.
+Unlike other Cloud Platform event providers, Creative Cloud Assets does not require an enterprise account, or administrative status, to gain access for creating integrations or receiving events. However, the integrations you create will still need to authenticate the same way any other Adobe integrations do. Consider what kind of authentication your integration needs before you start, and follow the correct procedure (see [Adobe Authentication](/developer-console/docs/guides/authentication/)) to get the access rights your integration needs.
 
 ## Create a webhook
 
@@ -86,9 +86,9 @@ For more information, read the [Introduction to Webhooks](../index.md).
 
 ## Receive events
 
-Your integration is now set up, and your webhook is in place; but to receive events, your integration needs to connect to its event provider, Creative Cloud Assets, on behalf of its user. This requires authentication; see [OAuth Integration](/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/OAuthIntegration.md). 
+Your integration is now set up, and your webhook is in place; but to receive events, your integration needs to connect to its event provider, Creative Cloud Assets, on behalf of its user. This requires authentication; see [OAuth Integration](/developer-console/docs/guides/authentication/OAuthIntegration/). 
 
-For authentication setup, you&rsquo;ll need to add the Creative Cloud Libraries as a service, and then use the [OAuth 2.0 protocol](/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/OAuth/OAuth.md) to build an interface for your user to log into your app and give your app authorization to access Creative Cloud Assets. 
+For authentication setup, you'll need to add the Creative Cloud Libraries as a service, and then use the [OAuth 2.0 protocol](/developer-console/docs/guides/authentication/OAuth/) to build an interface for your user to log into your app and give your app authorization to access Creative Cloud Assets. 
 
 To add Creative Cloud Libraries as a service, you will need to follow the steps for [adding an API that uses OAuth to a Console project](/developer-console/docs/guides/services/services-add-api-oauth/), being sure to select **Creative Cloud Libraries** from the list of available APIs.
  
