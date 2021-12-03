@@ -71,7 +71,7 @@ Integrations are created as part of a project within Adobe Developer Console. Th
 
 For detailed instructions on completing these steps, please begin by reading the [Adobe Developer Console Getting Started guide](https://www.adobe.com/go/devs_console_getting_started). 
 
-When you are ready to [add events to your project](/console/docs/guides/services/services-add-event/) follow the steps provided, making sure to select **Creative Cloud Assets**.
+When you are ready to [add events to your project](/developer-console/docs/guides/services/services-add-event/) follow the steps provided, making sure to select **Creative Cloud Assets**.
 
 In addition to selecting the events you would like to register for, you will be required to specify your webhook URL. Do this by pasting in the URL you got from ngrok with the path under localhost to your webhook file, adding `/webhook` to the end. For example, `https://595ae592.ngrok.io/webhook`. 
 

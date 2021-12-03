@@ -22,7 +22,7 @@ The Adobe I/O Events integration is currently being exposed through an integrati
 ## Verify your AEM Cloud Service is showing in the Adobe Developer Console
    
 Once the previous steps are completed, a new AEM as a Cloud Service provider should appear in the Events Providers list in the Adobe Developer Console.
-Please refer to the Adobe Developer Console documentation on how to [add Events to a project](/console/docs/guides/services/services-add-event/) if you are new to this.
+Please refer to the Adobe Developer Console documentation on how to [add Events to a project](/developer-console/docs/guides/services/services-add-event/) if you are new to this.
 
   ![Adobe Developer Console showing an AEM Events Provider](../../img/add_skyline_event_provider.png "Adobe Developer Console showing an AEM Events Provider")
  

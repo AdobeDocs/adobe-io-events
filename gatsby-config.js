@@ -271,7 +271,7 @@ module.exports = {
       url: 'https://developer-stage.adobe.com'
     },
     {
-      prefix: '/console/docs/guides',
+      prefix: '/developer-console/docs/guides',
       url: 'https://developer-stage.adobe.com'
     },
     {
