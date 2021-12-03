@@ -19,7 +19,7 @@
        if you have more than one, pick the one where you defined your jwt
     * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].jwt.client_id`                
 * Define your webhook registration you will need :
-  * a webhook url (accessible from the internet, reachable over HTTPS and that correctly respond to a "challenge" request) see [Webhooks](/apis/experienceplatform/events/docs.html#!adobedocs/adobeio-events/master/intro/webhook_docs_intro.md)
+  * a webhook url (accessible from the internet, reachable over HTTPS and that correctly respond to a "challenge" request) see [Webhooks](/guides/)
   * a name (a user friendly name, used for display in the Adobe Developer Console)
   * an array of events of interests, that are defined with 2 ids
     * a `provider_id`: defining one of the events source system (the events provider) your organization is entitled to,
@@ -29,7 +29,7 @@
 ## Test Drive
 
 Once the above are defined (and stuffed as environment variables),
-you are ready to use our [registration API](/apis/experienceplatform/events/ioeventsapi.html#/Registrations/createRegistrationCli).
+you are ready to use our [registration API](/api/#operation/createRegistrationCli).
 
 To help you further and document the typical `Webhook Registration Payload`, 
 here is a sample `POST` `curl` query that will create a new Webhook Registration against `https://your.webhook`.

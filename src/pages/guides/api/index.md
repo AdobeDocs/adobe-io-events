@@ -1,6 +1,6 @@
 # Adobe I/O Events API
 
-For at a glance view of our API, please refer to our [Adobe I/O Events OpenAPI documentation ](/apis/experienceplatform/events/ioeventsapi.html#!adobedocs/adobeio-events/master/events-api-reference.yaml).
+For at a glance view of our API, please refer to our [Adobe I/O Events OpenAPI documentation ](/api/).
 
 We also provide additional documentation on:
 * our [Journaling API](journaling_api.md)
