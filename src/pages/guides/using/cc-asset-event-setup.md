@@ -90,7 +90,7 @@ Your integration is now set up, and your webhook is in place; but to receive eve
 
 For authentication setup, you&rsquo;ll need to add the Creative Cloud Libraries as a service, and then use the [OAuth 2.0 protocol](/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/OAuth/OAuth.md) to build an interface for your user to log into your app and give your app authorization to access Creative Cloud Assets. 
 
-To add Creative Cloud Libraries as a service, you will need to follow the steps for [adding an API that uses OAuth to a Console project](/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-api-oauth.md), being sure to select **Creative Cloud Libraries** from the list of available APIs.
+To add Creative Cloud Libraries as a service, you will need to follow the steps for [adding an API that uses OAuth to a Console project](/developer-console/docs/guides/services/services-add-api-oauth/), being sure to select **Creative Cloud Libraries** from the list of available APIs.
  
 Adobe OAuth 2.0 lets you build into your application a login function that takes the user&rsquo;s Adobe ID and lets the user give your app permission to access the assets and Adobe Solutions to which they&rsquo;re subscribed. Once your app is authenticated, Adobe will begin to push events to your integration&rsquo;s webhook via HTTP POST messages.
 

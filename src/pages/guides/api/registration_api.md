@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-* Create a project in the [Adobe Developer Console](/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)
+* Create a project in the [Adobe Developer Console](/developer-console/docs/guides/projects/projects-empty/)
 * Add the `I/O Management API` in your Adobe Developer Console project 
   * Click on `Add to Project` > `API`
   * Select `I/O Management API`
@@ -24,7 +24,7 @@
   * an array of events of interests, that are defined with 2 ids
     * a `provider_id`: defining one of the events source system (the events provider) your organization is entitled to,
     * a `event_code`: defining a type of the events the above system (the events provider) is emitting.
-5. [Generate a JWT token](/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/credentials.md)
+5. [Generate a JWT token](/developer-console/docs/guides/credentials/)
 
 ## Test Drive
 

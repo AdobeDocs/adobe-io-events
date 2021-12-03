@@ -47,7 +47,7 @@ To bootstrap the project code, create a directory and run the following commands
 
 3. From within the project, you must then select the appropriate workspace.
 
-    If you have followed the steps for [creating a new project](/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md), there will only be one workspace available: Production.
+    If you have followed the steps for [creating a new project](/developer-console/docs/guides/projects/projects-empty/), there will only be one workspace available: Production.
 
     ```shell
     ➜  project aio app init
