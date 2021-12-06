@@ -274,5 +274,9 @@ module.exports = {
       prefix: '/developer-console/docs/guides',
       url: 'https://developer.adobe.com'
     },
+    {
+      prefix: '/runtime/docs/guides',
+      url: 'https://developer.adobe.com'
+    },
   ],
 };
