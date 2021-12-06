@@ -52,7 +52,7 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
       - The get request must respond with the challenge query if it exists
       - The post request must respond that it received the message or the webhook will re-attempt to send several times before giving up and automatically disabling the webhook sends
     - Enable Runtime action
-      - [See Setting up your Runtime Environment](/apis/experienceplatform/runtime/docs.html#!adobedocs/adobeio-runtime/master/getting-started/setup.md)
+      - [See Setting up your Runtime Environment](/runtime/docs/guides/getting-started/setup/)
       - Select a pre-made runtime action/runtime namespace
 - After Saving
 
