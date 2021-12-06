@@ -89,6 +89,10 @@
         window.location.href =
           "https://developer.adobe.com/experience-cloud/cloud-manager/guides/getting-started/create-event-integration/";
         break;
+         case "https://www.adobe.io/events/docs/experience-cloud/cloud-manager/guides/getting-started/create-event-integration/":
+        window.location.href =
+          "https://developer.adobe.com/experience-cloud/cloud-manager/guides/getting-started/create-event-integration/";
+        break;
       case "#!adobedocs/adobeio-events/master/using/experience-platform-event-setup.md":
         redirectPath =
           prefixPath + "guides/using/experience-platform-event-setup/";
