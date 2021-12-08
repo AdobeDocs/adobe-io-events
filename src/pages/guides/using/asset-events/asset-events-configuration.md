@@ -16,6 +16,10 @@ For Asset Events providers, you have the option of selecting which type of authe
 
 For a Service Account integration, you will create a JSON Web Token (JWT). A Service Account integration allows your application to call Adobe services on behalf of the application itself, or on behalf of an enterprise organization.
 
+Note that your application using a Service Account integration will be receiving all events generated within your organization. As a consequence your application will be responsible to not disclose information about assets, libraries, and cloud documents to users who are not intended to know about those assets. In particular, your application must ensure that no user sees events refering to assets, libraries, and cloud documents to which the user does not have at least read access.
+
 ### OAuth
 
 OAuth allows your end users to sign in to your integration with an Adobe ID. With an OAuth token, your integration will be able to access Adobe services or content on behalf of the logged-in user. 
+
+Note that your application using end user based integration will be receiving evetns generated within your organization personalized to the users using your application. That is all events will be tagged with the user ID of the intended recipient user and only events for assets, libraries, and cloud documents (read) accessible to the recipient user will be forwarded to your application. As a consequence your application will be responsible to only make events available to the user tagged in the event itself.
