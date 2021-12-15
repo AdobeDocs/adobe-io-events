@@ -14,7 +14,7 @@
   let prefixPath =
     window.location.host.indexOf("localhost") === 0 ? "" : "events/docs/";
   let redirectPath = "";
-
+  let hostChange;
   if (
     (window.location.hash !== "" &&
       window.location.pathname === "/" &&
@@ -86,7 +86,7 @@
         redirectPath = prefixPath + "guides/using/cc-asset-event-setup/";
         break;
       case "#!adobedocs/adobeio-events/master/using/cloudmanager.md":
-        window.location.href =
+        hostChange =
           "https://developer.adobe.com/experience-cloud/cloud-manager/guides/getting-started/create-event-integration/";
         break;
       case "#!adobedocs/adobeio-events/master/using/experience-platform-event-setup.md":
@@ -119,7 +119,12 @@
         redirectPath = prefixPath + "guides/api/eventsingress_api/";
         break;
     }
-    window.location.href =
-      "http://" + window.location.host + "/" + redirectPath;
+
+    if (hostChange) {
+      window.location.href = hostChange;
+    } else {
+      window.location.href =
+        "http://" + window.location.host + "/" + redirectPath;
+    }
   }
 })();
