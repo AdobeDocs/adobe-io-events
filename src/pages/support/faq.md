@@ -61,6 +61,10 @@ Yes:
 
 If `Adobe I/O Events` fails to receive a successful response code from your webhook within 10 seconds, it retries the request, including a special header `x-adobe-retry-count`. This header indicates how many times the delivery of an event or a batch of events has been attempted.
 
+<InlineAlert variant="info" slots="text"/>
+
+Please note that if an event delivery fails with a response status code of [400 Bad Request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400) or [505 HTTP Version Not Supported](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505), then those events are **not retried**.
+
 `Adobe I/O Events` will keep on retrying delivery to your webhook for **24 hours** using exponential and fixed backoff strategies. The first retry is attempted after 1 minute and the period between retries doubles after each attempt, but is at most 15 minutes (see below table outlining the retry pattern).
 <br/>
 
@@ -82,7 +86,9 @@ While your event registration is marked `Disabled`, Adobe will continue to log e
 
 ### What happens if my webhook is unable to handle a specific event but handles all other events gracefully?
 
-In this case, we will continue to retry the event delivery for 24 hours, but if all retry attempts get exhausted and the event still isn't delivered, then the event will be dropped.
+If an event delivery fails with a status code of [400 Bad Request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400) or [505 HTTP Version Not Supported](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505), then those events are **not retried**.
+
+For all other cases, we will continue to retry the event delivery for 24 hours, but if all retry attempts get exhausted and the event still isn't delivered, then the event will be dropped.
 However, do note that the event registration will remain as **Active** and shall continue to process events.
 
 ### Does every Adobe I/O Events webhook HTTP request come with a signature? 
