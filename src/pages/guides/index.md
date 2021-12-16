@@ -193,6 +193,10 @@ In general, `Adobe I/O Events` will always confirm that your webhook received an
 
 If `Adobe I/O Events` fails to receive a successful response code from your webhook within 10 seconds, it retries the request, including a special header `x-adobe-retry-count` (this header indicates how many times the delivery of an event or a batch of events has been attempted).
 
+<InlineAlert variant="info" slots="text"/>
+
+Please note that if an event delivery fails with a response status code of [400 Bad Request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400) or [505 HTTP Version Not Supported](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505), then those events are **not retried**.
+
 `Adobe I/O Events` will keep on retrying delivery to your webhook for **24 hours** using exponential and fixed backoff strategies. The first retry is attempted after 1 minute and the period between retries doubles after each attempt (second retry is after 2m, etc.), but is at most 15 minutes.
 
 If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the event registration as **Unstable**, but still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid it from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
