@@ -235,16 +235,63 @@ For Creative Cloud Asset events, you'll need to add the Creative Cloud Libraries
 
 ## Security Considerations
 
-Your webhook URL must by necessity be accessible from the open internet. This means third-party actors can send forged requests to it, tricking your application into handling fake events.
+Your webhook URL must necessarily be accessible from the open internet. This means third-party actors can send forged requests to it, tricking your application into handling fake events.
  
-To prevent this from happening, Adobe I/O Events will add a `x-adobe-signature` header to each HTTP request it sends to your webhook URL, which allows you to verify that the request was really made by Adobe I/O Events.
+To prevent this from happening, Adobe I/O Events has a robust event validation process in place as defined below that allows users to secure their webhook. 
+
+
+<InlineAlert variant="info" slots="text"/>
+Adobe strongly encourages validating your webhook deliveries using this new mechanism to avoid processing "events" received from malicious third-party actors and make sure your webhook continues to receive events.
+
+**Improved and Resilient Security Verification for Webhook Events**
+
+For a more robust and reliable verification, Adobe I/O Events adds below security validations for events delivered to your webhook. 
+
+- sending additional field of recipient_client_id as part of your event payload
+- signing the event payloads digitally and sending those digital signatures as request headers to your webhook
+
+I/O Events generates two public-private key pairs and sign your event payload using digital signatures following the steps below
+
+- a message digest of your event payload is computed by applying `rsa-sha256` hash function algorithm
+- the digest is then encrypted using the I/O Events private key to generate the digital signature
+
+I/O Events sends the 2 digital signatures as webhook request headers and they are available via the header fields
+`x-adobe-digital-signature-1` and `x-adobe-digital-signature-2` respectively. 
+
+I/O Events also sends 2 public keys corresponding to the private keys used to generate the digital signatures. These public keys which are stored in Cloud Front and are publicly accessible using the Cloud Front urls which look like `https://xxxxx.cloudfront.net/pub-key-<random-uuid>.pem`. I/O Events sends the public keys urls for both the keys and they are available via the the request header fields `x-adobe-public-key1-url` and  `x-adobe-public-key2-url` respectively.
+
+As mentioned earlier, I/O Events transforms your event payload and adds an additional json field `recipient_client_id` to your payload. See the sample payload after the transformation that I/O Events sends to your webhook.
+
+![Sample XDM format asset event payload](./img/xdm_asset_payload_with_recipient_clientid.png "Sample XDM format asset event payload")
+
+Upon receiving a request, you must do the below for leveraging the enhanced security measures
+
+- verify you are the actual recipient of the event using the new `recipient_client_id` field available in the payload
+- once verified, your app should fetch the public key using the cloud front url present in the header
+- after downloading the public key set it in the cache with cache expiry of `not more than 24h` 
+
+You can also consider implementing a retry mechanism to call public key urls in case of any transient error that might occur.  
+
+Once you have the public keys fetched as plain text you can now verify the digital signatures by following the steps as below
+
+- decrypt the message digest using the public key
+- compute the hash message digest of the event payload (available in the webhook request body) using the same hash function algorithm `rsa-sha256` used by I/O Events during signing
+- now validate each signature by comparing 
+  - the message digest computed by hashing 
+  - and the digest received after decrypting the signature using the public key
+
+Refer to [this](https://github.com/adobe/aio-lib-events/blob/4694ef1b4f19c63131d506e1abfe7a3e555e2914/src/index.js#L491) signature verification method of the events sdk to understand the above signature validation steps for your webhook app.
+
+**HMAC Signatures for Security Verification**
+
+<InlineAlert variant="warning" slots="text"/>
+I/O Events has now marked this HMAC based signature verification process as deprecated and this will finally be EOL by end of Q2'2022.
+
+In this event verification strategy, Adobe I/O Events  adds a `x-adobe-signature` header to each HTTP request it sends to your webhook URL, which allows you to verify that the request was really made by Adobe I/O Events.
  
 This signature or "message authentication code" is computed using a cryptographic hash function and a secret key applied to the body of the HTTP request. In particular, a SHA256 [HMAC](https://en.wikipedia.org/wiki/HMAC) is computed of the JSON payload, using the **Client Secret** provided in the `Adobe Developer Console` as a secret key, and then turned into a Base64 digest. You can find your client secret in the *Credentials* tab for your event registration in Console.
  
 Upon receiving a request, you should repeat this calculation and compare the result to the value in the `x-adobe-signature` header, and reject the request unless they match. Since the client secret is known only by you and Adobe I/O Events, this is a reliable way to verify the authenticity of the request.
-
-<InlineAlert variant="info" slots="text"/>
-I/O Events has now marked this HMAC based signature verification process as deprecated and this will finally be EOL by end of Q2'2022.
 
 **HMAC check implementation in JavaScript (pseudo-code):**
  
@@ -257,112 +304,3 @@ if (request.header('x-adobe-signature') !== hmac.digest('base64')) {
   throw new Error('x-adobe-signature HMAC check failed')
 }
 ```
-
-**Improved Security Verification for Webhook Events**
-
-For a more robust and reliable verification, Adobe I/O Events will add below security validations for events delivered to your webhook. 
-
-- sending additional field of recipient_client_id as part of your event payload
-- signing the event payloads digitally and sending those digital signatures as request headers to your webhook
-
-I/O Events will generate two public-private key pairs and sign your event payload using digital signatures following the steps below
-
-- a message digest of your event payload is computed by applying `rsa-sha256` hash function algorithm
-- the digest is then encrypted using the I/O Events private key to generate the digital signature
-
-I/O Events will send the 2 digital signatures as webhook request headers and they will be available via the header fields
-`x-adobe-digital-signature-1` and `x-adobe-digital-signature-2` respectively. 
-
-I/O Events will also send 2 public keys corresponding to the private keys used to generate the digital signatures. These public keys which are stored in Cloud Front are publicly accessible using the Cloud Front urls which look like `https://xxxxx.cloudfront.net/pub-key-1.pem`. I/O Events will send the public keys urls for both the keys and they will be available via the the request header fields `x-adobe-public-key1-url` and  `x-adobe-public-key2-url` respectively.
-
-As mentioned earlier, I/O Events transforms your event payload and adds an additional json field `recipient_client_id` to your payload. See the sample payload before and after transformation that I/O Events will send to your webhook.
-
-Sample XDM format asset event payload before
-```json
-{
-    "event_id": "xxxxx-ac2f-4825-ad46-07dc417f5a8d",
-    "event": {
-        "@id": "urn:oeid:aem:xxxxxx-841b-4790-aa7a-40685cbe8b22",
-        "@type": "xdmCreated",
-        "activitystreams:published": "2021-08-17T11:53:01.383Z",
-        "activitystreams:to": {
-            "@type": "xdmImsOrg",
-            "xdmImsOrg:id": "xxxxx@AdobeOrg"
-        },
-        "activitystreams:generator": {
-            "@type": "xdmContentRepository",
-            "xdmContentRepository:root": "https://author-xxxx-yyyyy.adobeaemcloud.com/"
-        },
-        "activitystreams:actor": {
-            "@id": "abc@vass.es",
-            "@type": "xdmAemUser"
-        },
-        "activitystreams:object": {
-            "@type": "xdmAsset",
-            "xdmAsset:asset_id": "urn:aaid:aem:abcdef-1234-a23e-adfe-abcdef1234",
-            "xdmAsset:asset_name": "test.jpg",
-            "xdmAsset:etag": "assetetag",
-            "xdmAsset:path": "/asset/path/test.jpg",
-            "xdmAsset:format": "image/jpeg",
-            "lmesMetadata:context": "pt",
-            "lmesMetadata:assetlanguage": ""
-        },
-        "xdmEventEnvelope:objectType": "xdmAsset"
-    }
-}
-```
-Sample XDM format asset event payload after
-```json
-{
-    "recipient_client_id": "webhook_registration_client_id",
-    "event_id": "xxxxx-ac2f-4825-ad46-07dc417f5a8d",
-    "event": {
-        "@id": "urn:oeid:aem:xxxxxx-841b-4790-aa7a-40685cbe8b22",
-        "@type": "xdmCreated",
-        "activitystreams:published": "2021-08-17T11:53:01.383Z",
-        "activitystreams:to": {
-            "@type": "xdmImsOrg",
-            "xdmImsOrg:id": "xxxxx@AdobeOrg"
-        },
-        "activitystreams:generator": {
-            "@type": "xdmContentRepository",
-            "xdmContentRepository:root": "https://author-xxxx-yyyyy.adobeaemcloud.com/"
-        },
-        "activitystreams:actor": {
-            "@id": "abc@vass.es",
-            "@type": "xdmAemUser"
-        },
-        "activitystreams:object": {
-            "@type": "xdmAsset",
-            "xdmAsset:asset_id": "urn:aaid:aem:abcdef-1234-a23e-adfe-abcdef1234",
-            "xdmAsset:asset_name": "test.jpg",
-            "xdmAsset:etag": "assetetag",
-            "xdmAsset:path": "/asset/path/test.jpg",
-            "xdmAsset:format": "image/jpeg",
-            "lmesMetadata:context": "pt",
-            "lmesMetadata:assetlanguage": ""
-        },
-        "xdmEventEnvelope:objectType": "xdmAsset"
-    }
-}
-```
-Upon receiving a request, you must do the below for leveraging the enhanced security measures
-
-- verify you are the actual recipient of the event using the new `recipient_client_id` field available in the payload
-- once verified, your app should fetch the public key using the cloud front url present in the header
-- after downloading the public key set it in the cache with cache expiry of `not more than 24h` 
-
-You can also consider implementing a retry mechanism to call public key urls in case of any transient error that might occur. 
-
-Once you have the public keys fetched as plain text you can now verify the digital signatures by following the steps as below
-
-- decrypt the message digest using the public key
-- compute the hash message digest of the event payload (available in the webhook request body) using the same hash function algorithm `rsa-sha256` used by I/O Events during signing
-- now validate each signature by comparing 
-  - the message digest computed by hashing 
-  - and the digest received after decrypting the signature using the public key
-
-Refer to [this](https://github.com/adobe/aio-lib-events/blob/4694ef1b4f19c63131d506e1abfe7a3e555e2914/src/index.js#L491) signature verification method of the events sdk to understand how you can implement the same validation for your webhook app. 
-
-<InlineAlert variant="info" slots="text"/>
-Adobe strongly encourages validating your webhook deliveries using this mechanism now to avoid processing "events" received from malicious third-party actors and make sure your webhook continues to receive events.
