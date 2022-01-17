@@ -257,3 +257,13 @@ if (request.header('x-adobe-signature') !== hmac.digest('base64')) {
   throw new Error('x-adobe-signature HMAC check failed')
 }
 ```
+
+## Quotas
+
+There is an upper limit on the number of registrations that you can create. Following table lists the applicable quotas - 
+
+| Maximum number of registrations  | Grouping level | Description |
+| ------------- | ------------- | ------------- |
+| 2500  | IMS Org  | Maximum of 2500 event registrations (webhook or journal) can be created for an IMS Org  |
+| 10  | IMS Credential (client Id)  | Maximum of 10 event registrations (webhook or journal) can be created for an IMS client-id  |
+
