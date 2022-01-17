@@ -262,8 +262,8 @@ if (request.header('x-adobe-signature') !== hmac.digest('base64')) {
 
 There is an upper limit on the number of registrations that you can create. Following table lists the applicable quotas - 
 
-| Maximum number of registrations  | Grouping level | Description |
-| ------------- | ------------- | ------------- |
-| 2500  | IMS Org  | Maximum of 2500 event registrations (webhook or journal) can be created for an IMS Org  |
-| 10  | IMS Credential (client Id)  | Maximum of 10 event registrations (webhook or journal) can be created for an IMS client-id  |
+| Maximum number of registrations  | Grouping level | Adjustable | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| 2500  | IMS Org  | No | Maximum of 2500 event registrations (webhook or journal) can be created for an IMS Org. This quota cannot be adjusted.  |
+| 10  | IMS Credential (client Id) | Yes | Maximum of 10 event registrations (webhook or journal) can be created for an IMS client-id. If you have a use-case that requires more number of registrations, please contact us via [I/O Events Forum](https://experienceleaguecommunities.adobe.com/t5/adobe-i-o-events/ct-p/adobe-io-events) to get it adjusted. |
 
