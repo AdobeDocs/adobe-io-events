@@ -280,7 +280,7 @@ Once you have the public keys fetched as plain text you can now verify the digit
   - the message digest computed by hashing 
   - and the digest received after decrypting the signature using the public key
 
-Refer to [this](https://github.com/adobe/aio-lib-events/blob/master/src/index.js#L516) signature verification method of the events sdk to understand the above signature validation steps for your webhook app.
+Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.1/src/index.js#L516) signature verification method of the events sdk to understand the above signature validation steps for your webhook app.
 
 **HMAC Signatures for Security Verification**
 
