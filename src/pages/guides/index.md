@@ -285,7 +285,7 @@ Once you have the public keys fetched as plain text you can now verify the digit
 
 Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.1/src/index.js#L516) signature verification method of the events sdk to understand the above signature validation steps for your webhook app.
 
-**HMAC Signatures for Security Verification**
+#### HMAC Signatures for Security Verification
 
 <InlineAlert variant="warning" slots="text"/>
 I/O Events has now marked this HMAC based signature verification process as deprecated and this will finally be EOL by end of Q2'2022.
