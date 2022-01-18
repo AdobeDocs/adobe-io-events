@@ -245,6 +245,9 @@ Adobe strongly encourages validating your webhook deliveries using this new mech
 
 **Improved and Resilient Security Verification for Webhook Events**
 
+<InlineAlert variant="info" slots="text"/>
+This feature is scheduled to be rolled out on 10th February, 2022
+
 For a more robust and reliable verification, Adobe I/O Events adds below security validations for events delivered to your webhook. 
 
 - sending additional field of recipient_client_id as part of your event payload
