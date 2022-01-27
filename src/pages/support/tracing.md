@@ -12,7 +12,7 @@ Each trace comprises of the event delivery HTTP request (sent by I/O Events), an
 
 3. From the *Registration Details*, select the *Debug Tracing* tab. You will see a list of events, beginning with the most recent.
 
-4. Select *Debug Tracing* tab. This section shows last 100 traces for your webhook registration. 
+4. The *Debug Tracing* tab shows last 100 traces for your webhook registration. 
 
 5. Select any trace in the list to expand its view and see more details. By default, the request (sent by Adobe) is shown, with headers and body. Select *Response* to view your integration's response to the event.
 
