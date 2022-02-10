@@ -298,7 +298,7 @@ A pictorial block diagram for the signature validation steps above that you shou
 
 ![Digital Signature Validation Steps](./img/digi_signature_verification_block_diagram.png "Digital Signature Validation Steps")
 
-Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.1/src/index.js#L516) signature verification method of the events sdk to understand the above signature validation steps for your webhook app.
+Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.2/src/index.js#L516) signature verification method of the events sdk to understand the above signature validation steps for your webhook app.
 
 <InlineAlert variant="info" slots="text"/>
 Kindly note that this digital signature verification setup is not required for the I/O Runtime actions used to create integrations, as this security feature is provided OOTB for them.
