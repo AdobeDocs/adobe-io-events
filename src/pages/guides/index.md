@@ -269,7 +269,7 @@ I/O Events sends the 2 digital signatures as webhook request headers and they ar
 
 I/O Events also sends 2 public keys corresponding to the private keys used to generate the digital signatures. These public keys are publicly accessible using our Adobe domain [static.adobeioevents.com](https://static.adobeioevents.com). I/O Events sends the relative paths of the public keys i.e. `/prod/keys/pub-key-<random-uuid>.pem` via the webhook request header fields `x-adobe-public-key1-path` and  `x-adobe-public-key2-path` respectively.
 
-As mentioned earlier, I/O Events transforms your event payload and adds an additional json field `recipient_client_id` to your payload. See the sample payload after the transformation that I/O Events sends to your webhook.
+As mentioned earlier, I/O Events adds an additional json field `recipient_client_id` to your payload. See the sample payload after the transformation that I/O Events sends to your webhook.
 
 ![Sample XDM format asset event payload](./img/xdm_asset_payload_with_recipient_clientid.png "Sample XDM format asset event payload")
 
