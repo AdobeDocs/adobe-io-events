@@ -12,8 +12,8 @@
 ## Throttling Policy
 
 We do have a throttling policy in place, we accept up to 3,000 requests / 5 secs per api-key.
-Your throttled requests will receive HTTP 429 response with a `Retry-After` response header,
-following the [RFC 7231](https://tools.ietf.org/html/rfc7231#section-7.1.3) HTTP standard.
+Your throttled requests will receive a HTTP Status 429 (Too Many Requests) response 
+with a `Retry-After` header, following the [RFC 7231](https://tools.ietf.org/html/rfc7231#section-7.1.3) HTTP standard.
 
 ## Test Drive
 
@@ -51,5 +51,5 @@ for each distinct event see [CloudEvents spec](https://github.com/cloudevents/sp
 The API returns
 * HTTP Status 200 (OK) if the event has been processed correctly and there are active registrations for the event,
 * HTTP Status 204 (No Content) if there are no registrations for the event,
-* HTTP Status 429 if you api-key is being throttled (see our [Throttling Policy](#throttling-policy)).
+* HTTP Status 429 (Too Many Requests) if your api-key is being throttled (see our [Throttling Policy](#throttling-policy)).
 * as well as the usual (4xx/5xx) error codes if there was an issue in processing the request.
