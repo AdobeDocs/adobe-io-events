@@ -137,7 +137,13 @@ Once associated with its `Event Metadata`, your `Custom Events Provider` will be
 1. It will appear in your (refreshed) `Adobe Developer Console` project.
 2. You will be able to register against it.
 3. And to start emitting events on its behalf use our [Events Publishing API](../guides/api/eventsingress_api.md).
-     
+    
+### Does `Custom Events Provider` support High Volume ? Do you have a throttling policy in place ?
+
+We do have a throttling policy in place, read our [Events Publishing API guide](../guides/api/eventsingress_api.md) for more details.
+However, if you have a high volume use-case in mind, contact us, we'd love to hear about it
+and discuss how we could accommodate it.
+
 ## JWT FAQ
 
 ### What is JWT and what is it used for? 

@@ -39,8 +39,9 @@ The following shows a sample cloud event accepted by the event receiver:
 
 ## Response
 
-The API returns HTTP Status 200 (OK) if the event has been processed correctly and there are active registrations for the event. The API returns HTTP Status 204 (No Content) if there are no registrations for the event. 
-
-In addition, the API returns the appropriate error codes if there was an issue in processing the request. 
-
+The API returns 
+* HTTP Status 200 (OK) if the event has been processed correctly and there are active registrations for the event,
+* HTTP Status 204 (No Content) if there are no registrations for the event, 
+* HTTP Status 429 (with a `Retry-After` response header, following the [RFC 7231](https://tools.ietf.org/html/rfc7231#section-7.1.3)) if you api-key is being throttled (read our [Events Publishing API guide](../api/eventsingress_api.md) for more details).
+* as well as the usual (4xx/5xx) error codes if there was an issue in processing the request.
 
