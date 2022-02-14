@@ -9,6 +9,12 @@
    * create your own `Custom Events Provider`
    * create at least one `Event Metadata` associated with the above
 
+## Throttling Policy
+
+We do have a throttling policy in place, we accept up to 3,000 requests / 5 secs per api-key.
+Your throttled requests will receive a HTTP Status 429 (Too Many Requests) response 
+with a `Retry-After` header, following the [RFC 7231](https://tools.ietf.org/html/rfc7231#section-7.1.3) HTTP standard.
+
 ## Test Drive
 
 Once its `Event Metadata` is persisted in Adobe I/O Events (see above prerequisites),
@@ -42,4 +48,8 @@ The environment variables used in this `curl` command are computed from the abov
 for each distinct event see [CloudEvents spec](https://github.com/cloudevents/spec/blob/v1.0/spec.md#id)
 *  as for the value of `data` in the CloudEvents body payload, it can be any json payload.
 
-        
+The API returns
+* HTTP Status 200 (OK) if the event has been processed correctly and there are active registrations for the event,
+* HTTP Status 204 (No Content) if there are no registrations for the event,
+* HTTP Status 429 (Too Many Requests) if your api-key is being throttled (see our [Throttling Policy](#throttling-policy)).
+* as well as the usual (4xx/5xx) error codes if there was an issue in processing the request.
