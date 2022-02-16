@@ -26,7 +26,7 @@ module.exports = {
         path: "guides",
       },
       {
-        title: "API reference",
+        title: "API Reference",
         path: "api.md",
       },
       {
