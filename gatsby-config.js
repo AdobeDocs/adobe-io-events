@@ -149,7 +149,7 @@ module.exports = {
           },
           {
             title: 'Cloud Manager Events',
-            path: '/experience-cloud/cloud-manager/guides/getting-started/create-event-integration/'
+            path: 'guides/using/cloud-manager-events.md'
           },
           {
             title: "Adobe Experience Platform Events",
