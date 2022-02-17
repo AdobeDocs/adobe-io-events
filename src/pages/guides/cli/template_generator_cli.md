@@ -1,3 +1,7 @@
+---
+title: Event Template Generator
+---
+
 # Event Template Generator
 
 The event template generator bootstraps the project code with a template that allows you to create a basic [Cloud Event](https://cloudevents.io/) and publish that event to Adobe I/O Events. 

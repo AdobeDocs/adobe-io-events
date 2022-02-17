@@ -1,3 +1,7 @@
+---
+title: Asset Events Properties
+---
+
 # Asset Events Properties
 
 This page describes the properties of an Asset Event. (To see a sample event, [click here](asset-events-sample.json).)
@@ -54,7 +58,7 @@ An object containing all the Resource Change objects related to the event. Resou
 
 **&lt;link relation&gt;** _object_
 
-The Resource Change object, which describes how a particular [resource](asset-events-glossary.md#resource) was affected by the [action](asset-event-actions.md) that triggered the event.
+The Resource Change object, which describes how a particular [resource](asset-events-glossary.md#resource) was affected by the [action](asset-events-actions.md) that triggered the event.
 
 - Note: The property will be the link relation associated with the resource (e.g., ht<span>tp://ns.adobe.com.adobecloud/rel/metadata/repository</span>).
 

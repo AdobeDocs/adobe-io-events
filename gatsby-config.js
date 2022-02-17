@@ -26,7 +26,7 @@ module.exports = {
         path: "guides",
       },
       {
-        title: "API reference",
+        title: "API Reference",
         path: "api.md",
       },
       {
@@ -79,24 +79,24 @@ module.exports = {
               },
               {
                 title:
-                  "Create and Upload Adobe I/O Certificate keystore to AEM",
+                  "Create and Upload Adobe I/O Certificate Keystore to AEM",
                 path: "guides/using/aem/aem_keystore_setup.md",
               },
               {
                 title:
-                  "Add the I/O Events API to your Adobe developer console project",
+                  "Adobe Developer Console Setup",
                 path: "guides/using/aem/aem_console_setup.md",
               },
               {
-                title: "AEM (6.4.x and above) Adobe IMS configuration",
+                title: "AEM (6.4.x and above) Adobe IMS Configuration",
                 path: "guides/using/aem/aem_ims_config.md",
               },
               {
-                title: "AEM - Adobe I/O Events - advanced configurations",
+                title: "AEM Advanced Configurations",
                 path: "guides/using/aem/aem_advanced_configurations.md",
               },
               {
-                title: "Adobe I/O Events health checks",
+                title: "Adobe I/O Events Health Checks",
                 path: "guides/using/aem/aem_healthcheck_servlet.md",
               },
               {
@@ -149,7 +149,7 @@ module.exports = {
           },
           {
             title: 'Cloud Manager Events',
-            path: '/experience-cloud/cloud-manager/guides/getting-started/create-event-integration/'
+            path: 'guides/using/cloud-manager-events.md'
           },
           {
             title: "Adobe Experience Platform Events",

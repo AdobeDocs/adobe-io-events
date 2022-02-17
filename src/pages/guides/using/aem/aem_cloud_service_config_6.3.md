@@ -1,4 +1,8 @@
-# AEM (6.3.x and prior) Cloud Services configuration
+---
+title: AEM (6.3.x and prior) Cloud Services Configuration
+---
+
+# AEM (6.3.x and prior) Cloud Services Configuration
 
 To secure the calls between Adobe I/O and AEM, we leverage an oAuth JWT exchange token flow.
  This flow uses a certificate to sign the JWT request and therefore requires certificates configurations on both ends.

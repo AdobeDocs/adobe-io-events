@@ -1,3 +1,7 @@
+---
+title: Debugging Adobe I/O Events 
+---
+
 # Debugging Adobe I/O Events 
 
 This page captures the most common troubleshooting scenarios when working with Adobe Events. 

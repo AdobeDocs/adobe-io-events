@@ -1,3 +1,7 @@
+---
+title: Using Adobe I/O Events
+---
+
 # Using Adobe I/O Events
 
 Setting up an integration to subscribe to Adobe I/O Events is straightforward. The following pages guide you through setting up and using Adobe I/O Events with various Adobe solutions.

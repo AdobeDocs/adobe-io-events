@@ -1,3 +1,7 @@
+---
+title: Asset Events Glossary
+---
+
 # Glossary
 
 ### ACL Policy Resource

@@ -1,3 +1,7 @@
+---
+title: Adobe I/O Events Docs
+---
+
 <Hero slots="heading, text"/>
 
 # Adobe I/O Events Docs

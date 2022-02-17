@@ -1,4 +1,8 @@
-# Create and Upload Adobe I/O Certificate keystore to AEM
+---
+title: Create and Upload Adobe I/O Certificate Keystore to AEM
+---
+
+# Create and Upload Adobe I/O Certificate Keystore to AEM
 
 To secure the calls between Adobe I/O and AEM, we leverage an oAuth JWT exchange token flow.
 This flow uses a certificate to sign the JWT request and therefore requires certificates configurations

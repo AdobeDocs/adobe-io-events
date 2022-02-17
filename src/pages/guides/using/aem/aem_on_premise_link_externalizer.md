@@ -1,3 +1,7 @@
+---
+title: AEM Link Externalizer Configuration
+---
+
 # AEM Link Externalizer Configuration
 
 The AEM Link Externalizer `author` url is used by Adobe I/O Events to create a unique identifier 

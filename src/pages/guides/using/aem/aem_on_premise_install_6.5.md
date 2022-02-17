@@ -1,3 +1,7 @@
+---
+title: Integrate with AEM 6.5.x
+---
+
 # Integrate with AEM 6.5.x
 
 This documentation is specific to AEM On Premise version 6.5.x, 

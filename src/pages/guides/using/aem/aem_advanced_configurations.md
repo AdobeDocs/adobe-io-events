@@ -1,4 +1,8 @@
-# AEM - Adobe I/O Events - advanced configurations
+---
+title: AEM Advanced Configurations | Adobe I/O Events
+---
+
+# AEM - Adobe I/O Events - Advanced Configurations
 
 ## Adobe I/O Events OSGI to XDM event mapping configurations:
 

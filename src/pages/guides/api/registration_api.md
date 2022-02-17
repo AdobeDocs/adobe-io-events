@@ -1,3 +1,7 @@
+---
+title: Registration API
+---
+
 # Adobe I/O Events Registration API
 
 ## Prerequisites

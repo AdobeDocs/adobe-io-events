@@ -1,3 +1,7 @@
+---
+title: Migrating from Legacy Events to Asset Events
+---
+
 # Migrating from Legacy Events to Asset Events
 
 This page is meant to help users migrate from legacy Creative Cloud Asset Events to Asset Events, specifically by mapping the payloads of the two event types.

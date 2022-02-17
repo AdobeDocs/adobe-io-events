@@ -1,3 +1,7 @@
+---
+title: Setting up Experience Platform events with Adobe I/O Events
+---
+
 # Setting up Experience Platform events with Adobe I/O Events
 
 Adobe Experience Platform enables you to drive coordinated, consistent, and relevant experiences for your customers no matter where or when they interact with your brand. By ingesting data from multiple channels, including online, offline, CRM, and third party data, Experience Platform allows you to consolidate disparate customer data into a unified view offering an actionable, timestamped account of every customer interaction. From there, you can segment customers into meaningful audiences, perform advanced machine learning, or export Profile data for use in third-party software.

@@ -1,3 +1,7 @@
+---
+title: Setting up Marketo User Audit Data Stream with Adobe I/O Events
+---
+
 # Setting up Marketo User Audit Data Stream with Adobe I/O Events
 
 These instructions describe how to set up and get started using Adobe I/O Events for Marketo user driven change events.  You can use Adobe I/O for streaming Marketo user driven change events such as the modification of emails, campaigns, and landing pages.
@@ -12,7 +16,7 @@ User Audit Data Stream is currently a Beta Product and thus cannot be enabled in
 
 ## Setup Adobe I/O
 
-See [Getting Started with Adobe I/O Events](../readme.md)
+See [Getting Started with Adobe I/O Events](/src/pages/index.md)
 
 For basic instructions for this use case, starting from [console.adobe.io](/console/):
 
@@ -215,6 +219,6 @@ Snippet | approve, approve with no-draft, clone, create, delete, edit, rename, u
 
 ## Debug
 
-[Debug Tracing](../support/tracing.md)
+[Debug Tracing](/src/pages/support/tracing.md)
 
 Once you have successfully completed your setup and event subscription registration, events should start being stored in the journal.  In addition, if you have webhooks or runtime set up, the events will go through those flows.  From the project's page in the event registration details, you should see a tab for Debug Tracing.  For webhooks, this will show a record of failed and successful challenge attempts as well as webhook attempts.  Each request includes the request/response details to help debug.

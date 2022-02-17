@@ -1,3 +1,7 @@
+---
+title: Journaling API
+---
+
 # Adobe I/O Events Journaling API
 
 ## What is a Journal?

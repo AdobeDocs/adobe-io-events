@@ -1,3 +1,7 @@
+---
+title: Integrate Analytics Triggers with Adobe I/O Events
+---
+
 # Integrate Analytics Triggers with Adobe I/O Events
 
 These instructions describe how to use Adobe Analytics triggers to notify you of Adobe I/O events, including the behavior of your site&rsquo;s users. Follow the instructions below to try the solution yourself.

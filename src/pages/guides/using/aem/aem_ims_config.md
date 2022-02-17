@@ -1,4 +1,8 @@
-# AEM (6.4.x and above) Adobe IMS configuration
+---
+title: AEM (6.4.x and above) Adobe IMS Configuration
+---
+
+# AEM (6.4.x and above) Adobe IMS Configuration
 
 To secure the calls between Adobe I/O and AEM, we leverage an oAuth JWT exchange token flow.
  This flow uses a certificate to sign the JWT request and therefore requires certificates configurations on both ends.

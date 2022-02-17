@@ -1,3 +1,7 @@
+---
+title: Event Registrations | Adobe I/O Events SDK
+---
+
 import CodeBreakStyles from '../../components/CodeBreakStyles'
 
 <CodeBreakStyles/>

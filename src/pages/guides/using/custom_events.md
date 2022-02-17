@@ -1,3 +1,7 @@
+---
+title: Custom I/O Events Overview
+---
+
 # Custom I/O Events Overview
 
 Event-driven architectures are a foundational component of the experience business. They enable our customers to react to changes in state, and behaviors and updates to trigger workflows and decisions in near-real time. 

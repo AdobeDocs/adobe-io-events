@@ -1,3 +1,7 @@
+---
+title: Setting Up Creative Cloud Asset Events on Adobe I/O Events (Deprecated)
+---
+
 # Setting Up Creative Cloud Asset Events on Adobe I/O Events (Deprecated)
 
 These instructions describe how to set up Creative Cloud Asset events using Adobe I/O Events. You can use Adobe I/O for notification of CC Asset events. 

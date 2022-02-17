@@ -1,3 +1,7 @@
+---
+title: Integrate with AEM 6.4.x
+---
+
 # Integrate with AEM 6.4.x
 
 Note we strongly recommend you go through an upgrade and instead use either our [AEM version 6.5 package](aem_on_premise_install_6.5.md) or our [AEM as cloud service support](aem_skyline_install.md).

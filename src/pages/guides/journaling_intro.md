@@ -1,4 +1,8 @@
-# Journaling 
+---
+title: Journaling Introduction
+---
+
+# Journaling
 
 For enterprise developers, Adobe offers another way to consume events besides webhooks: journaling. 
 The Adobe I/O Events Journaling API enables enterprise integrations to consume events according 

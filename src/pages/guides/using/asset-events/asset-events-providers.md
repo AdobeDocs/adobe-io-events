@@ -1,3 +1,7 @@
+---
+title: Asset Events Providers
+---
+
 # Asset Events Providers
 
 There are several different Asset Events providers (i.e., Adobe applications that generate events). Once you have created a project at https://developer.adobe.com/console and selected `Add Event`, you can select which events you want to receive from which providers. Below are all the event providers, along with their respective events.
