@@ -1,3 +1,7 @@
+---
+title: Provider API
+---
+
 # Adobe I/O Events Provider API
 
 Our Adobe I/O Events Management API contains endpoints allowing you to manage your `Events Providers` and their associated `Event Metadata`: 

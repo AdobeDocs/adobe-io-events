@@ -1,3 +1,7 @@
+---
+title: FAQ
+---
+
 # Adobe I/O Events Frequently Asked Questions (FAQ)
 
 ## General questions

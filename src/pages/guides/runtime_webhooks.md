@@ -1,3 +1,7 @@
+---
+title: Runtime Actions as Webhook Introduction
+---
+
 # Runtime Actions as Webhook
 
 The integration between Adobe I/O Runtime and I/O Events lets you create Runtime actions to be set up as webhook endpoints on the `Developer Console` for receiving events, so that every time an event fires, your Runtime action is executed. We recommend setting up your runtime action as webhook if you have short-running action (that responds within 10 sec).

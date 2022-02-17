@@ -1,3 +1,7 @@
+---
+title: Setting up AEM Events with Adobe I/O Events
+---
+
 # Setting up AEM Events with Adobe I/O Events
 
 These instructions describe how to set up Adobe Experience Manager (AEM) to integrate with Adobe I/O Events. 

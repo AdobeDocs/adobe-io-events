@@ -1,3 +1,7 @@
+---
+title: Setting up Marketo User Audit Data Stream with Adobe I/O Events
+---
+
 # Setting up Marketo User Audit Data Stream with Adobe I/O Events
 
 These instructions describe how to set up and get started using Adobe I/O Events for Marketo user driven change events.  You can use Adobe I/O for streaming Marketo user driven change events such as the modification of emails, campaigns, and landing pages.

@@ -1,3 +1,7 @@
+---
+title: Events Publishing API
+---
+
 # Events Publishing API
 
 ## Prerequisites

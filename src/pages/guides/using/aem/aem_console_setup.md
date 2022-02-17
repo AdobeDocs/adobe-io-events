@@ -1,4 +1,8 @@
-# Adobe Developer Console setup
+---
+title: Adobe Developer Console Setup
+---
+
+# Adobe Developer Console Setup
 
 Add the `I/O Events` and `I/O Management API` API to your Adobe Developer Console workspace
 

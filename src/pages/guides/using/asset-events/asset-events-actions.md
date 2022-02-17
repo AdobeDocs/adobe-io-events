@@ -1,3 +1,7 @@
+---
+title: Asset Events Actions
+---
+
 # Asset Events Actions
 
 ## Overview

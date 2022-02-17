@@ -1,3 +1,7 @@
+---
+title: Integrate with AEM as a Cloud Service
+---
+
 # Integrate with AEM as a Cloud Service
 
 This documentation has instructions to set up I/O Events integrations with AEM as a Cloud Service set up.

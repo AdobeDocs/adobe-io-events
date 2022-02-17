@@ -1,3 +1,7 @@
+---
+title: Publish Events | Adobe I/O Events SDK
+---
+
 # Publish events
 
 Event publishers can publish events to the event receiver using the ADobe I/O Events SDK. 

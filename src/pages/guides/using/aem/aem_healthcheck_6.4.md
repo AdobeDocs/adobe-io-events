@@ -1,3 +1,7 @@
+---
+title: AEM 6.4 and prior Sling Health Checks | Adobe I/O Events
+---
+
 # Adobe I/O Events (AEM 6.4 and prior) Sling Health Checks
 
 Note we strongly recommend you go through an upgrade and instead use either

@@ -1,3 +1,7 @@
+---
+title: Subscribe to Events Using Journaling | Adobe I/O Events SDK
+---
+
 # Subscribe to Events Using Journaling
 
 Journaling is a *pull* model of consuming events, unlike [webhooks](sdk_webhooks.md) which use a *push* model. In journaling, your application will issue a series of API calls to pull batches of one or more events from the journal. 

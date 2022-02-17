@@ -1,3 +1,7 @@
+---
+title: Tracing Adobe I/O Events
+---
+
 # Tracing Adobe I/O Events
 
 To troubleshoot issues with webhook-based event-registrations, Adobe offers Debug Tracing feature. Using Debug Tracing, you can inspect the activity between the Adobe service and your integration to see what data is being sent and how your integration is responding.

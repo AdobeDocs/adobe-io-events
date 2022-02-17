@@ -1,3 +1,7 @@
+---
+title: Signature Verification for Events | Adobe I/O Events SDK
+---
+
 # Signature Verification for Events
 
 Your webhook URL must be accessible from the open internet, however this means third-party actors can send forged requests, tricking your application into handling fake events.
