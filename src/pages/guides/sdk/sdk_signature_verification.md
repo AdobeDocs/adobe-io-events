@@ -18,9 +18,20 @@ Adobe I/O Events does below security validations for each event delivered to you
 I/O Events sends 2 digital signatures as webhook request headers and they are available via the header fields
 `x-adobe-digital-signature-1` and `x-adobe-digital-signature-2` respectively.
 
-I/O Events also sends relative paths of 2 public keys corresponding to the private keys used to generate the digital signatures. These public keys are publicly accessible using our Adobe domain [static.adobeioevents.com](https://static.adobeioevents.com) and the webhook request header fields `x-adobe-public-key1-path` and  `x-adobe-public-key2-path` respectively.
+I/O Events also sends relative paths of 2 public keys corresponding to the private keys used to generate the digital signatures. These public keys are publicly accessible using our Adobe domain [static.adobeioevents.com](https://static.adobeioevents.com) and the webhook request header fields `x-adobe-public-key1-path` and  `x-adobe-public-key2-path` respectively. The SDK fetches the public keys using the Adobe domain and their respective relative paths.
 
-Below SDK method allows you to pass the received digital signature headers, relative paths of public keys and the JSON payload delivered to the webhook to check its authenticity. The JSON payload contains the `recipient-client-id` which will be matched against your own webhook registration client id passed to this SDK method. The method returns `true` if the calculated signature matches that of the header, otherwise it returns `false`. 
+**Verifying the Signature**
+
+Once the SDK has the public keys fetched as plain text, it verifies the digital signatures by following the steps as below
+
+- decrypt the message digest using the public key
+- compute the hash message digest of the event payload (available in the webhook request body) using the same hash function algorithm `rsa-sha256` used by I/O Events during signing
+- validate each signature by comparing 
+  - the message digest computed by hashing 
+  - and the digest received after decrypting the signature using the public key
+- verify if any one of the signatures validation is successful, then the event can be considered valid.
+
+Below SDK method allows you to pass the received digital signature headers, relative paths of public keys and the JSON payload delivered to the webhook to check its authenticity. The JSON payload contains the `recipient-client-id` which will be matched against your own webhook registration client id passed to this SDK method. The method returns `true` if any one of the digital signature validation is successful, otherwise it returns `false`. 
 
 This SDK api can be used in any digital signature verification implementation for your consumer app to verify the authenticity of events coming from Adobe I/O Events.  
 
@@ -69,7 +80,7 @@ x-adobe-public-key2-path: <public_key2_relative_path>
 
 ## Response
 
-If signature matches, returns `true` otherwise returns `false`.
+If signature is valid, returns `true` otherwise returns `false`.
 
 ### HMAC Signatures for Security Verification
 <InlineAlert variant="warning" slots="text"/>
