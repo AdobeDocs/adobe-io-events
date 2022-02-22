@@ -20,7 +20,7 @@ I/O Events sends 2 digital signatures as webhook request headers and they are av
 
 I/O Events also sends relative paths of 2 public keys corresponding to the private keys used to generate the digital signatures. These public keys are publicly accessible using our Adobe domain [static.adobeioevents.com](https://static.adobeioevents.com) and the webhook request header fields `x-adobe-public-key1-path` and  `x-adobe-public-key2-path` respectively. The SDK fetches the public keys using the Adobe domain and their respective relative paths.
 
-**Verifying the Signature**
+### Verifying the Signature
 
 Once the SDK has the public keys fetched as plain text, it verifies the digital signatures by following the steps as below
 
@@ -35,7 +35,7 @@ Below SDK method allows you to pass the received digital signature headers, rela
 
 This SDK api can be used in any digital signature verification implementation for your consumer app to verify the authenticity of events coming from Adobe I/O Events.  
 
-## Method
+### Method
 
 ```javascript
 verifyDigitalSignatureForEvent(event, recipientClientId, [signatureOptions]) ⇒ boolean
@@ -46,7 +46,7 @@ verifyDigitalSignatureForEvent(event, recipientClientId, [signatureOptions]) ⇒
 | recipientClientId | <code>string</code> | Target recipient client id retrieved from the Adobe I/O Console integration |
 | [signatureOptions] | [<code>SignatureOptions</code>](#SignatureOptions) | Map of digital signature header fields defined in SignatureOptions |
 
-### SignatureOptions : `object`
+#### SignatureOptions : `object`
 
 **Properties**
 
@@ -57,7 +57,7 @@ verifyDigitalSignatureForEvent(event, recipientClientId, [signatureOptions]) ⇒
 | [publicKeyPath1] | <code>string</code> | Relative path of ioevents public key retrieved from the x-adobe-public-key1-path header |
 | [publicKeyPath2] | <code>string</code> | Relative path of ioevents public key retrieved from the x-adobe-public-key2-path header |
 
-## Sample Headers
+### Sample Headers
 
 Headers received as part of POST to webhook URL:
 
@@ -78,11 +78,11 @@ x-adobe-public-key1-path: <public_key1_relative_path>
 x-adobe-public-key2-path: <public_key2_relative_path>
 ```
 
-## Response
+### Response
 
 If signature is valid, returns `true` otherwise returns `false`.
 
-### HMAC Signatures for Security Verification
+## HMAC Signatures for Security Verification
 <InlineAlert variant="warning" slots="text"/>
 I/O Events has now marked this HMAC based signature verification process as deprecated and this will finally be EOL by end of Q2'2022.
 
@@ -96,7 +96,7 @@ This can be incorporated as part of any webhook implementation in order to verif
 
 For information on installing and using the SDK, please begin by reading the [getting started guide](sdk_getting_started.md).
 
-## Method
+### Method
 
 ```javascript
 verifySignatureForEvent(event, clientSecret, signatureHeaderValue) ⇒ boolean
@@ -108,7 +108,7 @@ verifySignatureForEvent(event, clientSecret, signatureHeaderValue) ⇒ boolean
 |`clientSecret`	|string	|Client Secret can be retrieved from the [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui).|
 |`signatureHeaderValue`	|string	|Value of `x-adobe-signature` header in each POST request to the registered webhook URL.|
 
-## Sample Headers
+### Sample Headers
 
 Headers received as part of POST to webhook URL:
 
@@ -125,6 +125,6 @@ x-adobe-provider: <provider_name>
 x-adobe-signature: <signature>
 ```
 
-## Response
+### Response
 
 If signature matches, returns `true` otherwise returns `false`.
