@@ -302,7 +302,7 @@ A pictorial block diagram for the signature validation steps above that you shou
 Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.2/src/index.js#L516) signature verification method of the events sdk to understand the above signature validation steps for your webhook app.
 
 <InlineAlert variant="info" slots="text"/>
-Kindly note that this digital signature verification setup is not required for the I/O Runtime actions used to create integrations, as this security feature is provided OOTB for them.
+Kindly note that this digital signature verification process comes **out-of-the-box** for I/O Runtime actions, and no action is required on that end.
 
 #### HMAC Signatures for Security Verification
 
