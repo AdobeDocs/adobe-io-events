@@ -286,14 +286,14 @@ You can also consider implementing a retry mechanism to call public key urls in 
 
 **Verifying the Signature**
 
-Once you have the public keys fetched as plain text, you can now verify the digital signatures by following the steps as below
+Once you have the public keys fetched as plain text, you can now verify the digital signatures by following the steps as below:
 
-- decrypt the message digest using the public key
-- compute the hash message digest of the event payload (available in the webhook request body) using the same hash function algorithm `rsa-sha256` used by I/O Events during signing
-- now validate each signature by comparing 
-  - the message digest computed by hashing 
-  - and the digest received after decrypting the signature using the public key
-- verify if any one of the signatures validation is successful, then the event can be considered valid 
+1. Decrypt the message digest using the public key.
+2. Compute the hash message digest of the event payload (available in the webhook request body) using `rsa-sha256` hash function algorithm.
+3. Validate each signature by comparing:
+   - the digest received (in step 1) after decrypting the signature using the public key.
+   - and the message digest computed (in step 2) by hashing.
+4. If any one of the signature validation is successful, then the event is valid.
 
 A pictorial block diagram for the signature validation steps above that you should follow 
 
