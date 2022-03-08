@@ -249,9 +249,6 @@ Adobe strongly encourages validating your webhook deliveries using this new mech
 
 ### Improved and Resilient Security Verification for Webhook Events
 
-<InlineAlert variant="info" slots="text"/>
-This feature is scheduled to be rolled out on 10th February, 2022
-
 For a more robust and reliable verification, Adobe I/O Events adds below security validations for events delivered to your webhook. 
 
 - Adobe I/O Events sends an additional field of `recipient_client_id` as part of your event payload.
@@ -289,14 +286,16 @@ You can also consider implementing a retry mechanism to call public key urls in 
 
 **Verifying the Signature**
 
-Once you have the public keys fetched as plain text, you can now verify the digital signatures by following the steps as below
+Once you have the public keys fetched as plain text, you can now verify the digital signatures by following the steps as below:
 
-- decrypt the message digest using the public key
-- compute the hash message digest of the event payload (available in the webhook request body) using the same hash function algorithm `rsa-sha256` used by I/O Events during signing
-- now validate each signature by comparing 
-  - the message digest computed by hashing 
-  - and the digest received after decrypting the signature using the public key
-- verify if any one of the signatures validation is successful, then the event can be considered valid 
+1. Decrypt the message digest using the public key.
+2. Compute the hash message digest of the event using `rsa-sha256` hash function algorithm. For computing:
+   - Use the webhook request payload for event deliveries.
+   - Use the challenge code in the query param for challenge deliveries.
+3. Validate each signature by comparing:
+   - the digest received (in step 1) after decrypting the signature using the public key.
+   - and the message digest computed (in step 2) by hashing.
+4. If any one of the signature validation is successful, then the event is valid.
 
 A pictorial block diagram for the signature validation steps above that you should follow 
 
@@ -305,7 +304,7 @@ A pictorial block diagram for the signature validation steps above that you shou
 Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.2/src/index.js#L516) signature verification method of the events sdk to understand the above signature validation steps for your webhook app.
 
 <InlineAlert variant="info" slots="text"/>
-Kindly note that this digital signature verification setup is not required for the I/O Runtime actions used to create integrations, as this security feature is provided OOTB for them.
+Kindly note that this digital signature verification process comes **out-of-the-box** for I/O Runtime actions, and no action is required on that end.
 
 #### HMAC Signatures for Security Verification
 
