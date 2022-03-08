@@ -289,7 +289,9 @@ You can also consider implementing a retry mechanism to call public key urls in 
 Once you have the public keys fetched as plain text, you can now verify the digital signatures by following the steps as below:
 
 1. Decrypt the message digest using the public key.
-2. Compute the hash message digest of the event payload (available in the webhook request body) using `rsa-sha256` hash function algorithm.
+2. Compute the hash message digest of the event using `rsa-sha256` hash function algorithm. For computing:
+   - Use the webhook request payload for event deliveries.
+   - Use the challenge code in the query param for challenge deliveries.
 3. Validate each signature by comparing:
    - the digest received (in step 1) after decrypting the signature using the public key.
    - and the message digest computed (in step 2) by hashing.
