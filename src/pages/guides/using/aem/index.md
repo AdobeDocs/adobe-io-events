@@ -1,34 +1,33 @@
 ---
-title: Setting up AEM Events with Adobe I/O Events
+title: AEM Events
 ---
 
-# Setting up AEM Events with Adobe I/O Events
+# AEM Events
 
-These instructions describe how to set up Adobe Experience Manager (AEM) to integrate with Adobe I/O Events. 
-**It is only supported on author instances.**
-You can use Adobe I/O Events for notification of AEM events, such as page or asset CUD operations.
+**Adobe I/O Events integration package for AEM is now open source:
+see [`aem-io-events`](https://github.com/adobe/aio-lib-java/tree/main/aem/aio_aem_events) module
+in our [`aio-lib-java`](https://github.com/adobe/aio-lib-java) github project**
 
-## Introduction
+## Requirements
+To set it up, you need:
 
-### Obtain authorization
+* An AEM (version 6.5 and above) instance with administrative permissions. 
+  * if you are still running AEM version 6.4, and wish to use this solution, [let us know](https://github.com/adobe/aio-lib-java/issues/104)
+* [Adobe Developer Console](/console) access, with administrative permissions for your enterprise organization.
 
-To complete this solution, you will need authorization to use the following services:
+## Installation guides
+These installation guides describe how to deploy and configure it so you can use Adobe I/O Events
+for notification of AEM events, such as page or asset CUD operations.
+* [AEM on premise installation guide](../aem/aem_on_premise_install.md)
+* [AEM as a Cloud Service installation guide](../aem/aem_skyline_install.md)
 
-*   An AEM instance with administrative permissions. 
-*   [Adobe Developer Console](/console) access, with administrative permissions for your enterprise organization.
+## Use Adobe I/O Events
+Once the previous steps are completed, a new AEM provider should appear in the Events Providers list in your Adobe Developer Console.
+Please refer to the Adobe Developer Console documentation on how to [add Events to a project](/developer-console/docs/guides/services/services-add-event/) if you are new to this.
 
+![Adobe Developer Console showing an AEM Events Provider](../../img/add_skyline_event_provider.png "Adobe Developer Console showing an AEM Events Provider")
 
-## Setup Products
-
-* Integrate with AEM On Premise
-  * [AEM version 6.2.x, 6.3.x](../aem/aem_on_premise_install_6.3.md) (deprecated/unsupported), 
-  * [AEM version 6.4.x](../aem/aem_on_premise_install_6.4.md), 
-  * [AEM version 6.5.x](../aem/aem_on_premise_install_6.5.md)
-* [Integrate with AEM as a Cloud Service ](../aem/aem_skyline_install.md)
-
-## Use Adobe I/O
-
-Once the above is done, you are ready to register a new [webhook](../../index.md) 
-or to start pulling events from this new source using the [journaling](../../journaling_intro.md).
+you are ready to register a new [webhook](../../index.md) 
+or to start pulling events from this new AEM source using the [journaling](../../journaling_intro.md).
 
 
