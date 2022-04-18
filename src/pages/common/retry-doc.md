@@ -11,6 +11,8 @@ Please note that if an event delivery fails with a response status code of [400 
 |----------------------|----|----|----|----|-----|-----|-----|-----|
 | Retry After Interval | 1m | 2m | 4m | 8m | 15m | 15m | 15m | ... |
 
+*Please note that above retry intervals are not guaranteed and may vary in few exception scenarios.*
+
 If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the event registration as **Unstable**, but still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid it from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
 
 If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response), `Adobe I/O Events` drops the events, marks the event registration as **Disabled**, and stops sending any further events.
