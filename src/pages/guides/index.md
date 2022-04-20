@@ -286,22 +286,57 @@ You can also consider implementing a retry mechanism to call public key urls in 
 
 **Verifying the Signature**
 
-Once you have the public keys fetched as plain text, you can now verify the digital signatures by following the steps as below:
+Once you have the pem public keys, you can now verify the digital signatures by following the steps as below:
 
-1. Decrypt the message digest using the public key.
-2. Compute the hash message digest of the event using `rsa-sha256` hash function algorithm. For computing:
-   - Use the webhook request payload for event deliveries.
-   - Use the challenge code in the query param for challenge deliveries.
-3. Validate each signature by comparing:
-   - the digest received (in step 1) after decrypting the signature using the public key.
-   - and the message digest computed (in step 2) by hashing.
-4. If any one of the signature validation is successful, then the event is valid.
+1. Create the PublicKey object using the pem public key.
+2. For Java based application
+   - create a Signature instance using the `SHA256withRSA` algorithm
+   - initialize the instance using the public key
+   - supply this instance the raw payload 
+   - use this instance to verify by passing the decoded signature
+3. For nodeJS based application
+   - create a crypto verifier using `RSA-SHA256` algorithm
+   - suppliy this verifier the raw payload buffer object
+   - pass the public key and the decoded signature to the verifier
+
+4. Do the above for both the signatures and if any one of the signature validations is successful, then the event is valid.
 
 A pictorial block diagram for the signature validation steps above that you should follow 
 
 ![Digital Signature Validation Steps](./img/digi_signature_verification_block_diagram.png "Digital Signature Validation Steps")
 
-Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.2/src/index.js#L516) signature verification method of the events sdk to understand the above signature validation steps for your webhook app.
+Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.5/src/index.js#L519) signature verification method of the events sdk (**nodeJS** based) to understand the above signature validation steps for your webhook app.
+
+For Java based webhook applications, one can verify signature using the below code snippet.
+```java
+public boolean verifySignature(String message, String signature) throws Exception {
+    byte[] data = message.getBytes(UTF_8);
+
+    // signature generated at I/O Events side is Base64 encoded, so it must be decoded
+    byte[] sign = Base64.decodeBase64(signature);
+    String keyFile = "public_key_pem_file.pem";
+    Signature sig = Signature.getInstance("SHA256withRSA");
+    sig.initVerify(getPublic(keyFile));
+    sig.update(data);
+    return sig.verify(sign);
+  }
+
+  //Method to retrieve the Public Key from a file
+  private PublicKey getPublic(String filename) throws Exception {
+    String key = new String(Files.readAllBytes(new File(filename).toPath()));
+
+    String publicKeyPEM = key
+        .replace("-----BEGIN PUBLIC KEY-----", "")
+        .replaceAll(System.lineSeparator(), "")
+        .replace("-----END PUBLIC KEY-----", "");
+
+    byte[] encoded = Base64.decodeBase64(publicKeyPEM);
+
+    KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+    X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
+    return keyFactory.generatePublic(keySpec);
+  }
+```
 
 <InlineAlert variant="info" slots="text"/>
 Kindly note that this digital signature verification process comes **out-of-the-box** for I/O Runtime actions, and no action is required on that end.
