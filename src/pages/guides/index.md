@@ -289,17 +289,10 @@ You can also consider implementing a retry mechanism to call public key urls in 
 Once you have the pem public keys, you can now verify the digital signatures by following the steps as below:
 
 1. Create the PublicKey object using the pem public key.
-2. For Java based application
-   - create a Signature instance using the `SHA256withRSA` algorithm
-   - initialize the instance using the public key
-   - supply this instance the raw payload 
-   - use this instance to verify by passing the decoded signature
-3. For nodeJS based application
-   - create a crypto verifier using `RSA-SHA256` algorithm
-   - suppliy this verifier the raw payload buffer object
-   - pass the public key and the decoded signature to the verifier
-
-4. Do the above for both the signatures and if any one of the signature validations is successful, then the event is valid.
+2. Create a `Signature` (for java apps) or `crypto` -> [Verify](https://nodejs.org/docs/latest-v14.x/api/crypto.html#crypto_class_verify) (for nodeJS apps) instance using the `rsa-sha256` hashing algorithm.
+3. Supply the instance raw event payload.
+4. Use the public key and decoded signature to verify. 
+5. Do the above for both the signatures and if any one of the signature validations is successful, then the event is valid.
 
 A pictorial block diagram for the signature validation steps above that you should follow 
 
