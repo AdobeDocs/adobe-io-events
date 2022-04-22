@@ -301,7 +301,8 @@ A pictorial block diagram for the signature validation steps above that you shou
 Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.5/src/index.js#L519) signature verification method of the events sdk (**nodeJS** based) to understand the above signature validation steps for your webhook app.
 
 For Java based webhook applications, one can verify signature using the below code snippet.
-```java
+
+```javascript
 public boolean verifySignature(String message, String signature) throws Exception {
     byte[] data = message.getBytes(UTF_8);
 
@@ -312,24 +313,25 @@ public boolean verifySignature(String message, String signature) throws Exceptio
     sig.initVerify(getPublic(keyFile));
     sig.update(data);
     return sig.verify(sign);
-  }
+}
 
-  //Method to retrieve the Public Key from a file
-  private PublicKey getPublic(String filename) throws Exception {
-    String key = new String(Files.readAllBytes(new File(filename).toPath()));
+//Method to retrieve the Public Key from a file
+private PublicKey getPublic(String filename) throws Exception {
+  String key = new String(Files.readAllBytes(new File(filename).toPath()));
 
-    String publicKeyPEM = key
-        .replace("-----BEGIN PUBLIC KEY-----", "")
-        .replaceAll(System.lineSeparator(), "")
-        .replace("-----END PUBLIC KEY-----", "");
+  String publicKeyPEM = key
+      .replace("-----BEGIN PUBLIC KEY-----", "")
+      .replaceAll(System.lineSeparator(), "")
+      .replace("-----END PUBLIC KEY-----", "");
 
-    byte[] encoded = Base64.decodeBase64(publicKeyPEM);
+  byte[] encoded = Base64.decodeBase64(publicKeyPEM);
 
-    KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-    X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
-    return keyFactory.generatePublic(keySpec);
-  }
+  KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+  X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
+  return keyFactory.generatePublic(keySpec);
+}
 ```
+
 
 <InlineAlert variant="info" slots="text"/>
 Kindly note that this digital signature verification process comes **out-of-the-box** for I/O Runtime actions, and no action is required on that end.
