@@ -326,7 +326,7 @@ private PublicKey getPublic(String filename) throws Exception {
 
 
 <InlineAlert variant="info" slots="text"/>
-Kindly note that this digital signature verification process comes **out-of-the-box** for I/O Runtime actions, and no action is required on that end.
+Kindly note that this digital signature verification process comes out-of-the-box for I/O Runtime actions, and no action is required on that end.
 
 #### HMAC Signatures for Security Verification
 
