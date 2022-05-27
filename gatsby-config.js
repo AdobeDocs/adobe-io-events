@@ -62,7 +62,7 @@ module.exports = {
             path: "guides/using/aem/index.md",
             pages: [
               {
-                title: "AEM 6.4.x on Premise Events",
+                title: "AEM 6.4.x on Premise Events (Deprecated)",
                 path: "guides/using/aem/deprecated/aem_on_premise_install_6.4.md",
                 pages: [
                   {
