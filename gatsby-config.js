@@ -96,13 +96,11 @@ module.exports = {
                 path: "guides/using/aem/aem_skyline_install.md",
               },
               {
-                title:
-                  "Create and Upload Adobe I/O Certificate Keystore to AEM",
+                title: "Create and Upload Adobe I/O Certificate Keystore to AEM",
                 path: "guides/using/aem/aem_keystore_setup.md",
               },
               {
-                title:
-                  "Adobe Developer Console Setup",
+                title: "Adobe Developer Console Setup",
                 path: "guides/using/aem/aem_console_setup.md",
               },
               {
