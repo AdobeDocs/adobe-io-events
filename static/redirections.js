@@ -43,7 +43,7 @@
         redirectPath =
           prefixPath + "guides/using/aem/aem_on_premise_install_6.4/";
         break;
-      case "#!adobedocs/adobeio-events/master/aem/aem_on_premise_install.md":
+      case "#!adobedocs/adobeio-events/master/aem/aem_on_premise_install_6.5.md":
         redirectPath = prefixPath + "guides/using/aem/";
         break;
       case "#!adobedocs/adobeio-events/master/aem/aem_skyline_install.md":
