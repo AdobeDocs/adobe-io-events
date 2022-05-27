@@ -88,16 +88,16 @@ module.exports = {
                 ]
               },
               {
-                title: "AEM 6.5.x on Premise Events",
-                path: "guides/using/aem/aem_on_premise_install_6.5.md",
+                title: "AEM on Premise Events",
+                path: "guides/using/aem/aem_on_premise_install.md",
               },
               {
                 title: "AEM as a Cloud Service Events",
                 path: "guides/using/aem/aem_skyline_install.md",
               },
               {
-                title: "Create and Upload Adobe I/O Certificate Keystore to AEM",
-                path: "guides/using/aem/aem_keystore_setup.md",
+                title: "JWT Authentication public/private keys",
+                path: "guides/using/aem/aem_key_setup.md",
               },
               {
                 title: "Adobe Developer Console Setup",
@@ -108,8 +108,12 @@ module.exports = {
                 path: "guides/using/aem/aem_advanced_configurations.md",
               },
               {
-                title: "Adobe I/O Events Health Checks",
-                path: "guides/using/aem/aem_healthcheck_servlet.md",
+                title: "Workspace OSGI configurations",
+                path: "guides/using/aem/aem_workspace_setup.md",
+              },
+              {
+                title: "AEM Events Status Checks",
+                path: "guides/using/aem/aem_status_check.md",
               },
               {
                 title: "AEM Link Externalizer Configuration",

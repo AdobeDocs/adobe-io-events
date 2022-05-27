@@ -8,7 +8,7 @@ title: Integrate with AEM 6.4.x (Deprecated)
 <InlineAlert variant="warning" slots="text"/>
 
 IO Events has deprecated support for AEM 6.4 (and all prior versions). We no longer support or maintain this package. <br/>
-We strongly recommend you go through an upgrade and instead use either our [AEM version 6.5 package](../aem_on_premise_install_6.5.md) or our [AEM as cloud service support](../aem_skyline_install.md).
+We strongly recommend you go through an upgrade and instead use either our [AEM on-premise Latest Package](../aem_on_premise_install.md) or our [AEM as cloud service support](../aem_skyline_install.md).
 
 This documentation below is specific to AEM on premise version 6.4.x.
 
