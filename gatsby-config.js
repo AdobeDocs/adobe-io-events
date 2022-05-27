@@ -63,7 +63,29 @@ module.exports = {
             pages: [
               {
                 title: "AEM 6.4.x on Premise Events",
-                path: "guides/using/aem/aem_on_premise_install_6.4.md",
+                path: "guides/using/aem/deprecated/aem_on_premise_install_6.4.md",
+                pages: [
+                  {
+                    title: "AEM Adobe IMS Configuration",
+                    path: "guides/using/aem/deprecated/aem_ims_config_6.4.md",
+                  },
+                  {
+                    title: "Create and Upload Adobe I/O Certificate Keystore to AEM",
+                    path: "guides/using/aem/deprecated/aem_keystore_setup_6.4.md",
+                  },
+                  {
+                    title: "Adobe Developer Console Setup",
+                    path: "guides/using/aem/deprecated/aem_console_setup_6.4.md",
+                  },
+                  {
+                    title: "AEM Advanced Configurations",
+                    path: "guides/using/aem/deprecated/aem_advanced_configurations_6.4.md",
+                  },
+                  {
+                    title: "AEM - IO Events Health Check",
+                    path: "guides/using/aem/deprecated/aem_healthcheck_6.4.md",
+                  },
+                ]
               },
               {
                 title: "AEM 6.5.x on Premise Events",
@@ -82,10 +104,6 @@ module.exports = {
                 title:
                   "Adobe Developer Console Setup",
                 path: "guides/using/aem/aem_console_setup.md",
-              },
-              {
-                title: "AEM (6.4.x and above) Adobe IMS Configuration",
-                path: "guides/using/aem/aem_ims_config.md",
               },
               {
                 title: "AEM Advanced Configurations",

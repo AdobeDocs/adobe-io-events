@@ -41,7 +41,7 @@
         break;
       case "#!adobedocs/adobeio-events/master/aem/aem_on_premise_install_6.4.md":
         redirectPath =
-          prefixPath + "guides/using/aem/aem_on_premise_install_6.4/";
+          prefixPath + "guides/using/aem/deprecated/aem_on_premise_install_6.4/";
         break;
       case "#!adobedocs/adobeio-events/master/aem/aem_on_premise_install_6.5.md":
         redirectPath = prefixPath + "guides/using/aem/";
