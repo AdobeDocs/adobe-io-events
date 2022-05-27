@@ -21,7 +21,6 @@ To complete this solution, you will need authorization to use the following serv
 ## Setup Products
 
 * Integrate with AEM On Premise
-  * [AEM version 6.2.x, 6.3.x](../aem/aem_on_premise_install_6.3.md) (deprecated/unsupported), 
   * [AEM version 6.4.x](../aem/aem_on_premise_install_6.4.md), 
   * [AEM version 6.5.x](../aem/aem_on_premise_install_6.5.md)
 * [Integrate with AEM as a Cloud Service ](../aem/aem_skyline_install.md)

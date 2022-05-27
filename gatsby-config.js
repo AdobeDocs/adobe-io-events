@@ -62,10 +62,6 @@ module.exports = {
             path: "guides/using/aem/index.md",
             pages: [
               {
-                title: "AEM 6.2.x & 6.3.x on Premise Events",
-                path: "guides/using/aem/aem_on_premise_install_6.3.md",
-              },
-              {
                 title: "AEM 6.4.x on Premise Events",
                 path: "guides/using/aem/aem_on_premise_install_6.4.md",
               },
