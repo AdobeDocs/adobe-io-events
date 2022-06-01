@@ -156,6 +156,10 @@ module.exports = {
           {
             title: 'Custom Events',
             path: 'guides/using/custom_events.md'
+          },
+          {
+            title: "Send your own Events with Adobe Commerce",
+            path: 'guides/using/commerce-custom-events.md'
           }
         ]
       },
