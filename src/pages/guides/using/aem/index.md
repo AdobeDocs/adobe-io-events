@@ -1,11 +1,10 @@
 ---
-title: Setting up AEM Events with Adobe IO Events
+title: AEM Events
 ---
 
-# Setting up AEM Events with Adobe IO Events
+# AEM Events
 
-These instructions describe how to set up Adobe Experience Manager (AEM) to integrate with Adobe IO Events. Adobe IO Events integration package for AEM is now open source:
-See [`aem-io-events`](https://github.com/adobe/aio-lib-java/tree/main/aem/aio_aem_events) module in our [`aio-lib-java`](https://github.com/adobe/aio-lib-java) GitHub project.
+**Adobe IO Events integration package for AEM is now open source: see [`aem-io-events`](https://github.com/adobe/aio-lib-java/tree/main/aem/aio_aem_events) module in our [`aio-lib-java`](https://github.com/adobe/aio-lib-java) github project**.
 
 ## Requirements
 To set it up, you need:
