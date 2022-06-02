@@ -51,7 +51,7 @@
         break;
 
       case "#!adobedocs/adobeio-events/master/aem/aem_keystore_setup.md":
-        redirectPath = prefixPath + "guides/using/aem/aem_keystore_setup/";
+        redirectPath = prefixPath + "guides/using/aem/deprecated/aem_keystore_setup_6.4/";
         break;
       case "#!adobedocs/adobeio-events/master/aem/aem_console_setup.md":
         redirectPath = prefixPath + "guides/using/aem/aem_console_setup/";
