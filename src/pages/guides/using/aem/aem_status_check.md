@@ -2,8 +2,7 @@
 title: AEM Events Status Checks
 ---
 
-
-## `aio-aem-events` status check endpoints 
+## AEM Events Status Check Endpoints
 
 The package `aio-aem-events` powers a few status endpoints that will help you troubleshoot your set up:
 * [aio-aem-core](https://github.com/adobe/aio-lib-java/tree/main/aem/core_aem) endpoints
@@ -22,8 +21,3 @@ The package `aio-aem-events` powers a few status endpoints that will help you tr
 * [aio-aem-events-osgi-mapping](https://github.com/adobe/aio-lib-java/tree/main/aem/events_osgi_mapping) endpoint
     * from [/bin/aio/events/osgi_event_mapping.json](http://localhost:4502/bin/aio/events/osgi_event_mapping.json)
       you can `GET` the status of your OSGI to Adobe I/O Events Mappings services.
-      
-      
-      
-      
-

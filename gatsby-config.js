@@ -78,16 +78,16 @@ module.exports = {
                 path: "guides/using/aem/aem_console_setup.md",
               },
               {
-                title: "Workspace OSGI configurations",
-                path: "guides/using/aem/aem_workspace_setup.md",
-              },
-              {
                 title: "AEM Advanced Configurations",
                 path: "guides/using/aem/aem_advanced_configurations.md",
               },
               {
+                title: "Workspace OSGI configurations",
+                path: "guides/using/aem/aem_workspace_setup.md",
+              },
+              {
                 title: "AEM Events Status Checks",
-                path: "guides/using/aem/aem_healthcheck_servlet.md",
+                path: "guides/using/aem/aem_status_check.md",
               },
               {
                 title: "AEM Link Externalizer Configuration",
@@ -96,6 +96,32 @@ module.exports = {
               {
                 title: "AEM FAQ",
                 path: "guides/using/aem/aem_faq.md",
+              },
+              {
+                title: "AEM 6.4.x on Premise Events (Deprecated)",
+                path: "guides/using/aem/deprecated/aem_on_premise_install_6.4.md",
+                pages: [
+                  {
+                    title: "AEM Adobe IMS Configuration",
+                    path: "guides/using/aem/deprecated/aem_ims_config_6.4.md",
+                  },
+                  {
+                    title: "Create and Upload Adobe I/O Certificate Keystore to AEM",
+                    path: "guides/using/aem/deprecated/aem_keystore_setup_6.4.md",
+                  },
+                  {
+                    title: "Adobe Developer Console Setup",
+                    path: "guides/using/aem/deprecated/aem_console_setup_6.4.md",
+                  },
+                  {
+                    title: "AEM Advanced Configurations",
+                    path: "guides/using/aem/deprecated/aem_advanced_configurations_6.4.md",
+                  },
+                  {
+                    title: "AEM - IO Events Health Check",
+                    path: "guides/using/aem/deprecated/aem_healthcheck_6.4.md",
+                  },
+                ]
               },
             ],
           },
