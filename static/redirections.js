@@ -57,7 +57,7 @@
         redirectPath = prefixPath + "guides/using/aem/aem_console_setup/";
         break;
       case "#!adobedocs/adobeio-events/master/aem/aem_ims_config.md":
-        redirectPath = prefixPath + "guides/using/aem/aem_ims_config/";
+        redirectPath = prefixPath + "guides/using/aem/deprecated/aem_ims_config_6.4/";
         break;
       case "#!adobedocs/adobeio-events/master/aem/aem_advanced_configurations.md":
         redirectPath =
