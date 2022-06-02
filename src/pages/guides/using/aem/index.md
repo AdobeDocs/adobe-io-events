@@ -17,12 +17,11 @@ Note: If you are still running AEM version 6.4:
 * You may also use our [deprecated and unsupported AEM 6.4.x package](../aem/deprecated/aem_on_premise_install_6.4.md).
 
 ## Installation guides
-These installation guides describe how to deploy and configure it so you can use Adobe I/O Events
-for notification of AEM events, such as page or asset CUD operations.
+These installation guides describe how to deploy and configure it so you can use Adobe IO Events for notification of AEM events, such as page or asset CUD operations.
 * [AEM (6.5.x and above) on premise installation guide](../aem/aem_on_premise_install.md)
 * [AEM as a Cloud Service installation guide](../aem/aem_skyline_install.md)
 
-## Use Adobe I/O Events
+## Use Adobe IO Events
 Once the previous steps are completed, a new AEM provider should appear in the Events Providers list in your Adobe Developer Console.
 Please refer to the Adobe Developer Console documentation on how to [add Events to a project](/developer-console/docs/guides/services/services-add-event/) if you are new to this.
 
