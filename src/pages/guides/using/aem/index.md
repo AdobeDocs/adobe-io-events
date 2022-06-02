@@ -11,15 +11,16 @@ See [`aem-io-events`](https://github.com/adobe/aio-lib-java/tree/main/aem/aio_ae
 To set it up, you need:
 
 * An AEM (version 6.5 and above) instance with administrative permissions.
-  * if you are still running AEM version 6.4, and wish to use this solution, [let us know](https://github.com/adobe/aio-lib-java/issues/104)
 * [Adobe Developer Console](/console) access, with administrative permissions for your enterprise organization.
+
+Note: If you are still running AEM version 6.4:
+* And wish to use this solution, [let us know](https://github.com/adobe/aio-lib-java/issues/104).
+* You may also use our [deprecated and unsupported AEM 6.4.x package](../aem/deprecated/aem_on_premise_install_6.4.md).
 
 ## Installation guides
 These installation guides describe how to deploy and configure it so you can use Adobe I/O Events
 for notification of AEM events, such as page or asset CUD operations.
-* For AEM On Premise, see:
-  * [AEM (6.5.x and above) on premise installation guide](../aem/aem_on_premise_install.md)
-  * [AEM (6.4.x) on premise installation guide](../aem/deprecated/aem_on_premise_install_6.4.md) [`Deprecated`]
+* [AEM (6.5.x and above) on premise installation guide](../aem/aem_on_premise_install.md)
 * [AEM as a Cloud Service installation guide](../aem/aem_skyline_install.md)
 
 ## Use Adobe I/O Events
