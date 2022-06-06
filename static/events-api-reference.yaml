@@ -938,10 +938,6 @@ definitions:
         type: string
         minLength: 3
         maxLength: 255
-      parent_client_id:
-        type: string
-        minLength: 0
-        maxLength: 255
       webhook_url:
         type: string
         minLength: 0
@@ -954,11 +950,6 @@ definitions:
           - VERIFICATION_FAILED
           - HOOK_UNREACHABLE
           - DELETED
-      type:
-        type: string
-        enum:
-          - USER
-          - APP
       integration_status:
         type: string
         enum:
