@@ -39,7 +39,7 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
   ![Add API](../img/AdobeCommerceAPIStep2.png "Add API")
 
 - Filter by `Adobe Services`
-- Select `Adobe I/O Events`
+- Select `I/O Management API`
 
   ![API Selection](../img/AdobeCommerceAPIStep3.png "API Selection")
 
