@@ -146,9 +146,9 @@ Then we will create the `module.xml` file at `app/code/MyCorp/CustomEvents/etc/m
     <?xml version="1.0"?>
     <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-        <module name="Devex_ProductCreated" setup_version="0.1.0">
+        <module name="MyCorp_CustomEvents" setup_version="0.1.0">
             <sequence>
-                <module name="Magento_AdobeIms"/>
+                <module name="Magento_AdobeIoEvents"/>
             </sequence>
         </module>
     </config>
@@ -157,7 +157,7 @@ We will then build minimal logic to send the events in `app/code/MyCorp/CustomEv
 
     <?php
 
-    namespace Devex\ProductCreated\Observer;
+    namespace MyCorp\CustomEvents\Observer;
 
     use Magento\AdobeIoEvents\Model\IOEventsAPIClient;
     use Magento\Catalog\Model\Product;
@@ -165,7 +165,7 @@ We will then build minimal logic to send the events in `app/code/MyCorp/CustomEv
     use Magento\Framework\Event\ObserverInterface;
     use Magento\Framework\Serialize\Serializer\Json;
 
-    class ProductNewObserver implements ObserverInterface
+    class ProductUpdateObserver implements ObserverInterface
     {
         /**
         * @var IOEventsAPIClient
