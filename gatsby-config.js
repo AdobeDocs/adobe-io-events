@@ -51,6 +51,10 @@ module.exports = {
             title: "Introduction to Journaling",
             path: "guides/journaling_intro.md",
           },
+          {
+            title: "App Builder Auto Subscriptions",
+            path: "guides/autosubscriptions.md",
+          },
         ],
       },
       {
