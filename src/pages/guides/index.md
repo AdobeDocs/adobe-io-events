@@ -328,29 +328,6 @@ private PublicKey getPublic(String filename) throws Exception {
 <InlineAlert variant="info" slots="text"/>
 Kindly note that this digital signature verification process comes out-of-the-box for I/O Runtime actions, and no action is required on that end.
 
-#### HMAC Signatures for Security Verification
-
-<InlineAlert variant="warning" slots="text"/>
-I/O Events has now marked this HMAC based signature verification process as deprecated and this will finally be EOL by end of Q2'2022.
-
-In this event verification strategy, Adobe I/O Events  adds a `x-adobe-signature` header to each HTTP request it sends to your webhook URL, which allows you to verify that the request was really made by Adobe I/O Events.
- 
-This signature or "message authentication code" is computed using a cryptographic hash function and a secret key applied to the body of the HTTP request. In particular, a SHA256 [HMAC](https://en.wikipedia.org/wiki/HMAC) is computed of the JSON payload, using the **Client Secret** provided in the `Adobe Developer Console` as a secret key, and then turned into a Base64 digest. You can find your client secret in the *Credentials* tab for your event registration in Console.
- 
-Upon receiving a request, you should repeat this calculation and compare the result to the value in the `x-adobe-signature` header, and reject the request unless they match. Since the client secret is known only by you and Adobe I/O Events, this is a reliable way to verify the authenticity of the request.
-
-**HMAC check implementation in JavaScript (pseudo-code):**
- 
-```javascript
-var crypto = require('crypto')
-const hmac = crypto.createHmac('sha256', CLIENT_SECRET)
-hmac.update(raw_request_body)
- 
-if (request.header('x-adobe-signature') !== hmac.digest('base64')) {
-  throw new Error('x-adobe-signature HMAC check failed')
-}
-```
-
 ## Quotas
 
 There is an upper limit on the number of registrations that you can create. Following table lists the applicable quotas - 
