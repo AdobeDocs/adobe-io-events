@@ -4,9 +4,15 @@ title: Publish Events | Adobe I/O Events SDK
 
 # Publish events
 
-Event publishers can publish events to the event receiver using the ADobe I/O Events SDK. 
+Event publishers can publish events to the event receiver using the Adobe I/O Events SDK. 
 
 For information on installing and using the SDK, please begin by reading the [getting started guide](sdk_getting_started.md).
+
+<InlineAlert variant="help" slots="header, text1" />
+
+Data Residency:
+
+Please note that all custom events are stored in US East region. 
 
 ## Method
 
