@@ -27,11 +27,11 @@ Events are delivered in near real time, so consumers can respond immediately to 
 - **Build Cloud Native Adobe Apps**: 
 Build custom apps that interact with core Adobe services, and automate processes with event-based integrations using [Adobe Developer App Builder](/app-builder/docs/overview/) which comes with the ability to publish/consume Custom I/O Events. 
 
-<InlineAlert variant="help" slots="header, text1" />
+<InlineAlert slots="title, text"/>
 
 Data Residency:
 
-Please note that all custom events are stored in US East region.  
+Please note that all custom events are stored in the **United States (US)** region.  
 
 ## Get Started
 

@@ -8,11 +8,11 @@ Event publishers can publish events to the event receiver using the Adobe I/O Ev
 
 For information on installing and using the SDK, please begin by reading the [getting started guide](sdk_getting_started.md).
 
-<InlineAlert variant="help" slots="header, text1" />
+<InlineAlert slots="title, text"/>
 
 Data Residency:
 
-Please note that all custom events are stored in US East region. 
+Please note that all custom events are stored in the **United States (US)** region.  
 
 ## Method
 

@@ -13,11 +13,11 @@ title: Events Publishing API
    * create your own `Custom Events Provider`
    * create at least one `Event Metadata` associated with the above
 
-<InlineAlert variant="help" slots="header, text1" />
+<InlineAlert slots="title, text"/>
 
 Data Residency:
 
-Please note that all custom events are stored in US East region. 
+Please note that all custom events are stored in the **United States (US)** region.  
 
 ## Throttling Policy
 
