@@ -160,10 +160,6 @@ module.exports = {
             path: "guides/using/analytics-triggers-event-setup.md",
           },
           {
-            title: "Creative Cloud Asset Events",
-            path: "guides/using/cc-asset-event-setup.md",
-          },
-          {
             title: 'Cloud Manager Events',
             path: 'guides/using/cloud-manager-events.md'
           },

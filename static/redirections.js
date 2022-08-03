@@ -82,9 +82,6 @@
         redirectPath =
           prefixPath + "guides/using/analytics-triggers-event-setup/";
         break;
-      case "#!adobedocs/adobeio-events/master/using/cc-asset-event-setup.md":
-        redirectPath = prefixPath + "guides/using/cc-asset-event-setup/";
-        break;
       case "#!adobedocs/adobeio-events/master/using/cloudmanager.md":
         hostChange =
           "https://developer.adobe.com/experience-cloud/cloud-manager/guides/getting-started/create-event-integration/";
