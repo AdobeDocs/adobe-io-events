@@ -217,9 +217,12 @@ For development, you must first provide consent for yourself, using the followin
 https://ims-na1.adobelogin.com/ims/authorize/v1?response_type=code&client_id=api_key_from_console&scope=AdobeID%2Copenid%2Ccreative_sdk
 ```
 
-You will replace `api_key_from_console` with the **Client ID** value from the *Credentials* tab for the event registration details in Console.
 
-Log in to [Creative Cloud Assets (<https://assets.adobe.com>)](https://assets.adobe.com). Use the same Adobe ID as the one you used in the `Adobe Developer Console`. Now upload a file and check the ngrok logs again. If all went well, then an `asset_created` event was just delivered to your webhook. 
+You will need to replace `api_key_from_console` with the **Client ID** value provided on the *Credentials* tab of the *Registration Details* in your Console project.
+
+A good utility for testing this process is the [Adobe IMS OAuth Playground](https://runtime.adobe.io/api/v1/web/io-solutions/adobe-oauth-playground/oauth.html). Follow instructions in the FAQ.
+
+Log in to [Creative Cloud Assets (<https://assets.adobe.com>)](https://assets.adobe.com). Use the same Adobe ID as the one you used in the `Adobe Developer Console`. Now create a library and check the ngrok logs again. If all went well, then an `cc_library_created` event was just delivered to your webhook. 
 
 ![The POST request received in ngrok](./img/ngrok_2.png "The POST request received in ngrok")  
 
@@ -227,7 +230,7 @@ Log in to [Creative Cloud Assets (<https://assets.adobe.com>)](https://assets.ad
 
 In a real-world application, you would use the credentials of an authenticated user to register a webhook through the API. This way you will receive events related to that user. Depending on your scenario and the Adobe service you're targeting, you may have to enable different types of authentication; see the [Adobe I/O Authentication Overview](/developer-console/docs/guides/authentication/) for more information on how to set up your app for authentication with your users.
 
-For Creative Cloud Asset events, you'll need to add the Creative Cloud Libraries to your integration and implement the User Auth UI; see [Setting Up Creative Cloud Asset Events](./using/cc-asset-event-setup.md) for details. 
+For Creative Cloud Libraries events, you'll need to add the `Creative Cloud Libraries` provider to your integration and implement the User Auth UI.
 
 ## Security Considerations
 
