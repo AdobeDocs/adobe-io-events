@@ -13,22 +13,19 @@
 import React from 'react';
 import { withPrefix } from 'gatsby';
 
-export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
+export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
     <script src={withPrefix('/redirections.js')}></script>
   ]);
   setHeadComponents([
-    <script data-scc-position="top-right" data-scc-api-code="CC-Libraries-SDK">
+    <script id="scc-widget" data-scc-position="top-right" data-scc-api-code="CC-Libraries-SDK">
       var script = document.createElement('script');
       script.async = true;
       script.defer = true;
-      script.src = 'https://cdn.jsdelivr.net/gh/shikhartanwar/scc-bundle@latest/dist/index_bundle.js';
+      script.src = 'https://shikhartanwar.github.io/scc-bundle/dist/index_bundle.js';
 
       var entry = document.getElementsByTagName('script')[0];
       entry.parentNode.insertBefore(script, entry);
     </script>
   ]);
-  setPostBodyComponents([
-    <div id="scc-widget"></div>
-  ])
 };
