@@ -11,10 +11,24 @@
  */
 
 import React from 'react';
-import {withPrefix} from 'gatsby';
+import { withPrefix } from 'gatsby';
 
-export const onRenderBody = ({setHeadComponents}) => {
+export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
   setHeadComponents([
     <script src={withPrefix('/redirections.js')}></script>
   ]);
+  setHeadComponents([
+    <script data-scc-position="top-right" data-scc-api-code="CC-Libraries-SDK">
+      var script = document.createElement('script');
+      script.async = true;
+      script.defer = true;
+      script.src = 'https://cdn.jsdelivr.net/gh/shikhartanwar/scc-bundle/dist/index_bundle.js';
+
+      var entry = document.getElementsByTagName('script')[0];
+      entry.parentNode.insertBefore(script, entry);
+    </script>
+  ]);
+  setPostBodyComponents([
+    <div id="scc-widget"></div>
+  ])
 };
