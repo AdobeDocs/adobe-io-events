@@ -6,8 +6,8 @@ title: Using Adobe I/O Events
 
 Setting up an integration to subscribe to Adobe I/O Events is straightforward. The following pages guide you through setting up and using Adobe I/O Events with various Adobe solutions.
 
-* [Adobe Experience Manager (AEM) Events](aem/index.md)  
-* [Adobe Analytics Triggers](analytics-triggers-event-setup.md)   
+* [Adobe Experience Manager (AEM) Events](aem/index.md)
+* [Adobe Analytics Triggers](analytics-triggers-event-setup.md)
 * [Cloud Manager Events](/experience-cloud/cloud-manager/guides/getting-started/create-event-integration/)
 * [Adobe Experience Platform Events](experience-platform-event-setup.md)
 * [Privacy Events](privacy-event-setup.md)
