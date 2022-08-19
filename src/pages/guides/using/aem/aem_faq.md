@@ -4,17 +4,40 @@ title: AEM FAQ
 
 # AEM FAQ
 
-## Which versions of AEM is supported for I/O Events?  
+## What are the requirements ? Which versions of AEM is supported for I/O Events?  
 
-We support a range of versions see [Set up AEM Events with Adobe I/O Events](index.md) 
+We support a range of versions see [Set up AEM Events with Adobe I/O Events](./index.md#requirements) 
 
-## What do I need to leverage AEM events?  
+## What does the AEM event payload look like? 
 
-A separate package is required to use AEM I/O Events. 
+Since [aio-lib-java version 0.1.0](https://github.com/adobe/aio-lib-java/releases/tag/aio-lib-java-0.1.0) 
+Adobe IO Events AEM package supports the recommended [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/spec.md) event envelope delivery format.
 
-## What does the AEM event payload look like?  
+The `CloudEvents` event envelope looks like this :
 
-Here are sample payloads for all AEM events: 
+```
+{
+  "datacontenttype": "application/json",
+  "specversion": "1.0",
+  "source": "urn:uuid:<the AEM provider_id>",
+  "type": "<the AEM event_code>",
+  "id": "<the AEM event_id>",
+  "data": "<the AEM event payload>"
+}'
+
+```
+
+when the legacy `adobe_io` envelope looks like :
+
+```
+{
+  "event_id": "<the AEM event_id>",
+  "event": "<tthe AEM event payload>"
+}' 
+```
+
+
+Here are a few sample AEM event payloads: 
 
 - _Asset events:_
     - Asset created:
