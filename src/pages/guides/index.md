@@ -2,6 +2,8 @@
 title: Introduction to Adobe I/O Events Webhooks
 ---
 
+import RetryDoc from '/src/pages/common/retry-doc.md'
+
 # Introduction to Adobe I/O Events Webhooks
 
 With Adobe I/O Events webhooks, your application can sign up to be notified whenever certain events occur. 
@@ -195,17 +197,7 @@ If you made an error transcribing the webhook URL, Adobe I/O Events' test of you
 
 In general, `Adobe I/O Events` will always confirm that your webhook received an event by means of the response code your webhook sends to each HTTP POST request. 
 
-If `Adobe I/O Events` fails to receive a successful response code from your webhook within 10 seconds, it retries the request, including a special header `x-adobe-retry-count` (this header indicates how many times the delivery of an event or a batch of events has been attempted).
-
-<InlineAlert variant="info" slots="text"/>
-
-Please note that if an event delivery fails with a response status code of [400 Bad Request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400) or [505 HTTP Version Not Supported](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505), then those events are **not retried**.
-
-`Adobe I/O Events` will keep on retrying delivery to your webhook for **24 hours** using exponential and fixed backoff strategies. The first retry is attempted after 1 minute and the period between retries doubles after each attempt (second retry is after 2m, etc.), but is at most 15 minutes.
-
-If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the event registration as **Unstable**, but still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid it from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
-
-If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response), `Adobe I/O Events` drops the events, marks the event registration as **Disabled**, and stops sending any further events.
+<RetryDoc/>
 
 To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your events registration. This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
 
@@ -225,9 +217,12 @@ For development, you must first provide consent for yourself, using the followin
 https://ims-na1.adobelogin.com/ims/authorize/v1?response_type=code&client_id=api_key_from_console&scope=AdobeID%2Copenid%2Ccreative_sdk
 ```
 
-You will replace `api_key_from_console` with the **Client ID** value from the *Credentials* tab for the event registration details in Console.
 
-Log in to [Creative Cloud Assets (<https://assets.adobe.com>)](https://assets.adobe.com). Use the same Adobe ID as the one you used in the `Adobe Developer Console`. Now upload a file and check the ngrok logs again. If all went well, then an `asset_created` event was just delivered to your webhook. 
+You will need to replace `api_key_from_console` with the **Client ID** value provided on the *Credentials* tab of the *Registration Details* in your Console project.
+
+A good utility for testing this process is the [Adobe IMS OAuth Playground](https://runtime.adobe.io/api/v1/web/io-solutions/adobe-oauth-playground/oauth.html). Follow instructions in the FAQ.
+
+Log in to [Creative Cloud Assets (<https://assets.adobe.com>)](https://assets.adobe.com). Use the same Adobe ID as the one you used in the `Adobe Developer Console`. Now create a library and check the ngrok logs again. If all went well, then an `cc_library_created` event was just delivered to your webhook. 
 
 ![The POST request received in ngrok](./img/ngrok_2.png "The POST request received in ngrok")  
 
@@ -235,7 +230,7 @@ Log in to [Creative Cloud Assets (<https://assets.adobe.com>)](https://assets.ad
 
 In a real-world application, you would use the credentials of an authenticated user to register a webhook through the API. This way you will receive events related to that user. Depending on your scenario and the Adobe service you're targeting, you may have to enable different types of authentication; see the [Adobe I/O Authentication Overview](/developer-console/docs/guides/authentication/) for more information on how to set up your app for authentication with your users.
 
-For Creative Cloud Asset events, you'll need to add the Creative Cloud Libraries to your integration and implement the User Auth UI; see [Setting Up Creative Cloud Asset Events](./using/cc-asset-event-setup.md) for details. 
+For Creative Cloud Libraries events, you'll need to add the `Creative Cloud Libraries` provider to your integration and implement the User Auth UI.
 
 ## Security Considerations
 
@@ -286,48 +281,55 @@ You can also consider implementing a retry mechanism to call public key urls in 
 
 **Verifying the Signature**
 
-Once you have the public keys fetched as plain text, you can now verify the digital signatures by following the steps as below:
+Once you have the `PEM` public keys, you can now verify the digital signatures by following the steps as below:
 
-1. Decrypt the message digest using the public key.
-2. Compute the hash message digest of the event using `rsa-sha256` hash function algorithm. For computing:
-   - Use the webhook request payload for event deliveries.
-   - Use the challenge code in the query param for challenge deliveries.
-3. Validate each signature by comparing:
-   - the digest received (in step 1) after decrypting the signature using the public key.
-   - and the message digest computed (in step 2) by hashing.
-4. If any one of the signature validation is successful, then the event is valid.
+1. Create the PublicKey object using the pem public key.
+2. Create a `Signature` (for java apps) or `crypto` -> [Verify](https://nodejs.org/docs/latest-v14.x/api/crypto.html#crypto_class_verify) (for nodeJS apps) instance using the `rsa-sha256` hashing algorithm.
+3. Supply **raw** event payload to the instance created in above step.
+4. Use the public key and decoded signature to verify. 
+5. Do the above for both the signatures and if any one of the signature validations is successful, then the event is valid.
 
 A pictorial block diagram for the signature validation steps above that you should follow 
 
 ![Digital Signature Validation Steps](./img/digi_signature_verification_block_diagram.png "Digital Signature Validation Steps")
 
-Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.2/src/index.js#L516) signature verification method of the events sdk to understand the above signature validation steps for your webhook app.
+Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.5/src/index.js#L519) signature verification method of the events sdk (**nodeJS** based) to understand the above signature validation steps for your webhook app.
 
-<InlineAlert variant="info" slots="text"/>
-Kindly note that this digital signature verification process comes **out-of-the-box** for I/O Runtime actions, and no action is required on that end.
+For Java based webhook applications, one can verify signature using the below code snippet.
 
-#### HMAC Signatures for Security Verification
-
-<InlineAlert variant="warning" slots="text"/>
-I/O Events has now marked this HMAC based signature verification process as deprecated and this will finally be EOL by end of Q2'2022.
-
-In this event verification strategy, Adobe I/O Events  adds a `x-adobe-signature` header to each HTTP request it sends to your webhook URL, which allows you to verify that the request was really made by Adobe I/O Events.
- 
-This signature or "message authentication code" is computed using a cryptographic hash function and a secret key applied to the body of the HTTP request. In particular, a SHA256 [HMAC](https://en.wikipedia.org/wiki/HMAC) is computed of the JSON payload, using the **Client Secret** provided in the `Adobe Developer Console` as a secret key, and then turned into a Base64 digest. You can find your client secret in the *Credentials* tab for your event registration in Console.
- 
-Upon receiving a request, you should repeat this calculation and compare the result to the value in the `x-adobe-signature` header, and reject the request unless they match. Since the client secret is known only by you and Adobe I/O Events, this is a reliable way to verify the authenticity of the request.
-
-**HMAC check implementation in JavaScript (pseudo-code):**
- 
 ```javascript
-var crypto = require('crypto')
-const hmac = crypto.createHmac('sha256', CLIENT_SECRET)
-hmac.update(raw_request_body)
- 
-if (request.header('x-adobe-signature') !== hmac.digest('base64')) {
-  throw new Error('x-adobe-signature HMAC check failed')
+public boolean verifySignature(String message, String signature) throws Exception {
+    byte[] data = message.getBytes(UTF_8);
+
+    // signature generated at I/O Events side is Base64 encoded, so it must be decoded
+    byte[] sign = Base64.decodeBase64(signature);
+    String keyFile = "public_key_pem_file.pem";
+    Signature sig = Signature.getInstance("SHA256withRSA");
+    sig.initVerify(getPublic(keyFile));
+    sig.update(data);
+    return sig.verify(sign);
+}
+
+//Method to retrieve the Public Key from a file
+private PublicKey getPublic(String filename) throws Exception {
+  String key = new String(Files.readAllBytes(new File(filename).toPath()));
+
+  String publicKeyPEM = key
+      .replace("-----BEGIN PUBLIC KEY-----", "")
+      .replaceAll(System.lineSeparator(), "")
+      .replace("-----END PUBLIC KEY-----", "");
+
+  byte[] encoded = Base64.decodeBase64(publicKeyPEM);
+
+  KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+  X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
+  return keyFactory.generatePublic(keySpec);
 }
 ```
+
+
+<InlineAlert variant="info" slots="text"/>
+Kindly note that this digital signature verification process comes out-of-the-box for I/O Runtime actions, and no action is required on that end.
 
 ## Quotas
 

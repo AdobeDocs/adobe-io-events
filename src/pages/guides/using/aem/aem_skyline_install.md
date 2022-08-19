@@ -10,10 +10,8 @@ To integrate with AEM On Premise, please refer to the other associated [document
 To install and configure the Adobe I/O Events package on AEM as a Cloud Service:
 
 1. [Set up your workspace in the Adobe Developer Console](aem_console_setup.md)
-  * [prepare your JWT Authentication public/private keys](aem_key_setup.md)
-2. Use Cloud Manager environment variables to power your [OSGI configuration](aem_workspace_setup.md)
-3. Optionally do some more [configuration fine tuning](aem_advanced_configurations.md)`
-4. Deploy these osgi configurations, together with `aem-aio-events` package using Cloud Manager
-  * you may refer to this working sample [aio-aem-events-sample](https://github.com/francoisledroff/aio-aem-events-sample)
-4. Trigger `aem-aio-events` package [Status check endpoint](aem_status_check.md)
-
+   * [Prepare your JWT Authentication public/private keys](aem_key_setup.md)
+2. Use Cloud Manager environment variables to power your [OSGI configuration](aem_workspace_setup.md).
+3. Optionally do some more [configuration fine tuning](aem_advanced_configurations.md).
+4. Deploy these osgi configurations, together with `aem-aio-events` package using Cloud Manager. You may refer to this working sample [aio-aem-events-sample](https://github.com/francoisledroff/aio-aem-events-sample).
+4. Trigger `aem-aio-events` package [status check endpoint](aem_status_check.md).

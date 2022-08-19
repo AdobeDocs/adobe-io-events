@@ -13,6 +13,12 @@ title: Events Publishing API
    * create your own `Custom Events Provider`
    * create at least one `Event Metadata` associated with the above
 
+<InlineAlert slots="title, text"/>
+
+Data Residency:
+
+Please note that all custom events are stored in the **United States (US)** region.  
+
 ## Throttling Policy
 
 We do have a throttling policy in place, we accept up to 3,000 requests / 5 secs per api-key.
