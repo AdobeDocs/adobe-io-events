@@ -23,8 +23,7 @@ The `CloudEvents` event envelope looks like this :
   "type": "<the AEM event_code>",
   "id": "<the AEM event_id>",
   "data": "<the AEM event payload>"
-}'
-
+}
 ```
 
 when the legacy `adobe_io` envelope looks like :
@@ -32,10 +31,12 @@ when the legacy `adobe_io` envelope looks like :
 ```
 {
   "event_id": "<the AEM event_id>",
-  "event": "<tthe AEM event payload>"
-}' 
+  "event": "<the AEM event payload>"
+} 
 ```
 
+The AEM event payloads follow the [Adobe XDM Event Model](https://github.com/adobe/xdm/tree/master/schemas/common),
+a model based on the [json-ld w3c activity streams spec](https://github.com/w3c/activitystreams/blob/master/ns/activitystreams.jsonld)
 
 Here are a few sample AEM event payloads: 
 
