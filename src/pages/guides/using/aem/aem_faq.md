@@ -17,11 +17,11 @@ The `CloudEvents` event envelope looks like this :
 
 ```
 {
-  "datacontenttype": "application/json",
   "specversion": "1.0",
   "source": "urn:uuid:<the AEM provider_id>",
   "type": "<the AEM event_code>",
   "id": "<the AEM event_id>",
+  "datacontenttype": "application/json",
   "data": "<the AEM event payload>"
 }
 ```
@@ -35,8 +35,8 @@ when the legacy `adobe_io` envelope looks like :
 } 
 ```
 
-The AEM event payloads follow the [Adobe XDM Event Model](https://github.com/adobe/xdm/tree/master/schemas/common),
-a model based on the [json-ld w3c activity streams spec](https://github.com/w3c/activitystreams/blob/master/ns/activitystreams.jsonld)
+The AEM event payloads follow an [Adobe XDM Event Model](https://github.com/adobe/xdm-event-model),
+based on the [json-ld w3c activity streams spec](https://github.com/w3c/activitystreams/blob/master/ns/activitystreams.jsonld)
 
 Here are a few sample AEM event payloads: 
 
