@@ -46,14 +46,16 @@ module.exports = {
           {
             title: "Runtime Actions As Webhook",
             path: "guides/runtime_webhooks.md",
+            pages: [
+              {
+                title: "Automatic event registrations",
+                path: "guides/autosubscriptions.md",
+              },
+            ]
           },
           {
             title: "Introduction to Journaling",
             path: "guides/journaling_intro.md",
-          },
-          {
-            title: "App Builder Auto Subscriptions",
-            path: "guides/autosubscriptions.md",
           },
         ],
       },
