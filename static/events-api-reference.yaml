@@ -1151,6 +1151,10 @@ definitions:
         readOnly: true
         minLength: 0
         maxLength: 255
+      enabled:
+        type: boolean
+        description: Enable or disable the registration
+        readOnly: true
     description: the Input necessary to create an Adobe I/O Event Provider using the internal API
   RegistrationCollectionHalModel:
     type: object
@@ -1260,6 +1264,10 @@ definitions:
         readOnly: true
         minLength: 0
         maxLength: 255
+      enabled:
+        type: boolean
+        description: Enable or disable the registration
+        readOnly: true
     description: The Input Model necessary to PATCH/PUT an Adobe I/O Events Registration
   Trace:
     type: object
