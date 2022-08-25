@@ -1141,10 +1141,7 @@ definitions:
         description: Delivery type can either be webhook|webhook_batch|journal
         readOnly: true
         pattern: webhook|webhook_batch|journal
-        enum:
-          - WEBHOOK
-          - JOURNAL
-          - WEBHOOK_BATCH
+        default: webhook
       runtime_action:
         type: string
         description: (Optional) Runtime action to be invoked by the published events
@@ -1254,10 +1251,7 @@ definitions:
         description: Delivery type can either be webhook|webhook_batch|journal
         readOnly: true
         pattern: webhook|webhook_batch|journal
-        enum:
-          - WEBHOOK
-          - JOURNAL
-          - WEBHOOK_BATCH
+        default: webhook
       runtime_action:
         type: string
         description: (Optional) Runtime action to be invoked by the published events
