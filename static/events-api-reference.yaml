@@ -441,101 +441,196 @@ paths:
       responses:
         default:
           description: successful operation
-  '/events/organizations/{consumerOrgId}/integrations/{credentialId}/registrations':
-    get:
-      tags:
-        - Registrations
-      summary: List all registration details
-      operationId: getRegistrations
-      produces:
-        - application/json
-      parameters:
-        - $ref: '#/parameters/consumerOrgId'
-        - $ref: '#/parameters/credentialId'
-        - $ref: '#/parameters/authorization'
-        - $ref: '#/parameters/x-api-key'
-        - $ref: '#/parameters/x-ims-org-id'
-        - name: delivery_type
-          in: query
-          required: false
-          type: string
-          enum:
-            - WEBHOOK
-            - JOURNAL
-            - WEBHOOK_BATCH
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Registration'
+  '/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations':
     post:
       tags:
         - Registrations
-      summary: Create a Webhook/Journal registration for given integration
-      operationId: createRegistrationCli
+      summary: Create a Webhook/Journal registration for given workspace
+      operationId: createRegistration
       consumes:
         - application/json
       produces:
-        - application/json
+        - application/hal+json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - $ref: '#/parameters/credentialId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
-        - $ref: '#/parameters/x-ims-org-id'
         - in: body
           name: body
+          description: The Input Model necessary to create an Adobe I/O Events Registration
           required: false
           schema:
-            $ref: '#/definitions/Registration'
+            $ref: '#/definitions/RegistrationCreateModel'
       responses:
-        '200':
-          description: successful operation
+        '201':
+          description: Successful creation
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Registration'
-  '/events/organizations/{consumerOrgId}/integrations/{credentialId}/registrations/{registrationId}':
+            $ref: '#/definitions/RegistrationHalModel'
+        '400':
+          description: Bad request, possible issue with the request payload
+        '409':
+          description: Maximum registration limit hit for client id or org
     get:
       tags:
         - Registrations
-      summary: Get registration details based on Organization ID, Integration ID, and Registration ID
-      operationId: getRegistrationDetails
+      summary: Get registration for registration id
+      operationId: getRegistrationsById
       produces:
-        - application/json
+        - application/hal+json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - $ref: '#/parameters/credentialId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
         - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
-        - $ref: '#/parameters/x-ims-org-id'
       responses:
         '200':
-          description: successful operation
+          description: Successfully fetched registration
           schema:
-            $ref: '#/definitions/Registration'
+            $ref: '#/definitions/RegistrationHalModel'
+        '404':
+          description: Registration does not exist
+  '/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}':
+    get:
+      tags:
+        - Registrations
+      summary: Get registration for registration id
+      operationId: getRegistrationById
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+      responses:
+        '200':
+          description: Successfully fetched registration
+          schema:
+            $ref: '#/definitions/RegistrationHalModel'
+        '404':
+          description: Registration does not exist
+    put:
+      tags:
+        - Registrations
+      summary: Updates a Webhook or a Journal registration specified by the Registration ID.
+      operationId: updateRegistrationById
+      consumes:
+        - application/json
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - in: body
+          name: body
+          description: The Input Model necessary to create an Adobe I/O Events Registration
+          required: true
+          schema:
+            $ref: '#/definitions/RegistrationUpdateModel'
+      responses:
+        '200':
+          description: Successful update
+          schema:
+            $ref: '#/definitions/RegistrationHalModel'
+        '400':
+          description: Bad request, possible issue with the request payload
+        '404':
+          description: Registration does not exist
+    patch:
+      tags:
+        - Registrations
+      summary: Patches a Webhook or a Journal registration.
+      operationId: patchRegistrationById
+      consumes:
+        - application/json-patch+json
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - in: body
+          name: body
+          description: The Json Patch of the Registration Update Model to patch an existing registration
+          required: true
+          schema:
+            $ref: '#/definitions/JsonPatch'
+      responses:
+        '200':
+          description: Successful patching
+          schema:
+            $ref: '#/definitions/RegistrationHalModel'
+        '400':
+          description: Bad request, possible issue with the request payload
+        '404':
+          description: Registration does not exist
     delete:
       tags:
         - Registrations
-      summary: Delete registration details based on Organization ID, Integration ID, and Registration ID
-      operationId: deleteRegistrationDetails
+      summary: Delete registration by Registration ID
+      operationId: deleteRegistration
       produces:
-        - application/json
+        - text/plain
+      parameters:
+      - $ref: '#/parameters/consumerOrgId'
+      - $ref: '#/parameters/projectId'
+      - $ref: '#/parameters/workspaceId'
+      - $ref: '#/parameters/registrationId'
+      - $ref: '#/parameters/authorization'
+      - $ref: '#/parameters/x-api-key'
+      responses:
+        '204':
+          description: Successful deletion
+        '404':
+          description: The registration does not exist
+  '/events/{consumerOrgId}/registrations':
+    get:
+      tags:
+        - Registrations
+      summary: Get all registrations for consumer org ID
+      operationId: getRegistrationByConsumerOrgId
+      produces:
+        - application/hal+json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - $ref: '#/parameters/credentialId'
-        - $ref: '#/parameters/registrationId'
+        - name: page
+          in: query
+          description: The page number. Default value is 0
+          required: false
+          type: integer
+          default: 0
+          format: int32
+        - name: size
+          in: query
+          description: The size of each page. Default page size 10. Max allowed size 100
+          required: false
+          type: integer
+          default: 10
+          maximum: 100
+          minimum: 1
+          format: int32
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
-        - $ref: '#/parameters/x-ims-org-id'
       responses:
         '200':
-          description: successful operation
+          description: Successfully fetched registration
           schema:
-            $ref: '#/definitions/Registration'
+            $ref: '#/definitions/RegistrationPaginatedHalModel'
+        '400':
+          description: Page number or size exceeded or page size is less than 1
   '/events/organizations/{consumerOrgId}/integrations/{credentialId}/tracing/{registrationId}':
     get:
       tags:
@@ -598,11 +693,12 @@ parameters:
   registrationId:
     name: registrationId
     in: path
+    description: The registration Id associated with the registration
     required: true
     type: string
   authorization:
     name: Authorization
-    description: 'Authorization access token in the format "Bearer {TOKEN}".' 
+    description: 'Your authorization token in format "Bearer {token}" It must hold the `I/O Management API` scope (`adobeio_api` scope contained in `s/ent_adobeio_sdk` metascope)'
     required: true
     type: string
     in: header
@@ -890,25 +986,25 @@ definitions:
         maxLength: 255
         pattern: 'https?://(([^/:.\s]+(\.[^/:.\s]+)*)|([0-9](\.[0-9]{3})))(:[0-9]+)?((/[^?#\s]+)(\?[^#\s]+)?(#.+)?)?/?'
     description: The Input Model necessary to POST/PUT an Adobe I/O Events Provider
-  EventsOfInterest:
+  EventsOfInterestModel:
     type: object
+    required:
+      - event_code
     properties:
+      provider:
+        type: string
       event_code:
         type: string
         minLength: 1
         maxLength: 255
-      event_label:
-        type: string
-      event_description:
-        type: string
       provider_id:
         type: string
         minLength: 1
         maxLength: 38
-      provider:
+      event_label:
         type: string
-        minLength: 1
-        maxLength: 255
+      event_description:
+        type: string
       provider_label:
         type: string
       provider_description:
@@ -917,69 +1013,254 @@ definitions:
         type: string
       event_delivery_format:
         type: string
-  Registration:
+    description: Adobe I/O Events Events of Interest for a Registration
+  RegistrationHalModel:
     type: object
-    required:
-      - client_id
-      - name
     properties:
       id:
         type: integer
         format: int64
+        description: The id of the webhook registratiom. This is different from the registration id, and is used in the Developer Console URL to identify the registration
       name:
         type: string
+        description: The name of the registration which will be displayed on Developer Console
+      description:
+        type: string
+        description: The description of the registration
+      client_id:
+        type: string
+        description: Client id for which the registration is created, as obtained from Developer Console
+      registration_id:
+        type: string
+        description: Unique id associated with the registration
+      events_of_interest:
+        type: array
+        description: The events for which the registration is to be subscribed to
+        uniqueItems: true
+        items:
+          $ref: '#/definitions/EventsOfInterestModel'
+      webhook_status:
+        type: string
+        description: Status of the webhook
+      created_date:
+        type: string
+        description: Date when the registration was created
+      updated_date:
+        type: string
+        description: Date when the registration was last updated
+      consumer_id:
+        type: string
+        description: Consumer id associated with the registration, obtained from Developer Console
+      project_id:
+        type: string
+        description: Project id associated with the registration, obtained from Developer Console
+      workspace_id:
+        type: string
+        description: Workspace id associated with the registration, obtained from Developer Console
+      webhook_url:
+        type: string
+        description: (Optional) A valid webhook url where the events would be delivered
+      delivery_type:
+        type: string
+        description: Delivery type can either be webhook|webhook_batch|journal
+      runtime_action:
+        type: string
+        description: (Optional) Runtime action to be invoked by the published events
+      enabled:
+        type: boolean
+        description: Indicates if the registration is enabled or disabled
+      _links:
+        type: object
+        properties:
+          rel:events:
+            description: link to Journaling URL to fetch events
+            $ref: '#/definitions/HALLink'
+          rel:trace:
+            description: link to fetch the tracing events for the purpose of debugging
+            $ref: '#/definitions/HALLink'
+          self:
+            description: link to self
+            $ref: '#/definitions/HALLink'
+    description: The Adobe I/O Events Registration HAL model
+  EventsOfInterestInputModel:
+    type: object
+    required:
+      - event_code
+    properties:
+      provider:
+        type: string
+      event_code:
+        type: string
+        minLength: 1
+        maxLength: 255
+      provider_id:
+        type: string
+        minLength: 1
+        maxLength: 38
+    description: Adobe I/O Events Events of Interest for a Registration
+  RegistrationCreateModel:
+    type: object
+    required:
+      - client_id
+      - events_of_interest
+      - name
+    properties:
+      client_id:
+        type: string
+        description: Client id for which the registration is created, as obtained from Developer Console
+        readOnly: true
+        minLength: 3
+        maxLength: 255
+      name:
+        type: string
+        description: The name of the webhook registration which will be displayed on Developer Console
+        readOnly: true
         minLength: 3
         maxLength: 255
       description:
         type: string
+        description: The description of the registration
+        readOnly: true
         minLength: 0
         maxLength: 5000
-      client_id:
-        type: string
-        minLength: 3
-        maxLength: 255
       webhook_url:
         type: string
+        description: (Optional) A valid webhook url where the events would be delivered
+        readOnly: true
         minLength: 0
         maxLength: 4000
-      status:
-        type: string
-        enum:
-          - ACCEPTED
-          - VERIFIED
-          - VERIFICATION_FAILED
-          - HOOK_UNREACHABLE
-          - DELETED
-      integration_status:
-        type: string
-        enum:
-          - ENABLED
-          - DISABLED
       events_of_interest:
         type: array
+        description: The events for which the registration is to be subscribed to
+        readOnly: true
         uniqueItems: true
         items:
-          $ref: '#/definitions/EventsOfInterest'
-      registration_id:
-        type: string
-        minLength: 0
-        maxLength: 255
+          $ref: '#/definitions/EventsOfInterestInputModel'
       delivery_type:
         type: string
+        description: Delivery type can either be webhook|webhook_batch|journal
+        readOnly: true
+        pattern: webhook|webhook_batch|journal
         enum:
           - WEBHOOK
           - JOURNAL
           - WEBHOOK_BATCH
-      events_url:
-        type: string
-      created_date:
-        type: string
-      updated_date:
-        type: string
       runtime_action:
         type: string
+        description: (Optional) Runtime action to be invoked by the published events
+        readOnly: true
         minLength: 0
         maxLength: 255
+    description: the Input necessary to create an Adobe I/O Event Provider using the internal API
+  RegistrationCollectionHalModel:
+    type: object
+    properties:
+      _links:
+        type: object
+        properties:
+          self:
+            $ref: '#/definitions/HALLink'
+      _embedded:
+        type: object
+        properties:
+          registrations:
+            type: array
+            description: Adobe I/O Event Registration collection.
+            items:
+              $ref: '#/definitions/RegistrationHalModel'
+    description: Adobe I/O Events Registration Collection HAL model
+  PageMetadata:
+    type: object
+    properties:
+      size:
+        type: integer
+        format: int32
+      number:
+        type: integer
+        format: int32
+      numberOfElements:
+        type: integer
+        format: int32
+      totalElements:
+        type: integer
+        format: int64
+      totalPages:
+        type: integer
+        format: int32
+  RegistrationPaginatedHalModel:
+    type: object
+    properties:
+      page:
+        $ref: '#/definitions/PageMetadata'
+      _links:
+        type: object
+        properties:
+          first:
+            $ref: '#/definitions/HALLink'
+          last:
+            $ref: '#/definitions/HALLink'
+          next:
+            $ref: '#/definitions/HALLink'
+          prev:
+            $ref: '#/definitions/HALLink'
+          self:
+            $ref: '#/definitions/HALLink'
+      _embedded:
+        type: object
+        properties:
+          registrations:
+            type: array
+            description: Adobe I/O Event Registration collection.
+            items:
+              $ref: '#/definitions/RegistrationHalModel'
+    description: Adobe I/O Events Registration Collection HAL model for Paginated response
+  RegistrationUpdateModel:
+    type: object
+    required:
+      - events_of_interest
+      - name
+    properties:
+      name:
+        type: string
+        description: The name of the webhook registration which will be displayed on Developer Console
+        readOnly: true
+        minLength: 3
+        maxLength: 255
+      description:
+        type: string
+        description: The description of the registration
+        readOnly: true
+        minLength: 0
+        maxLength: 5000
+      webhook_url:
+        type: string
+        description: (Optional) A valid webhook url where the events would be delivered
+        readOnly: true
+        minLength: 0
+        maxLength: 4000
+      events_of_interest:
+        type: array
+        description: The events for which the registration is to be subscribed to
+        readOnly: true
+        uniqueItems: true
+        items:
+          $ref: '#/definitions/EventsOfInterestInputModel'
+      delivery_type:
+        type: string
+        description: Delivery type can either be webhook|webhook_batch|journal
+        readOnly: true
+        pattern: webhook|webhook_batch|journal
+        enum:
+          - WEBHOOK
+          - JOURNAL
+          - WEBHOOK_BATCH
+      runtime_action:
+        type: string
+        description: (Optional) Runtime action to be invoked by the published events
+        readOnly: true
+        minLength: 0
+        maxLength: 255
+    description: The Input Model necessary to PATCH/PUT an Adobe I/O Events Registration
   Trace:
     type: object
     properties:
