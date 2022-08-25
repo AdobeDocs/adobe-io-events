@@ -1108,51 +1108,43 @@ definitions:
       client_id:
         type: string
         description: Client id for which the registration is created, as obtained from Developer Console
-        readOnly: true
         minLength: 3
         maxLength: 255
       name:
         type: string
         description: The name of the webhook registration which will be displayed on Developer Console
-        readOnly: true
         minLength: 3
         maxLength: 255
       description:
         type: string
         description: The description of the registration
-        readOnly: true
         minLength: 0
         maxLength: 5000
       webhook_url:
         type: string
         description: (Optional) A valid webhook url where the events would be delivered
-        readOnly: true
         minLength: 0
         maxLength: 4000
       events_of_interest:
         type: array
         description: The events for which the registration is to be subscribed to
-        readOnly: true
         uniqueItems: true
         items:
           $ref: '#/definitions/EventsOfInterestInputModel'
       delivery_type:
         type: string
         description: Delivery type can either be webhook|webhook_batch|journal
-        readOnly: true
         pattern: webhook|webhook_batch|journal
         default: webhook
       runtime_action:
         type: string
         description: (Optional) Runtime action to be invoked by the published events
-        readOnly: true
         minLength: 0
         maxLength: 255
       enabled:
         type: boolean
         description: Enable or disable the registration
-        readOnly: true
-    description: the Input necessary to create an Adobe I/O Event Provider using the internal API
+    description: The Input Model necessary to create an Adobe I/O Events Registration
   RegistrationCollectionHalModel:
     type: object
     properties:
@@ -1224,44 +1216,37 @@ definitions:
       name:
         type: string
         description: The name of the webhook registration which will be displayed on Developer Console
-        readOnly: true
         minLength: 3
         maxLength: 255
       description:
         type: string
         description: The description of the registration
-        readOnly: true
         minLength: 0
         maxLength: 5000
       webhook_url:
         type: string
         description: (Optional) A valid webhook url where the events would be delivered
-        readOnly: true
         minLength: 0
         maxLength: 4000
       events_of_interest:
         type: array
         description: The events for which the registration is to be subscribed to
-        readOnly: true
         uniqueItems: true
         items:
           $ref: '#/definitions/EventsOfInterestInputModel'
       delivery_type:
         type: string
         description: Delivery type can either be webhook|webhook_batch|journal
-        readOnly: true
         pattern: webhook|webhook_batch|journal
         default: webhook
       runtime_action:
         type: string
         description: (Optional) Runtime action to be invoked by the published events
-        readOnly: true
         minLength: 0
         maxLength: 255
       enabled:
         type: boolean
         description: Enable or disable the registration
-        readOnly: true
     description: The Input Model necessary to PATCH/PUT an Adobe I/O Events Registration
   Trace:
     type: object
