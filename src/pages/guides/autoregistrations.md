@@ -1,5 +1,5 @@
 ---
-title: App Builder webhook auto subscriptions
+title: App Builder webhook auto registration
 ---
 
 # Overview

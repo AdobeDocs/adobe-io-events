@@ -49,7 +49,7 @@ module.exports = {
             pages: [
               {
                 title: "Automatic event registrations",
-                path: "guides/autosubscriptions.md",
+                path: "guides/autoregistrations.md",
               },
             ]
           },
