@@ -25,16 +25,17 @@ Whenever a matching event gets triggered, your application is notified.
 
 ## Getting Started
 - [Introduction to Webhooks](guides/index.md)
-- [Introduction to Journaling](guides/journaling_intro.md)   
-   
+- [Introduction to Journaling](guides/journaling_intro.md)
+
 - Jump to the Adobe Developer Console documentation to learn how to [add Events to a project](/developer-console/docs/guides/services/services-add-event/)
 - Discover the [available events](guides/using/index.md)
 
 ## Going Further
-- Automate your Adobe I/O Events integrations, using 
-  * [Adobe I/O Events API](guides/api/index.md)  
-  * [Adobe I/O Events CLI](guides/cli/index.md) 
-  * [Adobe I/O Events SDK](guides/sdk/index.md) 
+- Automate your Adobe I/O Events integrations, using
+  * [Adobe I/O Events API](guides/api/index.md)
+  * [Adobe I/O Events CLI](guides/cli/index.md)
+  * [Adobe I/O Events SDK](guides/sdk/index.md)
+  * [Automatic event registrations](guides/autoregistrations.md)
 
 - [Ask questions, report bugs, make feature requests, and spark discussions](support/index.md).
 

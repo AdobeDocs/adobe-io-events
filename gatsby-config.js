@@ -46,6 +46,12 @@ module.exports = {
           {
             title: "Runtime Actions As Webhook",
             path: "guides/runtime_webhooks.md",
+            pages: [
+              {
+                title: "Automatic event registrations",
+                path: "guides/autoregistrations.md",
+              },
+            ]
           },
           {
             title: "Introduction to Journaling",
