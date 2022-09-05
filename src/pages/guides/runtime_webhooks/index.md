@@ -40,7 +40,7 @@ With integration between I/O Events and Adobe I/O Runtime, you don't need to wor
 
 After setting up a runtime action as webhook, upon its successful invocation, you can see custom response returned from your own runtime action in the `Debug Tracing` webhook response section as below.
 
-![Debug Tracing Webhook Response New on Adobe Developer Console](./img/debug_tracing_webhook_response_new.png)
+![Debug Tracing Webhook Response on Adobe Developer Console](../img/debug_tracing_webhook_response_new.png)
 
 However, in case of any failed invocation to your webhook, you will get an error response body with an activation id for the same. This helps users to debug their actions as below
 
@@ -50,8 +50,8 @@ However, in case of any failed invocation to your webhook, you will get an error
    	- Your Runtime Action  
  - In case of failure in the signature verification step, this is how you will get the error response and the failed activation id for the same.
 
-    ![Activation Id for Failed Signature Verification](./img/activation_id_for_failed_signature.png)
+    ![Activation Id for Failed Signature Verification](../img/activation_id_for_failed_signature.png)
 
  - For failed invocation to your runtime action, you will get an error response with the failed activation id for the same like below
 
-    ![Activation Id for Failed User Action](./img/activation_id_for_failed_user_action.png)
+    ![Activation Id for Failed User Action](../img/activation_id_for_failed_user_action.png)
