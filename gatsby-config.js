@@ -45,11 +45,11 @@ module.exports = {
           },
           {
             title: "Runtime Actions As Webhook",
-            path: "guides/runtime_webhooks.md",
+            path: "guides/runtime_webhooks/index.md",
             pages: [
               {
                 title: "Automatic event registrations",
-                path: "guides/autoregistrations.md",
+                path: "guides/runtime_webhooks/autoregistrations.md",
               },
             ]
           },

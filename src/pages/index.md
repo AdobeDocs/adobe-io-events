@@ -35,7 +35,7 @@ Whenever a matching event gets triggered, your application is notified.
   * [Adobe I/O Events API](guides/api/index.md)
   * [Adobe I/O Events CLI](guides/cli/index.md)
   * [Adobe I/O Events SDK](guides/sdk/index.md)
-  * [Automatic event registrations](guides/autoregistrations.md)
+  * [Automatic event registrations](guides/runtime_webhooks/autoregistrations.md)
 
 - [Ask questions, report bugs, make feature requests, and spark discussions](support/index.md).
 
