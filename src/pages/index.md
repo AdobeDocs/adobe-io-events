@@ -15,7 +15,7 @@ Adobe I/O Events enables building reactive, event-driven applications, based on 
 
 Events are triggered by an **Event Provider**, like Adobe Creative Cloud Assets, whenever a certain real-world action occurs, such as creating a new asset.
 
-To start listening for events, register you application, specifying which **Event Types** from which **Event Providers** it wants to receive.
+To start listening for events, register your application, specifying which **Event Types** from which **Event Providers** it wants to receive.
 Whenever a matching event gets triggered, your application is notified.
 
 ## Prerequisites
