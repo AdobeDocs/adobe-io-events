@@ -45,11 +45,11 @@ module.exports = {
           },
           {
             title: "Runtime Actions As Webhook",
-            path: "guides/runtime_webhooks.md",
+            path: "guides/runtime_webhooks/index.md",
             pages: [
               {
                 title: "Automatic event registrations",
-                path: "guides/autoregistrations.md",
+                path: "guides/runtime_webhooks/autoregistrations.md",
               },
             ]
           },
@@ -164,10 +164,6 @@ module.exports = {
           {
             title: "Integrate Analytics Triggers",
             path: "guides/using/analytics-triggers-event-setup.md",
-          },
-          {
-            title: "Creative Cloud Asset Events",
-            path: "guides/using/cc-asset-event-setup.md",
           },
           {
             title: 'Cloud Manager Events',

@@ -1,5 +1,9 @@
 ---
-title: Adobe I/O Events Support
+keywords:
+  - Debugging Common Issues
+  - Debug Tracing
+title: AAdobe I/O Events Support
+description: Learn where to ask questions, report bugs, make feature requests, and spark discussions.
 ---
 
 <Hero slots="heading, text"/>

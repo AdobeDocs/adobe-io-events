@@ -23,6 +23,8 @@ service looks up the following OSGI configuration keys (refer to your [Adobe Dev
 * `aio.api.key` your Adobe Developer Console jwt credential API Key (or Client ID) (`project.workspace.details.credentials[i].jwt.client_id`)
 * `aio.client.secret` your Adobe Developer Console jwt credential client secret (`project.workspace.details.credentials[i].jwt.client_secret`)
 * `aio.meta.scopes` a comma separated list of metascopes associated with your API, see your Adobe Developer Console jwt credential metascopes (`project.workspace.details.credentials[i].jwt.meta_scopes`)
+   * The metascope needs to be in the format: `/s/<metascope1>,/s/<metascope2>` as opposed to how they are enlisted in the [project metadata json](aem_console_setup.md#download-your-adobe-developer-console-project-metadata-file).
+   * **For example:** `/s/event_reciever_api,/s/ent_adobeio_sdk`
 * `aio.technical.account.id` your Adobe Developer Console jwt credential technical account id (`project.workspace.details.credentials[i].jwt.technical_account_id`)
 * `aio.encoded.pkcs8` your private key (in a base64 encoded pkcs8 format) see our [JWT public/private key management guide](aem_key_setup.md).
 

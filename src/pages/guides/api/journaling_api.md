@@ -38,23 +38,21 @@ A batch of events returned by the Journaling API looks similar to the following 
 
 ### Finding the journaling endpoint URL
 
-Every event registration has a corresponding unique journaling endpoint URL. This URL is displayed on the I/O Console - 
+Every event registration has a corresponding unique journaling endpoint URL. This URL is displayed on the Adobe Developer Console - 
 
-1. Log into the [Adobe Developer Console](/console) and open your integration. 
+1. Log into the [Adobe Developer Console](/console) and open your project.
 
-2. Select the Events tab. 
+2. Navigate to the appropriate Event registration using the left sidebar under the Events section.
 
-3. Under Event Providers, find the event registration for which you want to pull events and select View.
+3. Under the Event Delivery Method section, copy the URL for the unique api endpoint.
 
-4. Find the Journaling section of the event details and copy the URL for the unique endpoint. 
-
-5. Be sure to add the `I/O Management API` as a service in your integration (using the `API` menu in the Adobe Developer Console), in order to be able to invoke the journaling API.
+4. Be sure to add the `I/O Management API` as a service in your integration in order to be able to invoke the journaling API. Click on Add to project > API > I/O Management API.
 
 ### Obtaining an access token to call the API
 
 To issue the API call, you need to provide three additional parameters: 
 
-* Your integration's API key. This is displayed in the Overview tab for your integration in the Adobe Developer Console.
+* Your integration's API key (Client ID). It can be found either on the Project overview page, in the Credentials tab of the Event registration, or on the specific credential page.
 * A JWT token. See [Authentication: Creating a JWT Token](/developer-console/docs/guides/authentication/JWT/) for how to create a JWT token.
 * Your organization id in the format `some_id@AdobeOrg`. This is also displayed in the Overview tab for your integration in the Adobe Developer Console.
 

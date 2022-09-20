@@ -1,5 +1,12 @@
 ---
+keywords:
+  - Webhook
+  - Testing with ngrok
+  - Create a Project
+  - Receiving Events
+  - Quotas
 title: Introduction to Adobe I/O Events Webhooks
+description: With Adobe I/O Events webhooks, your application can sign up to be notified whenever certain events occur. For example, when a user uploads a asset, this action generates an event. With the right webhook in place, your application is instantly notified that this event happened.
 ---
 
 import RetryDoc from '/src/pages/common/retry-doc.md'
@@ -217,9 +224,12 @@ For development, you must first provide consent for yourself, using the followin
 https://ims-na1.adobelogin.com/ims/authorize/v1?response_type=code&client_id=api_key_from_console&scope=AdobeID%2Copenid%2Ccreative_sdk
 ```
 
-You will replace `api_key_from_console` with the **Client ID** value from the *Credentials* tab for the event registration details in Console.
 
-Log in to [Creative Cloud Assets (<https://assets.adobe.com>)](https://assets.adobe.com). Use the same Adobe ID as the one you used in the `Adobe Developer Console`. Now upload a file and check the ngrok logs again. If all went well, then an `asset_created` event was just delivered to your webhook. 
+You will need to replace `api_key_from_console` with the **Client ID** value provided on the *Credentials* tab of the *Registration Details* in your Console project.
+
+A good utility for testing this process is the [Adobe IMS OAuth Playground](https://runtime.adobe.io/api/v1/web/io-solutions/adobe-oauth-playground/oauth.html). Follow instructions in the FAQ.
+
+Log in to [Creative Cloud Assets (<https://assets.adobe.com>)](https://assets.adobe.com). Use the same Adobe ID as the one you used in the `Adobe Developer Console`. Now create a library and check the ngrok logs again. If all went well, then an `cc_library_created` event was just delivered to your webhook. 
 
 ![The POST request received in ngrok](./img/ngrok_2.png "The POST request received in ngrok")  
 
@@ -227,7 +237,7 @@ Log in to [Creative Cloud Assets (<https://assets.adobe.com>)](https://assets.ad
 
 In a real-world application, you would use the credentials of an authenticated user to register a webhook through the API. This way you will receive events related to that user. Depending on your scenario and the Adobe service you're targeting, you may have to enable different types of authentication; see the [Adobe I/O Authentication Overview](/developer-console/docs/guides/authentication/) for more information on how to set up your app for authentication with your users.
 
-For Creative Cloud Asset events, you'll need to add the Creative Cloud Libraries to your integration and implement the User Auth UI; see [Setting Up Creative Cloud Asset Events](./using/cc-asset-event-setup.md) for details. 
+For Creative Cloud Libraries events, you'll need to add the `Creative Cloud Libraries` provider to your integration and implement the User Auth UI.
 
 ## Security Considerations
 
@@ -327,29 +337,6 @@ private PublicKey getPublic(String filename) throws Exception {
 
 <InlineAlert variant="info" slots="text"/>
 Kindly note that this digital signature verification process comes out-of-the-box for I/O Runtime actions, and no action is required on that end.
-
-#### HMAC Signatures for Security Verification
-
-<InlineAlert variant="warning" slots="text"/>
-I/O Events has now marked this HMAC based signature verification process as deprecated and this will finally be EOL by end of Q2'2022.
-
-In this event verification strategy, Adobe I/O Events  adds a `x-adobe-signature` header to each HTTP request it sends to your webhook URL, which allows you to verify that the request was really made by Adobe I/O Events.
- 
-This signature or "message authentication code" is computed using a cryptographic hash function and a secret key applied to the body of the HTTP request. In particular, a SHA256 [HMAC](https://en.wikipedia.org/wiki/HMAC) is computed of the JSON payload, using the **Client Secret** provided in the `Adobe Developer Console` as a secret key, and then turned into a Base64 digest. You can find your client secret in the *Credentials* tab for your event registration in Console.
- 
-Upon receiving a request, you should repeat this calculation and compare the result to the value in the `x-adobe-signature` header, and reject the request unless they match. Since the client secret is known only by you and Adobe I/O Events, this is a reliable way to verify the authenticity of the request.
-
-**HMAC check implementation in JavaScript (pseudo-code):**
- 
-```javascript
-var crypto = require('crypto')
-const hmac = crypto.createHmac('sha256', CLIENT_SECRET)
-hmac.update(raw_request_body)
- 
-if (request.header('x-adobe-signature') !== hmac.digest('base64')) {
-  throw new Error('x-adobe-signature HMAC check failed')
-}
-```
 
 ## Quotas
 

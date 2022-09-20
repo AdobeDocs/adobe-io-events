@@ -1,5 +1,10 @@
 ---
+keywords:
+  - Reactive
+  - Event Driven Application
+  - Getting Started
 title: Adobe I/O Events Docs
+description: Adobe I/O Events enables building reactive, event-driven applications, based on events originating from various Adobe services, such as Creative Cloud, Adobe Experience Manager, and Analytics Triggers.
 ---
 
 <Hero slots="heading, text"/>
@@ -15,7 +20,7 @@ Adobe I/O Events enables building reactive, event-driven applications, based on 
 
 Events are triggered by an **Event Provider**, like Adobe Creative Cloud Assets, whenever a certain real-world action occurs, such as creating a new asset.
 
-To start listening for events, register you application, specifying which **Event Types** from which **Event Providers** it wants to receive.
+To start listening for events, register your application, specifying which **Event Types** from which **Event Providers** it wants to receive.
 Whenever a matching event gets triggered, your application is notified.
 
 ## Prerequisites
@@ -35,7 +40,7 @@ Whenever a matching event gets triggered, your application is notified.
   * [Adobe I/O Events API](guides/api/index.md)
   * [Adobe I/O Events CLI](guides/cli/index.md)
   * [Adobe I/O Events SDK](guides/sdk/index.md)
-  * [Automatic event registrations](guides/autoregistrations.md)
+  * [Automatic event registrations](guides/runtime_webhooks/autoregistrations.md)
 
 - [Ask questions, report bugs, make feature requests, and spark discussions](support/index.md).
 
