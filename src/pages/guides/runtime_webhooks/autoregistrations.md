@@ -12,7 +12,7 @@ In this chapter, we will create a code that listens to a specific event type and
 * Install `aio-cli-plugin-extension` plugins using AIO CLI(`aio plugins discover -i`)
 * Declare your action as `non-web` and set `require-adobe-auth` to `false` in `app.config.yaml` file. Actions deployed with `aio-cli-plugin-extension` plugin only receive events signed by Adobe I/O Events. All other invocations will be ignored.
 * Define the event types you want to receive in `event-listener-for` section of `app.config.yaml` file like the following:
-```
+```yaml
 application:
   actions: actions
   web: web-src
@@ -33,6 +33,35 @@ application:
               event-listener-for:
                 - {{YOUR_EVENT_TYPE}}
 ```
+* Launch `App Builder` development session using `aio app run` CLI command. This command will partially deploy your application, continuously synchronize your changes and create registrations for events declared in the manifest file.
+* Terminate the development session when you are done coding using `CTRL+C`. This will clean up all registrations created during the development session.
+
+### Sequences
+A similar approach can be used for OpenWhisk sequences. See the following example:
+```yaml
+application:
+  actions: actions
+  web: web-src
+  runtimeManifest:
+    packages:
+      appbuilder:
+        license: Apache-2.0
+        actions:
+          generic:
+            function: actions/generic/index.js
+            web: 'no'
+            runtime: 'nodejs:14'
+            inputs:
+              LOG_LEVEL: debug
+        sequences:
+          test:
+            actions: generic
+            annotations:
+              require-adobe-auth: false
+            relations:
+              event-listener-for:
+                - {{YOUR_EVENT_TYPE}}
+```
 
 ## Deploy self-contained application
 * Launch `aio app deploy` AIO CLI command.
@@ -41,4 +70,3 @@ Congratulations, you just deployed the code and it's already subscribed to the s
 
 ## Remove self-contained application
 * Launch `aio app undeploy` AIO CLI command. This command removes the application and also removes all event registrations bound to this application
-
