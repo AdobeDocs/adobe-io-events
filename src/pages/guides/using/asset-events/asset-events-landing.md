@@ -12,5 +12,4 @@ To learn more, see the following pages:
 - [Asset Events Actions](asset-events-actions.md)
 - [Asset Events Properties](asset-events-properties.md)
 - [Asset Events Providers](asset-events-providers.md)
-- [Migrating from Legacy Events to Asset Events](asset-events-migration.md)
 - [Asset Events Glossary](asset-events-glossary.md)

@@ -475,22 +475,21 @@ paths:
     get:
       tags:
         - Registrations
-      summary: Get registration for registration id
-      operationId: getRegistrationsById
+      summary: Get All Registrations
+      operationId: getRegistrations
       produces:
         - application/hal+json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
         - $ref: '#/parameters/projectId'
         - $ref: '#/parameters/workspaceId'
-        - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
       responses:
         '200':
-          description: Successfully fetched registration
+          description: Successfully fetched registrations
           schema:
-            $ref: '#/definitions/RegistrationHalModel'
+            $ref: '#/definitions/RegistrationCollectionHalModel'
         '404':
           description: Registration does not exist
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}':
