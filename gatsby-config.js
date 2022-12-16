@@ -152,10 +152,6 @@ module.exports = {
                 path: "guides/using/asset-events/asset-events-providers.md",
               },
               {
-                title: "Migrating from Legacy Events to Asset Events",
-                path: "guides/using/asset-events/asset-events-migration.md",
-              },
-              {
                 title: "Asset Events Glossary",
                 path: "guides/using/asset-events/asset-events-glossary.md",
               },
