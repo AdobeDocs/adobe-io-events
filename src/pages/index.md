@@ -24,6 +24,7 @@ To start listening for events, register your application, specifying which **Eve
 Whenever a matching event gets triggered, your application is notified.
 
 ## Prerequisites
+Following are the prerequisites:
 * For **Creative Cloud Events**: you would need an active Adobe ID.
 * For **Experience Cloud Events**: you would need to have entitlements for Adobe services in Experience Cloud in your organization, and administrative permission for your org to create integrations.
 * For **Experience Platform Events**: same as above, you will require the appropriate permissions and access to Experience Platform from your organization.
