@@ -12,12 +12,12 @@ _Follow [adding an API that uses OAuth to a Console project](/developer-console/
 
 To authenticate your app to receive events on your users' behalf (and for development purposes), you must provide consent via the Adobe Consent API:
 
-```
+```http
 https://ims-na1.adobelogin.com/ims/authorize/v1?response_type=code&client_id=api_key_from_console&scope=AdobeID,openid,creative_sdk
 ```
 
-You will need to replace `api_key_from_console` with the **Client ID** value provided on the *Credentials* tab of the *Registration Details* in your Console project.
+You will need to replace `api_key_from_console` with the **Client ID** value provided on the _Credentials_ tab of the _Registration Details_ in your Console project.
 
 _A good utility for testing this process is the [Adobe IMS OAuth Playground](https://runtime.adobe.io/api/v1/web/io-solutions/adobe-oauth-playground/oauth.html). Follow instructions in the FAQ._
 
-Once all of the above steps are completed, try logging into [Creative Cloud Assets](https://assets.adobe.com) using the same Adobe ID as the one you used for `Adobe Developer Console` and create a library. If all went well, then a `cc_library_created` event will be successfully delivered to your webhook. 
+Once all of the above steps are completed, try logging into [Creative Cloud Assets](https://assets.adobe.com) using the same Adobe ID as the one you used for `Adobe Developer Console` and create a library. If all went well, then a `cc_library_created` event will be successfully delivered to your webhook.
