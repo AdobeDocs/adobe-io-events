@@ -221,7 +221,7 @@ Note: While your event registration is marked `Disabled`, Adobe will continue to
 ## Security Considerations
 
 Your webhook URL must necessarily be accessible from the open internet. This means third-party actors can send forged requests to it, tricking your application into handling fake events.
- 
+
 To prevent this from happening, Adobe I/O Events has a robust event validation process in place as defined below that allows users to secure their webhook.
 
 <InlineAlert variant="info" slots="text"/>

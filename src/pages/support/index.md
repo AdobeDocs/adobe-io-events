@@ -20,14 +20,11 @@ Learn where to ask questions, report bugs, make feature requests, and spark disc
 
 Learn how to debug and troubleshoot the most common scenarios that you may encounter.
 
-
 <DiscoverBlock slots="link, text"/>
 
 [Debug Tracing](tracing.md)
 
 Learn how to use debug tracing to inspect event request and response activity.
-
-
 
 <DiscoverBlock slots="link, text"/>
 
@@ -35,18 +32,9 @@ Learn how to use debug tracing to inspect event request and response activity.
 
 A knowledge base of frequently asked questions. This is a great starting place to find an answer before asking your question.
 
-
-
 <DiscoverBlock slots="link, text"/>
 
 [Forums](https://forums.adobe.com/community/adobe-io/adobe-io-events)
 
 This is the place to report bugs, ask questions, make feature requests, or start a discussion. 
 You'll find official Adobe developers and community members available to help you out.
-
-
-<!-- - [Request docs from the Customer Care Support team - see details]()
-  - [Initial Triage doc]()
-  - [Troubleshooting Tools & Access to these tools]()
-  - [Troubleshooting workflow]()
-  - [Technical Enablement]()  -->
