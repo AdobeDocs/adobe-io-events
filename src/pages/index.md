@@ -11,8 +11,7 @@ description: Adobe I/O Events enables building reactive, event-driven applicatio
 
 # Adobe I/O Events Docs
 
-Adobe I/O Events offer you a powerful way to integrate your application with Adobe services and solutions. Starting with Creative Cloud Assets, Adobe Experience Manager, and Adobe Analytics Triggers, we are adding events across our entire range of technologies.
-
+Adobe I/O Events offer you a powerful way to integrate your application with Adobe services and solutions. With Creative Cloud Assets, Adobe Experience Manager, and Adobe Analytics Triggers, we have events across our entire range of technologies.
 
 ## Reactive and event-driven applications
 
@@ -24,23 +23,26 @@ To start listening for events, register your application, specifying which **Eve
 Whenever a matching event gets triggered, your application is notified.
 
 ## Prerequisites
+
+Following are the prerequisites:
+
 * For **Creative Cloud Events**: you would need an active Adobe ID.
 * For **Experience Cloud Events**: you would need to have entitlements for Adobe services in Experience Cloud in your organization, and administrative permission for your org to create integrations.
 * For **Experience Platform Events**: same as above, you will require the appropriate permissions and access to Experience Platform from your organization.
 
 ## Getting Started
-- [Introduction to Webhooks](guides/index.md)
-- [Introduction to Journaling](guides/journaling_intro.md)
 
-- Jump to the Adobe Developer Console documentation to learn how to [add Events to a project](/developer-console/docs/guides/services/services-add-event/)
-- Discover the [available events](guides/using/index.md)
+* [Introduction to Webhooks](guides/index.md)
+* [Introduction to Journaling](guides/journaling_intro.md)
+* Jump to the Adobe Developer Console documentation to learn how to [add Events to a project](/developer-console/docs/guides/services/services-add-event/)
+* Discover the [available events](guides/using/index.md)
 
 ## Going Further
-- Automate your Adobe I/O Events integrations, using
+
+* Automate your Adobe I/O Events integrations, using
   * [Adobe I/O Events API](guides/api/index.md)
   * [Adobe I/O Events CLI](guides/cli/index.md)
   * [Adobe I/O Events SDK](guides/sdk/index.md)
   * [Automatic event registrations](guides/runtime_webhooks/autoregistrations.md)
 
-- [Ask questions, report bugs, make feature requests, and spark discussions](support/index.md).
-
+* [Ask questions, report bugs, make feature requests, and spark discussions](support/index.md).
