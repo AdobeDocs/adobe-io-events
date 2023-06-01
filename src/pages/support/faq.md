@@ -61,6 +61,23 @@ Yes:
 - [Azuqua](https://www.azuqua.com) provides connectors for both AEM events and Analytics Triggers events.
 - [Microsoft Flow](https://flow.microsoft.com) has a connector for Creative Cloud Asset events.
 
+### What should I do if I am unable to delete a project because of a conflicting provider?
+
+If while deleting a project in developer console, you get an error as shown in the screenshot below, it means that you created an event provider associated with the same workspace, and until you delete that event provider you cannot go ahead with the project deletion.
+
+![Error while deleting a project](./img/project-delete-violation.png "Error while deleting a project")
+
+If you are sure that the event provider can be deleted, then follow the steps documented below to remove the conflicting event provider:
+1. Select Project overview in the left-side links menu.
+2. Click on the "Download" button from the top menu on the right to download the project metadata json file. Open the downloaded json file with your favorite editor, and make note of the following:
+   1. Your consumer organization id (at `project.org.id`)
+   2. Your project id (at `project.id`)
+   3. Your workspace id (at `project.workspace.id`)
+3. Using the [provider API](/guides/api/provider_api.md), fetch [your I/O Events providers entitled to the provided organization id](/events/docs/api/#tag/Providers/operation/getProvidersByConsumerOrgId), using the consumer organization id noted from above.
+4. Find the conflicting provider against your workspace id (found at `project.workspace.id` from the project json file) from the provider API response, and make a note of the provider `id`.
+5. Delete the provider via the [provider API](/events/docs/api/#tag/Providers/operation/deleteProvider), using the ids noted in above steps.
+6. Repeat the above steps for all conflicting event providers and try deleting the project again. Your project deletion should now go through successfully.
+
 ## Webhook FAQ
 
 ### What happens if my webhook is down? Why is my event registration marked as `Unstable`?
