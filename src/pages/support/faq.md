@@ -56,13 +56,6 @@ Please reach out to your Adobe account manager for licensing related questions.
 
 I/O Events supports [webhooks](../guides/index.md) for near-real time notifications (push) as well as [a Journaling API](../guides/journaling_intro.md) (pull) to grab groups of events at a time.
 
-### Are there other ways to access I/O Events?
-
-Yes:
-
-* [Azuqua](https://www.azuqua.com) provides connectors for both AEM events and Analytics Triggers events.
-* [Microsoft Flow](https://flow.microsoft.com) has a connector for Creative Cloud Asset events.
-
 ### What should I do if I am unable to delete a project because of a conflicting provider?
 
 If while deleting a project in developer console, you get an error as shown in the screenshot below, it means that you created an event provider associated with the same workspace, and until you delete that event provider you cannot go ahead with the project deletion.
