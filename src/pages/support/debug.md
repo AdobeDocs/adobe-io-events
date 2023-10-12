@@ -39,9 +39,9 @@ If 3 > 4 is working, it means that your Triggers payload is arriving at the Adob
 
 If 4 > 5 is working, it means that your webhook is valid and ready to receive events. You can verify your connection by selecting **Retry** for your webhook on the Adobe Developer Console UI. You should receive a challenge. Your webhook needs to be able to return the challenge to be marked as a valid webhook. If it is marked as Disabled on the console UI, visit the topic [Set up Webhook: Example](../guides/index.md#your-first-webhook) for sample webhook code.
 
-# Debugging Adobe I/O Events with App Builder
+## Debugging Adobe I/O Events with App Builder
 
-### Debug Missing apiKey
+### 1. Debug Missing apiKey
 
 ```shell
 ✔ Installed npm package @adobe/generator-app-events-generic
@@ -53,7 +53,7 @@ If 4 > 5 is working, it means that your webhook is valid and ready to receive ev
 This indicates that the SERVICE_API_KEY in the .env file is not set. One of the reasons this could happen is that the workspace does not have the right credentials in place or the IO Management API.
 Add the IO Management API to the workspace run **aio app use** to fix this issue
 
-### Debug .env file overwritten and changes related to AIO_EVENTS_PROVIDERMETADATA_TO_PROVIDER_MAPPING are lost
+### 2. Debug .env file overwritten and the provider metadata to provider id mapping is lost
 
 You can easily fetch the provider id associated with the provider metadata by running the cli command **aio event provider ls --providerMetadataIds**
 

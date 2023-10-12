@@ -33,9 +33,9 @@ Create a new folder where the code for the new app should be added and cd into t
 In order to create a new app:
 
 - run aio app init
-- Select the project. By default, the Project is initialized for Workspace Stage, you can run 'aio app use -w <workspace>' to switch workspace after initialisation.
+- Select the project. By default, the Project is initialized for Workspace Stage, you can run **'aio app use -w <workspace\>'** to switch workspace after initialisation.
 - You will then be presented with an option to select a) All Templates, b) All Extensions and c) Only Templates Supported By My Org. Choose either a or c
-- Select @adobe/generator-app-events-generic using <space> and press <enter>
+- Select @adobe/generator-app-events-generic using <space\> and press <enter\>
 
 ```shell
 app-builder-app % aio app init
@@ -117,8 +117,7 @@ How would you like to name this registration? Registration 1
 
 <InlineAlert slots="text"/>
 
-#### Provider Metadata
-Provider metadata indicates a family of providers. It describes the source of events and is categorised under one of the following groups: Creative Cloud, Document Cloud, Experience Cloud and Experience Platform. For eg. Commerce Events is an Experience Cloud product that emits events that can be consumed by subscribing to the Commerce Events provider metadata. 
+**Provider metadata:** Provider metadata indicates a family of providers. It describes the source of events and is categorised under one of the following groups: Creative Cloud, Document Cloud, Experience Cloud and Experience Platform. For eg. Commerce Events is an Experience Cloud product that emits events that can be consumed by subscribing to the Commerce Events provider metadata. 
 
 ```shell
 ? Choose from the following provider families ( provider metadata ) (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
@@ -134,10 +133,9 @@ Provider metadata indicates a family of providers. It describes the source of ev
   
 <InlineAlert slots="text"/>
 
-#### IO Events Provider
-Some provider metadata have one or more instances that emit events. Each instance is registered as an IO Events Provider under the specific provider metadata. For eg. an organisation may have multiple instance of Adobe Commerce. Each instance is registered as a different provider. Some provider metadata have only a single source of events. Such provider metadata consist of only a single provider per organisation.
+**IO Events Provider:** Some provider metadata have one or more instances that emit events. Each instance is registered as an IO Events Provider under the specific provider metadata. For eg. an organisation may have multiple instance of Adobe Commerce. Each instance is registered as a different provider. Some provider metadata have only a single source of events. Such provider metadata consist of only a single provider per organisation.
 
-For multi-instance provider metadata, select an instance to listen to events from, and in case of single instance provider metadata, select the specified provider by pressing <enter>
+For multi-instance provider metadata, select an instance to listen to events from, and in case of single instance provider metadata, select the specified provider by pressing \<enter\>
 
 ```shell
 ? Choose from below provider for provider metadata: di_event_code (Use arrow keys)
@@ -148,8 +146,7 @@ For multi-instance provider metadata, select an instance to listen to events fro
 
 <InlineAlert slots="text"/>
 
-#### Event Metadata
-Providers consist of several types of events that are emitted. These represent the event metadata. For eg. Imaging API Events emits events of type: Imagecutout api events, photoshop api events and lightroom api events.
+**Event Metadata:** Providers consist of several types of events that are emitted. These represent the event metadata. For eg. Imaging API Events emits events of type: Imagecutout api events, photoshop api events and lightroom api events.
 
 Select the type of events you are interested in listening to.
 
