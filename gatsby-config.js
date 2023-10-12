@@ -207,13 +207,7 @@ module.exports = {
       },
       {
         title: "CLI",
-        path: "guides/cli/index.md",
-        pages: [
-          {
-            title: "Events Template Generator",
-            path: "guides/cli/template_generator_cli.md",
-          },
-        ],
+        path: "guides/cli/index.md"
       },
       {
         title: "App Builder Applications with I/O Events",
