@@ -241,3 +241,28 @@ app-builder-app % aio app add events
 Select @adobe/generator-add-events-generic and follow the steps to install the template
 
 Here you will be presented with an option to either use an existing runtime action or create a new runtime action. If you choose to use an existing runtime action, you will be able to choose from the list of non-web actions present in the runtimeManifest of your application. Follow all other steps to add name, description and events of interest to your event registration as described in the previous section
+
+## Deploying the Application
+
+Deploy the application using 
+
+```shell
+aio app deploy
+```
+
+This will deploy the actions and create the event registrations.
+
+You should also be able to see the registrations on Developer Console
+
+![Registrations on Console after deploying the app](../img/ab_deployed_registrations.png)
+
+Registrations are uniquely identified by the registration name. For registration names that are already part of the workspace, deploying the app will update the registrations, and for those that do not exist, deploying will create the registrations. No registrations are deleted when you just use aio app deploy 
+
+```shell
+aio app deploy --force-events
+```
+
+On using this flag, all other registrations that are not part of the config file, but are part of the workspace will be deleted. Thus the workspace will be exactly in sync with the current state of the config file of the app builder app.
+
+See more details on [App Builder deployment](https://developer.adobe.com/app-builder/docs/guides/deployment/)
+
