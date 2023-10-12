@@ -17,7 +17,7 @@ The App Builder template is included as part of the App Builder SKU.
 
 ![Select create project from template](../img/ab_select_project_from_template.png)
 
-Once the project and the workspaces have been created, add the *I/O Management API* service with *OAuth Server to Server* credentials to the Stage workspace and any other workspace you will be working with. This will add the required scope to the authentication token required for setting up the project with IO Events Registrations. For a step-by-step guide to adding an API to a project, follow this tutorial for [adding an API to a project using Service Account (JWT) authentication](https://www.adobe.com/go/devs_projects_jwt) (the type of authentication used by the I/O Management API). 
+Once the project and the workspaces have been created, add the *I/O Management API* service with *OAuth Server to Server* credentials to the Stage workspace and any other workspace you will be working with. This will add the required scope to the authentication token required for setting up the project with IO Events Registrations. For a step-by-step guide to adding an API to a project, follow this tutorial for [adding an API to a project using Service Account (JWT) authentication](https://www.adobe.com/go/devs_projects_jwt) (the type of authentication used by the I/O Management API).
 
 ![Add IO Management API](../img/ab_add_io_management_api.png)
 ![Select oauth server-to-server credentials](../img/ab_oauth_server_to_server.png)
