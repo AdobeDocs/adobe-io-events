@@ -216,6 +216,10 @@ module.exports = {
         ],
       },
       {
+        title: "App Builder Applications with I/O Events",
+        path: "guides/appbuilder/index.md"
+      },
+      {
         title: "SDK",
         path: "guides/sdk/index.md",
         pages: [

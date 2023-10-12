@@ -43,6 +43,7 @@ Following are the prerequisites:
   * [Adobe I/O Events API](guides/api/index.md)
   * [Adobe I/O Events CLI](guides/cli/index.md)
   * [Adobe I/O Events SDK](guides/sdk/index.md)
+  * [Adobe I/O Events with App Builder](guides/appbuilder/index.md)
   * [Automatic event registrations](guides/runtime_webhooks/autoregistrations.md)
 
 * [Ask questions, report bugs, make feature requests, and spark discussions](support/index.md).
