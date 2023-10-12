@@ -218,3 +218,26 @@ And .env file contains the required env variable
 AIO_EVENTS_PROVIDERMETADATA_TO_PROVIDER_MAPPING=di_event_code:provider-id-1,dx_marketo_audit_user:provider-id-2
 ```
 
+## Adding Event registrations to your app using the Events Generic Template
+
+You can add more event registrations to your application using the command **aio app add events**
+
+```shell
+app-builder-app % aio app add events
+✔ Downloaded the list of templates
+? Choose the template(s) to install:
+  Pressing <enter> without selection will skip templates and install a standalone application.
+  
+┌──────┬────────────────────────────────────────┬────────────────────────────────────────┬──────────────────────────┬──────────────────────────┐
+│      │ Template                               │ Description                            │ Extension Point          │ Categories               │
+├──────┼────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────┼──────────────────────────┤
+│ ❯◉   │ @adobe/generator-add-events-generic *  │ Adds event registrations and a generic │ N/A                      │ helper-template, events  │
+│      │                                        │ action                                 │                          │                          │
+└──────┴────────────────────────────────────────┴────────────────────────────────────────┴──────────────────────────┴──────────────────────────┘
+ 
+* = recommended by Adobe; to learn more about the templates, go to https://adobe.ly/templates
+```
+
+Select @adobe/generator-add-events-generic and follow the steps to install the template
+
+Here you will be presented with an option to either use an existing runtime action or create a new runtime action. If you choose to use an existing runtime action, you will be able to choose from the list of non-web actions present in the runtimeManifest of your application. Follow all other steps to add name, description and events of interest to your event registration as described in the previous section
