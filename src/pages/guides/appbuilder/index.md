@@ -266,3 +266,12 @@ On using this flag, all other registrations that are not part of the config file
 
 See more details on [App Builder deployment](https://developer.adobe.com/app-builder/docs/guides/deployment/)
 
+## Un-deploying the Application
+
+Undeploy the application using
+
+```shell
+aio app undeploy
+```
+
+This will undeploy all the actions and delete all event registrations that are part of the config file
