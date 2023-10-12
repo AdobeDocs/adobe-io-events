@@ -2,11 +2,12 @@
 title: Debugging Adobe I/O Events 
 ---
 
-# Debugging Adobe I/O Events 
+# Debugging Adobe I/O Events
 
-This page captures the most common troubleshooting scenarios when working with Adobe Events. 
+This page captures the most common troubleshooting scenarios when working with Adobe Events.
 
 ## Analytics Triggers Events
+
 If your Analytics Triggers events aren't coming through to your integration, a breakdown in communication may have occurred at any step in the events process. You'll need to check each step in order to verify where the breakdown has occurred and then fix your configuration accordingly.
 
 The process of communicating Analytics Triggers via I/O Events consists of the following steps:
@@ -15,7 +16,7 @@ The process of communicating Analytics Triggers via I/O Events consists of the f
 
 ### Debug 1 > 2
 
-If 1 > 2 is working, it means that Analytics code has been embedded in your webpage, and analytics calls (**Note:** not necessarily Trigger calls) are firing and going through. 
+If 1 > 2 is working, it means that Analytics code has been embedded in your webpage, and analytics calls (**Note:** not necessarily Trigger calls) are firing and going through.
 You can verify your Adobe Analytics connection via the Debugger:
 
 https://chrome.google.com/webstore/detail/debugger-for-adobe-analyt/bdingoflfadhnjohjaplginnpjeclmof
@@ -33,7 +34,7 @@ If 2 > 3 is working, it means that your Triggers pattern is valid and reflects t
 
 ### Debug 3 > 4
 
-If 3 > 4 is working, it means that your Triggers payload is arriving at the Adobe I/O Event Gateway. If you can see your Trigger fired, but it's not arriving at your webhook, you should first debug 4 > 5 to make sure your webhook is valid and ready to receive events. If 4 > 5 works and you are still not receiving events, it could be that something went wrong in the Triggers-Pipeline-Event Gateway process. Unfortunately, there's no way to easily debug this step at the moment. Please open an issue on the [Events GitHub project](https://github.com/adobeio/adobeio-documentation). 
+If 3 > 4 is working, it means that your Triggers payload is arriving at the Adobe I/O Event Gateway. If you can see your Trigger fired, but it's not arriving at your webhook, you should first debug 4 > 5 to make sure your webhook is valid and ready to receive events. If 4 > 5 works and you are still not receiving events, it could be that something went wrong in the Triggers-Pipeline-Event Gateway process. Unfortunately, there's no way to easily debug this step at the moment. Please open an issue on the [Events GitHub project](https://github.com/adobeio/adobeio-documentation).
 
 ### Debug 4 > 5
 
@@ -68,7 +69,7 @@ Fetching all Event Providers... done
 
 For multi instance providers, select the provider id of any one instance
 
-You can then populate the environment variable 
+You can then populate the environment variable
 
 ```dotenv
 AIO_EVENTS_PROVIDERMETADATA_TO_PROVIDER_MAPPING = di_event_code:provider-id-1,dx_marketo_audit_user:provider-id-2

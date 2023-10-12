@@ -117,7 +117,7 @@ How would you like to name this registration? Registration 1
 
 <InlineAlert slots="text"/>
 
-**Provider metadata:** Provider metadata indicates a family of providers. It describes the source of events and is categorised under one of the following groups: Creative Cloud, Document Cloud, Experience Cloud and Experience Platform. For eg. Commerce Events is an Experience Cloud product that emits events that can be consumed by subscribing to the Commerce Events provider metadata. 
+**Provider metadata:** Provider metadata indicates a family of providers. It describes the source of events and is categorised under one of the following groups: Creative Cloud, Document Cloud, Experience Cloud and Experience Platform. For eg. Commerce Events is an Experience Cloud product that emits events that can be consumed by subscribing to the Commerce Events provider metadata.
 
 ```shell
 ? Choose from the following provider families ( provider metadata ) (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
@@ -241,7 +241,7 @@ Here you will be presented with an option to either use an existing runtime acti
 
 ## Deploying the Application
 
-Deploy the application using 
+Deploy the application using
 
 ```shell
 aio app deploy
@@ -253,7 +253,7 @@ You should also be able to see the registrations on Developer Console
 
 ![Registrations on Console after deploying the app](../img/ab_deployed_registrations.png)
 
-Registrations are uniquely identified by the registration name. For registration names that are already part of the workspace, deploying the app will update the registrations, and for those that do not exist, deploying will create the registrations. No registrations are deleted when you just use aio app deploy 
+Registrations are uniquely identified by the registration name. For registration names that are already part of the workspace, deploying the app will update the registrations, and for those that do not exist, deploying will create the registrations. No registrations are deleted when you just use **aio app deploy**
 
 ```shell
 aio app deploy --force-events
