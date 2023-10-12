@@ -14,10 +14,6 @@ To begin setting up the Events Plugin, visit [Adobe Developer Console](https://w
 
 Once the project has been created, add the *I/O Management API* service to the project. This will add the required scope to the authentication token required by the Events SDK. For a step-by-step guide to adding an API to a project, follow this tutorial for [adding an API to a project using Service Account (JWT) authentication](https://www.adobe.com/go/devs_projects_jwt) (the type of authentication used by the I/O Management API). 
 
-<InlineAlert slots="text"/>
-
-If you plan to use the [Events Templates](template_generator_cli.md), you must also [add the Runtime Service](/developer-console/docs/guides/services/#enable-runtime) to your project. This will ensure that the auth and namespace for the Runtime actions is added to your configuration.
-
 ![](../img/cli-console-setup.png)
 
 ### Setting up credentials using `aio console`
