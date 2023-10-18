@@ -12,32 +12,27 @@ In addition to the information provided in this guide, you can also visit the [E
 
 To begin setting up the Events Plugin, visit [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui) and create a new project in your organization. For detailed instructions, follow the steps outlined in this tutorial for [creating a new project](/developer-console/docs/guides/projects/projects-empty/).
 
-Once the project has been created, add the *I/O Management API* service to the project. This will add the required scope to the authentication token required by the Events SDK. For a step-by-step guide to adding an API to a project, follow this tutorial for [adding an API to a project using Service Account (JWT) authentication](https://www.adobe.com/go/devs_projects_jwt) (the type of authentication used by the I/O Management API). 
-
-<InlineAlert slots="text"/>
-
-If you plan to use the [Events Templates](template_generator_cli.md), you must also [add the Runtime Service](/developer-console/docs/guides/services/#enable-runtime) to your project. This will ensure that the auth and namespace for the Runtime actions is added to your configuration.
+Once the project has been created, add the *I/O Management API* service to the project. This will add the required scope to the authentication token required by the Events SDK. For a step-by-step guide to adding an API to a project, follow this tutorial for [adding an API to a project using Service Account (JWT) authentication](https://www.adobe.com/go/devs_projects_jwt) (the type of authentication used by the I/O Management API).
 
 ![](../img/cli-console-setup.png)
 
 ### Setting up credentials using `aio console`
 
-After completing the setup within the Adobe Developer Console, you must then set up the credentials locally in order to run the various CLI commands. This set up will populate the `~/.config/aio` file with the access token, organization ID, workspace, and project details, as well as other credentials, required by the CLI. 
+After completing the setup within the Adobe Developer Console, you must then set up the credentials locally in order to run the various CLI commands. This set up will populate the `~/.config/aio` file with the access token, organization ID, workspace, and project details, as well as other credentials, required by the CLI.
 
-On entering any command, you will be taken to the Adobe I/O CLI Login page. After signing in using your ID, you will be redirected to a page stating that you have successfully logged in to the Adobe I/O CLI. 
+On entering any command, you will be taken to the Adobe I/O CLI Login page. After signing in using your ID, you will be redirected to a page stating that you have successfully logged in to the Adobe I/O CLI.
 
 ![](../img/cli-adobe-io-cli-login.png)
 
 You can now proceed to select the organization, project, and workspace using the following steps:
 
-1. Select the same organization in which you created the project in the Adobe Developer Console. You can list the organizations and select one using ***aio console org list***. 
+1. Select the same organization in which you created the project in the Adobe Developer Console. You can list the organizations and select one using ***aio console org list***.
 
     ![](../img/cli-org-list.png)
 
     To select an organization, use ***aio console org select <ims_org_id>***.
 
     ![](../img/cli-org-select.png)
-
 
 2. Select the project you created in the Adobe Developer Console. You can list the projects using ***aio console project list***.
 
@@ -101,7 +96,7 @@ $ aio event:registration:get REGISTRATIONID
 $ aio event registration get REGISTRATIONID
 ```
 
-Please select an area from the following list to see available commands: 
+Please select an area from the following list to see available commands:
 
 * [Common command](#common-command)
 * [Registration commands](#registration-commands)
@@ -436,4 +431,3 @@ OPTIONS
   --help         Show help
   --version      Show version
 ```
-
