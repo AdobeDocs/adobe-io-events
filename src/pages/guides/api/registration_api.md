@@ -22,9 +22,10 @@ title: Registration API
     * your credential Id (also called `application id`) (at `project.workspace.details.credentials[0].id`, note that `credentials` is an array, 
        if you have more than one, pick the one where you defined your jwt
     * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].jwt.client_id`                
-* Define your webhook registration you will need :
-  * a webhook url (accessible from the internet, reachable over HTTPS and that correctly respond to a "challenge" request) see [Webhooks](/guides/)
-  * a name (a user friendly name, used for display in the Adobe Developer Console)
+* Define your webhook registration. You will need :
+  * either a webhook url (accessible from the internet, reachable over HTTPS and that correctly respond to a "challenge" request) see [Webhooks](/guides/)
+  * or you can also define your runtime-action. See [runtime-webhooks](/guides/runtime-webhooks/). **Note** - Do not define both.
+  * a name (a user-friendly name, used for display in the Adobe Developer Console)
   * an array of events of interests, that are defined with 2 ids
     * a `provider_id`: defining one of the events source system (the events provider) your organization is entitled to,
     * a `event_code`: defining a type of the events the above system (the events provider) is emitting.
@@ -55,7 +56,27 @@ here is a sample `POST` `curl` query that will create a new Webhook Registration
                         }]
                   }'
 
-Once done/`200` this webhook will be POST-ed all `some_event_code` events provided by `some_provider`.                   
+Or, this `curl` query to create `Webhook Registration` with a `runtime_action`
+
+    curl -v --request POST \
+          --url https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations \
+          --header "x-api-key: $api_key" \
+          --header "Authorization: Bearer $jwt_token" \
+          --header 'content-type: application/json' \
+          --header 'Accept: application/hal+json' \
+          --data '{
+                    "client_id": "'"${api_key}"'",
+                    "runtime_action": "your_app/your-runtime-action",
+                    "name": "a user friendly name",
+                    "description": "description for the registration",
+                    "events_of_interest": [
+                        { "provider_id": "some_provider",
+                          "event_code": "some_event_code"
+                        }]
+                  }'
+
+Once done/`200` your provided webhook/ runtime-action will be POST-ed all `some_event_code` events provided by `some_provider`. 
+
 Below is a sample `POST` `curl` query that will create a new Journal Registration:   
 
     curl -v --request POST \
