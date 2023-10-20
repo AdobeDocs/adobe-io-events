@@ -7,10 +7,10 @@ title: Registration API
 ## Prerequisites
 
 * Create a project in the [Adobe Developer Console](/developer-console/docs/guides/projects/projects-empty/)
-* Add the `I/O Management API` in your Adobe Developer Console project 
+* Add the `I/O Management API` in your Adobe Developer Console project
   * Click on `Add to Project` > `API`
   * Select `I/O Management API`
-  * Create a new service account (JWT) credential screen, 
+  * Create a new service account (JWT) credential screen,
   * Save
   * Bookmark your workspace, as you might need to come back to it more than once, to fine tune or troubleshoot your configurations.
   * Once done, note you have a JWT credentials defined
@@ -19,9 +19,9 @@ title: Registration API
   * Click on `Download`, open the downloaded `json` file with your favorite editor, in there you'll find:
     * your consumer Org Id (also called `consumer id`) (at `project.org.id`)
     * your IMS Org Id (at `project.org.ims_org_id`)
-    * your credential Id (also called `application id`) (at `project.workspace.details.credentials[0].id`, note that `credentials` is an array, 
+    * your credential Id (also called `application id`) (at `project.workspace.details.credentials[0].id`, note that `credentials` is an array,
        if you have more than one, pick the one where you defined your jwt
-    * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].jwt.client_id`                
+    * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].jwt.client_id`               
 * Define your webhook registration. You will need :
   * either a webhook url (accessible from the internet, reachable over HTTPS and that correctly respond to a "challenge" request) see [Webhooks](/guides/)
   * or you can also define your runtime-action. See [runtime-webhooks](/guides/runtime_webhooks/). **Note** - Do not define both.
@@ -96,6 +96,5 @@ Below is a sample `POST` `curl` query that will create a new Journal Registratio
                     "delivery_type": "journal"
                   }'
 
-Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling_api.md)                     
+Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling_api.md)                 
 If you wonder how to fetch the valid provider Ids and event codes, look at our [Provider API](provider_api.md)
-

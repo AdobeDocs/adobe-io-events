@@ -114,13 +114,13 @@ When registering a webhook to receive Adobe I/O Events notifications, you can se
 * Either receiving one event at a time ("Single"): each event resulting in an HTTP request to the webhook URL.
 * Or multiple events together ("Batch"): in this case, HTTP requests will still remain near-real time, the batch size will vary depending on the incoming traffic and the batch size will be at max 2MB bytes and will contain a maximum of 100 events.
 
-### How to debug and see logs for successful invocations to my runtime_action (configured as webhook) 
+### How to debug and see logs for successful invocations to my runtime_action (configured as webhook)
 
 To improve the debugging experience for successful invocations, user can relay the `activation_id` of
-his target user action as a new response header from that action itself.
+his target user action as a new response header (for example, you can use this header `target-action-activation-id`)
+from that action itself.
 So, even without enabling the `x-ow-extra-logging=on` header and impacting runtime performance,
-user can get hold of the successful activation of his target action via the debug tracing on Developer Console. 
-
+user can get hold of the successful activation via the debug tracing on Developer Console.
 
 ## Journaling FAQ
 
