@@ -40,7 +40,8 @@ you are ready to use our [registration API](/api/#operation/createRegistrationCl
 To help you further and document the typical `Webhook Registration Payload`,
 here is a sample `POST` `curl` query that will create a new Webhook Registration against `https://your.webhook`.
 
-    curl -v --request POST \
+```text
+curl -v --request POST \
           --url https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations \
           --header "x-api-key: $api_key" \
           --header "Authorization: Bearer $jwt_token" \
@@ -56,10 +57,12 @@ here is a sample `POST` `curl` query that will create a new Webhook Registration
                           "event_code": "some_event_code"
                         }]
                   }'
+```
 
 Or, this `curl` query to create `Webhook Registration` with a `runtime_action`
 
-    curl -v --request POST \
+```text
+curl -v --request POST \
           --url https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations \
           --header "x-api-key: $api_key" \
           --header "Authorization: Bearer $jwt_token" \
@@ -75,12 +78,14 @@ Or, this `curl` query to create `Webhook Registration` with a `runtime_action`
                           "event_code": "some_event_code"
                         }]
                   }'
+```
 
 Once done/`200` your provided webhook/ runtime-action will be POST-ed all `some_event_code` events provided by `some_provider`.
 
 Below is a sample `POST` `curl` query that will create a new Journal Registration:
 
-    curl -v --request POST \
+```text
+curl -v --request POST \
           --url https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations \
           --header "x-api-key: $api_key" \
           --header "Authorization: Bearer $jwt_token" \
@@ -96,6 +101,7 @@ Below is a sample `POST` `curl` query that will create a new Journal Registratio
                         }],
                     "delivery_type": "journal"
                   }'
+```
 
 Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling_api.md)
 If you wonder how to fetch the valid provider Ids and event codes, look at our [Provider API](provider_api.md)
