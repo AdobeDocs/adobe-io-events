@@ -24,7 +24,7 @@ title: Registration API
     * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].jwt.client_id`                
 * Define your webhook registration. You will need :
   * either a webhook url (accessible from the internet, reachable over HTTPS and that correctly respond to a "challenge" request) see [Webhooks](/guides/)
-  * or you can also define your runtime-action. See [runtime-webhooks](/guides/runtime-webhooks/). **Note** - Do not define both.
+  * or you can also define your runtime-action. See [runtime-webhooks](/guides/runtime_webhooks/). **Note** - Do not define both.
   * a name (a user-friendly name, used for display in the Adobe Developer Console)
   * an array of events of interests, that are defined with 2 ids
     * a `provider_id`: defining one of the events source system (the events provider) your organization is entitled to,
@@ -36,7 +36,7 @@ title: Registration API
 Once the above are defined (and stuffed as environment variables),
 you are ready to use our [registration API](/api/#operation/createRegistrationCli).
 
-To help you further and document the typical `Webhook Registration Payload`, 
+To help you further and document the typical `Webhook Registration Payload`,
 here is a sample `POST` `curl` query that will create a new Webhook Registration against `https://your.webhook`.
 
     curl -v --request POST \
@@ -75,9 +75,9 @@ Or, this `curl` query to create `Webhook Registration` with a `runtime_action`
                         }]
                   }'
 
-Once done/`200` your provided webhook/ runtime-action will be POST-ed all `some_event_code` events provided by `some_provider`. 
+Once done/`200` your provided webhook/ runtime-action will be POST-ed all `some_event_code` events provided by `some_provider`.
 
-Below is a sample `POST` `curl` query that will create a new Journal Registration:   
+Below is a sample `POST` `curl` query that will create a new Journal Registration:
 
     curl -v --request POST \
           --url https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations \
