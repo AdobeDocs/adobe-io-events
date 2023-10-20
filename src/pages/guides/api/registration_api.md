@@ -21,7 +21,7 @@ title: Registration API
     * your IMS Org Id (at `project.org.ims_org_id`)
     * your credential Id (also called `application id`) (at `project.workspace.details.credentials[0].id`, note that `credentials` is an array,
        if you have more than one, pick the one where you defined your jwt
-    * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].jwt.client_id`               
+    * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].jwt.client_id`
 * Define your webhook registration. You will need :
   * either a webhook url (accessible from the internet, reachable over HTTPS and that correctly respond to a "challenge" request) see [Webhooks](/guides/)
   * or you can also define your runtime-action. See [runtime-webhooks](/guides/runtime_webhooks/). **Note** - Do not define both.
@@ -29,7 +29,8 @@ title: Registration API
   * an array of events of interests, that are defined with 2 ids
     * a `provider_id`: defining one of the events source system (the events provider) your organization is entitled to,
     * a `event_code`: defining a type of the events the above system (the events provider) is emitting.
-5. [Generate a JWT token](/developer-console/docs/guides/credentials/)
+
+* [Generate a JWT token](/developer-console/docs/guides/credentials/)
 
 ## Test Drive
 
@@ -96,5 +97,5 @@ Below is a sample `POST` `curl` query that will create a new Journal Registratio
                     "delivery_type": "journal"
                   }'
 
-Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling_api.md)                 
+Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling_api.md)
 If you wonder how to fetch the valid provider Ids and event codes, look at our [Provider API](provider_api.md)
