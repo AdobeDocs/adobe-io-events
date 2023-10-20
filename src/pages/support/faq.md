@@ -117,7 +117,7 @@ When registering a webhook to receive Adobe I/O Events notifications, you can se
 ### How to debug and see logs for successful invocations to my runtime_action (configured as webhook)
 
 To improve the debugging experience for successful invocations, user can relay the `activation_id` of
-his target user action as a new response header (for example, you can use this header `target-action-activation-id`)
+his target user action as a new response header (for example, you can use this header `x-target-action-activation-id`)
 from that action itself.
 So, even without enabling the `x-ow-extra-logging=on` header and impacting runtime performance,
 user can get hold of the successful activation via the debug tracing on Developer Console.
