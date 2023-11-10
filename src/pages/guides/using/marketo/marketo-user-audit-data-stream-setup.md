@@ -24,28 +24,28 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
 
 - Select `Create new project`
 
-  ![Create new project](../img/UserAuditDataStreamIOSetup1.png "Quick Start")
+  ![Create new project](../../img/UserAuditDataStreamIOSetup1.png "Quick Start")
 
 - Select `Add event`
 
-  ![Add event](../img/UserAuditDataStreamIOSetup2.png "Get started with your new project by adding an event subscription")
+  ![Add event](../../img/UserAuditDataStreamIOSetup2.png "Get started with your new project by adding an event subscription")
 
 - Filter by `Experience Cloud`
 - Select `Marketo User Audit Data Stream`
 
-  ![Provider selection](../img/UserAuditDataStreamIOSetup3.png "Select event provider")
+  ![Provider selection](../../img/UserAuditDataStreamIOSetup3.png "Select event provider")
 
 - Subscribe to the user driven change events of your choosing
 
-  ![Event selection](../img/UserAuditDataStreamIOSetup4.png "Select event subscriptions")
+  ![Event selection](../../img/UserAuditDataStreamIOSetup4.png "Select event subscriptions")
 
 - Set up JWT Credentials (either generate a new key pair or upload a public key)
 
-  ![Set up credentials](../img/UserAuditDataStreamIOSetup5.png "Set up credentials")
+  ![Set up credentials](../../img/UserAuditDataStreamIOSetup5.png "Set up credentials")
 
 - Set up Event Registration
 
-  ![Complete registration](../img/UserAuditDataStreamIOSetup6.png "Complete registration")
+  ![Complete registration](../../img/UserAuditDataStreamIOSetup6.png "Complete registration")
 
   - Provide a name and description for this event subscription
   - Optionally choose whether to enable Webhook or Runtime action
@@ -60,7 +60,7 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
       - Select a pre-made runtime action/runtime namespace
 - After Saving
 
-  ![Verify setup](../img/UserAuditDataStreamIOSetup7.png "Verify setup")
+  ![Verify setup](../../img/UserAuditDataStreamIOSetup7.png "Verify setup")
   
   - Verify that the Status is `Active`
   - If Webhook was selected, verify that it successfully passed the challenge without errors
@@ -70,7 +70,7 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
 When setting up a project to subscribe to events, there are three ways to interact with those event subscriptions in order to receive the events.  The first is Journaling, which provides a pull model in which events can be pulled via API and stores up to 7 days of past events.  The second is Webhooks, which can be configured to send events either as single events or batched to a webhook endpoint in near real-time with the event occurrence.  Third is Runtime, where you can set up your own custom function within Adobe that events will automatically run through near-real time.
 
 ### Journaling
-[Getting Started with Journaling](../journaling_intro.md)
+[Getting Started with Journaling](../../journaling_intro.md)
 
 Important Takeaways:
 
@@ -80,7 +80,7 @@ Important Takeaways:
 - Useful for fetching events that were missed due to webhook issues or for a pulling mechanism instead of webhook push
 
 ### Webhooks
-[Getting Started with Adobe I/O Events Webhooks](../index.md)
+[Getting Started with Adobe I/O Events Webhooks](../../index.md)
 
 Webhook Endpoint Requirements:
 
