@@ -27,7 +27,7 @@ See the [Adobe I/O Events Docs](/src/pages/index.md)
 
 Here are some basic getting started instructions that will be the same for each of the available Marketo data streams in I/O Events.
 
-- Start from the [developer console](https://developer.adobe.com/console/home):
+- Start from the [developer console](/console/):
 
 - Select `Create new project`
 

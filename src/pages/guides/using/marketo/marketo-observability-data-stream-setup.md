@@ -29,7 +29,7 @@ The following are required to be able to subscribe to the data stream:
 
 See the [Adobe I/O Events Docs](/src/pages/index.md)
 
-Basic instructions for this use case, starting from the [developer console](https://developer.adobe.com/console/home):
+Basic instructions for this use case, starting from the [developer console](/console/):
 
 *When prompted, click the designated button to proceed*
 
@@ -71,7 +71,7 @@ Basic instructions for this use case, starting from the [developer console](http
       - The get request must respond with the challenge query if it exists
       - The post request must respond that it received the message or the webhook will re-attempt to send several times before giving up and automatically disabling the webhook sends
     - Enable Runtime action
-      - [Getting Started with Adobe I/O Runtime](https://developer.adobe.com/runtime/docs/guides/getting-started/)
+      - [Getting Started with Adobe I/O Runtime](/runtime/docs/guides/getting-started/)
       - [Runtime Actions as Webhook](../../runtime_webhooks/index.md)
 - After Saving
 

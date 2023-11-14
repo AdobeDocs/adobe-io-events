@@ -21,7 +21,7 @@ We are adding new events providers regularly, at the time of writing, the follow
 
 * [Platform notifications](https://www.adobe.com/go/devs_events_aep_docs)
 * [Analytics Triggers](https://www.adobe.com/go/devs_events_triggers_docs)
-* [Marketo User Audit Data Stream](../guides/using/marketo/marketo-user-audit-data-stream-setup.md)
+* [Marketo Data Streams](../guides/using/marketo/marketo-data-streams.md)
 * [Privacy Service](https://www.adobe.com/go/devs_events_privacy_docs)
 * [Cloud Manager](https://www.adobe.com/go/devs_events_cloudmanager_docs)
 * Asset Compute
