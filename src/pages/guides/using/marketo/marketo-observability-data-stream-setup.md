@@ -1,5 +1,5 @@
 ---
-title: Setting up Marketo Observability Data Stream
+title: Setting up the Marketo Observability Data Stream
 ---
 
 # Setting up the Marketo Observability Data Stream
