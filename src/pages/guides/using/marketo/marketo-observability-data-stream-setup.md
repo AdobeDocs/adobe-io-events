@@ -1,3 +1,7 @@
+---
+title: Setting up Marketo Observability Data Stream
+---
+
 # Setting up the Marketo Observability Data Stream
 
 These instructions describe how to set up and get started using Adobe I/O Events to subscribe to Marketo Observability events.

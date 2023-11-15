@@ -1,3 +1,7 @@
+---
+title: Marketo Data Streams
+---
+
 # Subscribing to the Marketo Events with Adobe I/O Events
 
 These instructions describe how to set up and get started using Adobe I/O Events for the Marketo Data Streams.
