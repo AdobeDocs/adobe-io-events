@@ -14,8 +14,8 @@ In order to allow for additional scalability and further programmatic automation
 - [Lead Activity Data Stream](https://developers.marketo.com/data-streams/#overview_lead_activity_data_stream)
 - Metrics Data Stream (Alpha)
 - Notification Data Stream (Beta)
-- [Observability Data Stream (Beta)](/marketo-observability-data-stream-setup.md)
-- [User Audit Data Stream (Beta)](/marketo-user-audit-data-stream-setup.md)
+- [Observability Data Stream (Beta)](marketo-observability-data-stream-setup.md)
+- [User Audit Data Stream (Beta)](marketo-user-audit-data-stream-setup.md)
 
 At this time, only the Notification, Observability, and User Audit streams are available within Adobe I/O Events, the Lead and Metrics streams can be subscribed to via alternate paths.
 
