@@ -2,6 +2,9 @@
 title: Setting up Marketo User Audit Data Stream with Adobe I/O Events
 ---
 
+import DeveloperGuidelines from '/src/pages/guides/using/marketo/marketo-data-streams-developer-guidelines.md'
+import Debug from '/src/pages/guides/using/marketo/marketo-data-streams-debug.md'
+
 # Setting up Marketo User Audit Data Stream with Adobe I/O Events
 
 These instructions describe how to set up and get started using Adobe I/O Events for Marketo user driven change events.  You can use Adobe I/O for streaming Marketo user driven change events such as the modification of emails, campaigns, and landing pages.
@@ -65,33 +68,7 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
   - Verify that the Status is `Active`
   - If Webhook was selected, verify that it successfully passed the challenge without errors
 
-## Developer Guidelines
-
-When setting up a project to subscribe to events, there are three ways to interact with those event subscriptions in order to receive the events.  The first is Journaling, which provides a pull model in which events can be pulled via API and stores up to 7 days of past events.  The second is Webhooks, which can be configured to send events either as single events or batched to a webhook endpoint in near real-time with the event occurrence.  Third is Runtime, where you can set up your own custom function within Adobe that events will automatically run through near-real time.
-
-### Journaling
-[Getting Started with Journaling](../../journaling_intro.md)
-
-Important Takeaways:
-
-- Stores up to 7 days of history
-- Can be iterated through from any previous event within the history
-- Will still receive and store events even if webhook is failing
-- Useful for fetching events that were missed due to webhook issues or for a pulling mechanism instead of webhook push
-
-### Webhooks
-[Getting Started with Adobe I/O Events Webhooks](../../index.md)
-
-Webhook Endpoint Requirements:
-
-- Handle GET and POST requests
-- Respond with a 200-type response within a reasonable time period
-- Challenge Request
-  - GET request with challenge query parameter
-  - Must respond with value of challenge query parameter
-- Webhook Events
-  - POST request with JSON data body with one or more events
-  - *Recommended to set up webhook as batch*
+<DeveloperGuidelines/>
 
 ### Event Data Structure
 
@@ -217,8 +194,4 @@ Smart Campaign | abort, activate, clone, create, deactivate, delete, edit, modif
 Smart List | clone, create, delete, edit, export, modify smartlist setup, rename
 Snippet | approve, approve with no-draft, clone, create, delete, edit, rename, unapprove
 
-## Debug
-
-[Debug Tracing](/src/pages/support/tracing.md)
-
-Once you have successfully completed your setup and event subscription registration, events should start being stored in the journal.  In addition, if you have webhooks or runtime set up, the events will go through those flows.  From the project's page in the event registration details, you should see a tab for Debug Tracing.  For webhooks, this will show a record of failed and successful challenge attempts as well as webhook attempts.  Each request includes the request/response details to help debug.
+<Debug/>
