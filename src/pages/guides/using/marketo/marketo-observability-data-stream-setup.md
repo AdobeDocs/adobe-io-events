@@ -28,6 +28,7 @@ Note: MODS (Marketo Observability Data Stream) is currently a Beta Product
 ## Pre-Requisite Setup
 
 The following are required to be able to subscribe to the data stream:
+
 - Marketo Engage subscription that is IMS-enabled
 - Marketo Engage subscription provisioned with a Performance Tier or CET package
 - Developer or admin account in the Experience Cloud
@@ -95,139 +96,145 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 
 #### Metrics
 
-    {
-        "id": "b90382d8-6b23-11ee-b962-0242ac120002",
-        "specversion": "1.0",
-        "type": "com.adobe.platform.marketo.observability.metrics",
-        "source": "urn:data_ingestion_service",
-        "time": "2023-08-14T18:00:00Z",
-        "datacontenttype": "application/json",
-        "data": {
-            "munchkinId": "123-ABC-456",
-            "requests": {
-                "received": 3,
-                "processed": 1,
-                "rejected": {  
-                    "606": 1,
-                    "607": 1
-                }
-            },
-            "records": {
-                "person": {
-                    "high": {
-                        "received": 100,
-                        "created": 90,
-                        "updated": 5,
-                        "failed": {
-                            "503": 5
-                        }
-                    },
-                    "normal": {
-                        "received": 100,
-                        "created": 90,
-                        "updated": 5,
-                        "failed": {
-                            "503": 5
-                        }
+````
+{
+    "id": "b90382d8-6b23-11ee-b962-0242ac120002",
+    "specversion": "1.0",
+    "type": "com.adobe.platform.marketo.observability.metrics",
+    "source": "urn:data_ingestion_service",
+    "time": "2023-08-14T18:00:00Z",
+    "datacontenttype": "application/json",
+    "data": {
+        "munchkinId": "123-ABC-456",
+        "requests": {
+            "received": 3,
+            "processed": 1,
+            "rejected": {  
+                "606": 1,
+                "607": 1
+            }
+        },
+        "records": {
+            "person": {
+                "high": {
+                    "received": 100,
+                    "created": 90,
+                    "updated": 5,
+                    "failed": {
+                        "503": 5
                     }
                 },
-                "customObjects": {
-                    "high": {
-                        "received": 100,
-                        "created": 90,
-                        "updated": 5,
-                        "failed": {
-                            "503": 5
-                        }
-                    },
-                    "normal": {
-                        "received": 100,
-                        "created": 90,
-                        "updated": 5,
-                        "failed": {
-                            "503": 5
-                        }
+                "normal": {
+                    "received": 100,
+                    "created": 90,
+                    "updated": 5,
+                    "failed": {
+                        "503": 5
+                    }
+                }
+            },
+            "customObjects": {
+                "high": {
+                    "received": 100,
+                    "created": 90,
+                    "updated": 5,
+                    "failed": {
+                        "503": 5
+                    }
+                },
+                "normal": {
+                    "received": 100,
+                    "created": 90,
+                    "updated": 5,
+                    "failed": {
+                        "503": 5
                     }
                 }
             }
         }
     }
+}
+````
 
 #### Results
 
-    {
-        "id": "b90382d8-6b23-11ee-b962-0242ac120002",
-        "specversion": "1.0",
-        "type": "com.adobe.platform.marketo.observability.results",
-        "source": "urn:data_ingestion_service",
-        "time": "2023-08-14T17:30:00Z",
-        "datacontenttype": "application/json",
-        "data": {
-            "munchkinId": "123-ABC-456"
-            "requests": [
-                {
-                    "requestId": "cf0a1a20-668e-492a-8ec2-ce8747507068",
-                    "requestTime": "2023-08-14T17:20:00Z",
-                    "clientId": "foo@marketo.com",
-                    "correlationId": "6180bb48-8dc7-4fc5-85ca-a59dd1edb0f3",
-                    "requestSource": "Adobe Journey Optimizer",
-                    "objectType": "person",
-                    "priority": "high",
-                    "records": {
-                        "received": 100,
-                        "created": 90,
-                        "updated": 10,
-                        "failed": {}
-                    }
-                },
-                {
-                    "requestId": "67b28858-f5ee-45ac-aa40-63a04085e6be",
-                    "requestTime": "2023-08-14T17:20:00Z",
-                    "clientId": "foo@marketo.com",
-                    "correlationId": "6180bb48-8dc7-4fc5-85ca-a59dd1edb0f3",
-                    "requestSource": "Public API",
-                    "objectType": "customObject",
-                    "priority": "normal",
-                    "records": {
-                        "received": 100,
-                        "created": 10,
-                        "updated": 10,
-                        "failed": {
-                            "503": 10,
-                            "404": 10
-                        }
+````
+{
+    "id": "b90382d8-6b23-11ee-b962-0242ac120002",
+    "specversion": "1.0",
+    "type": "com.adobe.platform.marketo.observability.results",
+    "source": "urn:data_ingestion_service",
+    "time": "2023-08-14T17:30:00Z",
+    "datacontenttype": "application/json",
+    "data": {
+        "munchkinId": "123-ABC-456"
+        "requests": [
+            {
+                "requestId": "cf0a1a20-668e-492a-8ec2-ce8747507068",
+                "requestTime": "2023-08-14T17:20:00Z",
+                "clientId": "foo@marketo.com",
+                "correlationId": "6180bb48-8dc7-4fc5-85ca-a59dd1edb0f3",
+                "requestSource": "Adobe Journey Optimizer",
+                "objectType": "person",
+                "priority": "high",
+                "records": {
+                    "received": 100,
+                    "created": 90,
+                    "updated": 10,
+                    "failed": {}
+                }
+            },
+            {
+                "requestId": "67b28858-f5ee-45ac-aa40-63a04085e6be",
+                "requestTime": "2023-08-14T17:20:00Z",
+                "clientId": "foo@marketo.com",
+                "correlationId": "6180bb48-8dc7-4fc5-85ca-a59dd1edb0f3",
+                "requestSource": "Public API",
+                "objectType": "customObject",
+                "priority": "normal",
+                "records": {
+                    "received": 100,
+                    "created": 10,
+                    "updated": 10,
+                    "failed": {
+                        "503": 10,
+                        "404": 10
                     }
                 }
-            ]
-        }
+            }
+        ]
     }
+}
+````
 
 #### Status
 
-    {
-        "id": "b90382d8-6b23-11ee-b962-0242ac120002",
-        "specversion": "1.0",
-        "type": "com.adobe.platform.marketo.observability.status",
-        "source": "urn:data_ingestion_service",
-        "time": "2023-08-14T18:00:00Z",
-        "datacontenttype": "application/json",
-        "data": {
-            "munchkinId": "123-ABC-456",
-            "quota": 65432100,
-            "queue": {
-                "high": {
-                    "lagSeconds": "2023-08-14T17:31:00Z",
-                    "requestBacklog": 1,
-                    "recordBacklog": 100
-                },
-                "normal": {
-                    "lagSeconds": "2023-08-14T17:31:00Z",
-                    "requestBacklog": 10,
-                    "recordBacklog": 1000
-                }
+````
+{
+    "id": "b90382d8-6b23-11ee-b962-0242ac120002",
+    "specversion": "1.0",
+    "type": "com.adobe.platform.marketo.observability.status",
+    "source": "urn:data_ingestion_service",
+    "time": "2023-08-14T18:00:00Z",
+    "datacontenttype": "application/json",
+    "data": {
+        "munchkinId": "123-ABC-456",
+        "quota": 65432100,
+        "queue": {
+            "high": {
+                "lagSeconds": "2023-08-14T17:31:00Z",
+                "requestBacklog": 1,
+                "recordBacklog": 100
             },
-        }
+            "normal": {
+                "lagSeconds": "2023-08-14T17:31:00Z",
+                "requestBacklog": 10,
+                "recordBacklog": 1000
+            }
+        },
     }
+}
+````
 
 #### Data Field Definitions
 
@@ -246,7 +253,7 @@ correlationId | An id representation of where the request originated from (empty
 origin | Name representation of the correlationId component
 objectType | Marketo object type that's being processed (account, custom object, person, etc.)
 priority | Priority of the request (high or normal)
-received | Count of requests/records received to the Data Ingest Service 
+received | Count of requests/records received to the Data Ingest Service
 created | Count of records created from processing the requests to the Data Ingest Service
 updated | Count of records updated from processing the requests to the Data Ingest Service
 failed | Count of records failed while processing the requests to the Data Ingest Service broken down by error code
