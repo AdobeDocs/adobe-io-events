@@ -96,7 +96,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 
 #### Metrics
 
-````
+````json
 {
     "id": "b90382d8-6b23-11ee-b962-0242ac120002",
     "specversion": "1.0",
@@ -158,7 +158,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 
 #### Results
 
-````
+````json
 {
     "id": "b90382d8-6b23-11ee-b962-0242ac120002",
     "specversion": "1.0",
@@ -209,7 +209,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 
 #### Status
 
-````
+````json
 {
     "id": "b90382d8-6b23-11ee-b962-0242ac120002",
     "specversion": "1.0",

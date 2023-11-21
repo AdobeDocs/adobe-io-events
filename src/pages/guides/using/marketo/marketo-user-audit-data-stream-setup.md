@@ -77,7 +77,8 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
 Events are structured in JSON format using the [CloudEvents](https://cloudevents.io/) spec
 
 *Example Event (batch)*
-````
+
+````json
 [
     {
         "event_id": "cf904f43-56bc-4f80-935d-a484de6e4181",
@@ -127,7 +128,8 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 ````
 
 *Example Event (single)*
-````
+
+````json
 {
     "event_id": "a9ef9c3c-bafe-48b8-9eae-bc63dfaed28c",
     "event": {
