@@ -174,8 +174,18 @@ module.exports = {
             path: "guides/using/privacy-event-setup.md",
           },
           {
-            title: 'Marketo User Audit Data Stream',
-            path: 'guides/using/marketo-user-audit-data-stream-setup.md'
+            title: 'Marketo Data Streams',
+            path: 'guides/using/marketo/marketo-data-streams.md',
+            pages: [
+              {
+                title: "Marketo Observability Data Stream",
+                path: "guides/using/marketo/marketo-observability-data-stream-setup.md",
+              },
+              {
+                title: "Marketo User Audit Data Stream",
+                path: "guides/using/marketo/marketo-user-audit-data-stream-setup.md",
+              },
+            ],
           },
           {
             title: 'Custom Events',
