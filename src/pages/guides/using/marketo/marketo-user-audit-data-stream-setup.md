@@ -27,7 +27,7 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
 
 - Select `Create new project`
 
-  ![Create new project](../../img/UserAuditDataStreamIOSetup1.png "Quick Start")
+  ![Create new project](../../img/console_create_new_project.png "Quick Start")
 
 - Select `Add event`
 
