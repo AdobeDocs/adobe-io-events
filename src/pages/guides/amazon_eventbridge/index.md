@@ -54,3 +54,70 @@ Basic instructions for getting started with the EventBridge integration, startin
 - After saving, your event registration should appear with a `Pending` status, indicating that further configuration is required on the AWS console.
 
   ![Verify setup](../img/console_eventbridge_pending_status_masked.png "Verify setup")
+
+### Configuring AWS Console
+
+Let's move forward and configure the event source on the AWS console now.
+
+- Go to the AWS console corresponding to the region configured in the developer console earlier. Then, navigate to "Amazon EventBridge" service and select "Partner Event Sources" from the left menu.
+- Choose the partner event source from the list that corresponds to the event registration created earlier, then click on the "Associate with event bus" button.
+
+  ![Associate with Event Bus](../img/aws_console_associate_with_event_bus_1.png "Associate with Event Bus")
+
+- On the next screen, click on "Associate" button.
+
+  ![Associate with Event Bus](../img/aws_console_associate_with_event_bus_2.png "Associate with Event Bus")
+- Now navigate to "Rules" from the left navigation pane in the AWS Console and select the event bus configured above. Then, click on "Create Rule" button.
+  
+  ![Select Event Bus](../img/aws_console_event_bus_create_rule.png "Select Event Bus")
+
+- In the "Create rule" configuration wizard, provide a name for the rule and, optionally, a description. Then, click on "Next".
+
+  ![Set rule name and description](../img/aws_configure_rule_1.png "Set rule name and description")
+
+- Build an event pattern against which all events will be matched. For this purpose, we'll use the below rule that matches every event. Once done, click on "Next".
+  
+  ```json
+  {
+    "source": [{
+      "prefix": "aws.partner/developer.adobe.com"
+    }]
+  }
+  ```
+
+  ![Build Event Pattern](../img/aws_configure_rule_2.png "Build Event Pattern")
+
+- Afterward, set up a target to which all events will be routed. This could be another Event Bus, an [EventBridge API Destination](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html), or one of several AWS services. For this demonstration, we'll use a pre-configured API destination that forwards all events to a custom webhook URL, such as [https://webhook.site/](https://webhook.site/). Once done, click on "Next".
+
+  ![Set up Target](../img/aws_configure_rule_3.png "Set up Target")
+
+- Then, optionally configure any tags and click on "Next".
+- Finish the rule creation by clicking on the "Create rule" button.
+
+  ![Finish Rule Creation](../img/aws_configure_rule_3.png "Finish Rule Creation")
+
+### Verify Status On Developer Console
+
+- Finally, return to the developer console and confirm that the event registration is in an "Active" status.
+
+  ![Verify status of event registration](../img/console_eventbridge_active_status.png "Verify status of event registration")
+
+## Output Event Format
+
+Every event follows Amazon's EventBridge event envelope format, where the event data is enclosed within the `detail` key.
+
+```json
+{
+    "version": "0",
+    "id": "4bc56dd4-8009-9893-2bc0-a65214f1ef02",
+    "detail-type": "Imaging API Events:photoshop-job-status",
+    "source": "aws.partner/developer.adobe.com.test/8dc56ec7-dae2-43cf-bacf-5ab8fabcabcb",
+    "account": "XXXXX8448333",
+    "time": "2023-11-26T13:44:51Z",
+    "region": "us-east-1",
+    "resources": [],
+    "detail": {
+        "key": "value"
+    }
+}
+```
