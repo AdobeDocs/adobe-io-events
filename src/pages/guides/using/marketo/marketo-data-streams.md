@@ -38,7 +38,7 @@ Here are some basic getting started instructions that will be the same for each 
 
 - Select `Create new project`
 
-  ![Create new project](../../img/UserAuditDataStreamIOSetup1.png "Quick Start")
+  ![Create new project](../../img/console_create_new_project.png "Quick Start")
 
 - Select `Add event`
 

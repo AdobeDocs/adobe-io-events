@@ -57,6 +57,10 @@ module.exports = {
             title: "Introduction to Journaling",
             path: "guides/journaling_intro.md",
           },
+          {
+            title: "Integration with Amazon EventBridge",
+            path: "guides/amazon_eventbridge/index.md",
+          },
         ],
       },
       {

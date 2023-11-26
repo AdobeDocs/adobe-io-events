@@ -9,3 +9,4 @@ yarn-error.log
 .editorconfig
 .env
 adobe-io-events.iml
+.yarn
