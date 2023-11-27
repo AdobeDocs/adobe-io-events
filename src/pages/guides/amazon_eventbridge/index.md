@@ -94,7 +94,7 @@ Let's move forward and configure the event source on the AWS console now.
 - Then, optionally configure any tags and click on "Next".
 - Finish the rule creation by clicking on the "Create rule" button.
 
-  ![Finish Rule Creation](../img/aws_configure_rule_3.png "Finish Rule Creation")
+  ![Finish Rule Creation](../img/aws_configure_rule_4.png "Finish Rule Creation")
 
 ### Verify Status On Developer Console
 
