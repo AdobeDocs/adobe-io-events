@@ -159,9 +159,9 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 
 #### Results
 
-Result events contain an array of processed requests indicating what was processed. 
-These may be complete or partial results depending on the size of the request payload. 
-Request payloads are processed in chunks, and if a request is split into multiple chunks, 
+Result events contain an array of processed requests indicating what was processed.
+These may be complete or partial results depending on the size of the request payload.
+Request payloads are processed in chunks, and if a request is split into multiple chunks,
 the processing results could potentially be reported across multiple events.
 
 ````json
