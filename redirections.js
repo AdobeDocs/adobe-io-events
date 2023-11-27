@@ -97,6 +97,10 @@
         redirectPath =
           prefixPath + "guides/using/marketo/marketo-user-audit-data-stream-setup/";
         break;
+      case "#!adobedocs/adobeio-events/master/guides/using/marketo-user-audit-data-stream-setup.md":
+        redirectPath =
+            prefixPath + "guides/using/marketo/marketo-user-audit-data-stream-setup/";
+        break;
       case "#!adobedocs/adobeio-events/master/using/custom_events.md":
         redirectPath = prefixPath + "guides/using/custom_events/";
         break;
