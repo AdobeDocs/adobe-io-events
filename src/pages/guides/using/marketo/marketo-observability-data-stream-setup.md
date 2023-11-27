@@ -10,14 +10,14 @@ import Debug from '/src/pages/guides/using/marketo/marketo-data-streams-debug.md
 These instructions describe how to set up and get started using Adobe I/O Events to subscribe to Marketo Observability events.
 
 - [Introduction](#introduction)
-- [Pre-Requisite Setup](#pre-requisite-setup)
+- [Prerequisite Setup](#prerequisite-setup)
 - [Setup Adobe I/O](#getting-started-with-adobe-io)
 - [Developer Guidelines](#developer-guidelines)
 - [Debug](#debug)
 
 ## Introduction
 
-The Marketo Observability Data Stream (MODS) provides insights about the data flow into Marketo through the Data Ingestion Service.  The stream offers several different event types:
+The Marketo Observability Data Stream (MODS) provides insights about the data flow into Marketo through the [Data Ingestion Service](https://developers.marketo.com/rest-api/data-ingestion/).  The stream offers several different event types:
 
 - Metrics - Periodic aggregated metrics showing all data sent to the API and processed into Marketo
 - Results - Per API request results for tracking and verification
@@ -25,7 +25,7 @@ The Marketo Observability Data Stream (MODS) provides insights about the data fl
 
 Note: MODS (Marketo Observability Data Stream) is currently a Beta Product
 
-## Pre-Requisite Setup
+## Prerequisite Setup
 
 The following are required to be able to subscribe to the data stream:
 
@@ -75,7 +75,7 @@ Basic instructions for this use case, starting from the [developer console](/con
     - Enable Webhook
       - We recommend batch over single webhooks
       - For `Webhook URL` a public https endpoint must be provided
-      - The endpoint much be able to handle get and post requests
+      - The endpoint must be able to handle get and post requests
       - The get request must respond with the challenge query if it exists
       - The post request must respond that it received the message or the webhook will re-attempt to send several times before giving up and automatically disabling the webhook sends
     - Enable Runtime action
@@ -106,6 +106,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
     "datacontenttype": "application/json",
     "data": {
         "munchkinId": "123-ABC-456",
+        "windowStart": "2023-08-14T17:00:00Z",
         "requests": {
             "received": 3,
             "processed": 1,
@@ -158,6 +159,11 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 
 #### Results
 
+Result events contain an array of processed requests indicating what was processed.
+These may be complete or partial results depending on the size of the request payload.
+Request payloads are processed in chunks, and if a request is split into multiple chunks,
+the processing results could potentially be reported across multiple events.
+
 ````json
 {
     "id": "b90382d8-6b23-11ee-b962-0242ac120002",
@@ -167,7 +173,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
     "time": "2023-08-14T17:30:00Z",
     "datacontenttype": "application/json",
     "data": {
-        "munchkinId": "123-ABC-456"
+        "munchkinId": "123-ABC-456",
         "requests": [
             {
                 "requestId": "cf0a1a20-668e-492a-8ec2-ce8747507068",

@@ -55,7 +55,7 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
     - Enable Webhook
       - We recommend batch over single webhooks
       - For `Webhook URL` a public https endpoint must be provided
-      - The endpoint much be able to handle get and post requests
+      - The endpoint must be able to handle get and post requests
       - The get request must respond with the challenge query if it exists
       - The post request must respond that it received the message or the webhook will re-attempt to send several times before giving up and automatically disabling the webhook sends
     - Enable Runtime action
