@@ -20,7 +20,7 @@ Note that the maximum size of 'request-body' and 'response-body' in a trace is 2
 
 3. From the *Registration Details*, select the *Debug Tracing* tab. You will see a list of events, beginning with the most recent.
 
-4. The *Debug Tracing* tab shows last 100 traces for your webhook registration. 
+4. The *Debug Tracing* tab shows last 100 traces for your webhook registration.
 
 5. Select any trace in the list to expand its view and see more details. By default, the request (sent by Adobe) is shown, with headers and body. Select *Response* to view your integration's response to the event.
 
@@ -36,12 +36,12 @@ By inspecting the details of the request and response, you can examine the commu
 
 ![](./img/events-debug-tracing-by-status.png)
 
-2. Use the "Add Filter" button to filter traces by one or more granular metrics, like response-time, response-code and retry-deliveries. These filtering options work seamlessly offline without fetching new data from the server. 
+2. Use the "Add Filter" button to filter traces by one or more granular metrics, like response-time, response-code and retry-deliveries. These filtering options work seamlessly offline without fetching new data from the server.
 
 ![](./img/events-debug-tracing-filters.png)
 
 ### Retention of Traces
 
 1. All traces older than 7 days are deleted for GDPR compliance.
- 
-2. Traces from last 100 'success' and 'error' deliveries are retained. All older traces are automatically deleted. 
+
+2. Traces from last 100 'success' and 'error' deliveries are retained. All older traces are automatically deleted.
