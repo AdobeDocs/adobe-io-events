@@ -7,6 +7,8 @@ title: Tracing Adobe I/O Events
 To troubleshoot issues with event-registrations, Adobe offers Debug Tracing feature. Using Debug Tracing, you can inspect the activity between the Adobe service and your integration to see what data is being sent and how your integration is responding.
 Each trace comprises of the event delivery HTTP request (sent by I/O Events), and response by the consumer application. This information can be of critical importance to your debugging efforts.
 
+*Debug Tracing is only available for event registrations with either a Webhook, Runtime Action or Amazon EventBridge as their delivery destination.*
+
 <InlineAlert variant="info" slots="text"/>
 Note that the maximum size of 'request-body' and 'response-body' in a trace is 2 KB. If any of these fields are larger than 2 KB, then they are trimmed at 2 KB boundary. The event payload that is delivered to your webhook is not trimmed.
 
