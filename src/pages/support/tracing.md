@@ -10,7 +10,7 @@ Each trace comprises of the event delivery HTTP request (sent by I/O Events), an
 *Debug Tracing is only available for event registrations with either a Webhook, Runtime Action or Amazon EventBridge as their delivery destination.*
 
 <InlineAlert variant="info" slots="text"/>
-Note that the maximum size of 'request-body' and 'response-body' in a trace is 2 KB. If any of these fields are larger than 2 KB, then they are trimmed at 2 KB boundary. The event payload that is delivered to your webhook is not trimmed.
+Note that the maximum size of 'request-body' and 'response-body' in a trace is 2 KB. If any of these fields are larger than 2 KB, then they are trimmed at 2 KB boundary. The delivered event payload is not trimmed.
 
 **To access Debug Tracing:**
 
@@ -20,7 +20,7 @@ Note that the maximum size of 'request-body' and 'response-body' in a trace is 2
 
 3. From the *Registration Details*, select the *Debug Tracing* tab. You will see a list of events, beginning with the most recent.
 
-4. The *Debug Tracing* tab shows last 100 traces for your webhook registration.
+4. The *Debug Tracing* tab shows last 100 traces for your event registration.
 
 5. Select any trace in the list to expand its view and see more details. By default, the request (sent by Adobe) is shown, with headers and body. Select *Response* to view your integration's response to the event.
 
