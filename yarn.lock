@@ -7947,6 +7947,7 @@ __metadata:
   resolution: "dev-site-documentation-template@workspace:."
   dependencies:
     "@adobe/gatsby-theme-aio": ^4.11.0
+    experience-manager-apis: "https://github.com/AdobeDocs/experience-manager-apis"
     gatsby: 4.22.0
     react: ^17.0.0
     react-dom: ^17.0.0
@@ -9154,6 +9155,18 @@ __metadata:
   version: 0.1.12
   resolution: "exif-parser@npm:0.1.12"
   checksum: 6ba50cb9e0b45a6efa37e966a9582ecd171b5c5b3ef0c47542f2b862c521f70d2f656dde85b4d2a5dd8e1163486b09049f4c412e9c6176bfbda1654a5b2f021c
+  languageName: node
+  linkType: hard
+
+"experience-manager-apis@https://github.com/AdobeDocs/experience-manager-apis":
+  version: 1.0.0
+  resolution: "experience-manager-apis@https://github.com/AdobeDocs/experience-manager-apis.git#commit=55d559ec3b22ce47de48e1e6cb5aeb5da780e2f9"
+  dependencies:
+    "@adobe/gatsby-theme-aio": ^4.11.0
+    gatsby: 4.22.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  checksum: 263e8ff1103a9e37c90b344cdecde46ca67c9e7be285c33cc810bf81c97d6419bc25a075470230b6c045d416d059a2202bd2b6a0eb6433e091cce00da558faab
   languageName: node
   linkType: hard
 
@@ -16811,7 +16824,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.0, react-dom@npm:^17.0.1":
+"react-dom@npm:^17.0.0, react-dom@npm:^17.0.1, react-dom@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
   dependencies:
@@ -16910,7 +16923,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^17.0.0, react@npm:^17.0.1":
+"react@npm:^17.0.0, react@npm:^17.0.1, react@npm:^17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
