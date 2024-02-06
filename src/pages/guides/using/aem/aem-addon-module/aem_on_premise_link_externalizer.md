@@ -17,7 +17,7 @@ However, for `on premise` version of AEM, you need to make sure the AEM Link Ext
 Note that this base URL will be reflected in the Adobe Developer Console in the AEM event provider label. 
 If you keep it default, that is `http://localhost:4502`, here is how it will be shown the Adobe developer console:
 
-![AEM Web Console](../../img/console_aem_locahost_event_provider.png "AEM Web Console")
+![AEM Web Console](../../../img/console_aem_locahost_event_provider.png "AEM Web Console")
 
 
 

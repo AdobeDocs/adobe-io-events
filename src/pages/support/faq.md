@@ -25,7 +25,7 @@ We are adding new events providers regularly, at the time of writing, the follow
 * [Privacy Service](https://www.adobe.com/go/devs_events_privacy_docs)
 * [Cloud Manager](https://www.adobe.com/go/devs_events_cloudmanager_docs)
 * Asset Compute
-* [AEM authors](../guides/using/aem/index.md)
+* [AEM](../guides/using/aem/index.md)
 * Adobe Campaign Standard
 
 You can also register [your own `Custom Events Provider`](../guides/using/custom_events.md)
@@ -173,7 +173,7 @@ Note that you should pay special attention to your [JWT Metascopes](/developer-c
 
 ### What are the metascopes my JWT token should claim? What are the access token authorization scopes expected by `Adobe I/O Events` APIs?
 
-* Our [AEM](../guides/using/aem/index.md) connector leverages an API that requires your access token to hold a `event_receiver_api` scope; for this you need to add the `I/O Events` API in your `Adobe Developer Console` workspace adding `/s/event_receiver_api` metascope to your JWT claim (see the [AEM console setup documentation](../guides/using/aem/aem_console_setup.md))
+* Our [AEM](../guides/using/aem/aem-addon-module/index.md) connector leverages an API that requires your access token to hold a `event_receiver_api` scope; for this you need to add the `I/O Events` API in your `Adobe Developer Console` workspace adding `/s/event_receiver_api` metascope to your JWT claim (see the [AEM console setup documentation](../guides/using/aem/aem-addon-module/aem_console_setup.md))
 * For all the other [`Adobe I/O Events` APIs](../guides/api/index.md), they require your access token to hold a `adobeio_api` scope coming with the `I/O Management API`, adding a `s/ent_adobeio_sdk` metascope to the JWT claim.
 
 ### Where can I find more documentation on JWT Service accounts and how to set them up?
