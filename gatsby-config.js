@@ -76,7 +76,7 @@ module.exports = {
                 path: "guides/using/aem/cloud-native/index.md",
               },
               {
-                title: "AEM Events powered by AEM add-on module (Deprecated)",
+                title: "AEM Events powered by AEM add-on module",
                 path: "guides/using/aem/aem-addon-module/index.md",
                 pages: [
                   {
@@ -84,7 +84,7 @@ module.exports = {
                     path: "guides/using/aem/aem-addon-module/aem_on_premise_install.md",
                   },
                   {
-                    title: "AEM as a Cloud Service Events",
+                    title: "AEM Cloud Events",
                     path: "guides/using/aem/aem-addon-module/aem_skyline_install.md",
                   },
                   {

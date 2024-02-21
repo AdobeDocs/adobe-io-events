@@ -4,9 +4,6 @@ title: AEM on Premise Events
 
 # AEM on Premise Events
 
-This documentation is specific to AEM On Premise,
-to integrate with AEM as cloud service, please refer to our [AEM as cloud service documentation](aem_skyline_install.md).
-
 To install and configure the Adobe I/O Events package on AEM (version 6.5.x and above):
 
 1. [Set up your workspace in Adobe Developer Console](aem_console_setup.md)

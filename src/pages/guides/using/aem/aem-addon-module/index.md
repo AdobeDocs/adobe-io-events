@@ -1,10 +1,14 @@
 ---
-title: AEM Events
+title: AEM Events powered by AEM add-on module (Deprecated)
 ---
 
-# AEM Events
+# AEM Events powered by AEM add-on module (Deprecated)
 
-**Adobe IO Events integration package for AEM is now open source: see [`aem-io-events`](https://github.com/adobe/aio-lib-java/tree/main/aem/aio_aem_events) module in our [`aio-lib-java`](https://github.com/adobe/aio-lib-java) github project**.
+<InlineAlert variant="warning" slots="text"/>
+
+We highly recommend clients to utilize [cloud-native AEM Events](../cloud-native/index.md), as the current package is no longer maintained.
+
+**Adobe I/O Events integration package for AEM is now open source. See [`aem-io-events`](https://github.com/adobe/aio-lib-java/tree/main/aem/aio_aem_events) module in our [`aio-lib-java`](https://github.com/adobe/aio-lib-java) github project**.
 
 ## Requirements
 To set it up, you need:

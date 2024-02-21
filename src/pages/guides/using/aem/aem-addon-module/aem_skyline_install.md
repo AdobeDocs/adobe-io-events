@@ -1,10 +1,11 @@
 ---
-title: AEM as a Cloud Service Events
+title: AEM Cloud Events powered by AEM add-on module
 ---
 
-# AEM as a Cloud Service Events
+# AEM Cloud Events powered by AEM add-on module
 
-This documentation has instructions to set up I/O Events integrations with AEM as a Cloud Service.
+This documentation has instructions to set up I/O Events integrations with AEM as a Cloud Service powered by the AEM add-on module. This is now deprecated and we recommend clients to use the [cloud-native AEM Events](../cloud-native/index.md).
+
 To integrate with AEM On Premise, please refer to the other associated [documentation](aem_on_premise_install.md).
 
 To install and configure the Adobe I/O Events package on AEM as a Cloud Service:
