@@ -23,12 +23,14 @@ to an instance responsible for processing the job; and on that instance the job 
 where eventually a Sling Job Consumer will execute it.
 
 This Adobe I/O Events Sling Job Consumer's job is to send this event to Adobe I/O.
+
 * `JobResult.OK` should be returned. If the job has not been processed completely,
 * `JobResult.FAILED` should be returned if Adobe I/O fails either to receive or to process it (due to network failure or Adobe I/O failure).
   In that case the job will be rescheduled/retried
 * if the max number of retries is met, the process will not be rescheduled and treated like the method would have returned `JobResult.CANCEL`.
 
 Note that
+
 * Adobe I/O Events Sling Job Consumer topic is `aio/events`
 * Adobe I/O Events `Sling Job Queue configuration` is the default `Apache Sling Job Default Queue` with
     * a Normal job priority
@@ -43,5 +45,6 @@ Note that you can use the `Sling > Jobs`  menu of AEM `system console`,
 to look up the statistics and health of your queues
 
 Please refer to the Sling documentation:
+
 * https://sling.apache.org/apidocs/sling7/org/apache/sling/event/jobs/consumer/JobConsumer.html
 * https://sling.apache.org/documentation/bundles/apache-sling-eventing-and-job-handling.html

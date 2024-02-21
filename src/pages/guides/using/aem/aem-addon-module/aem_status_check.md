@@ -5,6 +5,7 @@ title: AEM Events Status Checks
 ## AEM Events Status Check Endpoints
 
 The package `aio-aem-events` powers a few status endpoints that will help you troubleshoot your set up:
+
 * [aio-aem-core](https://github.com/adobe/aio-lib-java/tree/main/aem/core_aem) endpoints
     * from [/bin/aio/workspace.json](http://localhost:4502/bin/aio/workspace.json)
       you can `GET` the status of your workspace configuration

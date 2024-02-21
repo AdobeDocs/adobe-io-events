@@ -6,8 +6,7 @@ title: Workspace OSGI configurations
 
 ## Requirements
 
-Make sure you have
-* your Adobe Developer Console Workspace properly [configured](aem_console_setup.md),
+Make sure you have your Adobe Developer Console Workspace properly [configured](aem_console_setup.md),
 
 ## Adobe Developer Console Workspace `aio-aem-events` configurations
 
@@ -29,12 +28,15 @@ service looks up the following OSGI configuration keys (refer to your [Adobe Dev
 * `aio.encoded.pkcs8` your private key (in a base64 encoded pkcs8 format) see our [JWT public/private key management guide](aem_key_setup.md).
 
 ### On premise configurations
+
 For `on premise` version of AEM:
+
 * Open the Web Console, or select the **Tools** icon, then select **Operations** and **Web Console**.
 * Scroll down the list to find **Adobe I/O Events' Workspace Configuration**, update all the values mentioned above.
 * Select **Save** when done.
 
 ### AEM as a cloud service configurations
+
 When running on AEM as a cloud service, you'll have to use Cloud Manager to deploy these configurations,
 [choose the appropriate OSGi configuration value types](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/deploying/configuring-osgi.html%3Flang%3Den#how-to-choose-the-appropriate-osgi-configuration-value-type),
 mix environment variables, and secret environments variables (for `aio.client.secret` and `aio.encoded.pkcs8`).
