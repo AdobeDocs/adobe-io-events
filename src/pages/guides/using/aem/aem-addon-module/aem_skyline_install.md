@@ -2,9 +2,13 @@
 title: AEM Cloud Events powered by AEM add-on module
 ---
 
+import AemAddonModuleDeprecationNotice from '/src/pages/common/aem-addon-module-deprecation-notice.md'
+
 # AEM Cloud Events powered by AEM add-on module
 
-This documentation has instructions to set up I/O Events integrations with AEM as a Cloud Service powered by the AEM add-on module. This is now deprecated and we recommend clients to use the [cloud-native AEM Events](../cloud-native/index.md).
+<AemAddonModuleDeprecationNotice />
+
+This documentation has instructions to set up I/O Events integrations with AEM as a Cloud Service powered by the AEM add-on module.
 
 To integrate with AEM On Premise, please refer to the other associated [documentation](aem_on_premise_install.md).
 
