@@ -27,26 +27,26 @@ For more information read the [AEM package manager guide](https://experienceleag
 Using `maven`, you may deploy `aio-aem-events` as an embedded package within your own AEM project.
 
 * add `aio-aem-events` in your `maven` build `dependencies` section
-  ```xml
-<dependency>
-      <groupId>com.adobe.aio.aem</groupId>
-      <artifactId>aio-aem-events</artifactId>
-      <version>${aio-aem-events.version}</version>
-      <classifier>aem65</classifier>
-      <type>zip</type>
-</dependency>
-  ```
 
+  ```xml
+  <dependency>
+        <groupId>com.adobe.aio.aem</groupId>
+        <artifactId>aio-aem-events</artifactId>
+        <version>${aio-aem-events.version}</version>
+        <classifier>aem65</classifier>
+        <type>zip</type>
+  </dependency>
+  ```
 
 * add `aio-aem-events` in your `maven` build `filevault-package-maven-plugin` `embedded` `configuration` section:
 
   ```xml
-<embedded>
-      <groupId>com.adobe.aio.aem</groupId>
-      <artifactId>aio-aem-events</artifactId>
-      <type>zip</type>
-      <target>/apps/mysite-packages/application/install</target>
-</embedded>
+  <embedded>
+        <groupId>com.adobe.aio.aem</groupId>
+        <artifactId>aio-aem-events</artifactId>
+        <type>zip</type>
+        <target>/apps/mysite-packages/application/install</target>
+  </embedded>
   ```
 
 For more details on embedding 3rd-party within our AEM project read [AEM project structure guide](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/developing/aem-project-content-package-structure.html%3Flang%3Den#embedding-3rd-party-packages).
