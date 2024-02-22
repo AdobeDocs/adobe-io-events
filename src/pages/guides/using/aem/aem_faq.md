@@ -6,7 +6,7 @@ title: AEM FAQ
 
 ## What are the requirements ? Which versions of AEM are supported for I/O Events?  
 
-We support a range of versions see [Set up AEM Events with Adobe I/O Events](./index.md#requirements) 
+We support a range of versions see [Set up AEM Events with Adobe I/O Events](./aem-addon-module/index.md#requirements)
 
 ## What does the AEM event payload look like? 
 
