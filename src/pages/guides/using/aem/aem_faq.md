@@ -38,6 +38,10 @@ when the legacy `adobe_io` envelope looks like :
 The AEM event payloads follow an [Adobe XDM Event Model](https://github.com/adobe/xdm-event-model),
 based on the [json-ld w3c activity streams spec](https://github.com/w3c/activitystreams/blob/master/ns/activitystreams.jsonld)
 
+<InlineAlert variant="info" slots="text"/>
+
+The following event payloads are specific to the deprecated AEM add-on module. For Cloud-native AEM events, the payload envelope follows the CloudEvents standard, though the contents may differ.
+
 Here are a few sample AEM event payloads:
 
 - _Asset events:_
