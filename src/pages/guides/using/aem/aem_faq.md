@@ -40,7 +40,7 @@ based on the [json-ld w3c activity streams spec](https://github.com/w3c/activity
 
 <InlineAlert variant="info" slots="text"/>
 
-The following event payloads are specific to the deprecated AEM add-on module. For Cloud-native AEM events, the payload envelope follows the CloudEvents standard, though the contents may differ.
+The following event payloads are specific to the deprecated AEM add-on module. For AEM Cloud Service events, the payload envelope follows the CloudEvents standard, though the contents may differ.
 
 Here are a few sample AEM event payloads:
 

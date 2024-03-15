@@ -72,7 +72,7 @@ module.exports = {
             path: "guides/using/aem/index.md",
             pages: [
               {
-                title: "Cloud-Native AEM Events",
+                title: "AEM Cloud Service Events",
                 path: "guides/using/aem/cloud-native/index.md",
               },
               {
