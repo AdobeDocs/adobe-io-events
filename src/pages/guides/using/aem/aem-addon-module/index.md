@@ -8,7 +8,7 @@ import AemAddonModuleDeprecationNotice from '/src/pages/common/aem-addon-module-
 
 <AemAddonModuleDeprecationNotice />
 
-**Adobe I/O Events integration package for AEM is now open source. See [`aem-io-events`](https://github.com/adobe/aio-lib-java/tree/main/aem/aio_aem_events) module in our [`aio-lib-java`](https://github.com/adobe/aio-lib-java) github project**.
+**The Adobe I/O Events integration package for AEM is open source in the [`aem-io-events`](https://github.com/adobe/aio-lib-java/tree/main/aem/aio_aem_events) module of our [`aio-lib-java`](https://github.com/adobe/aio-lib-java) GitHub project.**.
 
 ## Requirements
 
