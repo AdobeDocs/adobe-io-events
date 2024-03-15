@@ -1,11 +1,8 @@
 ---
 title: AEM on Premise Events
 ---
-import AemAddonModuleDeprecationNotice from '/src/pages/common/aem-addon-module-deprecation-notice.md'
 
 # AEM on Premise Events
-
-<AemAddonModuleDeprecationNotice />
 
 To install and configure the Adobe I/O Events package on AEM (version 6.5.x and above):
 
