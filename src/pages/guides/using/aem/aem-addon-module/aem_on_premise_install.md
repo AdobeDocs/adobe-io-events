@@ -1,8 +1,8 @@
 ---
-title: AEM on Premise Events
+title: AEM Events powered by Add-On Module on AEM On-Premise
 ---
 
-# AEM on Premise Events
+# AEM Events powered by Add-On Module on AEM On-Premise
 
 To install and configure the Adobe I/O Events package on AEM (version 6.5.x and above):
 

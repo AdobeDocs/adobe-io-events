@@ -1,10 +1,10 @@
 ---
-title: AEM Cloud Events powered by AEM add-on module
+title: AEM Events powered by Add-On Module on AEM as a Cloud Service
 ---
 
 import AemAddonModuleDeprecationNotice from '/src/pages/common/aem-addon-module-deprecation-notice.md'
 
-# AEM Cloud Events powered by AEM add-on module
+# AEM Events powered by Add-On Module on AEM as a Cloud Service
 
 <AemAddonModuleDeprecationNotice />
 
