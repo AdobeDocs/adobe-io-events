@@ -77,41 +77,7 @@ module.exports = {
               },
               {
                 title: "AEM Events powered by AEM add-on module",
-                path: "guides/using/aem/aem-addon-module/index.md",
-                pages: [
-                  {
-                    title: "AEM on Premise Events",
-                    path: "guides/using/aem/aem-addon-module/aem_on_premise_install.md",
-                  },
-                  {
-                    title: "AEM Cloud Events",
-                    path: "guides/using/aem/aem-addon-module/aem_skyline_install.md",
-                  },
-                  {
-                    title: "JWT Authentication public/private keys",
-                    path: "guides/using/aem/aem-addon-module/aem_key_setup.md",
-                  },
-                  {
-                    title: "Adobe Developer Console Setup",
-                    path: "guides/using/aem/aem-addon-module/aem_console_setup.md",
-                  },
-                  {
-                    title: "AEM Advanced Configurations",
-                    path: "guides/using/aem/aem-addon-module/aem_advanced_configurations.md",
-                  },
-                  {
-                    title: "Workspace OSGI configurations",
-                    path: "guides/using/aem/aem-addon-module/aem_workspace_setup.md",
-                  },
-                  {
-                    title: "AEM Events Status Checks",
-                    path: "guides/using/aem/aem-addon-module/aem_status_check.md",
-                  },
-                  {
-                    title: "AEM Link Externalizer Configuration",
-                    path: "guides/using/aem/aem-addon-module/aem_on_premise_link_externalizer.md",
-                  }
-                ]
+                path: "guides/using/aem/aem-addon-module/index.md"
               },
               {
                 title: "AEM FAQ",
