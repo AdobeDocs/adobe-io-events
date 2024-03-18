@@ -14,8 +14,8 @@ import AemAddonModuleDeprecationNotice from '/src/pages/common/aem-addon-module-
 
 To set it up, you need:
 
-* An AEM (version 6.5 and above) instance with administrative permissions.
-* [Adobe Developer Console](/console) access, with administrative permissions for your enterprise organization.
+- An AEM (version 6.5 and above) instance with administrative permissions.
+- [Adobe Developer Console](/console) access, with administrative permissions for your enterprise organization.
 
 Note: If you are still running AEM version 6.4 and wish to use this solution, [let us know](https://github.com/adobe/aio-lib-java/issues/104).
 
@@ -23,8 +23,8 @@ Note: If you are still running AEM version 6.4 and wish to use this solution, [l
 
 These installation guides describe how to deploy and configure it so you can use Adobe IO Events for notification of AEM events, such as page or asset CUD operations.
 
-* [Installation guide for AEM Events powered by Add-On Module on AEM On-Premise (6.5.x and above)](aem_on_premise_install.md)
-* [Installation guide for AEM Events powered by Add-On Module on AEM as a Cloud Service](aem_skyline_install.md)
+- [Installation guide for AEM Events powered by Add-On Module on AEM On-Premise (6.5.x and above)](aem_on_premise_install.md)
+- [Installation guide for AEM Events powered by Add-On Module on AEM as a Cloud Service](aem_skyline_install.md)
 
 ## Use Adobe IO Events
 
