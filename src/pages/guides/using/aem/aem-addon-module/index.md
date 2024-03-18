@@ -28,10 +28,9 @@ These installation guides describe how to deploy and configure it so you can use
 
 ## Use Adobe IO Events
 
-Once the previous steps are completed, a new AEM provider should appear in the Events Providers list in your Adobe Developer Console.
+- Once the previous steps are completed, a new AEM provider should appear in the Events Providers list in your Adobe Developer Console.
 Please refer to the Adobe Developer Console documentation on how to [add Events to a project](/developer-console/docs/guides/services/services-add-event/) if you are new to this.
 
 ![Adobe Developer Console showing an AEM Events Provider](../../../img/add_skyline_event_provider.png "Adobe Developer Console showing an AEM Events Provider")
 
-you are ready to register a new [webhook](/src/pages/guides/index.md)
-or to start pulling events from this new AEM source using the [journaling](/src/pages/guides/journaling_intro.md).
+- You are ready to register a new [webhook](/src/pages/guides/index.md) or to start pulling events from this new AEM source using [journaling](/src/pages/guides/journaling_intro.md).
