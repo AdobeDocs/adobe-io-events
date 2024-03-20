@@ -80,7 +80,7 @@ module.exports = {
                 path: "guides/using/aem/aem-addon-module/index.md"
               },
               {
-                title: "AEM FAQ",
+                title: "AEM Events FAQ",
                 path: "guides/using/aem/aem_faq.md",
               }
             ],

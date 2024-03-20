@@ -1,8 +1,8 @@
 ---
-title: AEM FAQ
+title: AEM Events FAQ
 ---
 
-# AEM FAQ
+# AEM Events FAQ
 
 ## What are the requirements ? Which versions of AEM are supported for I/O Events?
 
