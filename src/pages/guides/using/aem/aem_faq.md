@@ -6,7 +6,7 @@ title: AEM Events FAQ
 
 ## What are the requirements ? Which versions of AEM are supported for I/O Events?
 
-We support a range of versions see [Set up AEM Events with Adobe I/O Events](./aem-addon-module/index.md#requirements)
+A range of versions is supported. For more information please refer [setting up AEM Events powered by AEM add-on module with Adobe I/O Events](./aem-addon-module/index.md#requirements).
 
 ## What does the AEM event payload look like?
 
@@ -26,7 +26,7 @@ The `CloudEvents` event envelope looks like this :
 }
 ```
 
-when the legacy `adobe_io` envelope looks like :
+Whereas the legacy [XDM Event Model](https://github.com/adobe/xdm-event-model) envelope looks like:
 
 ```json
 {
