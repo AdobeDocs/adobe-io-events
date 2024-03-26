@@ -18,7 +18,7 @@ A customer AWS account and the corresponding AWS region where the events can be 
 
 ## Adobe I/O Events & AWS Eventbridge - VIP Program 
 
-You can sign up for the VIP program [here](https://forms.office.com/r/FvkPuSvqQ9). If you have questions or want to learn more about our VIP Program, please send us an email to **Email:** Grp-CloudIntegration-Dev@adobe.com
+You can sign up for the VIP program [here](https://forms.office.com/r/FvkPuSvqQ9). If you have questions or want to learn more about our VIP Program, please send us an email to Grp-CloudIntegration-Dev@adobe.com
 
 ## Getting Started
 
