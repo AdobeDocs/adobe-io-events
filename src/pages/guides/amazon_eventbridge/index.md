@@ -16,6 +16,10 @@ Amazon EventBridge is a serverless integration service that enables you to creat
 
 A customer AWS account and the corresponding AWS region where the events can be routed to.
 
+## Adobe I/O Events & AWS Eventbridge - VIP Program 
+
+You can sign up for the VIP program [here](https://forms.office.com/r/FvkPuSvqQ9). If you have questions or want to learn more about our VIP Program, please send us an email to Grp-CloudIntegration-Dev@adobe.com
+
 ## Getting Started
 
 ### Configuring Developer Console
