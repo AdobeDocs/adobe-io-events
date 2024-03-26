@@ -6,7 +6,7 @@ title: AEM Advanced Configurations | Adobe IO Events
 
 ## Custom OSGI to Adobe I/O Events event mapping configurations:
 
-The `aio-aem-events` package is providing a set of
+The `aio-aem-events` add-on module is providing a set of
 [11 default OSGI to Adobe I/O Events event mapping configurations](https://github.com/adobe/aio-lib-java/tree/main/aem/aio_aem_events/src/cs/content/jcr_root/apps/aio-aem-events/osgiconfig/config.author)
 
 You can extend these and define your own mapping.

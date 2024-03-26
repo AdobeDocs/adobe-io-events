@@ -11,7 +11,7 @@ A range of versions is supported. For more information please refer [setting up 
 ## What does the AEM event payload look like?
 
 Since [aio-lib-java version 0.1.0](https://github.com/adobe/aio-lib-java/releases/tag/aio-lib-java-0.1.0)
-Adobe IO Events AEM package supports the recommended [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/spec.md) event envelope delivery format.
+Adobe IO Events AEM add-on module supports the recommended [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/spec.md) event envelope delivery format.
 
 The `CloudEvents` event envelope looks like this :
 

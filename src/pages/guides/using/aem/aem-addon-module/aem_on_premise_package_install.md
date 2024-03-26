@@ -1,10 +1,10 @@
 ---
-title: Install `aio-events-aem` on AEM (on-premise)
+title: Install Adobe I/O Events Add-On Module on AEM On-Premise
 ---
 
-# Install Adobe IO Events integration package on AEM (on-premise)
+# Install Adobe I/O Events Add-On Module on AEM On-Premise
 
-`aio-aem-events` is a classic AEM package, you have 2 main options to install it:
+You have 2 main options to install the `aio-aem-events` add-on module:
 
 * you may do it manually using AEM package manager.
 * you may automate it with `maven`

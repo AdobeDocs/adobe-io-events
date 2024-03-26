@@ -10,7 +10,7 @@ Make sure you have your Adobe Developer Console Workspace properly [configured](
 
 ## Adobe Developer Console Workspace `aio-aem-events` configurations
 
-The `aio-aem-events` package expects your Adobe Developer Console Workspace defined as OSGI configurations.
+The `aio-aem-events` add-on module expects your Adobe Developer Console Workspace defined as OSGI configurations.
 Its [WorkspaceSupplier](https://github.com/adobe/aio-lib-java/blob/main/aem/core_aem/src/main/java/com/adobe/aio/aem/workspace/internal/WorkspaceSupplierImpl.java)
 service looks up the following OSGI configuration keys (refer to your [Adobe Developer Console `project` file](aem_console_setup.md)):
 
