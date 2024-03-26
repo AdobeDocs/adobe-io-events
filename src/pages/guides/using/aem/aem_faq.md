@@ -1,21 +1,21 @@
 ---
-title: AEM FAQ
+title: AEM Events FAQ
 ---
 
-# AEM FAQ
+# AEM Events FAQ
 
-## What are the requirements ? Which versions of AEM are supported for I/O Events?  
+## What are the requirements ? Which versions of AEM are supported for I/O Events?
 
-We support a range of versions see [Set up AEM Events with Adobe I/O Events](./index.md#requirements) 
+A range of versions is supported. For more information please refer [setting up AEM Events powered by AEM add-on module with Adobe I/O Events](./aem-addon-module/index.md#requirements).
 
-## What does the AEM event payload look like? 
+## What does the AEM event payload look like?
 
-Since [aio-lib-java version 0.1.0](https://github.com/adobe/aio-lib-java/releases/tag/aio-lib-java-0.1.0) 
-Adobe IO Events AEM package supports the recommended [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/spec.md) event envelope delivery format.
+Since [aio-lib-java version 0.1.0](https://github.com/adobe/aio-lib-java/releases/tag/aio-lib-java-0.1.0)
+Adobe IO Events AEM add-on module supports the recommended [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/spec.md) event envelope delivery format.
 
 The `CloudEvents` event envelope looks like this :
 
-```
+```json
 {
   "specversion": "1.0",
   "source": "urn:uuid:<the AEM provider_id>",
@@ -26,19 +26,23 @@ The `CloudEvents` event envelope looks like this :
 }
 ```
 
-when the legacy `adobe_io` envelope looks like :
+Whereas the legacy [XDM Event Model](https://github.com/adobe/xdm-event-model) envelope looks like:
 
-```
+```json
 {
   "event_id": "<the AEM event_id>",
   "event": "<the AEM event payload>"
-} 
+}
 ```
 
 The AEM event payloads follow an [Adobe XDM Event Model](https://github.com/adobe/xdm-event-model),
 based on the [json-ld w3c activity streams spec](https://github.com/w3c/activitystreams/blob/master/ns/activitystreams.jsonld)
 
-Here are a few sample AEM event payloads: 
+<InlineAlert variant="info" slots="text"/>
+
+The following event payloads are specific to the deprecated AEM add-on module. For AEM Cloud Service events, the payload envelope follows the CloudEvents standard, though the contents may differ.
+
+Here are a few sample AEM event payloads:
 
 - _Asset events:_
     - Asset created:
@@ -82,7 +86,7 @@ Here are a few sample AEM event payloads:
         ```
 
     - Asset deleted:
-    
+
         ```json
         {
           "@id": "82235bac-2b81-4e70-90b5-2bd1f04b5c7b",
@@ -118,7 +122,7 @@ Here are a few sample AEM event payloads:
         ```
 
     - Asset updated:
-    
+
         ```json
         {
           "@id": "82235bac-2b81-4e70-90b5-2bd1f04b5c7b",
@@ -160,7 +164,7 @@ Here are a few sample AEM event payloads:
 
 - _Page events:_
     - Page published:
-    
+
         ```json
         {
           "@id": "82235bac-2b81-4e70-90b5-2bd1f04b5c7b",
@@ -196,8 +200,9 @@ Here are a few sample AEM event payloads:
           }
         }
         ```
+
     - Page unpublished:
-    
+
         ```json
         {
           "@id": "82235bac-2b81-4e70-90b5-2bd1f04b5c7b",
@@ -233,4 +238,3 @@ Here are a few sample AEM event payloads:
           }
         }
         ```
-

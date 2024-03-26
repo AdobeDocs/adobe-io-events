@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@adobe/gatsby-theme-aio": "^4.11.0",
+    "experience-manager-apis": "https://github.com/AdobeDocs/experience-manager-apis",
     "gatsby": "4.22.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
@@ -41,5 +42,9 @@
   "devDependencies": {
     "remark-cli": "^11.0.0",
     "remark-validate-links": "^12.1.0"
+  },
+  "resolutions": {
+    "sharp": "0.33.0",
+    "gatsby-sharp": "1.12.0"
   }
 }
