@@ -36,48 +36,6 @@
       case "#!adobedocs/adobeio-events/master/using/using.md":
         redirectPath = prefixPath + "guides/using/";
         break;
-      case "#!adobedocs/adobeio-events/master/using/aem-event-setup.md":
-        redirectPath = prefixPath + "guides/using/aem/";
-        break;
-      case "#!adobedocs/adobeio-events/master/aem/aem_on_premise_install_6.4.md":
-        redirectPath =
-          prefixPath + "guides/using/aem/deprecated/aem_on_premise_install_6.4/";
-        break;
-      case "#!adobedocs/adobeio-events/master/aem/aem_on_premise_install.md":
-        redirectPath = prefixPath + "guides/using/aem/";
-        break;
-      case "#!adobedocs/adobeio-events/master/aem/aem_skyline_install.md":
-        redirectPath = prefixPath + "guides/using/aem/aem_skyline_install/";
-        break;
-
-      case "#!adobedocs/adobeio-events/master/aem/aem_keystore_setup.md":
-        redirectPath = prefixPath + "guides/using/aem/deprecated/aem_keystore_setup_6.4/";
-        break;
-      case "#!adobedocs/adobeio-events/master/aem/aem_console_setup.md":
-        redirectPath = prefixPath + "guides/using/aem/aem_console_setup/";
-        break;
-      case "#!adobedocs/adobeio-events/master/aem/aem_ims_config.md":
-        redirectPath = prefixPath + "guides/using/aem/deprecated/aem_ims_config_6.4/";
-        break;
-      case "#!adobedocs/adobeio-events/master/aem/aem_advanced_configurations.md":
-        redirectPath =
-          prefixPath + "guides/using/aem/aem_advanced_configurations/";
-        break;
-      case "#!adobedocs/adobeio-events/master/aem/aem_healthcheck_6_4.md":
-        redirectPath =
-          prefixPath + "guides/using/aem/aem_on_premise_healthcheck/";
-        break;
-      case "#!adobedocs/adobeio-events/master/aem/aem_healthcheck_servlet.md":
-        redirectPath =
-          prefixPath + "guides/using/aem/aem_on_premise_link_externalizer/";
-        break;
-      case "#!adobedocs/adobeio-events/master/aem/aem_on_premise_package_install.md":
-        redirectPath =
-          prefixPath + "guides/using/aem/aem_on_premise_package_install/";
-        break;
-      case "#!adobedocs/adobeio-events/master/aem/aem_faq.md":
-        redirectPath = prefixPath + "guides/using/aem/aem_faq/";
-        break;
       case "#!adobedocs/adobeio-events/master/using/analytics-triggers-event-setup.md":
         redirectPath =
           prefixPath + "guides/using/analytics-triggers-event-setup/";
