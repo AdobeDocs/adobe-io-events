@@ -40,67 +40,69 @@ you are ready to use our [registration API](/api/#tag/Registrations/operation/cr
 To help you further and document the typical `Webhook Registration Payload`,
 here is a sample `POST` `curl` query that will create a new Webhook Registration against `https://your.webhook`.
 
-```text
+```bash
 curl -v --request POST \
-          --url https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations \
-          --header "x-api-key: $api_key" \
-          --header "Authorization: Bearer $jwt_token" \
-          --header 'content-type: application/json' \
-          --header 'Accept: application/hal+json' \
-          --data '{
-                    "client_id": "'"${api_key}"'",
-                    "webhook_url": "https://your.webhook",
-                    "name": "a user friendly name",
-                    "description": "description for the registration",
-                    "events_of_interest": [
-                        { "provider_id": "some_provider",
-                          "event_code": "some_event_code"
-                        }]
-                  }'
+  --url https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations \
+  --header "x-api-key: $api_key" \
+  --header "Authorization: Bearer $jwt_token" \
+  --header 'content-type: application/json' \
+  --header 'Accept: application/hal+json' \
+  --data '{
+            "client_id": "${api_key}",
+            "webhook_url": "https://your.webhook",
+            "name": "a user friendly name",
+            "description": "description for the registration",
+            "delivery_type": "webhook",
+            "events_of_interest": [{
+              "provider_id": "some_provider",
+              "event_code": "some_event_code"
+            }]
+          }'
 ```
 
 Or, this `curl` query to create `Webhook Registration` with a `runtime_action`
 
-```text
+```bash
 curl -v --request POST \
-          --url https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations \
-          --header "x-api-key: $api_key" \
-          --header "Authorization: Bearer $jwt_token" \
-          --header 'content-type: application/json' \
-          --header 'Accept: application/hal+json' \
-          --data '{
-                    "client_id": "'"${api_key}"'",
-                    "runtime_action": "your_app/your-runtime-action",
-                    "name": "a user friendly name",
-                    "description": "description for the registration",
-                    "events_of_interest": [
-                        { "provider_id": "some_provider",
-                          "event_code": "some_event_code"
-                        }]
-                  }'
+  --url https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations \
+  --header "x-api-key: $api_key" \
+  --header "Authorization: Bearer $jwt_token" \
+  --header 'content-type: application/json' \
+  --header 'Accept: application/hal+json' \
+  --data '{
+            "client_id": "${api_key}",
+            "runtime_action": "your_app/your-runtime-action",
+            "name": "a user friendly name",
+            "description": "description for the registration",
+            "delivery_type": "webhook",
+            "events_of_interest": [{
+              "provider_id": "some_provider",
+              "event_code": "some_event_code"
+            }]
+          }'
 ```
 
 Once done/`200` your provided webhook/ runtime-action will be POST-ed all `some_event_code` events provided by `some_provider`.
 
 Below is a sample `POST` `curl` query that will create a new Journal Registration:
 
-```text
+```bash
 curl -v --request POST \
-          --url https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations \
-          --header "x-api-key: $api_key" \
-          --header "Authorization: Bearer $jwt_token" \
-          --header 'content-type: application/json' \
-          --header 'Accept: application/hal+json' \
-          --data '{
-                    "client_id": "'"${api_key}"'",
-                    "name": "a user friendly name",
-                    "description": "description for the registration",
-                    "events_of_interest": [
-                        { "provider_id": "some_provider",
-                          "event_code": "some_event_code"
-                        }],
-                    "delivery_type": "journal"
-                  }'
+  --url https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations \
+  --header "x-api-key: $api_key" \
+  --header "Authorization: Bearer $jwt_token" \
+  --header 'content-type: application/json' \
+  --header 'Accept: application/hal+json' \
+  --data '{
+            "client_id": "${api_key}",
+            "name": "a user friendly name",
+            "description": "description for the registration",
+            "delivery_type": "journal",
+            "events_of_interest": [{
+              "provider_id": "some_provider",
+              "event_code": "some_event_code"
+            }]
+          }'
 ```
 
 Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling_api.md)
