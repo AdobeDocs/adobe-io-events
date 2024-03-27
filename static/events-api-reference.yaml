@@ -1061,7 +1061,7 @@ definitions:
         description: (Optional) A valid webhook url where the events would be delivered
       delivery_type:
         type: string
-        description: Delivery type can either be webhook|webhook_batch|journal
+        description: Delivery type can be one of [`webhook`, `webhook_batch`, `journal`, `aws_eventbridge`]
       runtime_action:
         type: string
         description: (Optional) Runtime action to be invoked by the published events
@@ -1103,6 +1103,7 @@ definitions:
       - client_id
       - events_of_interest
       - name
+      - delivery_type
     properties:
       client_id:
         type: string
@@ -1132,9 +1133,7 @@ definitions:
           $ref: '#/definitions/EventsOfInterestInputModel'
       delivery_type:
         type: string
-        description: Delivery type can either be webhook|webhook_batch|journal
-        pattern: webhook|webhook_batch|journal
-        default: webhook
+        description: Delivery type can be one of [`webhook`, `webhook_batch`, `journal`, `aws_eventbridge`]
       runtime_action:
         type: string
         description: (Optional) Runtime action to be invoked by the published events
@@ -1211,6 +1210,7 @@ definitions:
     required:
       - events_of_interest
       - name
+      - delivery_type
     properties:
       name:
         type: string
@@ -1235,9 +1235,7 @@ definitions:
           $ref: '#/definitions/EventsOfInterestInputModel'
       delivery_type:
         type: string
-        description: Delivery type can either be webhook|webhook_batch|journal
-        pattern: webhook|webhook_batch|journal
-        default: webhook
+        description: Delivery type can be one of [`webhook`, `webhook_batch`, `journal`, `aws_eventbridge`]
       runtime_action:
         type: string
         description: (Optional) Runtime action to be invoked by the published events
