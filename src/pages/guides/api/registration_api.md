@@ -15,7 +15,7 @@ title: Registration API
   * Bookmark your workspace, as you might need to come back to it more than once, to fine tune or troubleshoot your configurations.
   * Once done, note you have a JWT credentials defined
 * Note all your org, api-key and other contextual Ids
-  * Browse to your Adobe Developer Console` > `Project overview`
+  * Browse to your `Adobe Developer Console` > `Project overview`
   * Click on `Download`, open the downloaded `json` file with your favorite editor, in there you'll find:
     * your consumer Org Id (also called `consumer id`) (at `project.org.id`)
     * your IMS Org Id (at `project.org.ims_org_id`)
@@ -23,8 +23,9 @@ title: Registration API
        if you have more than one, pick the one where you defined your jwt
     * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].jwt.client_id`
 * Define your event registration. You will need:
-  * either a webhook url (accessible from the internet, reachable over HTTPS and that correctly respond to a "challenge" request) see [Webhooks](/guides/)
-  * or you can also define your runtime-action. See [runtime-webhooks](/guides/runtime_webhooks/). **Note** - Do not define both.
+  * either a webhook url (accessible from the internet, reachable over HTTPS and that correctly responds to a [challenge request](/guides/index.md#the-challenge-request)), refer our [guide on getting started with I/O Events webhooks](/guides/).
+  * or you can also define your [runtime action](/guides/runtime_webhooks/).<br/>
+    **Note** - Do not define both.
   * a name (a user-friendly name, used for display in the Adobe Developer Console)
   * an array of events of interests, that are defined with 2 ids
     * a `provider_id`: defining one of the events source system (the events provider) your organization is entitled to,
@@ -82,7 +83,7 @@ curl -v --request POST \
           }'
 ```
 
-Once done/`200` your provided webhook/ runtime-action will be POST-ed all `some_event_code` events provided by `some_provider`.
+Once the request is successfully completed with a status of `200`, your specified webhook or runtime action will start receiving events with the specified event code as and when it is published by the specified event provider via HTTP `POST` requests.
 
 Below is a sample `POST` `curl` query that will create a new Journal Registration:
 
@@ -105,5 +106,6 @@ curl -v --request POST \
           }'
 ```
 
-Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling_api.md)
-If you wonder how to fetch the valid provider Ids and event codes, look at our [Provider API](provider_api.md)
+Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling_api.md).
+
+If you wonder how to fetch the valid provider ids and event codes, look at our [Provider API](provider_api.md).
