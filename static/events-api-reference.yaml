@@ -445,7 +445,7 @@ paths:
     post:
       tags:
         - Registrations
-      summary: Create a Webhook/Journal registration for given workspace
+      summary: Create an event registration for a given workspace
       operationId: createRegistration
       consumes:
         - application/json
@@ -517,7 +517,7 @@ paths:
     put:
       tags:
         - Registrations
-      summary: Updates a Webhook or a Journal registration specified by the Registration ID.
+      summary: Updates an event registration specified by the Registration ID.
       operationId: updateRegistrationById
       consumes:
         - application/json
@@ -548,7 +548,7 @@ paths:
     patch:
       tags:
         - Registrations
-      summary: Patches a Webhook or a Journal registration.
+      summary: Patches an event registration.
       operationId: patchRegistrationById
       consumes:
         - application/json-patch+json
@@ -634,7 +634,7 @@ paths:
     get:
       tags:
         - Tracing
-      summary: Get tracing details for a specific webhook
+      summary: Get tracing details for a specific event registration
       operationId: getTracesApi
       produces:
         - application/json
@@ -1019,7 +1019,7 @@ definitions:
       id:
         type: integer
         format: int64
-        description: The id of the webhook registratiom. This is different from the registration id, and is used in the Developer Console URL to identify the registration
+        description: The id of the event registratiom. This is different from the registration id, and is used in the Developer Console URL to identify the registration
       name:
         type: string
         description: The name of the registration which will be displayed on Developer Console
@@ -1040,7 +1040,7 @@ definitions:
           $ref: '#/definitions/EventsOfInterestModel'
       webhook_status:
         type: string
-        description: Status of the webhook
+        description: Status of the event registration
       created_date:
         type: string
         description: Date when the registration was created
@@ -1061,7 +1061,7 @@ definitions:
         description: (Optional) A valid webhook url where the events would be delivered
       delivery_type:
         type: string
-        description: Delivery type can either be webhook|webhook_batch|journal
+        description: Delivery type can be one of [`webhook`, `webhook_batch`, `journal`, `aws_eventbridge`]
       runtime_action:
         type: string
         description: (Optional) Runtime action to be invoked by the published events
@@ -1103,6 +1103,7 @@ definitions:
       - client_id
       - events_of_interest
       - name
+      - delivery_type
     properties:
       client_id:
         type: string
@@ -1111,7 +1112,7 @@ definitions:
         maxLength: 255
       name:
         type: string
-        description: The name of the webhook registration which will be displayed on Developer Console
+        description: The name of the event registration which will be displayed on Developer Console
         minLength: 3
         maxLength: 255
       description:
@@ -1132,9 +1133,7 @@ definitions:
           $ref: '#/definitions/EventsOfInterestInputModel'
       delivery_type:
         type: string
-        description: Delivery type can either be webhook|webhook_batch|journal
-        pattern: webhook|webhook_batch|journal
-        default: webhook
+        description: Delivery type can be one of [`webhook`, `webhook_batch`, `journal`, `aws_eventbridge`]
       runtime_action:
         type: string
         description: (Optional) Runtime action to be invoked by the published events
@@ -1211,10 +1210,11 @@ definitions:
     required:
       - events_of_interest
       - name
+      - delivery_type
     properties:
       name:
         type: string
-        description: The name of the webhook registration which will be displayed on Developer Console
+        description: The name of the event registration which will be displayed on Developer Console
         minLength: 3
         maxLength: 255
       description:
@@ -1235,9 +1235,7 @@ definitions:
           $ref: '#/definitions/EventsOfInterestInputModel'
       delivery_type:
         type: string
-        description: Delivery type can either be webhook|webhook_batch|journal
-        pattern: webhook|webhook_batch|journal
-        default: webhook
+        description: Delivery type can be one of [`webhook`, `webhook_batch`, `journal`, `aws_eventbridge`]
       runtime_action:
         type: string
         description: (Optional) Runtime action to be invoked by the published events
