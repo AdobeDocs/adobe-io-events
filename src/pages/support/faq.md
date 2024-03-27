@@ -112,7 +112,7 @@ The answer is **no**. Adobe I/O Events notifications services are hosted on AWS 
 When registering a webhook to receive Adobe I/O Events notifications, you can select the delivery style:
 
 * Either receiving one event at a time ("Single"): each event resulting in an HTTP request to the webhook URL.
-* Or multiple events together ("Batch"): in this case, HTTP requests will still remain near-real time, the batch size will vary depending on the incoming traffic and the batch size will be at max 2MB bytes and will contain a maximum of 100 events.
+* Or multiple events together ("Batch"): in this case, HTTP requests will still remain near-real time, the batch size will vary depending on the incoming traffic and the batch size will be at max 2MB bytes and will contain a maximum of 20 events.
 
 ### How to debug and see logs for successful invocations to my runtime_action (configured as webhook)
 
