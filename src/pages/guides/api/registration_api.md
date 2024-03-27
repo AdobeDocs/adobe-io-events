@@ -22,7 +22,7 @@ title: Registration API
     * your credential Id (also called `application id`) (at `project.workspace.details.credentials[0].id`, note that `credentials` is an array,
        if you have more than one, pick the one where you defined your jwt
     * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].jwt.client_id`
-* Define your webhook registration. You will need :
+* Define your event registration. You will need:
   * either a webhook url (accessible from the internet, reachable over HTTPS and that correctly respond to a "challenge" request) see [Webhooks](/guides/)
   * or you can also define your runtime-action. See [runtime-webhooks](/guides/runtime_webhooks/). **Note** - Do not define both.
   * a name (a user-friendly name, used for display in the Adobe Developer Console)
