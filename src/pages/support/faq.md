@@ -90,9 +90,9 @@ While your event registration is marked `Disabled`, Adobe will continue to log e
 
 ### What happens if my webhook is unable to handle a specific event but handles all other events gracefully?
 
-If an event delivery fails with a status code of [400 Bad Request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400) or [505 HTTP Version Not Supported](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505), then those events are **not retried**.
+Please note that if an event delivery fails with a response status code of [429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429), or with any response status code in the range of 500 to 599 except for [505 HTTP Version Not Supported](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505), then those events are retried. Events that fail with any other response status codes are **not retried**.
 
-For all other cases, we will continue to retry the event delivery for 24 hours, but if all retry attempts get exhausted and the event still isn't delivered, then the event will be dropped.
+We continue to retry the event delivery for 24 hours. If all retry attempts are exhausted and the event still isn't delivered, the event will be dropped.
 However, do note that the event registration will remain as **Active** and shall continue to process events.
 
 ### Does every Adobe I/O Events webhook HTTP request come with a signature?

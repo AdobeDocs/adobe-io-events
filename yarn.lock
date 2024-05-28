@@ -135,9 +135,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adobe/gatsby-theme-aio@npm:^4.11.10":
-  version: 4.11.13
-  resolution: "@adobe/gatsby-theme-aio@npm:4.11.13"
+"@adobe/gatsby-theme-aio@npm:^4.11.14":
+  version: 4.12.0
+  resolution: "@adobe/gatsby-theme-aio@npm:4.12.0"
   dependencies:
     "@adobe/focus-ring-polyfill": ^0.1.5
     "@adobe/gatsby-source-github-file-contributors": ^0.3.1
@@ -233,7 +233,7 @@ __metadata:
     gatsby: ^4.22.0
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: b19a45d6e129a4d2b1dd23c941a4f3a1be47501271239491d226c4fef0a45080955169aae5d9fbc810101f1f01137ebfb5d02b0031adf0ec05a6faa5bb942271
+  checksum: dab219f34bdc2a9b402e9e0808ee00c2c935e7566872023c56951dd1790612e9ed39e461d9c2a47521c51007b2b333c46935e83eb9e23a82dcb894eab3a7bcba
   languageName: node
   linkType: hard
 
@@ -9262,13 +9262,13 @@ __metadata:
 
 "experience-manager-apis@https://github.com/AdobeDocs/experience-manager-apis":
   version: 1.0.0
-  resolution: "experience-manager-apis@https://github.com/AdobeDocs/experience-manager-apis.git#commit=3d66db20b0e8e2a66e61471b7b717e689d8fac9b"
+  resolution: "experience-manager-apis@https://github.com/AdobeDocs/experience-manager-apis.git#commit=fab2366acebd62e10c47e17d61bfb757652f470c"
   dependencies:
-    "@adobe/gatsby-theme-aio": ^4.11.10
+    "@adobe/gatsby-theme-aio": ^4.11.14
     gatsby: 4.22.0
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 28ce625fadb327138c27db42f77f57b7ed686e3103a9e479c38ab3e593134367d7dd089ec28c3016bbc5f01c3d16f7f1520de1b642cef5b64252c042f5ad9ab9
+  checksum: 10aa7efb35ac969cf67538e3f9f8f12c24b07ab7040dcb9398153632fd6081165db78330f1f369a612e611944dba591d6bee4d355d1b6f97fab89c2121f167dc
   languageName: node
   linkType: hard
 
