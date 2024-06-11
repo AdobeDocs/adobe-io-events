@@ -134,7 +134,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                     }
                 }
             },
-            "customObjects": {
+            "customObject": {
                 "high": {
                     "received": 100,
                     "created": 90,
@@ -228,12 +228,12 @@ the processing results could potentially be reported across multiple events.
         "quota": 65432100,
         "queue": {
             "high": {
-                "lagSeconds": "2023-08-14T17:31:00Z",
+                "lagSeconds": 15,
                 "requestBacklog": 1,
                 "recordBacklog": 100
             },
             "normal": {
-                "lagSeconds": "2023-08-14T17:31:00Z",
+                "lagSeconds": 135,
                 "requestBacklog": 10,
                 "recordBacklog": 1000
             }
