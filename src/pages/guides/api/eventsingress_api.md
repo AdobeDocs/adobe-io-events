@@ -76,7 +76,13 @@ When the header is present and set to `true`:
 * audit trace logs will be preserved for 1 year in a HIPAA-compliant storage,
 * the `id` field in the CloudEvents payload will be used as a `trace-id` for the above audit trace logs.
 
-You can store the `id` in your own logs or storage solution for traceability, this will give you the 
-possibility to later ask I/O Events support to retrieve the audit trace logs for a given set of `ids`
-you produced, and by storing what `ids` correspond to what PHI data you handle, you will be able to
-easily provide evidences of how the patient data was handled in case of an audit.
+In the event of an audit, you will need to be able to provide evidences of how the patient data was handled.
+
+### Audit log: storing the mapping between PHI data to ids
+
+It is your responsibility to store the `id` in your own logs or storage solution for traceability, 
+as well as maintaining a mapping between the `id` you produce and the PHI data that the message with 
+that `id` contains to be able to trace back the PHI data in case of an audit.
+
+You can ask I/O Events support to retrieve the audit trace logs for a given set of `ids` you produced.
+You can reach the support team through the [Adobe I/O Forums](https://experienceleaguecommunities.adobe.com/t5/adobe-developer/ct-p/adobe-io) on Adobe Experience League.
