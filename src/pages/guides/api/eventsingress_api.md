@@ -7,9 +7,9 @@ title: Events Publishing API
 ## Prerequisites
 
 * Create a project and a workspace in the [Adobe Developer Console](/developer-console/docs/guides/projects/projects-empty/)
-* Add the `I/O Management API` in this Adobe Developer Console workspace 
+* Add the `I/O Management API` in this Adobe Developer Console workspace
 * [Generate a JWT token](/developer-console/docs/guides/credentials/)
-* Using [Adobe I/O Events Provider API](provider_api.md) 
+* Using [Adobe I/O Events Provider API](provider_api.md)
    * create your own `Custom Events Provider`
    * create at least one `Event Metadata` associated with the above
 
@@ -22,35 +22,37 @@ Please note that all custom events are stored in the **United States (US)** regi
 ## Throttling Policy
 
 We do have a throttling policy in place, we accept up to 3,000 requests / 5 secs per api-key.
-Your throttled requests will receive a HTTP Status 429 (Too Many Requests) response 
+Your throttled requests will receive a HTTP Status 429 (Too Many Requests) response
 with a `Retry-After` header, following the [RFC 7231](https://tools.ietf.org/html/rfc7231#section-7.1.3) HTTP standard.
 
 ## Test Drive
 
 Once its `Event Metadata` is persisted in Adobe I/O Events (see above prerequisites),
-your `Custom Events Provider` can start publishing its 
+your `Custom Events Provider` can start publishing its
 [CloudEvents]( https://cloudevents.io) to Adobe I/O Events publishing endpoint (`https://eventsingress.adobe.io`).
 
-Please follow [CloudEvents v1.0 specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md), 
+Please follow [CloudEvents v1.0 specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md),
 here is a sample `curl` command:
 
-     curl -i --location --request POST  \
-             --url https://eventsingress.adobe.io \
-             --header "x-api-key: $api_key" \
-             --header "Authorization: Bearer $jwt_token" \
-             --header 'Content-Type: application/cloudevents+json' \
-             --header 'x-event-phidata: $is_phidata' \
-             --data '{
-               "datacontenttype": "application/json",
-               "specversion": "1.0",
-               "source": "urn:uuid:'"${provider_id}"'",
-               "type": "'"${event_code}"'",
-               "id": "'"${event_id}"'",
-               "data": "your event json payload"
-             }'
-
+```bash
+curl -i --location --request POST  \
+       --url https://eventsingress.adobe.io \
+       --header "x-api-key: $api_key" \
+       --header "Authorization: Bearer $jwt_token" \
+       --header 'Content-Type: application/cloudevents+json' \
+       --header "x-event-phidata: $is_phidata" \
+       --data '{
+         "datacontenttype": "application/json",
+         "specversion": "1.0",
+         "source": "urn:uuid:'"${provider_id}"'",
+         "type": "'"${event_code}"'",
+         "id": "'"${event_id}"'",
+         "data": "your event json payload"
+       }'
+```
 
 The environment variables used in this `curl` command are computed from the above prerequisites
+
 * `api_key` is the api-key associated with your Adobe Developer Console workspace
 * `jwt_token` is a jwt token generated using the set up from the same workspace
 * `is_phidata` is a boolean value indicating if the event contains PHI data, and is required for [HIPAA compliance](#hipaa-compliance-support) (defaults to `false` if not provided)
@@ -61,6 +63,7 @@ for each distinct event see [CloudEvents spec](https://github.com/cloudevents/sp
 *  as for the value of `data` in the CloudEvents body payload, it can be any json payload.
 
 The API returns
+
 * HTTP Status 200 (OK) if the event has been processed correctly and there are active registrations for the event,
 * HTTP Status 204 (No Content) if there are no registrations for the event,
 * HTTP Status 429 (Too Many Requests) if your api-key is being throttled (see our [Throttling Policy](#throttling-policy)).
@@ -80,8 +83,8 @@ In the event of an audit, you will need to be able to provide evidences of how t
 
 ### Audit log: storing the mapping between PHI data to ids
 
-It is your responsibility to store the `id` in your own logs or storage solution for traceability, 
-as well as maintaining a mapping between the `id` you produce and the PHI data that the message with 
+It is your responsibility to store the `id` in your own logs or storage solution for traceability,
+as well as maintaining a mapping between the `id` you produce and the PHI data that the message with
 that `id` contains to be able to trace back the PHI data in case of an audit.
 
 You can ask I/O Events support to retrieve the audit trace logs for a given set of `ids` you produced.
