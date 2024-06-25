@@ -14,7 +14,7 @@ The slack channel #adobeio-onsite-onboarding is our main point of contact for he
 
 For local development, simply use:
 
-```
+```bash
 $ yarn install
 $ yarn run dev
 ```
@@ -35,7 +35,7 @@ For more in-depth [instructions](https://github.com/adobe/aio-theme#getting-star
 
 For any team that wishes to deploy to the adobe.io and stage.adobe.io website, they must be in contact with the dev-site team. Teams will be given a path that will follow the pattern `adobe.io/{product}/`. This will allow doc developers to setup their subpaths to look something like:
 
-```
+```txt
 adobe.io/{product}/docs
 adobe.io/{product}/community
 adobe.io/{product}/community/code_of_conduct
