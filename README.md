@@ -12,9 +12,9 @@ The slack channel #adobeio-onsite-onboarding is our main point of contact for he
 
 ## How to develop
 
-For local development, simply use :
+For local development, simply use:
 ```
-$ npm install
+$ yarn install
 $ npm run dev
 ```
 
