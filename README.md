@@ -15,7 +15,7 @@ The slack channel #adobeio-onsite-onboarding is our main point of contact for he
 For local development, simply use:
 ```
 $ yarn install
-$ npm run dev
+$ yarn run dev
 ```
 
 For the documentation developer, please read these sections on how to:
