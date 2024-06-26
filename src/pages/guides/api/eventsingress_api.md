@@ -84,9 +84,10 @@ In the event of an audit, you will need to be able to provide evidences of how t
 
 ### Audit log: storing the mapping between PHI data to ids
 
-It is your responsibility to store the `id` in your own logs or storage solution for traceability,
-as well as maintaining a mapping between the `id` you produce and the PHI data that the message with
-that `id` contains to be able to trace back the PHI data in case of an audit.
+It is your responsibility to store the `id` in your own logs or storage solution for traceability.
+If you are handling multiple end patients data (PHIs), you should also store what `id` you
+produced corresponds to what patient data, to be able to provide information regarding that
+patient data in case of an audit specific to that patient.
 
 You can ask I/O Events support to retrieve the audit trace logs for a given set of `ids` you produced.
 You can reach the support team through the [Adobe I/O Forums](https://experienceleaguecommunities.adobe.com/t5/adobe-developer/ct-p/adobe-io) on Adobe Experience League.
