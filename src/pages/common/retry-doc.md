@@ -16,7 +16,7 @@ Please note that if an event delivery fails with a response status code of [429 
 `Adobe I/O Events` changes the state of a webhook event registration based on the below criteria:
 
  - **UNSTABLE** - Webhook is unstable if in the last 30 Minutes there is enough deliveries (minimum 10) made wherein the failure deliveries % is more than 80%
- - **HOOK_UNREACHABLE** - Webhook in unreachable, if in the last 24 Hours there is enough deliveries (minimum 10) made for which the failure deliveries % is more than 80%
+ - **HOOK_UNREACHABLE** - Webhook is unreachable, if in the last 24 Hours there is enough deliveries (minimum 10) made for which the failure deliveries % is more than 80%
  - **VERIFIED**  - Webhook is stable if in the last 30 min there is enough deliveries (min 10) made wherein the success deliveries % is more than 80%
 
 For an **Unstable** event registration `Adobe I/O Events` still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid it from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
