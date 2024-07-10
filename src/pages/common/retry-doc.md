@@ -13,6 +13,12 @@ Please note that if an event delivery fails with a response status code of [429 
 
 *Please note that above retry intervals are not guaranteed and may vary in few exception scenarios.*
 
-If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the event registration as **Unstable**, but still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid it from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
+`Adobe I/O Events` changes the state of an event registration based on the below criteria:
 
-If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response), `Adobe I/O Events` drops the events, marks the event registration as **Disabled**, and stops sending any further events.
+ - **UNSTABLE** - Event registration is marked as unstable if, in the last 30 minutes, over 80% of at least 10 deliveries were unsuccessful.
+ - **DISABLED** - Event registration is marked as disabled if, in the last 24 hours, over 80% of at least 10 deliveries were unsuccessful.
+ - **ACTIVE**  - Event registration is marked as active if, in the last 30 minutes, over 80% of at least 10 deliveries were successful.
+
+For an **Unstable** event registration `Adobe I/O Events` still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid it from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
+
+If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response) or the registration is still in **Unstable** state, `Adobe I/O Events` drops the events, marks the event registration as **Disabled**, and stops sending any further events.
