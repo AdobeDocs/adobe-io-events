@@ -22,6 +22,7 @@ Before setting up and using Adobe I/O, you will need to do the following:
 
 To complete this solution, you will need authorization to use the following services:
 *   Adobe Analytics, including Triggers
+*   Adobe Campaign
 *	Adobe Experience Cloud Activation Core Services
 *   An [Adobe ID](https://helpx.adobe.com/x-productkb/global/adobe-id-account-change.html), if you do not have one already
 
