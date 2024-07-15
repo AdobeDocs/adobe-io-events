@@ -17,7 +17,7 @@ The Runtime cli will let you create a runtime action and hook it up with an inte
 - Go to `aio-cli` and create and deploy your user-action in your namespace.
 - Come back to Developer Console and you will see the deployed runtime action in your namespace under the `User Defined Actions` section. Refresh the page if you don't see the action.
 - Now set up an event registration using the runtime action you just deployed. You would need to select the `Runtime Action` option in your `Configure event registration` page. Choose your runtime action from the dropdown and click `Save configured events`.
-- This will create an event registration with an event handler webhook pointing to your runtime action. 
+- This will create an event registration with an event handler webhook pointing to your runtime action.
 
 **Things to Note**
 
@@ -26,7 +26,7 @@ The Runtime cli will let you create a runtime action and hook it up with an inte
 
 ## Benefits of using Runtime Action as Webhook
 
-- [Built In Signature Verification](#built-in-signature-verification) 
+- [Built In Signature Verification](#built-in-signature-verification)
 - [Tracing Actions with Activation Ids](#tracing-actions-with-activation-ids)
 
 ### Built In Signature Verification
