@@ -4,7 +4,7 @@ title: Runtime Actions as Webhook Introduction
 
 # Runtime Actions as Webhook
 
-The integration between Adobe I/O Runtime and I/O Events lets you create Runtime actions to be set up as webhook endpoints on the `Developer Console` for receiving events, so that every time an event fires, your Runtime action is executed. We recommend setting up your runtime action as webhook if you have short-running action (that responds within 10 sec).
+The integration between Adobe I/O Runtime and I/O Events lets you create Runtime actions to be set up as webhook endpoints on the `Developer Console` for receiving events, so that every time an event fires, your Runtime action is executed. Set up your runtime action as **webhook** only if you have short-running action (that responds within 10 sec).
 
 For long-running (async) actions and guaranteed event handling you should consider using the [journaling approach](/app-builder/docs/resources/journaling-events/) for consuming events.
 
@@ -55,3 +55,10 @@ However, in case of any failed invocation to your webhook, you will get an error
  - For failed invocation to your runtime action, you will get an error response with the failed activation id for the same like below
 
     ![Activation Id for Failed User Action](../img/activation_id_for_failed_user_action.png)
+
+<InlineAlert slots="text"/>
+
+Please note that the headers sent in the event registration request (highlighted in below) are **not** available to the target user runtime action which was 
+used to set up the runtime event registration. This is only available and used by the `event handler webhook` (web action) 
+which fronts the user runtime action.
+![Runtime Webhook Request Headers not available to user action](../img/runtime_webhook_request_headers_in_debug_tracing.png "Runtime Webhook Request Headers not available to user action")
