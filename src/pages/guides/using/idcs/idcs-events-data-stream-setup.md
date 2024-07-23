@@ -4,16 +4,15 @@ title: Setting up IDCS Events Data Stream with Adobe I/O Events
 
 # Setting up InDesign Cloud Services User Events Stream with Adobe I/O Events
 
-These instructions describe how to set up and get started using Adobe I/O Events for IDCS user driven change events.  You can use Adobe I/O for streaming IDCS user driven change events such as the modification of emails, campaigns, and landing pages.
+These instructions describe how to set up and get started using Adobe I/O Events for IDCS user driven job processing events.  You can use Adobe I/O for streaming IDCS job processing events such as the downloading of assets, engine processing, uploading of assets etc.
 
 ## Introduction
 
-User Audit Data Stream provides all the user driven change events that are shown in the MLM Audit Trail as an event stream to which you can subscribe.
+IDCS events provides all the job processing events that are shown in the sync status calls of InDesign cloud services api's. In addition to that events are realtime and more elaborate then sync api.
 
-## Setup User Audit Data Stream in IDCS
+## Setup events browsing/listning in IDCS
 
-User Audit Data Stream is currently a Beta Product and thus cannot be enabled in Marketo without a Beta agreement.  After a Beta agreement is in place, work with your TAM and Customer Engineering team to enable User Audit Data Stream for your subscription.
-
+InDesign cloud services is currently a Beta Product and thus cannot be enabled without a PreRelease agreement.  After a PreRelease agreement is in place, you should be able to see InDesign cloud services events tile in developer console.
 
 <!-- OAuth Server-to-Server credential
 The OAuth Server-to-Server credential relies on the OAuth 2.0 client_credentials grant type to generate access tokens. To generate an access token, your application can make a single HTTP request with your client_id and client_secret and scopes.
@@ -227,44 +226,40 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 Field | Description
 --- | ---
 event_id | Unique UUID generated per event
-specversion | CloudEvents version specification being used
 id | Unique UUID generated per event
 type | Type of event used for event subscription routing
 source | Context in which an event happened
 time | Timestamp of the completion of the action
-datacontenttype | Content type of the data object
-dataschema | User Audit Data Stream event schema version
 data | Event data object
-componentId | ID of the asset in Marketo
-componentType | Type of the asset in Marketo
-eventAction | Asset action that occurred in Marketo
-munchkinId | Internal Marketo subscription identifier
+jobID | ID of the JOB in IDCS
+timesamp | Time stamp in ISO 8601 format when event was triggered
+state | Tells what this event represent in the sequence of JOB execution
 imsOrgId | Internal Adobe organization identifier
 userId | Email ID of the user in Marketo who completed the action
 
 ### Event List
 
 *Note - This is a snapshot listing of most available events.  There may be some events that don't show up or no longer exist.*
+    
 
-Component | Event Type List
+Event state | Description
 --- | ---
-Default Program | clone, create, delete, edit channel, export, modify program setup, modify program token, rename
-Email | approve, clone, create, delete, edit, move, rename, unapprove
-Email Batch Program | approve, childUpdate, clone, create, delete, edit, edit channel, modify program schedule, modify program setup, modify program token, rename, unapprove
-Email Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove
-Engagement Program | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename
-Event Program | clone, create, delete, edit channel, modify program schedule, modify program setup, modify program token, rename
-Folder | create, delete, edit
-Form | approve, clone, create, delete, draftCreate, edit, move, rename
-Landing Page | approve, clone, create, delete, draftDiscard, edit, move, rename, unapprove
-Landing Page Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove
-List | clone, create, delete, rename
-Marketing Folder | create, delete, edit
-Nurture Program | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename
-Segment | create, delete, edit, rename
-Segmentation | approve, create, delete, draftCreated, draftDiscarded, rename, unapprove
-Smart Campaign | abort, activate, clone, create, deactivate, delete, edit, modify campaign schedule, modify flow step action, modify smart list setup, move, rename
-Smart List | clone, create, delete, edit, export, modify smartlist setup, rename
-Snippet | approve, approve with no-draft, clone, create, delete, edit, rename, unapprove
-
+QUEUED | The job is not yet running
+ASSETS_DOWNLOAD_STARTED | Downloading has started for assets required to run this job
+ASSET_DOWNLOAD_STARTED | Emmited for individual assets, once for each asset that is downloaded
+ASSET_SCANNING_STARTED | Scanning the downloaded asset
+ASSET_DOWNLOAD_COMPLETED | Downloading of an individual asset is comepleted 
+ASSET_SCANNING_COMPLETED| Scanning of an individual asset is comepleted 
+ASSET_DOWNLOAD_FAILED | Individual downloading of an asset has failed
+ASSET_SCANNING_FAILED | Individual scanning of an asset has failed
+ASSETS_DOWNLOAD_COMPLETED | Downloading of all assets is comepleted 
+ENGINE_PROCESSING_STARTED | The job was handed over to engine to be processed
+RUNNING | Engine is still working on the job
+ENGINE_PROCESSING_COMPLETED | Engine has completed the capability execution
+ASSETS_UPLOAD_STARTED | Capability generated asset upload started
+ASSET_UPLOAD_COMPLETED | Capability generated asset upload comepleted
+ASSET_UPLOAD_FAILED | One or more capability generated asset upload failed
+ASSETS_UPLOAD_COMPLETED | All asset uploading is comepleted
+COMPLETED | Job was completed 
+FAILED | Job was failed
 <Debug/>
