@@ -4,7 +4,7 @@ title: Setting up IDCS Events Data Stream with Adobe I/O Events
 
 # Setting up InDesign Cloud Services User Events Stream with Adobe I/O Events
 
-These instructions describe how to set up and get started using Adobe I/O Events for IDCS user driven job processing events.  You can use Adobe I/O for streaming IDCS job processing events such as the downloading of assets, engine processing, uploading of assets etc.
+These instructions describe how to set up and get started using Adobe I/O Events for IDCS user driven job processing events. You can use Adobe I/O for streaming IDCS job processing events such as the downloading of assets, engine processing, uploading of assets etc.
 
 ## Introduction
 
@@ -12,7 +12,7 @@ IDCS events provides all the job processing events that are shown in the sync st
 
 ## Setup events browsing/listning in IDCS
 
-InDesign cloud services is currently a Beta Product and thus cannot be enabled without a PreRelease agreement.  After a PreRelease agreement is in place, you should be able to see InDesign cloud services events tile in developer console.
+InDesign cloud services is currently a Beta Product and thus cannot be enabled without a PreRelease agreement. After a PreRelease agreement is in place, you should be able to see InDesign cloud services events tile in developer console.
 
 ## Setup Adobe I/O
 
@@ -76,7 +76,7 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
 
 ### Event Data Structure
 
-*We are still finalizing the data structure as we prepare for Beta release.  While we don't expect any major changes, there may be some minor modifications.*
+*We are still finalizing the data structure as we prepare for Beta release. While we don't expect any major changes, there may be some minor modifications.*
 
 Events are structured in JSON format using the [CloudEvents](https://cloudevents.io/) spec
 
@@ -232,7 +232,7 @@ userId | Email ID of the user in Marketo who completed the action
 
 ### Event List
 
-*Note - This is a snapshot listing of most available events.  There may be some events that don't show up or no longer exist.*    
+*Note - This is a snapshot listing of most available events. There may be some events that don't show up or no longer exist.*
 
 Event state | Description
 --- | ---
