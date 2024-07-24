@@ -14,12 +14,6 @@ IDCS events provides all the job processing events that are shown in the sync st
 
 InDesign cloud services is currently a Beta Product and thus cannot be enabled without a PreRelease agreement.  After a PreRelease agreement is in place, you should be able to see InDesign cloud services events tile in developer console.
 
-<!-- OAuth Server-to-Server credential
-The OAuth Server-to-Server credential relies on the OAuth 2.0 client_credentials grant type to generate access tokens. To generate an access token, your application can make a single HTTP request with your client_id and client_secret and scopes.
-
-As the token generation logic uses your client_secret, this logic must be implemented on a secure backend server to prevent malicious actors from accessing your secrets. We recommend using standard OAuth libraries to implement access token generation.
-
- -->
 ## Setup Adobe I/O
 
 See [Getting Started with Adobe I/O Events](/src/pages/index.md)
@@ -57,7 +51,6 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
 
   ![Set Up registration](../../img/events_idcs_07.png "Set Up registration")
   
-
 - Configure Event Registration
 
   ![Configure registration](../../img/events_idcs_08.png "Configure registration")
@@ -239,8 +232,7 @@ userId | Email ID of the user in Marketo who completed the action
 
 ### Event List
 
-*Note - This is a snapshot listing of most available events.  There may be some events that don't show up or no longer exist.*
-    
+*Note - This is a snapshot listing of most available events.  There may be some events that don't show up or no longer exist.*    
 
 Event state | Description
 --- | ---
@@ -248,11 +240,11 @@ QUEUED | The job is not yet running
 ASSETS_DOWNLOAD_STARTED | Downloading has started for assets required to run this job
 ASSET_DOWNLOAD_STARTED | Emmited for individual assets, once for each asset that is downloaded
 ASSET_SCANNING_STARTED | Scanning the downloaded asset
-ASSET_DOWNLOAD_COMPLETED | Downloading of an individual asset is comepleted 
-ASSET_SCANNING_COMPLETED| Scanning of an individual asset is comepleted 
+ASSET_DOWNLOAD_COMPLETED | Downloading of an individual asset is comepleted
+ASSET_SCANNING_COMPLETED | Scanning of an individual asset is comepleted
 ASSET_DOWNLOAD_FAILED | Individual downloading of an asset has failed
 ASSET_SCANNING_FAILED | Individual scanning of an asset has failed
-ASSETS_DOWNLOAD_COMPLETED | Downloading of all assets is comepleted 
+ASSETS_DOWNLOAD_COMPLETED | Downloading of all assets is comepleted
 ENGINE_PROCESSING_STARTED | The job was handed over to engine to be processed
 RUNNING | Engine is still working on the job
 ENGINE_PROCESSING_COMPLETED | Engine has completed the capability execution
@@ -260,6 +252,6 @@ ASSETS_UPLOAD_STARTED | Capability generated asset upload started
 ASSET_UPLOAD_COMPLETED | Capability generated asset upload comepleted
 ASSET_UPLOAD_FAILED | One or more capability generated asset upload failed
 ASSETS_UPLOAD_COMPLETED | All asset uploading is comepleted
-COMPLETED | Job was completed 
+COMPLETED | Job was completed
 FAILED | Job was failed
 <Debug/>
