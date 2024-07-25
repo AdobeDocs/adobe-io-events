@@ -8,7 +8,7 @@ These instructions describe how to set up and get started using Adobe I/O Events
 
 ## Introduction
 
-IDCS events provides all the job processing events that are shown in the sync status calls of InDesign cloud services api's. In addition to that events are realtime and more elaborate then sync api.
+IDCS events provide all the job processing details, similar to those shown in the sync status calls of InDesign Cloud Services APIs. However, IDCS events are more comprehensive and real-time, unlike the sync status calls which only include "not-started," "running," "completed," and "failed" statuses.
 
 ## Setup events browsing/listning in IDCS
 
@@ -249,6 +249,7 @@ ENGINE_PROCESSING_STARTED | The job was handed over to engine to be processed
 RUNNING | Engine is still working on the job
 ENGINE_PROCESSING_COMPLETED | Engine has completed the capability execution
 ASSETS_UPLOAD_STARTED | Capability generated asset upload started
+ASSET_UPLOAD_STARTED | Emmited for individual asset upload, once for each asset that starts uploading
 ASSET_UPLOAD_COMPLETED | Capability generated asset upload comepleted
 ASSET_UPLOAD_FAILED | One or more capability generated asset upload failed
 ASSETS_UPLOAD_COMPLETED | All asset uploading is comepleted
