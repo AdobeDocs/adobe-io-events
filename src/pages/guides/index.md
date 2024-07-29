@@ -89,15 +89,13 @@ content-type: application/json
 
 ## Your first webhook
 
-Before you can register a webhook, the webhook needs to be online and operational. If not, then the event registration will fail. So you need to take care of setting that up first. Your webhook must be hosted on a server. For development, you may use localhost along with a tool like ngrok (see below).
+Before you can register a webhook, the webhook needs to be online and operational. If not, then the event registration will fail. So you need to take care of setting that up first. Your webhook must be hosted on a server. For development, you may use [webhook.site](https://webhook.site), but ensure you complete the [asynchronous validation](#asynchronous-validation) for it to be considered functional.
 
 For production, your webhook needs to:
 
 - Be accessible from the internet (not using localhost)
 - Be reachable over HTTPS
 - Correctly respond to a "challenge" request
-
-You may reuse/fork our [Sample Webhook in Node.js](https://github.com/adobeio/io-event-sample-webhook)
 
 ### The challenge request
 
