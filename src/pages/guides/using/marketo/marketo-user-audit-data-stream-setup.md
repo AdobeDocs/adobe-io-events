@@ -85,10 +85,9 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         "event": {
             "body": {
                 "specversion": "1.0",
-                "id": "b77c743a-8e28-40f2-8aab-9541bbc85e68",
                 "type": "com.adobe.platform.marketo.audit.user.email",
                 "source": "https://www.marketo.com",
-                "time": "2020-05-28T19:14:44.807Z",
+                "time": "2024-07-11 13:20:42.755",
                 "datacontenttype": "application/json",
                 "dataschema": "V2.0",
                 "data": {
@@ -96,21 +95,21 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                     "componentType": "Email",
                     "eventAction": "approve",
                     "munchkinId": "123-ABC-456",
-                    "imsOrgId": "49C579695EA927530A494036@AdobeOrg",
+                    "imsOrgId": "<your_ims_org_id>@AdobeOrg",
                     "userId": "user@marketo.com"
                 }
             }
-        }
+        },
+        "recipient_client_id": "<your_client_id>"
     },
     {
         "event_id": "e931c3ec-9d76-406b-ac89-626e9650813a",
         "event": {
             "body": {
                 "specversion": "1.0",
-                "id": "afcb6581-198c-4056-a395-6f77cf242d05",
                 "type": "com.adobe.platform.marketo.audit.user.landingpage",
                 "source": "https://www.marketo.com",
-                "time": "2020-05-28T19:14:46.221Z",
+                "time": "2024-07-11 13:20:42.755",
                 "datacontenttype": "application/json",
                 "dataschema": "V2.0",
                 "data": {
@@ -118,11 +117,12 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                     "componentType": "Landing Page",
                     "eventAction": "approve",
                     "munchkinId": "123-ABC-456",
-                    "imsOrgId": "49C579695EA927530A494036@AdobeOrg",
+                    "imsOrgId": "<your_ims_org_id>@AdobeOrg",
                     "userId": "user@marketo.com"
                 }
             }
-        }
+        },
+        "recipient_client_id": "<your_client_id>"
     }
 ]
 ````
@@ -135,10 +135,9 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
     "event": {
         "body": {
             "specversion": "1.0",
-            "id": "72dd1983-decb-4390-afde-2fa1307c9770",
             "type": "com.adobe.platform.marketo.audit.user.email",
             "source": "https://www.marketo.com",
-            "time": "2020-05-28T19:20:47.283Z",
+            "time": "2024-07-11 13:20:42.755",
             "datacontenttype": "application/json",
             "dataschema": "V2.0",
             "data": {
@@ -146,10 +145,11 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                 "componentType": "Email",
                 "eventAction": "approve",
                 "munchkinId": "123-ABC-456",
-                "imsOrgId": "49C579695EA927530A494036@AdobeOrg",
+                "imsOrgId": "<your_ims_org_id>@AdobeOrg",
                 "userId": "user@marketo.com"
             }
-        }
+        },
+        "recipient_client_id": "<your_client_id>"
     }
 }
 ````
@@ -198,5 +198,13 @@ Segmentation | approve, create, delete, draftCreated, draftDiscarded, rename, un
 Smart Campaign | abort, activate, clone, create, deactivate, delete, edit, modify campaign schedule, modify flow step action, modify smart list setup, move, rename
 Smart List | clone, create, delete, edit, export, modify smartlist setup, rename
 Snippet | approve, approve with no-draft, clone, create, delete, edit, rename, unapprove
+
+The following events are related to access control and security:
+
+Component | Event Type List
+--- | ---
+Login | login success, login failure
+Role | create, delete, edit
+User | create, delete, edit
 
 <Debug/>
