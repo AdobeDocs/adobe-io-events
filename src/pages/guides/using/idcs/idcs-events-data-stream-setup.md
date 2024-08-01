@@ -81,72 +81,69 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 *Example Event (batch)*
 
 ````json
-
-{
-  "events": [
-    {
-        "data": {
-          "key": "ec1b9eaf-a0b2-4bcf-9f6d-bd394e2586d7",
-          "source": "indesign",
-          "value": {
-            "jobId": "8b524c70-6779-47f1-ac2a-ce93c23b3f5f",
-            "eventId": "ec1b9eaf-a0b2-4bcf-9f6d-bd394e2586d7",
-            "state": "QUEUED",
-            "timestamp": 1720631447943
-          }
-        },
-        "id": "e414ef62-92f7-48f9-841b-b22d38f6141e",
-        "source": "urn:uuid:5c8f2d48-a2a7-4d0e-bb49-aabf9a72bd1e",
-        "specversion": "1.0",
-        "type": "QUEUED",
-        "datacontenttype": "application/json",
-        "time": "2024-07-10T17:10:48.985Z",
-        "event_id": "420c1092-a7fd-4132-9ee8-de7a41c01bcd",
-        "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
+[
+  {
+      "data": {
+        "key": "ec1b9eaf-a0b2-4bcf-9f6d-bd394e2586d7",
+        "source": "indesign",
+        "value": {
+          "jobId": "8b524c70-6779-47f1-ac2a-ce93c23b3f5f",
+          "eventId": "ec1b9eaf-a0b2-4bcf-9f6d-bd394e2586d7",
+          "state": "QUEUED",
+          "timestamp": 1720631447943
+        }
       },
-    {
-        "data": {
-          "key": "f1dbc354-3878-4273-8a9e-c2a6b57543cc",
-          "source": "indesign",
-          "value": {
-            "jobId": "8b524c70-6779-47f1-ac2a-ce93c23b3f5f",
-            "eventId": "f1dbc354-3878-4273-8a9e-c2a6b57543cc",
-            "state": "ASSETS_DOWNLOAD_STARTED",
-            "timestamp": 1720631448826
-          }
-        },
-        "id": "70b8efcb-38f2-4781-84ee-036013d3f5bc",
-        "source": "urn:uuid:5c8f2d48-a2a7-4d0e-bb49-aabf9a72bd1e",
-        "specversion": "1.0",
-        "type": "ASSETS_DOWNLOAD_STARTED",
-        "datacontenttype": "application/json",
-        "time": "2024-07-10T17:10:49.165Z",
-        "event_id": "d1c47805-a971-4685-8e63-863ba4ecd325",
-        "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
-      }
-    ,
-    {
-        "data": {
-          "key": "2196c45f-8721-4587-8136-b92147a5efa6",
-          "source": "indesign",
-          "value": {
-            "jobId": "8b524c70-6779-47f1-ac2a-ce93c23b3f5f",
-            "eventId": "2196c45f-8721-4587-8136-b92147a5efa6",
-            "state": "ASSET_DOWNLOAD_STARTED",
-            "timestamp": 1720631448998
-          }
-        },
-        "id": "740798e9-0827-4efd-a769-78b9a67c0ee8",
-        "source": "urn:uuid:5c8f2d48-a2a7-4d0e-bb49-aabf9a72bd1e",
-        "specversion": "1.0",
-        "type": "ASSET_DOWNLOAD_STARTED",
-        "datacontenttype": "application/json",
-        "time": "2024-07-10T17:10:49.238Z",
-        "event_id": "1bf6e136-967f-47c3-a64e-afe90f6656d0",
-        "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
-      }
-  ]
-}
+      "id": "e414ef62-92f7-48f9-841b-b22d38f6141e",
+      "source": "urn:uuid:5c8f2d48-a2a7-4d0e-bb49-aabf9a72bd1e",
+      "specversion": "1.0",
+      "type": "QUEUED",
+      "datacontenttype": "application/json",
+      "time": "2024-07-10T17:10:48.985Z",
+      "event_id": "420c1092-a7fd-4132-9ee8-de7a41c01bcd",
+      "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
+    },
+  {
+      "data": {
+        "key": "f1dbc354-3878-4273-8a9e-c2a6b57543cc",
+        "source": "indesign",
+        "value": {
+          "jobId": "8b524c70-6779-47f1-ac2a-ce93c23b3f5f",
+          "eventId": "f1dbc354-3878-4273-8a9e-c2a6b57543cc",
+          "state": "ASSETS_DOWNLOAD_STARTED",
+          "timestamp": 1720631448826
+        }
+      },
+      "id": "70b8efcb-38f2-4781-84ee-036013d3f5bc",
+      "source": "urn:uuid:5c8f2d48-a2a7-4d0e-bb49-aabf9a72bd1e",
+      "specversion": "1.0",
+      "type": "ASSETS_DOWNLOAD_STARTED",
+      "datacontenttype": "application/json",
+      "time": "2024-07-10T17:10:49.165Z",
+      "event_id": "d1c47805-a971-4685-8e63-863ba4ecd325",
+      "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
+    }
+  ,
+  {
+      "data": {
+        "key": "2196c45f-8721-4587-8136-b92147a5efa6",
+        "source": "indesign",
+        "value": {
+          "jobId": "8b524c70-6779-47f1-ac2a-ce93c23b3f5f",
+          "eventId": "2196c45f-8721-4587-8136-b92147a5efa6",
+          "state": "ASSET_DOWNLOAD_STARTED",
+          "timestamp": 1720631448998
+        }
+      },
+      "id": "740798e9-0827-4efd-a769-78b9a67c0ee8",
+      "source": "urn:uuid:5c8f2d48-a2a7-4d0e-bb49-aabf9a72bd1e",
+      "specversion": "1.0",
+      "type": "ASSET_DOWNLOAD_STARTED",
+      "datacontenttype": "application/json",
+      "time": "2024-07-10T17:10:49.238Z",
+      "event_id": "1bf6e136-967f-47c3-a64e-afe90f6656d0",
+      "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
+    }
+]
 ````
 
 *Example Event (single)*
