@@ -61,6 +61,10 @@ module.exports = {
             title: "Integration with Amazon EventBridge",
             path: "guides/amazon_eventbridge/index.md",
           },
+          {
+            title: 'InDesign Cloud Services Events',
+            path: 'guides/using/idcs/idcs-events-data-stream-setup.md'
+          }
         ],
       },
       {

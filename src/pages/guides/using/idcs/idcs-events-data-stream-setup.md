@@ -18,7 +18,7 @@ InDesign cloud services is currently a Beta Product and thus cannot be enabled w
 
 See [Getting Started with Adobe I/O Events](/src/pages/index.md)
 
-For basic instructions for this use case, starting from [console.adobe.io](/console/):
+For basic instructions for this use case, starting from [developer.adobe.com/console](/console/):
 
 *When prompted, click the designated button to proceed*
 
@@ -72,8 +72,6 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
   - Verify that the Status is `Active`
   - If Webhook was selected, verify that it successfully passed the challenge without errors
 
-<DeveloperGuidelines/>
-
 ### Event Data Structure
 
 *We are still finalizing the data structure as we prepare for Beta release. While we don't expect any major changes, there may be some minor modifications.*
@@ -87,8 +85,6 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 {
   "events": [
     {
-      "position": "tuna:a1db5e65-7863-4110-bd45-2c4d2076871b.salmon:e1a7e7e0-39e2-453f-8c72-d70725020941.420c1092-a7fd-4132-9ee8-de7a41c01bcd.3.1720631450.o9y0pbhmarc-id2dxvat",
-      "event": {
         "data": {
           "key": "ec1b9eaf-a0b2-4bcf-9f6d-bd394e2586d7",
           "source": "indesign",
@@ -107,11 +103,8 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         "time": "2024-07-10T17:10:48.985Z",
         "event_id": "420c1092-a7fd-4132-9ee8-de7a41c01bcd",
         "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
-      }
-    },
+      },
     {
-      "position": "tuna:a1db5e65-7863-4110-bd45-2c4d2076871b.salmon:e1a7e7e0-39e2-453f-8c72-d70725020941.d1c47805-a971-4685-8e63-863ba4ecd325.2.1720631450.ckqreqbzok2_pfpln03d",
-      "event": {
         "data": {
           "key": "f1dbc354-3878-4273-8a9e-c2a6b57543cc",
           "source": "indesign",
@@ -131,10 +124,8 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         "event_id": "d1c47805-a971-4685-8e63-863ba4ecd325",
         "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
       }
-    },
+    ,
     {
-      "position": "tuna:a1db5e65-7863-4110-bd45-2c4d2076871b.salmon:e1a7e7e0-39e2-453f-8c72-d70725020941.1bf6e136-967f-47c3-a64e-afe90f6656d0.1.1720631450.krwtyp81wqfhdbmbhpqa",
-      "event": {
         "data": {
           "key": "2196c45f-8721-4587-8136-b92147a5efa6",
           "source": "indesign",
@@ -142,14 +133,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
             "jobId": "8b524c70-6779-47f1-ac2a-ce93c23b3f5f",
             "eventId": "2196c45f-8721-4587-8136-b92147a5efa6",
             "state": "ASSET_DOWNLOAD_STARTED",
-            "timestamp": 1720631448998,
-            "data": {
-              "destination": "b4adb91c-806a-4b80-92b9-e958a6bb1f13",
-              "source": {
-                "type": "CAPABILITY_BUNDLE",
-                "url": "stage/capability-bundles/indesign/rendition/pdf/1.0.46/67a46077-7944-4100-9236-35bb739baa9b"
-              }
-            }
+            "timestamp": 1720631448998
           }
         },
         "id": "740798e9-0827-4efd-a769-78b9a67c0ee8",
@@ -161,12 +145,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         "event_id": "1bf6e136-967f-47c3-a64e-afe90f6656d0",
         "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
       }
-    }
-  ],
-  "_page": {
-    "last": "tuna:a1db5e65-7863-4110-bd45-2c4d2076871b.salmon:e1a7e7e0-39e2-453f-8c72-d70725020941.1bf6e136-967f-47c3-a64e-afe90f6656d0.1.1720631450.krwtyp81wqfhdbmbhpqa",
-    "count": 3
-  }
+  ]
 }
 ````
 
@@ -174,42 +153,31 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 
 ````json
 {
-  "events": [
-    {
-      "position": "tuna:e54a7fa0-eb13-4ad5-964c-5d682f03a188.salmon:3279e19f-7150-4e07-a223-795fb6c6fe8e.f60a502e-c16b-49c6-b3c1-770666a1921f.0.1720631451.o5nlq_28cmu1ajdkuhxc",
-      "event": {
-        "data": {
-          "key": "70db1be2-cdde-4a00-bc41-5acd33db3cc7",
-          "source": "indesign",
-          "value": {
-            "jobId": "8b524c70-6779-47f1-ac2a-ce93c23b3f5f",
-            "eventId": "70db1be2-cdde-4a00-bc41-5acd33db3cc7",
-            "state": "ASSET_DOWNLOAD_FAILED",
-            "timestamp": 1720631449367,
-            "data": {
-              "destination": "doc.indd",
-              "source": {
-                "assetId": "urn:aaid:sc:VA6C2:6b14edb7-7acd-34ad-825e-b70c3b2569f4",
-                "type": "ACP"
-              }
-            }
-          }
-        },
-        "id": "7e3a89ce-d1f5-4b55-a9fc-682e3ac535e2",
-        "source": "urn:uuid:5c8f2d48-a2a7-4d0e-bb49-aabf9a72bd1e",
-        "specversion": "1.0",
-        "type": "ASSET_DOWNLOAD_FAILED",
-        "datacontenttype": "application/json",
-        "time": "2024-07-10T17:10:49.509Z",
-        "event_id": "f60a502e-c16b-49c6-b3c1-770666a1921f",
-        "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
+  "data": {
+    "key": "70db1be2-cdde-4a00-bc41-5acd33db3cc7",
+    "source": "indesign",
+    "value": {
+      "jobId": "8b524c70-6779-47f1-ac2a-ce93c23b3f5f",
+      "eventId": "70db1be2-cdde-4a00-bc41-5acd33db3cc7",
+      "state": "ASSET_DOWNLOAD_FAILED",
+      "timestamp": 1720631449367,
+      "data": {
+        "destination": "doc.indd",
+        "source": {
+          "url": "Presigned url",
+          "type": "AWS/Azure/Dropbox(Optional)"
+        }
       }
     }
-  ],
-  "_page": {
-    "last": "tuna:e54a7fa0-eb13-4ad5-964c-5d682f03a188.salmon:3279e19f-7150-4e07-a223-795fb6c6fe8e.f60a502e-c16b-49c6-b3c1-770666a1921f.0.1720631451.o5nlq_28cmu1ajdkuhxc",
-    "count": 1
-  }
+  },
+  "id": "7e3a89ce-d1f5-4b55-a9fc-682e3ac535e2",
+  "source": "urn:uuid:5c8f2d48-a2a7-4d0e-bb49-aabf9a72bd1e",
+  "specversion": "1.0",
+  "type": "ASSET_DOWNLOAD_FAILED",
+  "datacontenttype": "application/json",
+  "time": "2024-07-10T17:10:49.509Z",
+  "event_id": "f60a502e-c16b-49c6-b3c1-770666a1921f",
+  "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
 }
 
 ````
@@ -227,8 +195,6 @@ data | Event data object
 jobID | ID of the JOB in IDCS
 timesamp | Time stamp in ISO 8601 format when event was triggered
 state | Tells what this event represent in the sequence of JOB execution
-imsOrgId | Internal Adobe organization identifier
-userId | Email ID of the user in Marketo who completed the action
 
 ### Event List
 
@@ -250,9 +216,8 @@ RUNNING | Engine is still working on the job
 ENGINE_PROCESSING_COMPLETED | Engine has completed the capability execution
 ASSETS_UPLOAD_STARTED | Capability generated asset upload started
 ASSET_UPLOAD_STARTED | Emmited for individual asset upload, once for each asset that starts uploading
-ASSET_UPLOAD_COMPLETED | Capability generated asset upload comepleted
+ASSET_UPLOAD_COMPLETED | Capability generated asset upload completed
 ASSET_UPLOAD_FAILED | One or more capability generated asset upload failed
-ASSETS_UPLOAD_COMPLETED | All asset uploading is comepleted
+ASSETS_UPLOAD_COMPLETED | All asset uploading is completed
 COMPLETED | Job was completed
 FAILED | Job was failed
-<Debug/>
