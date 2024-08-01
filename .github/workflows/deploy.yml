@@ -1,12 +1,14 @@
 ---
 name: Deployment
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       env:
         description: "Deploy to (dev|prod|dev prod)"
         required: true
-        default: "dev"
+        default: "dev prod"
       clean:
         description: "Clean cache (yes|no)"
         required: true
