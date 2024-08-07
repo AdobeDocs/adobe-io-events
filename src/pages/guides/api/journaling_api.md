@@ -223,7 +223,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```json
+```http
 HTTP/1.1 204 No Content
 retry-after: 10
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080>; rel="next"
@@ -447,12 +447,11 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```json
+```http
 HTTP/1.1 204 No Content
 retry-after: 10
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="next"
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/validate?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="validate"
-
 ```
 
 In most cases, there will not be any events to consume yet and the response will be a `204 No Content` response. In an extremely rare case, there might actually be events that were written in near-real time to the journal after the request was made and in such a case they will be able returned with a `200 OK` response with the same response body structure as above.
@@ -467,7 +466,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```json
+```http
 HTTP/1.1 204 No Content
 retry-after: 10
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="next"
@@ -553,7 +552,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```json
+```http
 HTTP/1.1 410 Gone
 
 Events at position moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 have expired.
@@ -575,7 +574,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```json
+```http
 HTTP/1.1 204 No Content
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="next"
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/validate?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="validate"
