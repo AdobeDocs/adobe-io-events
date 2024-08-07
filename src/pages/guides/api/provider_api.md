@@ -36,47 +36,55 @@ To help you further, here are a few sample `curl` commands.
  
 The one below will `GET` the list of all the `Events Providers` you are entitled to use.
 
-       curl -i -v --request GET \
-        --url https://api.adobe.io/events/${consumerId}/providers \
-        --header "x-api-key: $api_key" \
-        --header "Authorization: Bearer $jwt_token" \
-        --header "Accept: application/hal+json"
-        
+```bash
+curl -i -v --request GET \
+--url https://api.adobe.io/events/${consumerId}/providers \
+--header "x-api-key: $api_key" \
+--header "Authorization: Bearer $jwt_token" \
+--header "Accept: application/hal+json"
+```
+
 Now you have the `Events Providers` IDs, you can list their `Event Metadata`: 
 
-      curl -i -v --request GET \
-        --url https://api.adobe.io/events/providers/${providerId}?eventmetadata=true \
-        --header "x-api-key: $api_key" \
-        --header "Authorization: Bearer $jwt_token" \
-        --header "Accept: application/hal+json" 
-        
+```bash
+curl -i -v --request GET \
+  --url https://api.adobe.io/events/providers/${providerId}?eventmetadata=true \
+  --header "x-api-key: $api_key" \
+  --header "Authorization: Bearer $jwt_token" \
+  --header "Accept: application/hal+json" 
+```
+
 To create your own [`Custom Events Provider`](../using/custom_events.md) :
 
-    curl -i -v --request POST \
-      --url https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers \
-      --header "x-api-key: $api_key" \
-      --header "Authorization: Bearer $jwt_token" \
-      --header 'content-type: application/json' \
-      --header 'Accept: application/hal+json' \
-      --data '{
-          "label": "a label of your choice for you Custom Events Provider",
-          "description": "a description of your Custom Events Provider",
-          "docs_url": "https://yourdocumentation.url.if.any"
-        }'
+```bash
+curl -i -v --request POST \
+  --url https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers \
+  --header "x-api-key: $api_key" \
+  --header "Authorization: Bearer $jwt_token" \
+  --header 'content-type: application/json' \
+  --header 'Accept: application/hal+json' \
+  --data '{
+      "label": "a label of your choice for you Custom Events Provider",
+      "description": "a description of your Custom Events Provider",
+      "docs_url": "https://yourdocumentation.url.if.any"
+    }'
+```
         
 To associate `Event Metadata` with the above:
 
-    curl -i -v --request POST \
-      --url  https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId}/eventmetadata \
-      --header "x-api-key: $api_key" \
-      --header "Authorization: Bearer $jwt_token" \
-      --header 'content-type: application/json' \
-      --header 'Accept: application/hal+json' \
-       --data '{
+```bash
+curl -i -v --request POST \
+  --url  https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId}/eventmetadata \
+  --header "x-api-key: $api_key" \
+  --header "Authorization: Bearer $jwt_token" \
+  --header 'content-type: application/json' \
+  --header 'Accept: application/hal+json' \
+    --data '{
       "event_code": "your.reverse.dns.event_code",
       "label": "a label for your event type",
       "description": "a description for your event type"
-       }'
+    }'
+```
 
 With the 2 commands above, your `Custom Events Provider` is ready to be used, 
 you can register [webhooks](../index.md) against it;
@@ -84,12 +92,13 @@ to start emitting events on its behalf use our [Events Publishing API](eventsing
 
 To delete your `Custom Events Provider`:
 
-    curl -i -v --request DELETE \
-     --url https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId} \
-     --header "x-api-key: $api_key" \
-     --header "Authorization: Bearer $jwt_token" \
-     --header "Accept: application/hal+json" 
-
+```bash
+curl -i -v --request DELETE \
+  --url https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId} \
+  --header "x-api-key: $api_key" \
+  --header "Authorization: Bearer $jwt_token" \
+  --header "Accept: application/hal+json" 
+```
 
 The environment variables used in this `curl` commands are computed from the prerequisites documented above:
 * `api_key` is the api-key associated with your workspace in theAdobe Developer Console

@@ -58,7 +58,7 @@ To issue the API call, you need to provide three additional parameters:
 
 You combine the URL you got from the Journaling section of the event details with your API key, JWT token and organization ID to make the call.
 
-```
+```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/xxxxx/integrations/xxxx/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
   -H "x-ims-org-id: $ORG_ID" \
@@ -73,7 +73,7 @@ The journaling endpoint URL, when called without any query parameters fetches th
 
 For example:
 
-```
+```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
@@ -81,7 +81,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```
+```json
 HTTP/1.1 200 OK
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614>; rel="next"
 
@@ -160,7 +160,7 @@ Instead of constructing the URL to the next batch of "newer" events it is **stro
 
 For example:
 
-```
+```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
@@ -168,7 +168,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```
+```json
 HTTP/1.1 200 OK
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080>; rel="next"
 
@@ -214,7 +214,7 @@ _Notice the link header with the URL to the next batch of events. The query para
 
 By continuously iterating through the journal and consuming "newer" events, eventually your application will reach the "end" of the journal. The "end" of the journal corresponds to that position of the journal, where there are no "newer" events _yet_. Hence, if you try to fetch events "newer" than the "end" position, no events will be returned - just a `204 No Content` response.
 
-```
+```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
@@ -222,7 +222,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```
+```json
 HTTP/1.1 204 No Content
 retry-after: 10
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080>; rel="next"
@@ -234,7 +234,7 @@ However, after some time, depending on the frequency of events in your event reg
 
 For your benefit whenever you're fetching events `since` the "end" position in the journal, the `next` link in the `204 No Content` will be the same as the current request URI. Hence, you can always rely on the `next` link to iterate through the journal. And whenever you receive a `204 No Content` response you should back off by the number of seconds specified in the `retry-after` response header before resuming to pull events from the `next` link.
 
-```
+```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
@@ -242,7 +242,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```
+```json
 HTTP/1.1 200 OK
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="next"
 
@@ -302,7 +302,7 @@ Once a `limit` query parameter is supplied, the value of the parameter is retain
 
 For example, here is the same request as before but with the number of events returned limited to just one:
 
-```
+```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=1 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
@@ -310,7 +310,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```
+```json
 HTTP/1.1 200 OK
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=camel:5aeb25cc-1b15-4f26-a082-9c213005dba8:ff244403-ca7c-4993-bbda-3c8915ce0b32&limit=1>; rel="next"
 
@@ -359,7 +359,7 @@ NOTE: The `limit` query parameter DOES NOT guarantee that the number of events r
 For example, our journal above has at least 4 events that we know of, however, even when the `limit` parameter is supplied with the value `3`, we do not get that many events in the respsonse.
 
 
-```
+```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=3 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
@@ -367,7 +367,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```
+```json
 HTTP/1.1 200 OK
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614&limit=3>; rel="next"
 
@@ -441,8 +441,7 @@ The Journaling endpoint URL when supplied with no query parameters returns the o
 
 This can be done by specifying the query parameter `latest=true` on the first API call. For example:
 
-
-```
+```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?latest=true \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
@@ -450,7 +449,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```
+```json
 HTTP/1.1 204 No Content
 retry-after: 10
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="next"
@@ -462,7 +461,7 @@ In most cases, there will not be any events to consume yet and the response will
 
 NOTE: the `latest=true` query parameter is just a way to jump to the "end" of the journal. The client applications should use the `next` links as usual to iterate over the journal from that position onward. In case the client application continues to make requests with `latest=true`, it is very likely that they will not receive any events - just because doing that is semantically equivalent of asking for "events from now onward". And the definition of "now" changes with every request that is made.
 
-```
+```bash
 curl -X GET \
   /events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
@@ -470,7 +469,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```
+```json
 HTTP/1.1 204 No Content
 retry-after: 10
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="next"
@@ -495,14 +494,15 @@ Hence, over time the response of the Journaling API when called without any quer
 
 For example, let's assume that the first three events in our journal got older than 7 days and have now expired. If we now try to fetch the oldest available events from the journal:
 
-```
+```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
 ```
-```
+
+```json
 HTTP/1.1 200 OK
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="next"
 
@@ -549,7 +549,7 @@ Once an event expires, it cannot be fetched again. This means that a request tha
 
 For example, now that the first three events in our journal have expired, if we again try to make the second API request in the documentation above, this is the response we will get:
 
-```
+```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
@@ -557,7 +557,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```
+```json
 HTTP/1.1 410 Gone
 
 Events at position moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 have expired.
@@ -571,7 +571,7 @@ Once the events at a certain position have expired, that position in the journal
 If the Journaling API, when called without any query parameters, responds with a `204 No Content` response it signifies that there aren't actually any events in the journal. Either there may have been events in the past that have now expired, or, there never were any events in the journal.
 
 For example, once all events in our journal expire: 
-```
+```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
@@ -579,7 +579,7 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-```
+```json
 HTTP/1.1 204 No Content
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="next"
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/validate?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="validate"
