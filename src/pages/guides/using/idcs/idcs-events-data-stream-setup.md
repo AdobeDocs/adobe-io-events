@@ -1,18 +1,18 @@
 ---
-title: Setting Up InDesign APIs Events Data Stream with Adobe I/O Events
+title: Setting Up InDesign APIs (Beta) - Firefly Services Events Data Stream with Adobe I/O Events
 ---
 
-# Setting up InDesign APIs (Beta) - Firefly Services User Events Stream with Adobe I/O Events
+# Setting up InDesign APIs User Events Stream with Adobe I/O Events
 
 These instructions describe how to set up and get started using Adobe I/O Events for InDesign APIs user driven job processing events. You can use Adobe I/O for streaming InDesign APIs job processing events such as the downloading of assets, engine processing, uploading of assets etc.
 
 ## Introduction
 
-InDesign APIs events provide all the job processing details, similar to those shown in the sync status calls of InDesign APIs (Beta) - Firefly Services. However, InDesign APIs events are more comprehensive and real-time, unlike the sync status calls which only include "not-started," "running," "completed," and "failed" statuses.
+InDesign APIs events provide all the job processing details, similar to those shown in the status calls of InDesign APIs. However, InDesign APIs events are more comprehensive and real-time, unlike the status calls which only include "not-started," "running," "completed," and "failed" statuses.
 
 ## Setup events browsing/listening in InDesign APIs
 
-InDesign APIs (Beta) - Firefly Services is currently a Beta Product and thus cannot be enabled without a PreRelease agreement. After a PreRelease agreement is in place, you should be able to see InDesign APIs (Beta) - Firefly Services events tile in developer console.
+InDesign APIs are currently in Beta thus cannot be enabled without a PreRelease agreement. After a PreRelease agreement is in place, you should be able to see InDesign APIs (Beta) - Firefly Services events tile in developer console.
 
 ## Setup Adobe I/O
 
@@ -189,7 +189,7 @@ type | Type of event used for event subscription routing
 source | Context in which an event happened
 time | Timestamp of the completion of the action
 data | Event data object
-jobID | ID of the JOB in InDesign APIs
+jobID | ID of the JOB
 timestamp | Time stamp in ISO 8601 format when event was triggered
 state | Tells what this event represents in the sequence of JOB execution
 
