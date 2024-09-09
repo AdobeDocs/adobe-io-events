@@ -1,18 +1,18 @@
 ---
-title: Setting up IDCS Events Data Stream with Adobe I/O Events
+title: Setting Up InDesign APIs (Beta) - Firefly Services Events Data Stream with Adobe I/O Events
 ---
 
-# Setting up InDesign Cloud Services User Events Stream with Adobe I/O Events
+# Setting up InDesign APIs User Events Stream with Adobe I/O Events
 
-These instructions describe how to set up and get started using Adobe I/O Events for IDCS user driven job processing events. You can use Adobe I/O for streaming IDCS job processing events such as the downloading of assets, engine processing, uploading of assets etc.
+These instructions describe how to set up and get started using Adobe I/O Events for InDesign APIs user driven job processing events. You can use Adobe I/O for streaming InDesign APIs job processing events such as the downloading of assets, engine processing, uploading of assets etc.
 
 ## Introduction
 
-IDCS events provide all the job processing details, similar to those shown in the sync status calls of InDesign Cloud Services APIs. However, IDCS events are more comprehensive and real-time, unlike the sync status calls which only include "not-started," "running," "completed," and "failed" statuses.
+InDesign APIs events provide all the job processing details, similar to those shown in the status calls of InDesign APIs. However, InDesign APIs events are more comprehensive and real-time, unlike the status calls which only include "not-started," "running," "completed," and "failed" statuses.
 
-## Setup events browsing/listning in IDCS
+## Setup events browsing/listening in InDesign APIs
 
-InDesign cloud services is currently a Beta Product and thus cannot be enabled without a PreRelease agreement. After a PreRelease agreement is in place, you should be able to see InDesign cloud services events tile in developer console.
+InDesign APIs are currently in Beta thus cannot be enabled without a PreRelease agreement. After a PreRelease agreement is in place, you should be able to see InDesign APIs (Beta) - Firefly Services events tile in developer console.
 
 ## Setup Adobe I/O
 
@@ -33,7 +33,7 @@ For basic instructions for this use case, starting from [developer.adobe.com/con
 - Filter by `Creative Cloud`
   ![Filter Selection](../../img/events_idcs_03.png "Filter by Creative Cloud")
 
-- Select `Select InDesign Cloud Services`
+- Select `Select InDesign APIs (Beta) - Firefly Services`
 
   ![Provider selection](../../img/events_idcs_04.png "Select event provider")
 
@@ -189,9 +189,9 @@ type | Type of event used for event subscription routing
 source | Context in which an event happened
 time | Timestamp of the completion of the action
 data | Event data object
-jobID | ID of the JOB in IDCS
-timesamp | Time stamp in ISO 8601 format when event was triggered
-state | Tells what this event represent in the sequence of JOB execution
+jobID | ID of the JOB
+timestamp | Time stamp in ISO 8601 format when event was triggered
+state | Tells what this event represents in the sequence of JOB execution
 
 ### Event List
 
@@ -201,18 +201,18 @@ Event state | Description
 --- | ---
 QUEUED | The job is not yet running
 ASSETS_DOWNLOAD_STARTED | Downloading has started for assets required to run this job
-ASSET_DOWNLOAD_STARTED | Emmited for individual assets, once for each asset that is downloaded
+ASSET_DOWNLOAD_STARTED | Emitted for individual assets, once for each asset that is downloaded
 ASSET_SCANNING_STARTED | Scanning the downloaded asset
-ASSET_DOWNLOAD_COMPLETED | Downloading of an individual asset is comepleted
-ASSET_SCANNING_COMPLETED | Scanning of an individual asset is comepleted
+ASSET_DOWNLOAD_COMPLETED | Downloading of an individual asset is completed
+ASSET_SCANNING_COMPLETED | Scanning of an individual asset is completed
 ASSET_DOWNLOAD_FAILED | Individual downloading of an asset has failed
 ASSET_SCANNING_FAILED | Individual scanning of an asset has failed
-ASSETS_DOWNLOAD_COMPLETED | Downloading of all assets is comepleted
+ASSETS_DOWNLOAD_COMPLETED | Downloading of all assets is completed
 ENGINE_PROCESSING_STARTED | The job was handed over to engine to be processed
-RUNNING | Engine is still working on the job
-ENGINE_PROCESSING_COMPLETED | Engine has completed the capability execution
+RUNNING | The Engine is still working on the job
+ENGINE_PROCESSING_COMPLETED | The Engine has completed the capability execution
 ASSETS_UPLOAD_STARTED | Capability generated asset upload started
-ASSET_UPLOAD_STARTED | Emmited for individual asset upload, once for each asset that starts uploading
+ASSET_UPLOAD_STARTED | Emitted for individual asset upload, once for each asset that starts uploading
 ASSET_UPLOAD_COMPLETED | Capability generated asset upload completed
 ASSET_UPLOAD_FAILED | One or more capability generated asset upload failed
 ASSETS_UPLOAD_COMPLETED | All asset uploading is completed
