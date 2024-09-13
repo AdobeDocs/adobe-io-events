@@ -136,9 +136,11 @@ It is perfectly ok to get 1 event when you specify a limit greater than 1.
 The number of events that gets returned in a response can vary depending on the incoming traffic (upper bound being equal to the limit parameter).
 See our [Journaling API documentation](../guides/api/journaling_api.md#limiting-the-size-of-the-batch) for more details.
 
-### Is there a way to get the list of events all together at once?
+### Is there a way to retrieve all events in one request?
 
-No, this query is not supported in our journaling API, however, using the `since` parameter you can follow the journal [rel=next Link](../guides/api/journaling_api.md#fetching-the-next-batch-of-newer-events-from-the-journal) response header till the end.
+No, our journaling API does not support retrieving all events in a single query.
+
+However, by using the `since` parameter, you can fetch events incrementally by following the journal's [rel=next Link](../guides/api/journaling_api.md#fetching-the-next-batch-of-newer-events-from-the-journal) in the response headers until all events have been retrieved.
 
 ## Custom Events FAQ
 
