@@ -379,8 +379,8 @@ paths:
     get:
       tags:
         - Journaling
-      summary: Validate and get all Events from journal
-      operationId: getValidateEventsFromJournal
+      summary: Validate and get batch of events from journal
+      operationId: validateAndGetEventsFromJournal
       parameters:
         - $ref: '#/parameters/consumerOrgId'
         - $ref: '#/parameters/credentialId'
@@ -408,7 +408,7 @@ paths:
     get:
       tags:
         - Journaling
-      summary: Get all Events for a registration from journal
+      summary: Get batch of events for a registration from journal
       operationId: getEventsFromJournal
       parameters:
         - $ref: '#/parameters/consumerOrgId'
