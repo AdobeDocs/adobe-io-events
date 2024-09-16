@@ -20,7 +20,7 @@ For Asset Events providers, you have the option of selecting which type of authe
 
 ### Server-to-Server Authentication (OAuth Server-to-Server)
 
-OAuth server-to-server authentication credentials allow your application's server to generate access tokens and make API calls on behalf of your application itself.
+OAuth server-to-server authentication credentials allow your application to generate access tokens and make API calls on behalf of your application itself.
 
 Note that your application using a Service Account integration will be receiving all events generated within your organization. As a consequence your application will be responsible to not disclose information about assets, libraries, and cloud documents to users who are not intended to know about those assets. In particular, your application must ensure that no user sees events refering to assets, libraries, and cloud documents to which the user does not have at least read access.
 
