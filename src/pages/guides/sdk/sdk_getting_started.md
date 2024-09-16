@@ -8,8 +8,8 @@ The Adobe I/O Events SDK is an open-source SDK for interacting with Events. I/O 
 
 ## Installation
 
-```
-$ npm install @adobe/aio-lib-events
+```bash
+npm install @adobe/aio-lib-events
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ $ npm install @adobe/aio-lib-events
 
 ```javascript
 const sdk = require('@adobe/aio-lib-events')
- 
+
 async function sdkTest() {
   //initialize sdk
   const client = await sdk.init('<organizationId>', '<x-api-key>', '<accessToken>', '<httpOptions>')
@@ -27,9 +27,9 @@ async function sdkTest() {
 
 ### Call methods using the SDK
 
-Once the SDK has been initialized, you can then call methods provided by the `EventsCoreAPI` class to call ADobe I/O Events APIs. 
+Once the SDK has been initialized, you can then call methods provided by the `EventsCoreAPI` class to call ADobe I/O Events APIs.
 
-When a method is called, a promise is returned. The promise represents the eventual completion of the command. 
+When a method is called, a promise is returned. The promise represents the eventual completion of the command.
 
 In the example below, a `catch` method is used to log errors if a command fails.
 
@@ -68,7 +68,7 @@ async function sdkTest() {
     error: (e) => console.log(e), // Action to be taken on error
     complete: () => console.log('Complete') // Action to be taken on complete
   })
-  
+ 
   // To stop receiving events from this subscription based on a timeout
   setTimeout(() => this.subscription.unsubscribe(), <timeout in ms>)
 }
@@ -82,13 +82,13 @@ One observable can have multiple subscribers. Each subscription can be handled d
 
 ### `EventsCoreAPI`
 
-The `EventsCoreAPI` class provides methods to call your Adobe I/O Events APIs. 
+The `EventsCoreAPI` class provides methods to call your Adobe I/O Events APIs.
 
 Before calling any method initialize the instance by calling the `init` method on it with valid values for `organizationId`, `apiKey`, `accessToken` and optional HTTP Options such as `timeout` and max number of `retries`.
 
 ## Functions
 
-```
+```javascript
 init(organizationId, apiKey, accessToken, [httpOptions]) ⇒ Promise.<EventsCoreAPI>
 ```
 
@@ -99,7 +99,7 @@ A global function that returns a Promise that resolves with a new `EventsCoreAPI
 |`organizationId`	|string	|The IMS Organization Id for which the provider, event metadata, etc are to be created which can be obtained using the Adobe Developer Console or Transporter API. |
 |`apiKey`	|string	|The API Key (Client ID) for the project or workspace.|
 |`accessToken`	|string	|An OAuth Server-to-Server Token. I/O Management Service needs to be enabled for the project or workspace. Must be created with `adobeio_api` scope, which is required for all the API calls.|
-|[httpOptions]	|[EventsCoreAPIOptions](#eventscoreapioptions)	|Options to configure API calls, as shown in the table below.| 
+|[httpOptions]	|[EventsCoreAPIOptions](#eventscoreapioptions)	|Options to configure API calls, as shown in the table below.|
 
 ## Configuration Options
 
@@ -132,7 +132,7 @@ To begin working with `EventsCoreAPI` class methods and calling Adobe I/O Events
 
 * [Providers](sdk_providers.md)
 * [Event Metadata](sdk_event_metadata.md)
-* [Publish Events](sdk_publish_events.md) 
-* [Webhooks](sdk_webhooks.md) 
+* [Publish Events](sdk_publish_events.md)
+* [Webhooks](sdk_webhooks.md)
 * [Journaling](sdk_journaling.md)
 * [Signature verification](sdk_signature_verification.md)
