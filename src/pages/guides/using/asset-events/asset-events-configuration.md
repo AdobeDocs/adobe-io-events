@@ -14,17 +14,17 @@ When you get to the step about the _Add events_ dialog, refer to [Asset Events P
 
 ## Credentials Section
 
-For Asset Events providers, you have the option of selecting which type of authentication to use, either **Service Account (JWT)** or **OAuth**.
+For Asset Events providers, you have the option of selecting which type of authentication to use, either **Server-to-Server Authentication (OAuth Server-to-Server)** or **User Authentication (OAuth)**.
 
 ![UI for selecting authentication type](../../img/credentials.png)
 
-### Service Account (JWT)
+### Server-to-Server Authentication (OAuth Server-to-Server)
 
-For a Service Account integration, you will create a JSON Web Token (JWT). A Service Account integration allows your application to call Adobe services on behalf of the application itself, or on behalf of an enterprise organization.
+OAuth server-to-server authentication credentials allow your application to generate access tokens and make API calls on behalf of your application itself.
 
 Note that your application using a Service Account integration will be receiving all events generated within your organization. As a consequence your application will be responsible to not disclose information about assets, libraries, and cloud documents to users who are not intended to know about those assets. In particular, your application must ensure that no user sees events refering to assets, libraries, and cloud documents to which the user does not have at least read access.
 
-### OAuth
+### User Authentication (OAuth)
 
 OAuth allows your end users to sign in to your integration with an Adobe ID. With an OAuth token, your integration will be able to access Adobe services or content on behalf of the logged-in user.
 

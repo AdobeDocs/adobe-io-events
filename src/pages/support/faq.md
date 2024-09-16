@@ -136,9 +136,11 @@ It is perfectly ok to get 1 event when you specify a limit greater than 1.
 The number of events that gets returned in a response can vary depending on the incoming traffic (upper bound being equal to the limit parameter).
 See our [Journaling API documentation](../guides/api/journaling_api.md#limiting-the-size-of-the-batch) for more details.
 
-### Is there a way to get the list of events all together at once?
+### Is there a way to retrieve all events in one request?
 
-No, this query is not supported in our journaling API, however, using the `since` parameter you can follow the journal [rel=next Link](../guides/api/journaling_api.md#fetching-the-next-batch-of-newer-events-from-the-journal) response header till the end.
+No, our journaling API does not support retrieving all events in a single query.
+
+However, by using the `since` parameter, you can fetch events incrementally by following the journal's [rel=next Link](../guides/api/journaling_api.md#fetching-the-next-batch-of-newer-events-from-the-journal) in the response headers until all events have been retrieved.
 
 ## Custom Events FAQ
 
@@ -157,42 +159,6 @@ Once associated with its `Event Metadata`, your `Custom Events Provider` will be
 We do have a throttling policy in place, read our [Events Publishing API guide](../guides/api/eventsingress_api.md) for more details.
 However, if you have a high volume use-case in mind, contact us, we'd love to hear about it
 and discuss how we could accommodate it.
-
-## JWT FAQ
-
-### What is JWT and what is it used for?
-
-JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
-For more information on JSON Web Tokens, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/) on JWT.io.
-
-To establish a secure service-to-service session with the `Adobe I/O Events` API, you must create a JSON Web Token (JWT) that encapsulates the identity of your integration, and then exchange it for an access token.
-
-Every request to an `Adobe I/O Events` API must then include this (JWT exchange originated) access token in the Authorization header, along with the API Key that was generated when you created the Service Account Integration in the Adobe Developer Console (see our [JWT Service Account Authentication](/developer-console/docs/guides/authentication/JWT/) documentation for more details).
-
-Note that you should pay special attention to your [JWT Metascopes](/developer-console/docs/guides/authentication/JWT/Scopes/) describing the set of authorization scopes you want to claim with this jwt token (see next question for details)
-
-### What are the metascopes my JWT token should claim? What are the access token authorization scopes expected by `Adobe I/O Events` APIs?
-
-* Our [AEM](../guides/using/aem/aem-addon-module/index.md) connector leverages an API that requires your access token to hold a `event_receiver_api` scope; for this you need to add the `I/O Events` API in your `Adobe Developer Console` workspace adding `/s/event_receiver_api` metascope to your JWT claim (see the [AEM console setup documentation](../guides/using/aem/aem-addon-module/aem_console_setup.md))
-* For all the other [`Adobe I/O Events` APIs](../guides/api/index.md), they require your access token to hold a `adobeio_api` scope coming with the `I/O Management API`, adding a `s/ent_adobeio_sdk` metascope to the JWT claim.
-
-### Where can I find more documentation on JWT Service accounts and how to set them up?
-
-See our [JWT (Service Account) Authentication](/developer-console/docs/guides/authentication/JWT/) documentation.
-
-### Do you have sample libraries for JWT?
-
-Yes:
-
-* Python: https://pyjwt.readthedocs.io/en/latest/
-* .Net: https://github.com/jwt-dotnet/jwt
-* Java: https://github.com/jwtk/jjwt
-* Objective C: https://github.com/yourkarma/JWT
-* Node.js: https://github.com/auth0/node-jsonwebtoken
-* Node.js: https://www.npmjs.com/package/jsonwebtoken
-* Node.js: https://www.npmjs.com/package/jwt-simple
-* JavaScript tutorial: - https://www.jonathan-petitcolas.com/2014/11/27/creating-json-web-token-in-javascript.html
-* Javascript: http://kjur.github.io/jsrsasign/
 
 ## Analytics Triggers Events
 

@@ -7,7 +7,6 @@ title: AEM Events powered by Add-On Module on AEM On-Premise
 To install and configure the Adobe I/O Events add-on module on AEM (version 6.5.x and above):
 
 1. [Set up your workspace in Adobe Developer Console](aem_console_setup.md)
-   * [Set up your JWT Authentication public/private keys](aem_key_setup.md)
 2. Configure the [AEM Link Externalizer](aem_on_premise_link_externalizer.md)
 3. Download the latest version of the add-on module `aio-aem-events-<version>-aem65.zip`
    * from [github aio-lib-java releases](https://github.com/adobe/aio-lib-java/releases)
