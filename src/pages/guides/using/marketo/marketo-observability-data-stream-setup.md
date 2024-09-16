@@ -58,7 +58,7 @@ Basic instructions for this use case, starting from the [developer console](/con
 
   ![Event selection](../../img/MarketoObservability2.png "Select event subscriptions")
 
-- Set up authentication (either JWT or OAuth) to be used for accessing the Journaling API
+- Set up authentication (OAuth Server-to-Server) to be used for accessing the Journaling API
 
   ![Set up credentials](../../img/MarketoObservability3.png "Set up credentials")
 

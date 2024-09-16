@@ -53,16 +53,16 @@ Every event registration has a corresponding unique journaling endpoint URL. Thi
 To issue the API call, you need to provide three additional parameters:
 
 * Your integration's API key (Client ID). It can be found either on the Project overview page, in the Credentials tab of the Event registration, or on the specific credential page.
-* A JWT token. See [Authentication: Creating a JWT Token](/developer-console/docs/guides/authentication/JWT/) for how to create a JWT token.
+* An OAuth Server-to-Server token. See [Authentication: Creating an OAuth Server-to-Server Token](/developer-console/docs/guides/authentication/ServerToServerAuthentication/#oauth-server-to-server-credential) for how to create an OAuth Server-to-Server token.
 * Your organization id in the format `some_id@AdobeOrg`. This is also displayed in the Overview tab for your integration in the Adobe Developer Console.
 
-You combine the URL you got from the Journaling section of the event details with your API key, JWT token and organization ID to make the call.
+You combine the URL you got from the Journaling section of the event details with your API key, OAuth Server-to-Server token and organization ID to make the call.
 
 ```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/xxxxx/integrations/xxxx/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
   -H "x-ims-org-id: $ORG_ID" \
-  -H "Authorization: Bearer $JWT_TOKEN" \
+  -H "Authorization: Bearer $oauth_s2s_token" \
   -H "x-api-key: $API_KEY"
 ```
 

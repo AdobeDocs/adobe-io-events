@@ -42,7 +42,7 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
 
   ![Event selection](../../img/UserAuditDataStreamIOSetup4.png "Select event subscriptions")
 
-- Set up JWT Credentials (either generate a new key pair or upload a public key)
+- Set up OAuth Server-to-Server Credentials
 
   ![Set up credentials](../../img/UserAuditDataStreamIOSetup5.png "Set up credentials")
 

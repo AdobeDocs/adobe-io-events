@@ -15,10 +15,10 @@ Our Adobe I/O Events Management API contains endpoints allowing you to manage yo
 * Add the `I/O Management API` in your Adobe Developer Console project
   * Click on `Add to Project` > `API`
   * Select `I/O Management API`
-  * Create a new service account (JWT) credential screen,
+  * On the `Add Credential` screen, create a new OAuth server-to-server credential
   * Save
   * Bookmark your workspace, as you might need to come back to it more than once, to fine tune or troubleshoot your configurations.
-  * Once done, note you have a JWT credentials defined
+  * Once done, note you have an OAuth server-to-server credential defined
 * Note all your project Ids
   * Browse to your Adobe Developer Console > `Project overview`
   * Find your `IMS Org Id`, and `api-key`
@@ -26,7 +26,7 @@ Our Adobe I/O Events Management API contains endpoints allowing you to manage yo
     * your project Id (at `project.id`)
     * your consumer Org Id (also called `consumer id`) (at `project.org.id`)
     * your workspace Id (at `project.workspace.id`)
-* [Generate a JWT token](/developer-console/docs/guides/credentials/)
+* [Generate an OAuth Server-to-Server token](/developer-console/docs/guides/credentials/)
 
 ## Test Drive
 
@@ -41,7 +41,7 @@ The one below will `GET` the list of all the `Events Providers` you are entitled
 curl -i -v --request GET \
 --url https://api.adobe.io/events/${consumerId}/providers \
 --header "x-api-key: $api_key" \
---header "Authorization: Bearer $jwt_token" \
+--header "Authorization: Bearer $oauth_s2s_token" \
 --header "Accept: application/hal+json"
 ```
 
@@ -51,7 +51,7 @@ Now you have the `Events Providers` IDs, you can list their `Event Metadata`:
 curl -i -v --request GET \
   --url https://api.adobe.io/events/providers/${providerId}?eventmetadata=true \
   --header "x-api-key: $api_key" \
-  --header "Authorization: Bearer $jwt_token" \
+  --header "Authorization: Bearer $oauth_s2s_token" \
   --header "Accept: application/hal+json"
 ```
 
@@ -61,7 +61,7 @@ To create your own [`Custom Events Provider`](../using/custom_events.md) :
 curl -i -v --request POST \
   --url https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers \
   --header "x-api-key: $api_key" \
-  --header "Authorization: Bearer $jwt_token" \
+  --header "Authorization: Bearer $oauth_s2s_token" \
   --header 'content-type: application/json' \
   --header 'Accept: application/hal+json' \
   --data '{
@@ -77,7 +77,7 @@ To associate `Event Metadata` with the above:
 curl -i -v --request POST \
   --url  https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId}/eventmetadata \
   --header "x-api-key: $api_key" \
-  --header "Authorization: Bearer $jwt_token" \
+  --header "Authorization: Bearer $oauth_s2s_token" \
   --header 'content-type: application/json' \
   --header 'Accept: application/hal+json' \
     --data '{
@@ -97,14 +97,14 @@ To delete your `Custom Events Provider`:
 curl -i -v --request DELETE \
   --url https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId} \
   --header "x-api-key: $api_key" \
-  --header "Authorization: Bearer $jwt_token" \
+  --header "Authorization: Bearer $oauth_s2s_token" \
   --header "Accept: application/hal+json"
 ```
 
 The environment variables used in this `curl` commands are computed from the prerequisites documented above:
 
 * `api_key` is the api-key associated with your workspace in theAdobe Developer Console
-* `jwt_token` is a jwt token generated using the set up from the same workspace
+* `oauth_s2s_token` is an OAuth Server-to-Server token generated using the set up from the same workspace
 * `projectId` is the `project.id` found the `json` model of your Adobe Developer Console project (see above)
 * `consumerId` is the `project.org.id` found the `json` model of your Adobe Developer Console project (see above)
 * `workspaceId` is the `project.workspace.id` found the `json` model of your Adobe Developer Console project (see above)
