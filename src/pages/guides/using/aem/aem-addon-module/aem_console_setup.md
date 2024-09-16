@@ -26,7 +26,7 @@ in the Adobe Developer Console.
    ![Add an API to Project](../../../img/add_api_to_project.png "Add an API to Project")
 
 2. Select `I/O Management API`, Click `Next`
-3. In the next `Create a new service account (JWT) credential` screen, choose `Option 2`, see our [JWT public/private key management guide](aem_key_setup.md).
+3. In the next `Add Credential` screen, choose `OAuth Server-to-Server` credential.
 4. Click on `Save configured API`
 5. Done ! You should now see `I/O Management API` in your Workspace API list.
 6. Bookmark this Adobe Developer Console workspace, as you might need to come back to it more than once,
