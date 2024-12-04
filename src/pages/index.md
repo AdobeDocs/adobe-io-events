@@ -7,7 +7,7 @@ title: Adobe I/O Events Docs
 description: Adobe I/O Events enables building reactive, event-driven applications, based on events originating from various Adobe services, such as Creative Cloud, Adobe Experience Manager, and Analytics Triggers.
 ---
 
-<HeroSimple />
+<HeroSimple slots="heading, text"/>
 
 # Adobe I/O Events Docs
 
