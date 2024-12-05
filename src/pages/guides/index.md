@@ -125,3 +125,18 @@ Content-type: application/json
 
 {"challenge":"8ec8d794-e0ab-42df-9017-e3dada8e84f7"}
 ```
+
+Typically, you would build your webhook to respond to the Adobe challenge in a method to handle HTTP GET requests, and then include another method for handling the HTTP POST requests that will be coming from Adobe containing actual event payloads. For testing purposes, you can start with something as simple as this PHP script:
+
+```php
+<?php
+ header('Content-Type: text/plain');
+ echo $_GET['challenge']; 
+?>
+```
+
+**Note:** Make sure your response is given in the correct content type. If your webhook script places the challenge value directly in the response body, make sure it's returned as plain text (`text/plain`). For a JSON response, make sure it's `application/json`. Returning a response in the incorrect content type may cause extraneous code to be returned, which will not validate with Adobe I/O Events.
+
+#### Asynchronous validation
+
+When the webhook fails to respond appropriately to the challenge request, Adobe I/O Events sends an HTTP POST request with a body containing a custom URL for manual validation.
