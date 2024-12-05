@@ -293,20 +293,20 @@ public boolean verifySignature(String message, String signature) throws Exceptio
     return sig.verify(sign);
 }
 
-//Method to retrieve the Public Key from a file
+// Method to retrieve the Public Key from a file
 private PublicKey getPublic(String filename) throws Exception {
-  String key = new String(Files.readAllBytes(new File(filename).toPath()));
+    String key = new String(Files.readAllBytes(new File(filename).toPath()));
 
-  String publicKeyPEM = key
-      .replace("-----BEGIN PUBLIC KEY-----", "")
-      .replaceAll(System.lineSeparator(), "")
-      .replace("-----END PUBLIC KEY-----", "");
+    String publicKeyPEM = key
+        .replace("-----BEGIN PUBLIC KEY-----", "")
+        .replaceAll(System.lineSeparator(), "")
+        .replace("-----END PUBLIC KEY-----", "");
 
-  byte[] encoded = Base64.decodeBase64(publicKeyPEM);
+    byte[] encoded = Base64.decodeBase64(publicKeyPEM);
 
-  KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-  X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
-  return keyFactory.generatePublic(keySpec);
+    KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+    X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
+    return keyFactory.generatePublic(keySpec);
 }
 ```
 
