@@ -9,8 +9,6 @@ title: Introduction to Adobe I/O Events Webhooks
 description: With Adobe I/O Events webhooks, your application can sign up to be notified whenever certain events occur. For example, when a user uploads a asset, this action generates an event. With the right webhook in place, your application is instantly notified that this event happened.
 ---
 
-import RetryDoc from '/src/pages/common/retry-doc.md'
-import ReceivingEventsForUsersDoc from '/src/pages/common/receiving-events-for-users-doc.md'
 
 # Introduction to Adobe I/O Events Webhooks
 
@@ -163,7 +161,7 @@ Your webhook must respond to the POST request with an HTTP status code of 200 be
 <InlineAlert slots="text"/>
 
 Please note that for **security** reasons we **obfuscate** the validation URL in the [debug tracing](/support/tracing/) tab.
-So, the only way to intercept the original validation URL is if you own the webhook server (*you could simply log all requests*).<br/>  
+So, the only way to intercept the original validation URL is if you own the webhook server (*you could simply log all requests*).
 ![Validation URL obfuscated in Debug Tracing tab](./img/debug_tracing_challenge_post_obfuscated.png "Validation URL obfuscated in Debug Tracing tab")
 
 ### Testing with ngrok
@@ -202,8 +200,6 @@ If you made an error transcribing the webhook URL, Adobe I/O Events' test of you
 
 In general, `Adobe I/O Events` will always confirm that your webhook received an event by means of the response code your webhook sends to each HTTP POST request.
 
-<RetryDoc/>
-
 To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your events registration. This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
 
 Note: While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](./journaling_intro.md)).
@@ -214,7 +210,6 @@ Note: While your event registration is marked `Disabled`, Adobe will continue to
 *Disabled Event Registration*
 ![Disabled Status](./img/disabled-status.png "Example of a Disabled event registration")
 
-<ReceivingEventsForUsersDoc/>
 
 ## Security Considerations
 
@@ -223,6 +218,7 @@ Your webhook URL must necessarily be accessible from the open internet. This mea
 To prevent this from happening, Adobe I/O Events has a robust event validation process in place as defined below that allows users to secure their webhook.
 
 <InlineAlert variant="info" slots="text"/>
+
 Adobe strongly encourages validating your webhook deliveries using this new mechanism to avoid processing "events" received from malicious third-party actors and make sure your webhook continues to receive events.
 
 ### Improved and Resilient Security Verification for Webhook Events
@@ -311,6 +307,7 @@ private PublicKey getPublic(String filename) throws Exception {
 ```
 
 <InlineAlert variant="info" slots="text"/>
+
 Kindly note that this digital signature verification process comes out-of-the-box for I/O Runtime actions, and no action is required on that end.
 
 ## Quotas
