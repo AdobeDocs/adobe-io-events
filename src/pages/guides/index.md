@@ -127,3 +127,16 @@ Content-type: application/json
 ```
 
 Typically, you would build your webhook to respond to the Adobe challenge in a method to handle HTTP GET requests, and then include another method for handling the HTTP POST requests that will be coming from Adobe containing actual event payloads. For testing purposes, you can start with something as simple as this PHP script:
+
+```http
+POST https://acme.example.com/webhook HTTP/1.1
+content-type: application/json
+
+{"validationUrl": "https://csm.adobe.io/csm/registrations/validate?id=<guid1>&challenge=<guid2>"}
+```
+
+To complete verification, you need to send a GET request to it using a web browser/cURL or any simple REST client.
+
+```bash
+curl -L -X GET 'https://csm.adobe.io/csm/registrations/validate?id=<guid1>&challenge=<guid2>'
+```
