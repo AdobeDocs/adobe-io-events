@@ -27,3 +27,60 @@ An **Event** is a JSON object that describes something that happened. Events ori
 ### Webhook example
 
 Acme Inc. wants to be notified when a new file is uploaded to Adobe Creative Cloud Assets, so it creates the following event registration:
+
+```json
+{
+  "name": "Acme Webhook",
+  "description": "Listen for newly created files",
+  "webhook_url": "https://acme.example.com/webhook",
+  "events_of_interest": [
+    {
+      "provider": "ccstorage", 
+      "event_code": "asset_created"
+    }
+  ]
+}
+```
+
+Now when a file is uploaded, Adobe I/O Events performs the following HTTP request:
+
+```http
+POST https://acme.example.com/webhook HTTP/1.1
+content-type: application/json
+
+{
+  "@id": "82235bac-2b81-4e70-90b5-2bd1f04b5c7b",
+  "@type": "xdmCreated",
+  "xdmEventEnvelope:objectType": "xdmAsset",
+  "activitystreams:published": "2016-07-16T19:20:30+01:00",
+  "activitystreams:to": {
+    "xdmImsOrg:id": "08B3E5CE5822FC520A494229@AdobeOrg",
+    "@type": "xdmImsOrg"
+  },
+  "activitystreams:generator": {
+    "xdmContentRepository:root": "http://francois.corp.adobe.com:4502/",
+    "@type": "xdmContentRepository"
+  },
+  "activitystreams:actor": {
+    "xdmAemUser:id": "admin",
+    "@type": "xdmAemUser"
+  },
+  "activitystreams:object": {
+    "@type": "xdmAsset",
+    "xdmAsset:asset_id": "urn:aaid:aem:4123ba4c-93a8-4c5d-b979-ffbbe4318185",
+    "xdmAsset:asset_name": "Fx_DUKE-small.png",
+    "xdmAsset:etag": "6fc55d0389d856ae7deccebba54f110e",
+    "xdmAsset:path": "/content/dam/Fx_DUKE-small.png",
+    "xdmAsset:format": "image/png"
+  },
+  "@context": {
+    "activitystreams": "http://www.w3.org/ns/activitystreams#",
+    "xdmEventEnvelope": "https://ns.adobe.com/xdm/common/eventenvelope#",
+    "xdmAsset": "http://ns.adobe.com/xdm/assets/asset#",
+    "xdmImsOrg": "https://ns.adobe.com/xdm/ims/organization#",
+    "xdmContentRepository": "https://ns.adobe.com/xdm/content/repository",
+    "xdmAemUser": "https://ns.adobe.com/xdm/aem/user#",
+    "xdmCreated": "https://ns.adobe.com/xdm/common/event/created#"
+  }
+}
+```
