@@ -127,10 +127,3 @@ Content-type: application/json
 ```
 
 Typically, you would build your webhook to respond to the Adobe challenge in a method to handle HTTP GET requests, and then include another method for handling the HTTP POST requests that will be coming from Adobe containing actual event payloads. For testing purposes, you can start with something as simple as this PHP script:
-
-```php
-<?php
- header('Content-Type: text/plain');
- echo $_GET['challenge']; 
-?>
-```
