@@ -96,7 +96,6 @@ For production, your webhook needs to:
 
 ### The challenge request
 
-
 #### Synchronous validation
 
 When creating an event registration using a webhook, Adobe I/O Events will first try to verify that the URL is valid. To do this, it sends an HTTP GET request, with a `challenge` query parameter. The webhook should respond with a body containing the value of the `challenge` query parameter.
@@ -136,7 +135,3 @@ content-type: application/json
 ```
 
 To complete verification, you need to send a GET request to it using a web browser/cURL or any simple REST client.
-
-```bash
-curl -L -X GET 'https://csm.adobe.io/csm/registrations/validate?id=<guid1>&challenge=<guid2>'
-```
