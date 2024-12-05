@@ -86,21 +86,3 @@ content-type: application/json
 ## Your first webhook
 
 Before you can register a webhook, the webhook needs to be online and operational. If not, then the event registration will fail. So you need to take care of setting that up first. Your webhook must be hosted on a server. For development, you may use [webhook.site](https://webhook.site), but ensure you complete the [asynchronous validation](#asynchronous-validation) for it to be considered functional.
-
-For production, your webhook needs to:
-
-- Be accessible from the internet (not using localhost)
-- Be reachable over HTTPS
-- Correctly respond to a "challenge" request
-
-### The challenge request
-
-#### Synchronous validation
-
-When creating an event registration using a webhook, Adobe I/O Events will first try to verify that the URL is valid. To do this, it sends an HTTP GET request, with a `challenge` query parameter. The webhook should respond with a body containing the value of the `challenge` query parameter.
-
-##### Request
-
-```http
-GET https://acme.example.com/webhook?challenge=8ec8d794-e0ab-42df-9017-e3dada8e84f7
-```
