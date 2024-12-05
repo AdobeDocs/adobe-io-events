@@ -253,21 +253,3 @@ As mentioned earlier, I/O Events adds an additional json field `recipient_client
 ![Sample XDM format asset event payload](./img/xdm_asset_payload_with_recipient_clientid.png "Sample XDM format asset event payload")
 
 Upon receiving a request, you must do the below for leveraging the enhanced security measures
-
-- verify you are the actual recipient of the event using the new `recipient_client_id` field available in the payload
-- once verified, your app should fetch the public key by forming and validating the url using the Adobe domain [static.adobeioevents.com](https://static.adobeioevents.com), and the relative path received from the request header
-- after downloading the public key set it in the cache with cache expiry of `not more than 24h`.
-
-To note, Adobe I/O Events doesn't send any `cache-control` header in the webhook request, so you must set up your cache configuration as mentioned above.
-
-You can also consider implementing a retry mechanism to call public key urls in case of any transient error that might occur.
-
-**Verifying the Signature**
-
-Once you have the `PEM` public keys, you can now verify the digital signatures by following the steps as below:
-
-1. Create the PublicKey object using the pem public key.
-2. Create a `Signature` (for java apps) or `crypto` -> [Verify](https://nodejs.org/docs/latest-v14.x/api/crypto.html#crypto_class_verify) (for nodeJS apps) instance using the `rsa-sha256` hashing algorithm.
-3. Supply **raw** event payload to the instance created in above step.
-4. Use the public key and decoded signature to verify.
-5. Do the above for both the signatures and if any one of the signature validations is successful, then the event is valid.
