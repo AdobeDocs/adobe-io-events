@@ -96,4 +96,6 @@ For production, your webhook needs to:
 
 ### The challenge request
 
+<hr/>
+
 #### Synchronous validation
