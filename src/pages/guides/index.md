@@ -16,4 +16,4 @@ With Adobe I/O Events webhooks, your application can sign up to be notified when
 For example, when a user uploads a asset, this action generates an event.
 With the right webhook in place, your application is instantly notified that this event happened.
 
-Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](/developer-console/docs/guides/services/services-add-event/)
+Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-event/)
