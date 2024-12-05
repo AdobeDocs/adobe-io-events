@@ -160,5 +160,15 @@ Your webhook must respond to the POST request with an HTTP status code of 200 be
 <InlineAlert slots="text"/>
 
 Please note that for **security** reasons we **obfuscate** the validation URL in the [debug tracing](/support/tracing/) tab.
-So, the only way to intercept the original validation URL is if you own the webhook server (*you could simply log all requests*).<hr/>
+So, the only way to intercept the original validation URL is if you own the webhook server (*you could simply log all requests*).
 ![Validation URL obfuscated in Debug Tracing tab](./img/debug_tracing_challenge_post_obfuscated.png "Validation URL obfuscated in Debug Tracing tab")
+
+### Testing with ngrok
+
+[Ngrok](https://ngrok.com/) is a utility for enabling secure introspectable tunnels to your localhost. With ngrok, you can securely expose a local web server to the internet and run your own personal web services from your own machine, safely encrypted behind your local NAT or firewall. With ngrok, you can iterate quickly without redeploying your app or affecting your customers.
+
+Among other things, ngrok is a great tool for testing webhooks. Once you've downloaded and installed [ngrok](https://ngrok.com/), you run it from a command line, specifying the protocol and port you want to monitor:
+
+```bash
+ngrok http 80
+```
