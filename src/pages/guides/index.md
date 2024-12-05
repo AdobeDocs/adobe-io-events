@@ -134,9 +134,3 @@ Typically, you would build your webhook to respond to the Adobe challenge in a m
  echo $_GET['challenge']; 
 ?>
 ```
-
-**Note:** Make sure your response is given in the correct content type. If your webhook script places the challenge value directly in the response body, make sure it's returned as plain text (`text/plain`). For a JSON response, make sure it's `application/json`. Returning a response in the incorrect content type may cause extraneous code to be returned, which will not validate with Adobe I/O Events.
-
-#### Asynchronous validation
-
-When the webhook fails to respond appropriately to the challenge request, Adobe I/O Events sends an HTTP POST request with a body containing a custom URL for manual validation.
