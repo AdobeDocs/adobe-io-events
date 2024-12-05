@@ -172,3 +172,19 @@ Among other things, ngrok is a great tool for testing webhooks. Once you've down
 ```bash
 ngrok http 80
 ```
+
+![ngrok on port 80](./img/ngrok.png "ngrok on port 80")
+
+In the ngrok UI, you can see the URL for viewing the ngrok logs, labeled "Web Interface", plus the public-facing URLs ngrok generates to forward HTTP and HTTPS traffic to your localhost. You can use either of those public-facing URLs to register your Webhook with Adobe I/O, so long as your application is configured to respond on your localhost accordingly. Once your testing phase is complete, you can replace the ngrok URL in your Adobe I/O integration with the public URL for your deployed app.
+
+## Create a project in the `Adobe Developer Console`
+
+Integrations are now created as part of a project within the `Adobe Developer Console`. This requires you to have access to the [Console](https://www.adobe.com/go/devs_console_ui) in order to create a project, add events to your project, configure the events, and register your webhook.
+
+For detailed instructions on completing these steps, please begin by reading the [`Adobe Developer Console` Getting Started guide](https://www.adobe.com/go/devs_console_getting_started).
+
+Once you have completed the event registration, check the ngrok log. You should see a `GET` request, including the `challenge` that was passed along in the URL.  
+  
+![The challenge GET request received in ngrok](./img/ngrok_2.png "The challenge GET request received in ngrok")  
+
+In the `Adobe Developer Console`, you will be taken to the *Registration Details* page once the event registration is complete.
