@@ -158,3 +158,5 @@ The custom URL is valid for **5 minutes**. If the validation is not completed wi
 Your webhook must respond to the POST request with an HTTP status code of 200 before it can be put in the asynchronous validation mode. In other words, if the webhook responds with a 200, but doesn't respond with a body containing the challenge, it is switched to asynchronous validation mode. If there is a GET request on the validation URL within 5 minutes, the event registration is marked `Active`.
 
 <InlineAlert slots="text"/>
+
+Please note that for **security** reasons we **obfuscate** the validation URL in the [debug tracing](/support/tracing/) tab.
