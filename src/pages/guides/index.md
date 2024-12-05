@@ -188,3 +188,5 @@ Once you have completed the event registration, check the ngrok log. You should 
 ![The challenge GET request received in ngrok](./img/ngrok_2.png "The challenge GET request received in ngrok")  
 
 In the `Adobe Developer Console`, you will be taken to the *Registration Details* page once the event registration is complete.
+
+The *Status* of the registration should show as **Active**. If the registration shows as **Disabled** please see the [troubleshooting](#troubleshooting-a-disabled-registration-status) section that follows.
