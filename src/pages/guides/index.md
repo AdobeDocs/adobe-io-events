@@ -157,3 +157,5 @@ content-type: application/json
 
 {"validationUrl": "https://csm.adobe.io/csm/registrations/validate?id=<guid1>&challenge=<guid2>"}
 ```
+
+To complete verification, you need to send a GET request to it using a web browser/cURL or any simple REST client.
