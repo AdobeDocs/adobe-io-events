@@ -94,3 +94,8 @@ For production, your webhook needs to:
 - Be reachable over HTTPS
 - Correctly respond to a "challenge" request
 
+### The challenge request
+
+#### Synchronous validation
+
+When creating an event registration using a webhook, Adobe I/O Events will first try to verify that the URL is valid. To do this, it sends an HTTP GET request, with a `challenge` query parameter. The webhook should respond with a body containing the value of the `challenge` query parameter.
