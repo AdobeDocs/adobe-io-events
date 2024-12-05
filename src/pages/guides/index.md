@@ -30,13 +30,35 @@ Acme Inc. wants to be notified when a new file is uploaded to Adobe Creative Clo
 
 ```json
 {
-  "name": "Acme Webhook",
-  "description": "Listen for newly created files",
-  "webhook_url": "https://acme.example.com/webhook",
-  "events_of_interest": [
+  "version": "0.3.0",
+  "configurations": [
     {
-      "provider": "ccstorage", 
-      "event_code": "asset_created"
+      "name": "App Builder: debug actions",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "aio app dev",
+      "skipFiles": [
+        "<node_internals>/**/*.js",
+        "${workspaceFolder}/node_modules/**/*.js"
+      ]
+    }, {
+      "name": "App Builder: debug full stack",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "aio app dev",
+      "sourceMapPathOverrides": {
+        "/__parcel_source_root/*": "${webRoot}/*"
+      },
+      "skipFiles": [
+        "<node_internals>/**/*.js",
+        "${workspaceFolder}/node_modules/**/*.js"
+      ],
+      "serverReadyAction": {
+        "pattern": "server running on port : ([0-9]+)",
+        "uriFormat": "https://localhost:%s",
+        "action": "debugWithChrome",
+        "webRoot": "${workspaceFolder}"
+      }
     }
   ]
 }
