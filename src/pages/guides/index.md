@@ -9,6 +9,8 @@ title: Introduction to Adobe I/O Events Webhooks
 description: With Adobe I/O Events webhooks, your application can sign up to be notified whenever certain events occur. For example, when a user uploads a asset, this action generates an event. With the right webhook in place, your application is instantly notified that this event happened.
 ---
 
+import RetryDoc from '/src/pages/common/retry-doc.md'
+import ReceivingEventsForUsersDoc from '/src/pages/common/receiving-events-for-users-doc.md'
 
 # Introduction to Adobe I/O Events Webhooks
 
@@ -190,3 +192,13 @@ Once you have completed the event registration, check the ngrok log. You should 
 In the `Adobe Developer Console`, you will be taken to the *Registration Details* page once the event registration is complete.
 
 The *Status* of the registration should show as **Active**. If the registration shows as **Disabled** please see the [troubleshooting](#troubleshooting-a-disabled-registration-status) section that follows.
+
+![Event Registration Details tab in Adobe Developer Console](./img/events-registration-details.png "Event Registration Details tab in Adobe Developer Console")
+
+### Troubleshooting Unstable/Disabled Registration Status
+
+If you made an error transcribing the webhook URL, Adobe I/O Events' test of your webhook would have failed, resulting in a **Disabled** status.
+
+In general, `Adobe I/O Events` will always confirm that your webhook received an event by means of the response code your webhook sends to each HTTP POST request.
+
+<RetryDoc/>
