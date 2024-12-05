@@ -83,6 +83,7 @@ content-type: application/json
   }
 }
 ```
+
 ## Your first webhook
 
 Before you can register a webhook, the webhook needs to be online and operational. If not, then the event registration will fail. So you need to take care of setting that up first. Your webhook must be hosted on a server. For development, you may use [webhook.site](https://webhook.site), but ensure you complete the [asynchronous validation](#asynchronous-validation) for it to be considered functional.
