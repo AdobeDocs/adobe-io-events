@@ -80,4 +80,3 @@ The Versions Resource provides the set of all available versions of an [asset](#
 ### XDM
 
 The Experience Data Model (XDM) is a technology for modeling data used at Adobe, along with associated models. It is a stylized use of [JSON Schema](https://json-schema.org/) and [JSON-LD](https://json-ld.org/), and is a publicly documented specification, made available under a Creative Commons license.
-
