@@ -38,7 +38,7 @@ You can now proceed to select the organization, project, and workspace using the
 
     ![](../img/cli-project-list.png)
 
-    To select a project, use ***aio console project select <project_id>***.
+    To select a project, use ***aio console project select < project_id >***.
 
     ![](../img/cli-project-select.png)
 
@@ -46,7 +46,7 @@ You can now proceed to select the organization, project, and workspace using the
 
     ![](../img/cli-workspace-list.png)
 
-    To select a workspace, use ***aio console workspace select <workspace_id>***.
+    To select a workspace, use ***aio console workspace select < workspace_id >***.
 
     ![](../img/cli-workspace-select.png)
 
