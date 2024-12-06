@@ -24,7 +24,7 @@ title: Registration API
     * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].oauth_server_to_server.client_id`
 * Define your event registration. You will need:
   * either a webhook url (accessible from the internet, reachable over HTTPS and that correctly responds to a [challenge request](/guides/index.md#the-challenge-request)), refer our [guide on getting started with I/O Events webhooks](/guides/).
-  * or you can also define your [runtime action](/guides/runtime_webhooks/).<br/>
+  * or you can also define your [runtime action](/guides/runtime_webhooks/).
     **Note** - Do not define both.
   * a name (a user-friendly name, used for display in the Adobe Developer Console)
   * an array of events of interests, that are defined with 2 ids
