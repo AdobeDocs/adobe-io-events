@@ -89,5 +89,5 @@ If some event type is present in both specified preferred providers, the plugin 
 
 ## Links
 
-* [https://github.com/adobe/aio-cli-plugin-extension](https://github.com/adobe/aio-cli-plugin-extension) the source code & additional documentation test
-* [https://github.com/adobe/aio-cli-plugin-extension](https://www.npmjs.com/package/@adobe/aio-cli-plugin-extension) npm package test
+* [https://github.com/adobe/aio-cli-plugin-extension](https://github.com/adobe/aio-cli-plugin-extension) the source code & additional documentation
+* [https://github.com/adobe/aio-cli-plugin-extension](https://www.npmjs.com/package/@adobe/aio-cli-plugin-extension) npm package
