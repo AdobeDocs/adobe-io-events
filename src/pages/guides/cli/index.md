@@ -14,7 +14,7 @@ To begin setting up the Events Plugin, visit [Adobe Developer Console](https://w
 
 Once the project has been created, add the *I/O Management API* service to the project. This will add the required scope to the authentication token required by the Events SDK. For a step-by-step guide to adding an API to a project, follow this tutorial for [adding an API to a project using OAuth Server-to-Server credential](/developer-console/docs/guides/services/services-add-api-oauth-s2s/) (the type of authentication used by the I/O Management API).
 
-![](../img/cli-console-setup.png)
+![CLI Console Setup](../img/cli-console-setup.png)
 
 ### Setting up credentials using `aio console`
 
@@ -22,33 +22,33 @@ After completing the setup within the Adobe Developer Console, you must then set
 
 On entering any command, you will be taken to the Adobe I/O CLI Login page. After signing in using your ID, you will be redirected to a page stating that you have successfully logged in to the Adobe I/O CLI.
 
-![](../img/cli-adobe-io-cli-login.png)
+![Adobe I/O CLI Login](../img/cli-adobe-io-cli-login.png)
 
 You can now proceed to select the organization, project, and workspace using the following steps:
 
 1. Select the same organization in which you created the project in the Adobe Developer Console. You can list the organizations and select one using ***aio console org list***.
 
-    ![](../img/cli-org-list.png)
+    ![Organization List](../img/cli-org-list.png)
 
     To select an organization, use ***aio console org select <ims_org_id>***.
 
-    ![](../img/cli-org-select.png)
+    ![Organization Selection](../img/cli-org-select.png)
 
 2. Select the project you created in the Adobe Developer Console. You can list the projects using ***aio console project list***.
 
-    ![](../img/cli-project-list.png)
+    ![Project List](../img/cli-project-list.png)
 
     To select a project, use ***aio console project select < project_id >***.
 
-    ![](../img/cli-project-select.png)
+    ![Project Selection](../img/cli-project-select.png)
 
 3. Select the workspace from the project you created in the Adobe Developer Console. By default a Production workspace is created when you create a new project. You can list the workspaces using ***aio console workspace list***.
 
-    ![](../img/cli-workspace-list.png)
+    ![Workspace List](../img/cli-workspace-list.png)
 
     To select a workspace, use ***aio console workspace select < workspace_id >***.
 
-    ![](../img/cli-workspace-select.png)
+    ![Workspace Selection](../img/cli-workspace-select.png)
 
 ## Installing and using the plugin
 
