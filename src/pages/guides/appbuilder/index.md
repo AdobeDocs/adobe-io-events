@@ -34,9 +34,9 @@ Create a new folder where the code for the new app should be added and cd into t
 In order to create a new app:
 
 - run aio app init
-- Select the project. By default, the Project is initialized for Workspace Stage, you can run **'aio app use -w <workspace\>'** to switch workspace after initialisation.
+- Select the project. By default, the Project is initialized for Workspace Stage, you can run **'aio app use -w < workspace\ >'** to switch workspace after initialisation.
 - You will then be presented with an option to select a) All Templates, b) All Extensions and c) Only Templates Supported By My Org. Choose either a or c
-- Select @adobe/generator-app-events-generic using <space\> and press <enter\>
+- Select @adobe/generator-app-events-generic using < space\ > and press < enter\ >
 
 ```shell
 app-builder-app % aio app init
@@ -136,7 +136,7 @@ How would you like to name this registration? Registration 1
 
 **IO Events Provider:** Some provider metadata have one or more instances that emit events. Each instance is registered as an IO Events Provider under the specific provider metadata. For eg. an organisation may have multiple instance of Adobe Commerce. Each instance is registered as a different provider. Some provider metadata have only a single source of events. Such provider metadata consist of only a single provider per organisation.
 
-For multi-instance provider metadata, select an instance to listen to events from, and in case of single instance provider metadata, select the specified provider by pressing \<enter\>
+For multi-instance provider metadata, select an instance to listen to events from, and in case of single instance provider metadata, select the specified provider by pressing \< enter\ >
 
 ```shell
 ? Choose from below provider for provider metadata: di_event_code (Use arrow keys)
