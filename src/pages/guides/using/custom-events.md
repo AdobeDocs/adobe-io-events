@@ -29,7 +29,7 @@ Build custom apps that interact with core Adobe services, and automate processes
 
 <InlineAlert slots="title, text"/>
 
-Please note that all custom events are stored in the **United States (US)** region.  
+Please note that all custom events are stored in the **United States (US)** region test.  
 
 ## Get Started
 
