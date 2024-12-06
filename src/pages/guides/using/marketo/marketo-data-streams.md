@@ -2,8 +2,6 @@
 title: Marketo Data Streams
 ---
 
-import DeveloperGuidelines from '/src/pages/guides/using/marketo/marketo-data-streams-developer-guidelines.md'
-import Debug from '/src/pages/guides/using/marketo/marketo-data-streams-debug.md'
 
 # Subscribing to the Marketo Events with Adobe I/O Events
 
@@ -48,6 +46,3 @@ Here are some basic getting started instructions that will be the same for each 
 
 You should see the three Marketo Data Streams available.  Please see the individual page for each stream for further setup instructions.
 
-<DeveloperGuidelines/>
-
-<Debug/>
