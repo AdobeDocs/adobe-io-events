@@ -7,6 +7,7 @@ title: Registration API
 ## Prerequisites
 
 * Create a project in the [Adobe Developer Console](/developer-console/docs/guides/projects/projects-empty/)
+
 * Add the `I/O Management API` in your Adobe Developer Console project
   * Click on `Add to Project` > `API`
   * Select `I/O Management API`
@@ -19,9 +20,9 @@ title: Registration API
   * Click on `Download`, open the downloaded `json` file with your favorite editor, in there you'll find:
     * your consumer Org Id (also called `consumer id`) (at `project.org.id`)
     * your IMS Org Id (at `project.org.ims_org_id`)
-    * your credential Id (also called `application id`) (at `project.workspace.details.credentials[0].id`, note that `credentials` is an array,
+    * your credential Id (also called `application id`) (at `project.workspace.details.credentials[0].id`, note that `credentials` is an array,)
        if you have more than one, pick the one where you defined your OAuth server-to-server credential
-    * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].oauth_server_to_server.client_id`
+    * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].oauth_server_to_server.client_id`)
 * Define your event registration. You will need:
   * either a webhook url (accessible from the internet, reachable over HTTPS and that correctly responds to a [challenge request](/guides/index.md#the-challenge-request)), refer our [guide on getting started with I/O Events webhooks](/guides/).
   * or you can also define your [runtime action](/guides/runtime_webhooks/).
