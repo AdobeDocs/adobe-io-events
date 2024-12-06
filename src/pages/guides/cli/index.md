@@ -416,7 +416,7 @@ OPTIONS
 
 #### Delete Event Metadata for a Provider
 
-When deleting event metadata, the `EVENTCODE` value is optional. However, if an Event Code is not provided, all event metadata will be deleted.
+When deleting event metadata, the `EVENTCODE` value is optional. However, if an Event Code is not provided, all event metadata will be deleted test.
 
 ```shell
 USAGE
