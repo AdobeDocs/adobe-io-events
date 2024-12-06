@@ -31,15 +31,12 @@ Asset Events are initiated by actions, which are operations (create, update, mov
 
    ![event:updated object with a repo:path property](../../img/event-updated.png)
 
-<br/>
 
 ## Actions by Asset Type
 
 This section is organized by [asset](asset-events-glossary#asset) type ([files](asset-events-glossary#file)/[directories](asset-events-glossary#directory) and [composites](asset-events-glossary#composite)), and is intended to help you recognize, via an Asset Event object, how an asset's [resources](asset-events-glossary#resource) has been affected by a given action. Each subsection contains an abbreviated Asset Event object, so that you can more easily view the relevant properties.
 
 ### Files/Directories
-
----
 
 #### Created
 
@@ -67,8 +64,6 @@ An event is triggered by the creation of a [file](asset-events-glossary#file)/[d
 }
 ```
 
----
-
 #### Updated
 
 An event is triggered by an update to a [file](asset-events-glossary#file)/[directory](asset-events-glossary#directory) that did not involve copying or moving the file/directory (e.g., updating an image). In `event:resources`, both the [Repository Metadata Resource](asset-events-glossary.md#repository-metadata-resource) and the [Primary Resource](asset-events-glossary.md#primary-resource) are listed as `updated`.
@@ -94,8 +89,6 @@ An event is triggered by an update to a [file](asset-events-glossary#file)/[dire
   }
 }
 ```
-
----
 
 #### Copied
 
@@ -144,8 +137,6 @@ In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-re
   }
 }
 ```
-
----
 
 #### Moved
 
@@ -204,8 +195,6 @@ In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-re
 }
 ```
 
----
-
 #### Discarded
 
 An Event is triggered by discarding a [file](asset-events-glossary#file)/[directory](asset-events-glossary#directory). In `event:resources`, the [Repository Metadata Resource](asset-events-glossary.md#repository-metadata-resource) is listed as `updated`. The value of `repo:state` in `event:updated` is the previous state of the [asset](asset-events-glossary#asset). (The current state is `DISCARDED`.)
@@ -230,8 +219,6 @@ An Event is triggered by discarding a [file](asset-events-glossary#file)/[direct
 }
 ```
 
----
-
 #### Restored
 
 An Event is triggered by restoring a [file](asset-events-glossary#file)/[directory](asset-events-glossary#directory). In `event:resources`, the [Repository Metadata Resource](asset-events-glossary.md#repository-metadata-resource) is listed as `updated`. The value of `repo:state` in `event:updated` is the previous state of the [asset](asset-events-glossary#asset). (The current state is `ACTIVE`.)
@@ -255,8 +242,6 @@ An Event is triggered by restoring a [file](asset-events-glossary#file)/[directo
   }
 }
 ```
-
----
 
 #### Deleted
 
@@ -330,13 +315,9 @@ An Event is triggered by the creation or update of a file's/directory's [Embedde
 }
 ```
 
----
-
 ### Composites
 
-A [Composite](asset-events-glossary#composite) differs from a regular [Files](asset-events-glossary#file) in that it a) has a [Manifest Resource](asset-events-glossary.md#manifest) which is closely coupled with—but not the same as—its [Primary Resource](asset-events-glossary.md#primary-resource) and b) has any number of [Component Resources](asset-events-glossary.md#component) which can be created/updated without an immediate update to the Primary/Manifest. These differences make it necessary to include some additional data in the created/updated Events for Composites.
-
----
+A [Composite](asset-events-glossary#composite) differs from a regular [Files](asset-events-glossary#file) in that it a has a [Manifest Resource](asset-events-glossary.md#manifest) which is closely coupled with—but not the same as—its [Primary Resource](asset-events-glossary.md#primary-resource) and b has any number of [Component Resources](asset-events-glossary.md#component) which can be created/updated without an immediate update to the Primary/Manifest. These differences make it necessary to include some additional data in the created/updated Events for Composites.
 
 #### Created Manifest
 
@@ -376,8 +357,6 @@ An Event is triggered by the upload of a [Manifest Resource](asset-events-glossa
   }
 }
 ```
-
----
 
 #### Updated Manifest
 
