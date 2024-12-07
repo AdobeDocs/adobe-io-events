@@ -118,7 +118,7 @@ How would you like to name this registration? Registration 1
 
 <InlineAlert slots="text"/>
 
-**Provider metadata:** Provider metadata indicates a family of providers. It describes the source of events and is categorised under one of the following groups: Creative Cloud, Document Cloud, Experience Cloud and Experience Platform. For eg. Commerce Events is an Experience Cloud product that emits events that can be consumed by subscribing to the Commerce Events provider metadata.
+ Provider metadata indicates a family of providers. It describes the source of events and is categorised under one of the following groups: Creative Cloud, Document Cloud, Experience Cloud and Experience Platform. For eg. Commerce Events is an Experience Cloud product that emits events that can be consumed by subscribing to the Commerce Events provider metadata.
 
 ```shell
 ? Choose from the following provider families ( provider metadata ) (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
