@@ -1,5 +1,5 @@
 ---
-title: Publish Events | Adobe I/O Events SDK
+title: Publish Events 
 ---
 
 # Publish events
