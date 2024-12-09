@@ -42,28 +42,28 @@ This SDK api can be used in any digital signature verification implementation fo
 verifyDigitalSignatureForEvent(event, recipientClientId, [signatureOptions]) ⇒ boolean
 ```
 
-| Param | Type | Description |
-| --- | --- | --- |
-| event | ```bash
- object``` | JSON payload delivered to the registered webhook URL |
-| recipientClientId | ```bash
- string``` | Target recipient client id retrieved from the Adobe I/O Console integration |
-| [signatureOptions] | [<code>SignatureOptions</code>](#SignatureOptions) | Map of digital signature header fields defined in SignatureOptions |
+| Param               | Type        | Description                                                                 |
+|---------------------|-------------|-----------------------------------------------------------------------------|
+| event               | ```bash     |
+object
+```         | JSON payload delivered to the registered webhook URL                       |
+| recipientClientId   | ```bash     |
+string
+```        | Target recipient client id retrieved from the Adobe I/O Console integration |
+| [signatureOptions]  | [`SignatureOptions`](#SignatureOptions) | Map of digital signature header fields defined in SignatureOptions         |
+
 
 #### SignatureOptions : `object`
 
 **Properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| [digiSignature1] | ```bash
- string``` | Value of digital signature retrieved from the x-adobe-digital-signature1 header |
-| [digiSignature2] | ```bash
- string``` | Value of digital signature retrieved from the x-adobe-digital-signature2 header |
-| [publicKeyPath1] | ```bash
- string``` | Relative path of ioevents public key retrieved from the x-adobe-public-key1-path header |
-| [publicKeyPath2] | ```bash
- string``` | Relative path of ioevents public key retrieved from the x-adobe-public-key2-path header |
+| Name                | Type                                 | Description                                                                 |
+|---------------------|--------------------------------------|-----------------------------------------------------------------------------|
+| [digiSignature1]    | ```bash string```                   | Value of digital signature retrieved from the x-adobe-digital-signature1 header |
+| [digiSignature2]    | ```bash string```                   | Value of digital signature retrieved from the x-adobe-digital-signature2 header |
+| [publicKeyPath1]    | ```bash string```                   | Relative path of ioevents public key retrieved from the x-adobe-public-key1-path header |
+| [publicKeyPath2]    | ```bash string```                   | Relative path of ioevents public key retrieved from the x-adobe-public-key2-path header |
+
 
 ### Sample Headers
 
