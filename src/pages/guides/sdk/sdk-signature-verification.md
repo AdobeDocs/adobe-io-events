@@ -9,6 +9,7 @@ Your webhook URL must be accessible from the open internet, however this means t
 To prevent this from happening, Adobe I/O Events has a resilient and secure event validation process in place as defined below that allows users to secure their webhook. 
 
 ## Digital Signatures for Security Verification
+
 Adobe I/O Events does below security validations for each event delivered to your webhook. 
 
 - Adobe I/O Events sends an additional field of `recipient_client_id` as part of your event payload.
@@ -40,22 +41,25 @@ This SDK api can be used in any digital signature verification implementation fo
 ```javascript
 verifyDigitalSignatureForEvent(event, recipientClientId, [signatureOptions]) ⇒ boolean
 ```
-| Param | Type | Description |
-| --- | --- | --- |
-| event | <code>object</code> | JSON payload delivered to the registered webhook URL |
-| recipientClientId | <code>string</code> | Target recipient client id retrieved from the Adobe I/O Console integration |
-| [signatureOptions] | [<code>SignatureOptions</code>](#SignatureOptions) | Map of digital signature header fields defined in SignatureOptions |
+
+| Param               | Type      | Description                                                                 |
+|---------------------|-----------|-----------------------------------------------------------------------------|
+| event               | ```object```  | JSON payload delivered to the registered webhook URL                       |
+| recipientClientId   | ```string```| Target recipient client id retrieved from the Adobe I/O Console integration |
+| [signatureOptions]  | [`SignatureOptions`](#SignatureOptions) | Map of digital signature header fields defined in SignatureOptions |
+
 
 #### SignatureOptions : `object`
 
 **Properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| [digiSignature1] | <code>string</code> | Value of digital signature retrieved from the x-adobe-digital-signature1 header |
-| [digiSignature2] | <code>string</code> | Value of digital signature retrieved from the x-adobe-digital-signature2 header |
-| [publicKeyPath1] | <code>string</code> | Relative path of ioevents public key retrieved from the x-adobe-public-key1-path header |
-| [publicKeyPath2] | <code>string</code> | Relative path of ioevents public key retrieved from the x-adobe-public-key2-path header |
+| Name              | Type      | Description                                                             |
+|-------------------|-----------|-------------------------------------------------------------------------|
+| [digiSignature1]  | ```string```  | Value of digital signature retrieved from the x-adobe-digital-signature1 header |
+| [digiSignature2]  | ```string```  | Value of digital signature retrieved from the x-adobe-digital-signature2 header |
+| [publicKeyPath1]  | ```string```  | Relative path of ioevents public key retrieved from the x-adobe-public-key1-path header |
+| [publicKeyPath2]  | ```string```  | Relative path of ioevents public key retrieved from the x-adobe-public-key2-path header |
+
 
 ### Sample Headers
 
