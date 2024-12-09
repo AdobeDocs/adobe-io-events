@@ -10,6 +10,7 @@ To prevent this from happening, Adobe I/O Events has a resilient and secure even
 
 ## Digital Signatures for Security Verification
 
+
 Adobe I/O Events does below security validations for each event delivered to your webhook. 
 
 - Adobe I/O Events sends an additional field of `recipient_client_id` as part of your event payload.
