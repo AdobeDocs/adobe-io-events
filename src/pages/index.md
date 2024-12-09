@@ -33,9 +33,9 @@ Following are the prerequisites:
 ## Getting Started
 
 * [Introduction to Webhooks](guides/index.md)
-* [Introduction to Journaling](guides/journaling_intro.md)
-* [Introduction to Amazon EventBridge Integration](guides/amazon_eventbridge/index.md)
-* Jump to the Adobe Developer Console documentation to learn how to [add Events to a project](/developer-console/docs/guides/services/services-add-event/)
+* [Introduction to Journaling](guides/journaling-intro.md)
+* [Introduction to Amazon EventBridge Integration](guides/amazon-eventbridge/index.md)
+* Jump to the Adobe Developer Console documentation to learn how to [add Events to a project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-event/)
 * Discover the [available events](guides/using/index.md)
 
 ## Going Further
@@ -45,6 +45,6 @@ Following are the prerequisites:
   * [Adobe I/O Events CLI](guides/cli/index.md)
   * [Adobe I/O Events SDK](guides/sdk/index.md)
   * [Adobe I/O Events with App Builder](guides/appbuilder/index.md)
-  * [Automatic event registrations](guides/runtime_webhooks/autoregistrations.md)
+  * [Automatic event registrations](guides/runtime-webhooks/autoregistrations.md)
 
 * [Ask questions, report bugs, make feature requests, and spark discussions](support/index.md).

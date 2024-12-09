@@ -161,7 +161,7 @@ Your webhook must respond to the POST request with an HTTP status code of 200 be
 
 <InlineAlert slots="text"/>
 
-Please note that for **security** reasons we **obfuscate** the validation URL in the [debug tracing](/support/tracing/) tab.
+Please note that for **security** reasons we **obfuscate** the validation URL in the [debug tracing](../support/tracing.md) tab.
 So, the only way to intercept the original validation URL is if you own the webhook server (*you could simply log all requests*).
 ![Validation URL obfuscated in Debug Tracing tab](./img/debug_tracing_challenge_post_obfuscated.png "Validation URL obfuscated in Debug Tracing tab")
 
@@ -205,7 +205,7 @@ In general, `Adobe I/O Events` will always confirm that your webhook received an
 
 To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your events registration. This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
 
-Note: While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](./journaling_intro.md)).
+Note: While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](./journaling-intro.md)).
 
 *Unstable Event Registration*
 ![Unstable Status](./img/unstable-status.png "Example of an Unstable event registration")

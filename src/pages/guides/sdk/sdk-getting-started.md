@@ -76,7 +76,7 @@ async function sdkTest() {
 
 This returns an [RxJS Observable](https://rxjs.dev/guide/observable). For more information on how to subscribe to an observable and take action on next, on error, and on complete, please refer to the RxJS documentation.
 
-One observable can have multiple subscribers. Each subscription can be handled differently. For more details on using the poller for journaling, check `getEventsObservableFromJournal` in the [journaling documentation](sdk_journaling.md).
+One observable can have multiple subscribers. Each subscription can be handled differently. For more details on using the poller for journaling, check `getEventsObservableFromJournal` in the [journaling documentation](sdk-journaling.md).
 
 ## Classes
 
@@ -94,12 +94,13 @@ init(organizationId, apiKey, accessToken, [httpOptions]) ⇒ Promise.<EventsCore
 
 A global function that returns a Promise that resolves with a new `EventsCoreAPI` object.
 
-|Parameters	|Type	|Description|
-|---|---|---|
-|`organizationId`	|string	|The IMS Organization Id for which the provider, event metadata, etc are to be created which can be obtained using the Adobe Developer Console or Transporter API. |
-|`apiKey`	|string	|The API Key (Client ID) for the project or workspace.|
-|`accessToken`	|string	|An OAuth Server-to-Server Token. I/O Management Service needs to be enabled for the project or workspace. Must be created with `adobeio_api` scope, which is required for all the API calls.|
-|[httpOptions]	|[EventsCoreAPIOptions](#eventscoreapioptions)	|Options to configure API calls, as shown in the table below.|
+| Parameters        | Type                                                      | Description                                                                                                                 |
+|-------------------|-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| `organizationId`  | `string`                                                  | The IMS Organization Id for which the provider, event metadata, etc., are to be created. This can be obtained using the Adobe Developer Console or Transporter API. |
+| `apiKey`          | `string`                                                  | The API Key (Client ID) for the project or workspace.                                                                       |
+| `accessToken`     | `string`                                                  | An OAuth Server-to-Server Token. I/O Management Service needs to be enabled for the project or workspace. Must be created with `adobeio_api` scope, which is required for all the API calls. |
+| [httpOptions]     | [`EventsCoreAPIOptions`](#eventscoreapioptions)           | Options to configure API calls, as shown in the table below.                                                                |
+
 
 ## Configuration Options
 
@@ -107,32 +108,35 @@ A global function that returns a Promise that resolves with a new `EventsCoreAPI
 
 One can configure the following HTTP Options for the SDK. These options will be applied while making the respective API.
 
-|Name|	Type|	Description|
-|---|---|---|
-|[timeout]	|number	|*Optional.* HTTP request timeout in ms. Timeout resets on redirect. 0 to disable (OS limit applies).|
-|[retries]	|number	|*Optional.* The maximum number of retires that should be attempted for all APIs in case of a network error or 5xx / 429 error. By default, retries are disabled. In other words, retries = 0. Retries can be enabled by setting this option while initializing the SDK.|
+| Name       | Type     | Description                                                                                                                                             |
+|------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [timeout]  | `number` | *Optional.* HTTP request timeout in ms. Timeout resets on redirect. 0 to disable (OS limit applies).                                                   |
+| [retries]  | `number` | *Optional.* The maximum number of retries that should be attempted for all APIs in case of a network error or 5xx / 429 error. By default, retries are disabled. In other words, retries = 0. Retries can be enabled by setting this option while initializing the SDK. |
+
 
 ### EventsJournalOptions
 
-|Name	|Type	|Description|
-|---|---|---|
-|[latest]	|boolean	|*Optional.* By default, the latest is set to false and all events are read from the first valid position in the journal. If set to true, Messages will be read from the latest position. |
-|[since]	|string	|*Optional.* Provide the position in the journal from where events must be fetched. If not specified and latests=false, messages are fetched from the first valid position in the journal.|
-|[limit]	|number	|Maximum number of events returned in the response. The number of messages can be less than the specified limit value but will never exceed this value.|
+| Name     | Type      | Description                                                                                                                                                                    |
+|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [latest] | `boolean` | *Optional.* By default, the latest is set to `false` and all events are read from the first valid position in the journal. If set to `true`, messages will be read from the latest position. |
+| [since]  | `string`  | *Optional.* Provide the position in the journal from where events must be fetched. If not specified and `latest=false`, messages are fetched from the first valid position in the journal. |
+| [limit]  | `number`  | Maximum number of events returned in the response. The number of messages can be less than the specified limit value but will never exceed this value.                         |
+
 
 ### EventsJournalPollingOptions
 
-|Name	|Type	|Description|
-|---|---|---|
-|[interval]	|number	|*Optional.* Interval at which to poll the journal; If not provided, a default value will be used. The default value is 2s and is used only in case there are no new events in the journal or in case of error. Otherwise, the new event is fetched immediately after the previous call.|
+| Name      | Type    | Description                                                                                                                                                                                                                                                                              |
+|-----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [interval] | `number` | *Optional.* Interval at which to poll the journal. If not provided, a default value will be used. The default value is `2s` and is applied only in case there are no new events in the journal or in case of an error. Otherwise, the new event is fetched immediately after the previous call. |
+
 
 ## Next steps
 
 To begin working with `EventsCoreAPI` class methods and calling Adobe I/O Events APIs, please select from the following guides:
 
-* [Providers](sdk_providers.md)
-* [Event Metadata](sdk_event_metadata.md)
-* [Publish Events](sdk_publish_events.md)
-* [Webhooks](sdk_webhooks.md)
-* [Journaling](sdk_journaling.md)
-* [Signature verification](sdk_signature_verification.md)
+* [Providers](sdk-providers.md)
+* [Event Metadata](sdk-event-metadata.md)
+* [Publish Events](sdk-publish-events.md)
+* [Webhooks](sdk-webhooks.md)
+* [Journaling](sdk-journaling.md)
+* [Signature verification](sdk-signature-verification.md)

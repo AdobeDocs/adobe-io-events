@@ -6,7 +6,7 @@ title: Publish Events
 
 Event publishers can publish events to the event receiver using the Adobe I/O Events SDK. 
 
-For information on installing and using the SDK, please begin by reading the [getting started guide](sdk_getting_started.md).
+For information on installing and using the SDK, please begin by reading the [getting started guide](sdk-getting-started.md).
 
 <InlineAlert slots="title, text"/>
 
@@ -52,6 +52,6 @@ The following shows a sample cloud event accepted by the event receiver:
 The API returns 
 * HTTP Status 200 (OK) if the event has been processed correctly and there are active registrations for the event,
 * HTTP Status 204 (No Content) if there are no registrations for the event, 
-* HTTP Status 429 (Too Many Requests) with a `Retry-After` response header if your api-key is being throttled (read our [Events Publishing API guide](../api/eventsingress_api.md) for more details).
+* HTTP Status 429 (Too Many Requests) with a `Retry-After` response header if your api-key is being throttled (read our [Events Publishing API guide](../api/eventsingress-api.md) for more details).
 * as well as the usual (4xx/5xx) error codes if there was an issue in processing the request.
 

@@ -6,7 +6,7 @@ import ReceivingEventsForUsersDoc from '/src/pages/common/receiving-events-for-u
 
 # Asset Events Configuration
 
-To configure Asset Events, refer to [Add Events](/developer-console/docs/guides/services/services-add-event/), keeping in mind the following amendments to the **Add Events** and **Credentials** sections:
+To configure Asset Events, refer to [Add Events](https://developer.adobe.com/developer-console/docs/guides/services/services-add-event/), keeping in mind the following amendments to the **Add Events** and **Credentials** sections:
 
 ## Add Events Section
 

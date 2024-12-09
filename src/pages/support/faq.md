@@ -28,7 +28,7 @@ We are adding new events providers regularly, at the time of writing, the follow
 * [AEM](../guides/using/aem/index.md)
 * Adobe Campaign Standard
 
-You can also register [your own `Custom Events Provider`](../guides/using/custom_events.md)
+You can also register [your own `Custom Events Provider`](../guides/using/custom-events.md)
 
 ### What is the guarantee of events delivery?
 
@@ -54,7 +54,7 @@ Please reach out to your Adobe account manager for licensing related questions.
 
 ### Which subscription types do I/O Events support?
 
-I/O Events supports [webhooks](../guides/index.md) for near-real time notifications (push) as well as [a Journaling API](../guides/journaling_intro.md) (pull) to grab groups of events at a time.
+I/O Events supports [webhooks](../guides/index.md) for near-real time notifications (push) as well as [a Journaling API](../guides/journaling-intro.md) (pull) to grab groups of events at a time.
 
 ### What should I do if I am unable to delete a project because of a conflicting provider?
 
@@ -69,7 +69,7 @@ If you are sure that the event provider can be deleted, then follow the steps do
    1. Your consumer organization id (at `project.org.id`)
    2. Your project id (at `project.id`)
    3. Your workspace id (at `project.workspace.id`)
-3. Using the [provider API](/guides/api/provider_api.md), fetch [your I/O Events providers entitled to the provided organization id](/events/docs/api/#tag/Providers/operation/getProvidersByConsumerOrgId), using the consumer organization id noted from above.
+3. Using the [provider API](/guides/api/provider-api.md), fetch [your I/O Events providers entitled to the provided organization id](/events/docs/api/#tag/Providers/operation/getProvidersByConsumerOrgId), using the consumer organization id noted from above.
 4. Find the conflicting provider against your workspace id (found at `project.workspace.id` from the project json file) from the provider API response, and make a note of the provider `id`.
 5. Delete the provider via the [provider API](/events/docs/api/#tag/Providers/operation/deleteProvider), using the ids noted in above steps.
 6. Repeat the above steps for all conflicting event providers and try deleting the project again. Your project deletion should now go through successfully.
@@ -80,13 +80,13 @@ If you are sure that the event provider can be deleted, then follow the steps do
 
 <RetryDoc/>
 
-Note: You can then use the [Journaling API](../guides/journaling_intro.md) to **retrieve** events that were published while your webhook was down. Once your webhook gets restored, you can re-enable your event registration (see the question below).
+Note: You can then use the [Journaling API](../guides/journaling-intro.md) to **retrieve** events that were published while your webhook was down. Once your webhook gets restored, you can re-enable your event registration (see the question below).
 
 ### How can I re-enable my event registration (disabled after a downtime)? How can I retrieve the events I missed?
 
 To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your event registration. This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
 
-While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](../guides/journaling_intro.md)).
+While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](../guides/journaling-intro.md)).
 
 ### What happens if my webhook is unable to handle a specific event but handles all other events gracefully?
 
@@ -105,7 +105,7 @@ We had a few customers asking this in the context of securing their endpoint;  t
 
 The answer is **no**. Adobe I/O Events notifications services are hosted on AWS and Azure, their IPs change over time.
 
-*Reminder*: Each Adobe I/O Events HTTP request holds a signature header (see the previous question), however if this is not enough and if the above is a non-negotiable requirement, you may choose to use the pull model instead, and leverage our [Journaling API](../guides/journaling_intro.md).
+*Reminder*: Each Adobe I/O Events HTTP request holds a signature header (see the previous question), however if this is not enough and if the above is a non-negotiable requirement, you may choose to use the pull model instead, and leverage our [Journaling API](../guides/journaling-intro.md).
 
 ### What is the size of notifications when in batch delivery style?
 
@@ -134,29 +134,29 @@ Our Journaling API `limit` parameter is used to specify the “maximum” number
 It is used to specify an upper bound to the number of events to ensure that the consumer can handle the response gracefully. The behavior you observe is expected.
 It is perfectly ok to get 1 event when you specify a limit greater than 1.
 The number of events that gets returned in a response can vary depending on the incoming traffic (upper bound being equal to the limit parameter).
-See our [Journaling API documentation](../guides/api/journaling_api.md#limiting-the-size-of-the-batch) for more details.
+See our [Journaling API documentation](../guides/api/journaling-api.md#limiting-the-size-of-the-batch) for more details.
 
 ### Is there a way to retrieve all events in one request?
 
 No, our journaling API does not support retrieving all events in a single query.
 
-However, by using the `since` parameter, you can fetch events incrementally by following the journal's [rel=next Link](../guides/api/journaling_api.md#fetching-the-next-batch-of-newer-events-from-the-journal) in the response headers until all events have been retrieved.
+However, by using the `since` parameter, you can fetch events incrementally by following the journal's [rel=next Link](../guides/api/journaling-api.md#fetching-the-next-batch-of-newer-events-from-the-journal) in the response headers until all events have been retrieved.
 
 ## Custom Events FAQ
 
 ### I created a `Custom Events Provider`, why is it not showing up in the `Adobe Developer Console`?
 
-If you successfully create a `Custom Events Provider` using our [Provider API](../guides/api/provider_api.md), it will only appear in the `Adobe Developer Console` once you create at least one `Event Metadata` associated with it.
+If you successfully create a `Custom Events Provider` using our [Provider API](../guides/api/provider-api.md), it will only appear in the `Adobe Developer Console` once you create at least one `Event Metadata` associated with it.
 
 Once associated with its `Event Metadata`, your `Custom Events Provider` will be ready to be used:
 
 1. It will appear in your (refreshed) `Adobe Developer Console` project.
 2. You will be able to register against it.
-3. And to start emitting events on its behalf use our [Events Publishing API](../guides/api/eventsingress_api.md).
+3. And to start emitting events on its behalf use our [Events Publishing API](../guides/api/eventsingress-api.md).
 
 ### Does `Custom Events Provider` support High Volume ? Do you have a throttling policy in place ?
 
-We do have a throttling policy in place, read our [Events Publishing API guide](../guides/api/eventsingress_api.md) for more details.
+We do have a throttling policy in place, read our [Events Publishing API guide](../guides/api/eventsingress-api.md) for more details.
 However, if you have a high volume use-case in mind, contact us, we'd love to hear about it
 and discuss how we could accommodate it.
 
