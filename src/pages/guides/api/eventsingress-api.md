@@ -15,8 +15,6 @@ title: Events Publishing API
 
 <InlineAlert slots="title, text"/>
 
-Data Residency:
-
 Please note that all custom events are stored in the **United States (US)** region.  
 
 ## Throttling Policy
