@@ -10,6 +10,8 @@ For information on installing and using the SDK, please begin by reading the [ge
 
 <InlineAlert slots="title, text"/>
 
+Data Residency:
+
 Please note that all custom events are stored in the **United States (US)** region.  
 
 ## Method
