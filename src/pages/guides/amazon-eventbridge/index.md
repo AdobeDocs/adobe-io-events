@@ -77,13 +77,13 @@ Let's move forward and configure the event source on the AWS console now.
 
 - Build an event pattern against which all events will be matched. For this purpose, we'll use the below rule that matches every event. Once done, click on "Next".
   
-  ```json
+```json
   {
     "source": [{
       "prefix": "aws.partner/developer.adobe.com"
     }]
   }
-  ```
+```
 
   ![Build Event Pattern](../img/aws_configure_rule_2.png "Build Event Pattern")
 
