@@ -168,7 +168,6 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-
 ```json
 HTTP/1.1 200 OK
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080>; rel="next"
@@ -216,7 +215,6 @@ _Notice the link header with the URL to the next batch of events. The query para
 
 By continuously iterating through the journal and consuming "newer" events, eventually your application will reach the "end" of the journal. The "end" of the journal corresponds to that position of the journal, where there are no "newer" events _yet_. Hence, if you try to fetch events "newer" than the "end" position, no events will be returned - just a `204 No Content` response.
 
-
 ```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
@@ -243,7 +241,6 @@ curl -X GET \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
 ```
-
 
 ```json
 HTTP/1.1 200 OK
@@ -313,7 +310,6 @@ curl -X GET \
   -H "x-api-key: $API_KEY"
 ```
 
-
 ```json
 HTTP/1.1 200 OK
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=camel:5aeb25cc-1b15-4f26-a082-9c213005dba8:ff244403-ca7c-4993-bbda-3c8915ce0b32&limit=1>; rel="next"
@@ -368,7 +364,6 @@ curl -X GET \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
 ```
-
 
 ```json
 HTTP/1.1 200 OK
@@ -444,7 +439,6 @@ The Journaling endpoint URL when supplied with no query parameters returns the o
 
 This can be done by specifying the query parameter `latest=true` on the first API call. For example:
 
-
 ```bash
 curl -X GET \
   https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?latest=true \
@@ -452,7 +446,6 @@ curl -X GET \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
 ```
-
 
 ```http
 HTTP/1.1 204 No Content
@@ -464,7 +457,6 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 In most cases, there will not be any events to consume yet and the response will be a `204 No Content` response. In an extremely rare case, there might actually be events that were written in near-real time to the journal after the request was made and in such a case they will be able returned with a `200 OK` response with the same response body structure as above.
 
 NOTE: the `latest=true` query parameter is just a way to jump to the "end" of the journal. The client applications should use the `next` links as usual to iterate over the journal from that position onward. In case the client application continues to make requests with `latest=true`, it is very likely that they will not receive any events - just because doing that is semantically equivalent of asking for "events from now onward". And the definition of "now" changes with every request that is made.
-
 
 ```bash
 curl -X GET \
@@ -504,7 +496,6 @@ curl -X GET \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
 ```
-
 
 ```json
 HTTP/1.1 200 OK
