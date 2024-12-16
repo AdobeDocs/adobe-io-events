@@ -2,8 +2,8 @@
 title: Marketo Data Streams
 ---
 
-import DeveloperGuidelines from '/src/pages/guides/using/marketo/marketo-data-streams-developer-guidelines.md'
-import Debug from '/src/pages/guides/using/marketo/marketo-data-streams-debug.md'
+import DeveloperGuidelines from '../marketo/marketo-data-streams-developer-guidelines.md'
+import Debug from '../marketo/marketo-data-streams-debug.md'
 
 # Subscribing to the Marketo Events with Adobe I/O Events
 
