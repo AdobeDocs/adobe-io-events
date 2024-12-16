@@ -2,8 +2,8 @@
 title: Setting up Marketo User Audit Data Stream with Adobe I/O Events
 ---
 
-import DeveloperGuidelines from '/src/pages/guides/using/marketo/marketo-data-streams-developer-guidelines.md'
-import Debug from '/src/pages/guides/using/marketo/marketo-data-streams-debug.md'
+import DeveloperGuidelines from '../marketo/marketo-data-streams-developer-guidelines.md'
+import Debug from '../marketo/marketo-data-streams-debug.md'
 
 # Setting up Marketo User Audit Data Stream with Adobe I/O Events
 
