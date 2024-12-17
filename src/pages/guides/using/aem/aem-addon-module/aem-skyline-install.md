@@ -2,7 +2,7 @@
 title: AEM Events powered by Add-On Module on AEM as a Cloud Service
 ---
 
-import AemAddonModuleDeprecationNotice from '/src/pages/common/aem-addon-module-deprecation-notice.md'
+import AemAddonModuleDeprecationNotice from '../../../../common/aem-addon-module-deprecation-notice.md'
 
 # AEM Events powered by Add-On Module on AEM as a Cloud Service
 

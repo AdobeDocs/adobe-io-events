@@ -2,7 +2,7 @@
 title: Adobe I/O Events FAQ
 ---
 
-import RetryDoc from '/src/pages/common/retry-doc.md'
+import RetryDoc from '../common/retry-doc.md'
 
 # Adobe I/O Events Frequently Asked Questions (FAQ)
 
