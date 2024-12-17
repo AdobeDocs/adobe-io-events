@@ -38,8 +38,7 @@ In some use cases, it is sufficient to forward AEM events as notifications. Howe
 <InlineAlert slots="text" />
 
 **Disclaimer** 
-
-It test is important to note that there is no Service Level Agreement (SLA) for AEM Events. The cloud-native eventing architecture has been designed with scalability, performance and resilience in mind and has common DevOps methodologies such as monitoring and alerting to resolve faults promptly. However, transactionality is not currently part of the requirements for AEM Events, which is why there is no guarantee of absolute completeness for the transport of AEM Events to Adobe I/O. 
+It is important to note that there is no Service Level Agreement (SLA) for AEM Events. The cloud-native eventing architecture has been designed with scalability, performance and resilience in mind and has common DevOps methodologies such as monitoring and alerting to resolve faults promptly. However, transactionality is not currently part of the requirements for AEM Events, which is why there is no guarantee of absolute completeness for the transport of AEM Events to Adobe I/O. 
 For example, if an asset is downloaded from AEM, we will serve the download to the user and then post an event.  If the AEM cloud environment were to restart after the download but before the event were sent or if the event infrastructure were to be temporarily unavailable, the user's download would complete but the event would not be sent.
 This was a conscious decision made when designing our event capabilities as it allows us to ensure higher performance and reliability of core AEM features, albeit at the cost of not ensuring 100% accuracy in the events that are generated.  While the level of reliability that this approach provides should meet the requirements of most use cases, some customers may need to implement additional measures to ensure that no updates are lost.
 
