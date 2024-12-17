@@ -82,29 +82,29 @@ In order to subscribe to AEM Events, you first need to create a new project in t
 1. Visit [https://developer.adobe.com/console/projects](https://developer.adobe.com/console/projects) and create a new project. But first, make sure you know how you want to process AEM events in Adobe I/O. If you want to use Adobe I/O Runtime, create a new project from a template. This gives you the opportunity to create your Adobe I/O project with App Builder. You can find more information about App Builder at the [App Builder Developer Documentation](https://developer.adobe.com/app-builder/docs/overview/).
    If you are unsure how to handle AEM Events in your project, please see the section [AEM Events processing via Adobe I/O](#aem-events-processing-via-adobe-io) of this tutorial.
 
-   ![create new project](./4.png)
+   ![create new project](../../../img/4.png)
 
 1. Add a new Service "Event" to your preferred workspace in your new Adobe Developer Console project. This will open the "Add Event" dialog for you, which shows you all Adobe product solutions to which you are entitled.
 
-   ![Select solution](./9.png)
+   ![Select solution](../../../img/9.png)
 
 1. Select the AEM Solution from which you want to subscribe to AEM Events, for example AEM Sites or AEM Assets. Once you click "Next", you will be provided with all AEM as a Cloud Service Environments, to which you are entitled as per Admin Console Configuration. See also the section [Enable AEM Events on your AEM Cloud Service Environment](#Enable-AEM-Events-on-your-AEM-Cloud-Service-Environment) in this tutorial.
 
-   ![Select AEM instance](./10.png)
+   ![Select AEM instance](../../../img/10.png)
 
 1. Choose the AEM as a Cloud Service Environment, from which you want to receive AEM Events. Once you click "Next", you will be provided with a list of available AEM Events for your selected AEM Solution.
 
 1. Select the Event Types to which you want to subscribe and click "Next". For a list of available event types, see [Available Event Types](#available-event-types).
-   ![Select event types](./11.png)
+   ![Select event types](../../../img/11.png)
 
 1. You will see the preselected **OAuth Server-To-Server** card, edit the credential name for better identification in the Admin Console and click "Next".
 
-   ![Oauth Server-to-server card](./7.png)
+   ![Oauth Server-to-server card](../../../img/7.png)
 
 1. Provide a name and a description for your AEM Event registration and click "Next".
 1. Next, choose how you would want to consume the events in Adobe I/O for this event registration. For more information, consult the [AEM Events processing via Adobe I/O](#aem-events-processing-via-adobe-io) section.
 
-   ![Journaling](./12.png)
+   ![Journaling](../../../img/12.png)
 
 1. The Journaling API is generally always available to access the AEM Events queue. You can copy the Journaling endpoint - specific to your event registration, to access the Journaling API.
 
