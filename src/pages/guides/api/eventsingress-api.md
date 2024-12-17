@@ -2,7 +2,7 @@
 title: Events Publishing API
 ---
 
-# Events Publishing API
+# Events Publishing API test
 
 ## Prerequisites
 
