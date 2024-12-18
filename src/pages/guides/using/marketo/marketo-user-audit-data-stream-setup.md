@@ -7,15 +7,17 @@ import Debug from '/src/pages/guides/using/marketo/marketo-data-streams-debug.md
 
 # Setting up Marketo User Audit Data Stream with Adobe I/O Events
 
-These instructions describe how to set up and get started using Adobe I/O Events for Marketo user driven change events.  You can use Adobe I/O for streaming Marketo user driven change events such as the modification of emails, campaigns, and landing pages.
+These instructions describe how to set up and get started using Adobe I/O Events for Marketo user-driven change events.  You can use Adobe I/O for streaming Marketo user-driven change events such as the modification of emails, campaigns, and landing pages.
 
 ## Introduction
 
-User Audit Data Stream provides all the user driven change events that are shown in the MLM Audit Trail as an event stream to which you can subscribe.
+User Audit Data Stream provides all the user-driven change events that are shown in the MLM Audit Trail as an event stream to which you can subscribe.
 
 ## Setup User Audit Data Stream in Marketo
 
-User Audit Data Stream is currently a Beta Product and thus cannot be enabled in Marketo without a Beta agreement.  After a Beta agreement is in place, work with your TAM and Customer Engineering team to enable User Audit Data Stream for your subscription.
+Data Streams are available to those that have purchased a Marketo Engage Performance Tier Package. Once a Performance Tier agreement is in place, work with your TAM and Customer Engineering team to enable this Data Stream for your subscription.
+
+We typically just need to know the MunchkinId for the subscription, and the associated Adobe OrgId, which enables access to the Adobe IO Developer Console.
 
 ## Setup Adobe I/O
 
@@ -71,8 +73,6 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
 <DeveloperGuidelines/>
 
 ### Event Data Structure
-
-*We are still finalizing the data structure as we prepare for Beta release.  While we don't expect any major changes, there may be some minor modifications.*
 
 Events are structured in JSON format using the [CloudEvents](https://cloudevents.io/) spec
 
@@ -154,27 +154,33 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 }
 ````
 
-*Data Field Definitions:*
+### Data Field Definitions
 
-Field | Description
---- | ---
-event_id | Unique UUID generated per event
-specversion | CloudEvents version specification being used
-id | Unique UUID generated per event
-type | Type of event used for event subscription routing
-source | Context in which an event happened
-time | Timestamp of the completion of the action
-datacontenttype | Content type of the data object
-dataschema | User Audit Data Stream event schema version
-data | Event data object
-componentId | ID of the asset in Marketo
-componentType | Type of the asset in Marketo
-eventAction | Asset action that occurred in Marketo
-munchkinId | Internal Marketo subscription identifier
-imsOrgId | Internal Adobe organization identifier
-userId | Email ID of the user in Marketo who completed the action
+Many of the fields are common across the different types of events. The `event.body.data` object will contain the specific details of the event.
 
-### Event List
+| Field           | Type              | Description                                              |
+|-----------------|-------------------|----------------------------------------------------------|
+| event_id        | String            | Unique UUID generated per event                          |
+| specversion     | String            | CloudEvents version specification being used             |
+| type            | String            | Type of event used for event subscription routing        |
+| source          | String            | Context in which an event happened                       |
+| time            | String (DateTime) | Timestamp of the completion of the action                |
+| datacontenttype | String            | Content type of the data object                          |
+| dataschema      | String            | User Audit Data Stream event schema version              |
+| data            | Object            | Event data object                                        |
+
+The `data` object contains the following fields:
+
+| Field           | Type   | Description                                              |
+|-----------------|--------|----------------------------------------------------------|
+| componentId     | Number | ID of the asset in Marketo                               |
+| componentType   | String | Type of the asset in Marketo                             |
+| eventAction     | String | Asset action that occurred in Marketo                    |
+| munchkinId      | String | Internal Marketo subscription identifier                 |
+| imsOrgId        | String | Internal Adobe organization identifier                   |
+| userId          | String | Email ID of the user in Marketo who completed the action |
+
+## Event List
 
 *Note - This is a snapshot listing of most available events.  There may be some events that don't show up or no longer exist.*
 
