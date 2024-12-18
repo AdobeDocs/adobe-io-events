@@ -251,7 +251,6 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 Many of the fields are common across the different types of events.  The `data` object will contain the specific details of the event.
 In particular, the `attributes` array will contain a subset of all possible attributes (or none at all!) depending on the event type, and the event context.
 
-
 | Field               | Type              | <div style="width: 300px;">Description</div>      |
 |---------------------|-------------------|---------------------------------------------------|
 | event_id            | String            | Unique UUID generated per event                   |
@@ -266,9 +265,7 @@ In particular, the `attributes` array will contain a subset of all possible attr
 
 The `type` field will always be the Event Type name, all lowercase with spaces removed, appended to the string "**com.adobe.platform.marketo.activity.standard**". For example, for the "Open Email" Event Type, the `type` string will be "**com.adobe.platform.marketo.activity.standard.openemail**".
 
-
 All customer-defined activity types will be delivered with an identical event type "**com.adobe.platform.marketo.activity.custom**", with no suffix.
-
 
 The `data` field contains the following data:
 
@@ -303,7 +300,6 @@ And finally, all Attribute objects in the `attributes` array will contain the fo
 | dataType  | String | The data type of the attribute |
 | value     | Any    | The value of the attribute     |
 
-
 ## Event List
 
 These are all of the currently supported Lead Activity Event Types in alphabetical order. If you have a "firehose" endpoint configured that is subscribed to more than one event type, you can identify the type of event in three different ways.
@@ -315,7 +311,6 @@ Here are examples using the "Open Email" event type:
 3. Text match on the `type` field with the concatenated, lower-cased Event Type <br/> (e.g. `payload.type` = "com.adobe.platform.marketo.activity.standard.openemail")
 
 *Note - This is a snapshot listing of most available events.  There may be some events that don't show up or no longer exist.*
-
 
 | Event Type                      | Event ID  | Attributes                                                                                                                      |
 |---------------------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -370,6 +365,5 @@ Here are examples using the "Open Email" event type:
 | Visit Webpage                   | 1         | Client IP Address, Query Parameters, Referrer URL, User Agent, Webpage ID, Webpage URL                                          |
 | Vote in Poll                    | 401       | Vote Choice, Social Network, Webpage ID                                                                                         |
 | Win Sweepstakes                 | 406       | Drawing Date, Social Network, Webpage ID                                                                                        |
-
 
 <Debug/>
