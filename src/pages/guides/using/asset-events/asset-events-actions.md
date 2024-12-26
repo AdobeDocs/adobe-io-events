@@ -38,6 +38,8 @@ This section is organized by [asset](asset-events-glossary#asset) type ([files](
 
 ### Files/Directories
 
+<hr />
+
 #### Created
 
 An event is triggered by the creation of a [file](asset-events-glossary#file)/[directory](asset-events-glossary#directory). In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-resource) is listed as `created`.
@@ -64,6 +66,8 @@ An event is triggered by the creation of a [file](asset-events-glossary#file)/[d
 }
 ```
 
+<hr />
+
 #### Updated
 
 An event is triggered by an update to a [file](asset-events-glossary#file)/[directory](asset-events-glossary#directory) that did not involve copying or moving the file/directory (e.g., updating an image). In `event:resources`, both the [Repository Metadata Resource](asset-events-glossary.md#repository-metadata-resource) and the [Primary Resource](asset-events-glossary.md#primary-resource) are listed as `updated`.
@@ -89,6 +93,8 @@ An event is triggered by an update to a [file](asset-events-glossary#file)/[dire
   }
 }
 ```
+
+<hr />
 
 #### Copied
 
@@ -138,6 +144,8 @@ In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-re
 }
 ```
 
+<hr />
+
 #### Moved
 
 Three separate events are triggered by moving a [file](asset-events-glossary#file)/[directory](asset-events-glossary#directory) (i.e., changing the path of the [asset](asset-events-glossary#asset)):
@@ -174,6 +182,8 @@ The `event:updated` object contains two properties that describe the source loca
 }
 ```
 
+<hr />
+
 ##### Event for the Update of the Parent Directory (Source and Target)
 
 In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-resource) is listed as `updated`.
@@ -194,6 +204,8 @@ In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-re
   }
 }
 ```
+
+<hr />
 
 #### Discarded
 
@@ -219,6 +231,8 @@ An Event is triggered by discarding a [file](asset-events-glossary#file)/[direct
 }
 ```
 
+<hr />
+
 #### Restored
 
 An Event is triggered by restoring a [file](asset-events-glossary#file)/[directory](asset-events-glossary#directory). In `event:resources`, the [Repository Metadata Resource](asset-events-glossary.md#repository-metadata-resource) is listed as `updated`. The value of `repo:state` in `event:updated` is the previous state of the [asset](asset-events-glossary#asset). (The current state is `ACTIVE`.)
@@ -242,6 +256,8 @@ An Event is triggered by restoring a [file](asset-events-glossary#file)/[directo
   }
 }
 ```
+
+<hr />
 
 #### Deleted
 
@@ -271,6 +287,8 @@ In `event:resources`, both the [Repository Metadata Resource](asset-events-gloss
 }
 ```
 
+<hr />
+
 ##### Event for the Update of the Parent Directory
 
 In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-resource) is listed as `updated`.
@@ -291,6 +309,8 @@ In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-re
   }
 }
 ```
+
+<hr />
 
 #### Created/Updated Embedded Metadata Resource
 
@@ -315,9 +335,13 @@ An Event is triggered by the creation or update of a file's/directory's [Embedde
 }
 ```
 
+<hr />
+
 ### Composites
 
 A [Composite](asset-events-glossary#composite) differs from a regular [Files](asset-events-glossary#file) in that it a has a [Manifest Resource](asset-events-glossary.md#manifest) which is closely coupled with—but not the same as—its [Primary Resource](asset-events-glossary.md#primary-resource) and b has any number of [Component Resources](asset-events-glossary.md#component) which can be created/updated without an immediate update to the Primary/Manifest. These differences make it necessary to include some additional data in the created/updated Events for Composites.
+
+<hr />
 
 #### Created Manifest
 
@@ -357,6 +381,8 @@ An Event is triggered by the upload of a [Manifest Resource](asset-events-glossa
   }
 }
 ```
+
+<hr />
 
 #### Updated Manifest
 
