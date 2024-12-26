@@ -7,9 +7,9 @@
 
 - pages:
     - [Overview](index.md)
-    - [Guides](guides)
+    - [Guides](guides/index.md)
     - [API Reference](api.md)
-    - [Support](support)
+    - [Support](support/index.md)
 
 - subPages:
     - [Getting Started](guides/index.md) 
