@@ -12,7 +12,7 @@
     - [Support](support)
 
 - subPages:
-    - [Getting Started](guides) 
+    - [Getting Started](guides/index.md) 
         - [Introduction to Adobe I/O Events Webhooks](guides/index.md) 
         - [Runtime Actions As Webhook](guides/runtime-webhooks/index.md) 
             - [Automatic event registrations](guides/runtime-webhooks/autoregistrations.md) 
