@@ -40,4 +40,4 @@ Please note that all custom events are stored in the **United States (US)** regi
 Register your `Custom Events Providers`, create event based registrations against these, and then start publishing events from your App Builder apps, using either:
 * [Adobe I/O Events API](../api/index.md)  
 * [Adobe I/O Events CLI](../cli/index.md) 
-* [Adobe I/O Events SDK](../sdk/index.md) 
+* [Adobe I/O Events SDK](../sdk/index.md)
