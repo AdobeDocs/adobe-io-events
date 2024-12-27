@@ -63,7 +63,7 @@ which fronts the user runtime action.
 ![Runtime Webhook Request Headers not available to user action](../img/runtime_webhook_request_headers_in_debug_tracing.png "Runtime Webhook Request Headers not available to user action")
 
 
-<DetailsBlock slots="text" summary="show/hide child properties"/>
+<DetailsBlock slots="header , list" repeat="4" summary="show/hide child properties"/>
 
 **&lt;link relation&gt;** _object_
 
