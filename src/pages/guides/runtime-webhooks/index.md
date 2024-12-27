@@ -61,3 +61,12 @@ Please note that the headers sent in the event registration request (highlighted
 used to set up the runtime event registration. This is only available and used by the `event handler webhook` (web action)
 which fronts the user runtime action.
 ![Runtime Webhook Request Headers not available to user action](../img/runtime_webhook_request_headers_in_debug_tracing.png "Runtime Webhook Request Headers not available to user action")
+
+
+<DetailsBlock slots="text" summary="show/hide child properties"/>
+
+**&lt;link relation&gt;** _object_
+
+The Resource Change object, which describes how a particular [resource](asset-events-glossary.md#resource) was affected by the [action](asset-events-actions.md) that triggered the event.
+
+- Note: The property will be the link relation associated with the resource (e.g., http://ns.adobe.com.adobecloud/rel/metadata/repository).
