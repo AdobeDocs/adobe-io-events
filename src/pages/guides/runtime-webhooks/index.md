@@ -55,6 +55,14 @@ However, in case of any failed invocation to your webhook, you will get an error
 
     ![Activation Id for Failed User Action](../img/activation_id_for_failed_user_action.png)
 
+<DetailsBlock slots="header , list" repeat="3" summary="show/hide child properties"/>
+
+**&lt;link relation&gt;** _object_
+
+The test Resource Change object, which describes how a particular [resource](asset-events-glossary.md#resource) was affected by the [action](asset-events-actions.md) that triggered the event.
+
+- Note: The property will be the link relation associated with the resource (e.g., http://ns.adobe.com.adobecloud/rel/metadata/repository).
+
 <InlineAlert slots="text"/>
 
 Please note that the headers sent in the event registration request (highlighted in below) are **not** available to the target user runtime action which was
@@ -68,13 +76,5 @@ which fronts the user runtime action.
 **&lt;link relation&gt;** _object_
 
 The Resource Change object, which describes how a particular [resource](asset-events-glossary.md#resource) was affected by the [action](asset-events-actions.md) that triggered the event.
-
-- Note: The property will be the link relation associated with the resource (e.g., http://ns.adobe.com.adobecloud/rel/metadata/repository).
-
-<DetailsBlock slots="header , list" repeat="3" summary="show/hide child properties"/>
-
-**&lt;link relation&gt;** _object_
-
-The test Resource Change object, which describes how a particular [resource](asset-events-glossary.md#resource) was affected by the [action](asset-events-actions.md) that triggered the event.
 
 - Note: The property will be the link relation associated with the resource (e.g., http://ns.adobe.com.adobecloud/rel/metadata/repository).
