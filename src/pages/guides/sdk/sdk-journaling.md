@@ -26,7 +26,7 @@ The following options can be configured while calling the journaling API:
 |---|---|---|
 |[latest]	|boolean	|*Optional.* By default, the latest is set to false and all events are read from the first valid position in the journal. If set to true, Messages will be read from the latest position. |
 |[since]	|string	|*Optional.* Provide the position in the journal from where events must be fetched. If not specified and latests=false, messages are fetched from the first valid position in the journal.|
-|[limit]	|number	|Maximum number of events returned in the response. Note: unless the events are created at a high frequency, chances are the number of messages will be less than the specified limit value (see our [Journaling API](../api/journaling_api.md#limiting-the-size-of-the-batch) for more details)|
+|[limit]	|number	|Maximum number of events returned in the response. Note: unless the events are created at a high frequency, chances are the number of messages will be less than the specified limit value (see our [Journaling API](../api/journaling-api.md#limiting-the-size-of-the-batch) for more details)|
 
 ### EventsJournalPollingOptions
 
