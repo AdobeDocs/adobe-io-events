@@ -71,6 +71,7 @@ The Resource Change object, which describes how a particular [resource](asset-ev
 
 - Note: The property will be the link relation associated with the resource (e.g., http://ns.adobe.com.adobecloud/rel/metadata/repository).
 
+
 <DetailsBlock slots="header , list" repeat="4" summary="show/hide child properties"/>
 
 **&lt;link relation&gt;** _object_
