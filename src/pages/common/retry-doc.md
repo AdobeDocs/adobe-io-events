@@ -22,3 +22,10 @@ Please note that if an event delivery fails with a response status code of [429 
 For an **Unstable** event registration `Adobe I/O Events` still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid it from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
 
 If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response) or the registration is still in **Unstable** state, `Adobe I/O Events` drops the events, marks the event registration as **Disabled**, and stops sending any further events.
+
+An email notification is sent to the admins of the organization when a webhook endpoint is marked as **Unstable** or **Disabled**.
+
+Sample email notification for **Unstable** event registration:
+<img src="../guides/img/email-verified-unstable.png" alt="Unstable Event Registration Email Notification" style="float: left; border: 1px solid #000;" />
+
+A similar email notification is sent for **Disabled** event registrations.
