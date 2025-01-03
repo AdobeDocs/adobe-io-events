@@ -22,7 +22,7 @@ An object containing all the Resource Change objects related to the event. Resou
 
 - Note: There is always a Resource Change object for the [Repository Metadata Resource](asset-events-glossary.md#repository-metadata-resource), even if this resource was not affected by the action that triggered the event. This is because the Repository Metadata Resource is required to be embedded in the event.
 
-<DetailsBlock slots="list" repeat="3" summary="(show/hide child properties)" subText="link relation object" />
+<DetailsBlock slots="list" repeat="1" summary="(show/hide child properties)" subText="link relation object" />
 
 The Resource Change object, which describes how a particular [resource](asset-events-glossary.md#resource) was affected by the [action](asset-events-actions.md) that triggered the event.
 
