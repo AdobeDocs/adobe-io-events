@@ -25,7 +25,7 @@ If all retry attempts get exhausted and the event still isn't delivered (webhook
 
 An email notification is sent to the admins of the organization when a webhook endpoint is marked as **Unstable** or **Disabled**.
 
-Sample email notification for **Unstable** event registration:
+Here you can see a sample email notification sent when a registration is marked as **Unstable**:
 <img src="../guides/img/email-verified-unstable.png" alt="Unstable Event Registration Email Notification" style="float: left; border: 1px solid #000;" />
 
-A similar email notification is sent for **Disabled** event registrations.
+A similar email notification is sent when a registration is marked as **Disabled**.
