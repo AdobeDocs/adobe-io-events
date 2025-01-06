@@ -48,4 +48,3 @@ The embedded JSON representation of the [resource](asset-events-glossary.md#reso
 
 The updated properties of the embedded [resource](asset-events-glossary.md#resource) (if it has been updated), as well as the previous values of the properties.
 
-sir, today meeting is there.
