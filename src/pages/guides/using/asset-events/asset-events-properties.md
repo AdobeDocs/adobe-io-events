@@ -48,7 +48,7 @@ The embedded JSON representation of the [resource](asset-events-glossary.md#reso
 
 The updated properties of the embedded [resource](asset-events-glossary.md#resource) (if it has been updated), as well as the previous values of the properties.
 
-<DetailsBlock slots="header,list" repeat="2" summary="(show/hide child properties)" subText="repo:path _string_" />
+<DetailsBlock slots="header" repeat="2" summary="(show/hide child properties)" subText="repo:path _string_" />
 
 The previous path of the [resource](asset-events-glossary.md#resource).
 
