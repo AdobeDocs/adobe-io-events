@@ -32,7 +32,7 @@ An object containing all the Resource Change objects related to the event. Resou
 
 - Note: The property will be the link relation associated with the resource (e.g., http://ns.adobe.com.adobecloud/rel/metadata/repository).
 
-<DetailsBlock slots="header" repeat="4" summary="(show/hide child properties)" subText="event:action string" />
+<DetailsBlock slots="header" repeat="7" summary="(show/hide child properties)" subText="event:action string" />
 
 Specifies the type of change to the [resource](asset-events-glossary.md#resource). Possible values are: created, updated, deleted and none. none is used, for example, to embed the Repository Metadata, when this resource was not affected by the action that triggered the event.
 
@@ -48,7 +48,7 @@ The embedded JSON representation of the [resource](asset-events-glossary.md#reso
 
 The updated properties of the embedded [resource](asset-events-glossary.md#resource) (if it has been updated), as well as the previous values of the properties.
 
-<DetailsBlock slots="header" repeat="2" summary="(show/hide child properties)" subText="repo:path _string_" />
+<DetailsBlock slots="header" repeat="3" summary="(show/hide child properties)" subText="repo:path _string_" />
 
 The previous path of the [resource](asset-events-glossary.md#resource).
 
