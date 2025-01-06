@@ -205,8 +205,8 @@ The following events are related to access control and security:
 
 | Component | Event Type List         |
 |-----------|--------------------------|
-| Login     | login success, login failure |
-| Role      | [{ key1: "value1", key2: "value2" }]     |
+| Login     | login success, login failure1 |
+| Role      | create, delete, edit     |
 | User      | create, delete, edit     |
 
 
