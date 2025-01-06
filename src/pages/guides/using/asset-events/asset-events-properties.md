@@ -31,5 +31,3 @@ The Resource Change object, which describes how a particular [resource](asset-ev
 An object containing all the Resource Change objects related to the event. Resource changes are identified by the link relation associated with the resource.
 
 - Note: The property will be the link relation associated with the resource (e.g., http://ns.adobe.com.adobecloud/rel/metadata/repository).
-
-
