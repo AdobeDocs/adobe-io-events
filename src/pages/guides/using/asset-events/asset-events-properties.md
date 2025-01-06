@@ -32,4 +32,20 @@ An object containing all the Resource Change objects related to the event. Resou
 
 - Note: The property will be the link relation associated with the resource (e.g., http://ns.adobe.com.adobecloud/rel/metadata/repository).
 
+<DetailsBlock slots="header" repeat="3" summary="(show/hide child properties)" subText="event:action _string_" />
 
+Specifies the type of change to the [resource](asset-events-glossary.md#resource). Possible values are: `created`, `updated`, `deleted` and `none`. `none` is used, for example, to embed the Repository Metadata, when this resource was not affected by the action that triggered the event.
+
+**event:schema** _string_
+
+The URN of the [XDM](asset-events-glossary.md#xdm) Schema of the embedded [resource](asset-events-glossary.md#resource)..
+
+**event:embedded** _object_
+
+The embedded JSON representation of the [resource](asset-events-glossary.md#resource).
+
+**event:updated** _object_
+
+The updated properties of the embedded [resource](asset-events-glossary.md#resource) (if it has been updated), as well as the previous values of the properties.
+
+sir, today meeting is there.
