@@ -32,7 +32,7 @@ An object containing all the Resource Change objects related to the event. Resou
 
 - Note: The property will be the link relation associated with the resource (e.g., http://ns.adobe.com.adobecloud/rel/metadata/repository).
 
-<DetailsBlock slots="header" summary="(show/hide child properties)" subText="event:action _string_" />
+<DetailsBlock slots="header,list" repeat="4" summary="(show/hide child properties)" subText="event:action _string_" />
 
 Specifies the type of change to the [resource](asset-events-glossary.md#resource). Possible values are: `created`, `updated`, `deleted` and `none`. `none` is used, for example, to embed the Repository Metadata, when this resource was not affected by the action that triggered the event.
 
