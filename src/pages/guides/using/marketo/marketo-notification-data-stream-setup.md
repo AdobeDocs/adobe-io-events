@@ -204,7 +204,6 @@ The `eventAction` object will vary depending on the `componentType` of the event
 
 |                         |                            |                           |
 |-------------------------|----------------------------|---------------------------|
-| Campaign Abort          | Campaign Failure           | Nurture Program Exhausted |
-| Salesforce Sync Failure | Test Group A/B Test Result | Web Services Daily Quota  |
+| Campaign Abort          | Campaign Failure           | Web Services Daily Quota  |
 
 <Debug/>
