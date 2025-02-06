@@ -1,5 +1,5 @@
 ---
-title: Setting Up InDesign APIs (Beta) - Firefly Services Events Data Stream with Adobe I/O Events
+title: Setting Up InDesign APIs - Firefly Services Events Data Stream with Adobe I/O Events
 ---
 
 # Setting up InDesign APIs User Events Stream with Adobe I/O Events
@@ -9,10 +9,6 @@ These instructions describe how to set up and get started using Adobe I/O Events
 ## Introduction
 
 InDesign APIs events provide all the job processing details, similar to those shown in the status calls of InDesign APIs. However, InDesign APIs events are more comprehensive and real-time, unlike the status calls which only include "not-started," "running," "completed," and "failed" statuses.
-
-## Setup events browsing/listening in InDesign APIs
-
-InDesign APIs are currently in Beta thus cannot be enabled without a PreRelease agreement. After a PreRelease agreement is in place, you should be able to see InDesign APIs (Beta) - Firefly Services events tile in developer console.
 
 ## Setup Adobe I/O
 
@@ -24,36 +20,36 @@ For basic instructions for this use case, starting from [developer.adobe.com/con
 
 - Select `Create new project`
 
-  ![Create new project](../../img/events_idcs_01.png "Quick Start")
+  ![Create new project](../../img/events_indesign_apis_01.png "Quick Start")
 
 - Select `Add event`
 
-  ![Add event](../../img/events_idcs_02.png "Get started with your new project by adding an event subscription")
+  ![Add event](../../img/events_indesign_apis_02.png "Get started with your new project by adding an event subscription")
 
 - Filter by `Creative Cloud`
-  ![Filter Selection](../../img/events_idcs_03.png "Filter by Creative Cloud")
+  ![Filter Selection](../../img/events_indesign_apis_03.png "Filter by Creative Cloud")
 
-- Select `Select InDesign APIs (Beta) - Firefly Services`
+- Select `Select InDesign APIs - Firefly Services`
 
-  ![Provider selection](../../img/events_idcs_04.png "Select event provider")
+  ![Provider selection](../../img/events_indesign_apis_04.png "Select event provider")
 
 - Subscribe to the user driven change events of your choosing
 
-  ![Event selection](../../img/events_idcs_05.png "Select event subscriptions")
+  ![Event selection](../../img/events_indesign_apis_05.png "Select event subscriptions")
 
 - Set up OAuth Server-to-Server Credentials.
   - The OAuth Server-to-Server credential relies on the OAuth 2.0 client_credentials grant type to generate access tokens.
 
-  ![Set up credentials](../../img/events_idcs_06.png "Set up credentials")
+  ![Set up credentials](../../img/events_indesign_apis_06.png "Set up credentials")
 
 - Set up Event Registration
   - Provide a name and description for this event subscription
 
-  ![Set Up registration](../../img/events_idcs_07.png "Set Up registration")
+  ![Set Up registration](../../img/events_indesign_apis_07.png "Set Up registration")
   
 - Configure Event Registration
 
-  ![Configure registration](../../img/events_idcs_08.png "Configure registration")
+  ![Configure registration](../../img/events_indesign_apis_08.png "Configure registration")
 
   - Optionally choose whether to enable Webhook or Runtime action
     - Enable Webhook
@@ -67,14 +63,12 @@ For basic instructions for this use case, starting from [developer.adobe.com/con
       - Select a pre-made runtime action/runtime namespace
 - After Saving
 
-  ![Verify setup](../../img/events_idcs_09.png "Verify setup")
+  ![Verify setup](../../img/events_indesign_apis_09.png "Verify setup")
   
   - Verify that the Status is `Active`
   - If Webhook was selected, verify that it successfully passed the challenge without errors
 
 ### Event Data Structure
-
-*We are still finalizing the data structure as we prepare for Beta release. While we don't expect any major changes, there may be some minor modifications.*
 
 Events are structured in JSON format using the [CloudEvents](https://cloudevents.io/) spec
 
