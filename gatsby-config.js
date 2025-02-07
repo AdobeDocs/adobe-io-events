@@ -155,7 +155,7 @@ module.exports = {
           },
           {
             title: 'InDesign Cloud Services Events',
-            path: 'guides/using/idcs/idcs-events-data-stream-setup.md'
+            path: 'guides/using/indesign-apis/indesign-apis-events-data-stream-setup.md'
           }
         ]
       },
