@@ -14,4 +14,4 @@ Setting up an integration to subscribe to Adobe I/O Events is straightforward. T
 * [Privacy Events](privacy-event-setup.md)
 * [Marketo User Audit Data Stream](marketo/marketo-data-streams.md)
 * [Your Own Custom Events Provider](custom_events.md)
-* [InDesign Cloud Services Events](indesign-apis/indesign-apis-events-data-stream-setup.md)
+* [InDesign APIs Events](indesign-apis/indesign-apis-events-data-stream-setup.md)
