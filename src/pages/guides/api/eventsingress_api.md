@@ -48,6 +48,7 @@ curl -i --location --request POST  \
          "type": "'"${event_code}"'",
          "id": "'"${event_id}"'",
          "data": "your event json payload"
+         "customattribute" : "cloud events custom extension"
        }'
 ```
 
@@ -61,13 +62,15 @@ The environment variables used in this `curl` command are computed from the abov
 * `event_id` is any id of your choice (examples: UUID, event counter) guaranteeing that `source + id` is unique
 for each distinct event see [CloudEvents spec](https://github.com/cloudevents/spec/blob/v1.0/spec.md#id)
 *  as for the value of `data` in the CloudEvents body payload, it can be any json payload.
+*  `customattribute` (a.k.a cloud events extensions) are any attributes defined by you following the [CloudEvents attribute naming convention](https://github.com/cloudevents/spec/blob/v1.0/spec.md#attribute-naming-convention)
 
 The API returns
 
-* HTTP Status 200 (OK) if the event has been processed correctly and there are active registrations for the event,
-* HTTP Status 204 (No Content) if there are no registrations for the event,
-* HTTP Status 429 (Too Many Requests) if your api-key is being throttled (see our [Throttling Policy](#throttling-policy)).
-* as well as the usual (4xx/5xx) error codes if there was an issue in processing the request.
+* HTTP Status 200 (OK) if the event has been processed correctly and there are active registrations for the event
+* HTTP Status 204 (No Content) if there are no registrations for the event
+* HTTP Status 429 (Too Many Requests) if your api-key is being throttled (see our [Throttling Policy](#throttling-policy))
+* as well as the other usual (4xx/5xx) error codes if there was an issue in processing the request
+  *  HTTP status 400 is returned if payload failed to deserialize due to being non-compliant as per CloudEvents spec
 
 ## HIPAA Compliance Support
 
