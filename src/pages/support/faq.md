@@ -76,11 +76,16 @@ If you are sure that the event provider can be deleted, then follow the steps do
 
 ### Why do I see duplicate fields in the delivered payload for attributes recipient client id and event id?
 
-I/O Events sends cloud event payloads with some internal custom attributes like `event_id` (used for event tracking and debugging) and `recipient_client_id` (used by consumers for payload verification. see https://developer.adobe.com/events/docs/guides/#improved-and-resilient-security-verification-for-webhook-events).
-Recently Adobe I/O Events has upgrade its tech stack with `Java 17` which includes using the latest version of cloud events sdk. Due to stricter validation for custom attributes of cloud events in the latest sdk (see [spec](https://github.com/cloudevents/spec/blob/v1.0/spec.md#attribute-naming-convention)), the above custom attributes naming is not valid and it fails during serialization. So, to release our java17 change with backward compatibility we are now delivering cloud events payload to consumers with two extra fields namely `eventid` and `recipientclientid` conforming to the cloud events spec. Don't be surprised if you see four such fields (existing  format - `event_id` , `recipient_client_id` and new compliant format `eventid`, `recipientclientid`) in the delivered event payload to your webhook and journaling.
+I/O Events sends cloud event payloads with internal custom attributes like `event_id` (used for event tracking and debugging) and `recipient_client_id` (used by consumers for payload verification, see [securtiy verification guide](/src/pages/guides/index.md#improved-and-resilient-security-verification-for-webhook-events)).
+
+As part of our recent upgrade to `Java 17`, we have adopted the latest version of the CloudEvents SDK. This version enforces stricter validation rules for custom attribute names, as outlined in the [CloudEvents spec](https://github.com/cloudevents/spec/blob/v1.0/spec.md#attribute-naming-convention). The previous attribute names (`event_id` and `recipient_client_id`) do not conform to these rules and cause serialization failures.
+
+To ensure backward compatibility while rolling out our Java 17 upgrade, we are now including two additional attributes in the payload namely `eventid` and `recipientclientid` conforming to the cloud events spec.
+
+As a result, you may notice *four fields* in your delivered payload (existing  format - `event_id` , `recipient_client_id` and new compliant format `eventid`, `recipientclientid`).
 
 **Action for consumers** -
-If consumers are using any of the fields present in the delivered payload in this format `event_id` and `recipient_client_id`, they must change to use new format `eventid` , `recipientclientid`. We will ultimately get rid of those two fields in old format by **end of 2025** and only have the cloud events spec compliant attributes in the delivered payload going forward.
+If your integration relies on `event_id` or `recipient_client_id`, please update it to use `eventid` and `recipientclientid`.  We will *deprecate `event_id` and `recipient_client_id` by the end of 2025*, after which only the CloudEvents compliant attributes (`eventid` and `recipientclientid`) will be included in the payload.
 
 ## Webhook FAQ
 
