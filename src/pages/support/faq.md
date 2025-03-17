@@ -74,6 +74,19 @@ If you are sure that the event provider can be deleted, then follow the steps do
 5. Delete the provider via the [provider API](/events/docs/api/#tag/Providers/operation/deleteProvider), using the ids noted in above steps.
 6. Repeat the above steps for all conflicting event providers and try deleting the project again. Your project deletion should now go through successfully.
 
+### Why do I see duplicate fields in the delivered payload for attributes recipient client id and event id?
+
+I/O Events sends cloud event payloads with internal custom attributes like `event_id` (used for event tracking and debugging) and `recipient_client_id` (used by consumers for payload verification, see [securtiy verification guide](/src/pages/guides/index.md#improved-and-resilient-security-verification-for-webhook-events)).
+
+As part of our recent upgrade to `Java 17`, we have adopted the latest version of the CloudEvents SDK. This version enforces stricter validation rules for custom attribute names, as outlined in the [CloudEvents spec](https://github.com/cloudevents/spec/blob/v1.0/spec.md#attribute-naming-convention). The previous attribute names (`event_id` and `recipient_client_id`) do not conform to these rules and cause serialization failures.
+
+To ensure backward compatibility while rolling out our Java 17 upgrade, we are now including two additional attributes in the payload namely `eventid` and `recipientclientid` conforming to the cloud events spec.
+
+As a result, you may notice *four fields* in your delivered payload (existing  format - `event_id` , `recipient_client_id` and new compliant format `eventid`, `recipientclientid`).
+
+**Action for consumers** -
+If your integration relies on `event_id` or `recipient_client_id`, please update it to use `eventid` and `recipientclientid`.  We will *deprecate `event_id` and `recipient_client_id` by the end of 2025*, after which only the CloudEvents compliant attributes (`eventid` and `recipientclientid`) will be included in the payload.
+
 ## Webhook FAQ
 
 ### What happens if my webhook is down? Why is my event registration marked as `Unstable`?
