@@ -10,7 +10,7 @@ Each trace comprises of the event delivery HTTP request (sent by I/O Events), an
 *Debug Tracing is only available for event registrations with either a Webhook, Runtime Action or Amazon EventBridge as their delivery destination.*
 
 <InlineAlert variant="info" slots="text"/>
-Note that the maximum size of 'request-body' and 'response-body' in a trace is 2 KB. If any of these fields are larger than 2 KB, then they are trimmed at 2 KB boundary. The delivered event payload is not trimmed.
+Note that the maximum size of 'request-body' and 'response-body' in a trace is 64 KB. If any of these fields are larger than 64 KB, then they are trimmed at 64 KB boundary. The delivered event payload is not trimmed.
 
 **To access Debug Tracing:**
 
