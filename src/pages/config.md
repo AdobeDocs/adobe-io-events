@@ -2,9 +2,8 @@
     - /events/docs/
 
 - home:
-    - [Adobe I/O Events](/events)
-    - [Adobe I/O Events](/events)
-
+    - [Adobe I/O Events](https://developer.adobe.com/events/)
+    
 - pages:
     - [Overview](index.md)
     - [Guides](guides/index.md)
