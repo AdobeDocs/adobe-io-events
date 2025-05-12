@@ -1,0 +1,18 @@
+type: navigation
+order: 1
+title: ADP Events documentation
+pages:
+  - title: Home
+    url: /src/pages/index.md
+
+  - title: Introduction to Webhooks
+    url: /src/pages/guides/index.md
+
+  - title: Introduction to Journaling
+    url: /src/pages/guides/journaling_intro.md
+
+  - title: Introduction to Amazon EventBridge Integration
+    url: /src/pages/guides/amazon_eventbridge/index.md
+
+  - title: Events Integration with other Adobe solutions
+    url: /src/pages/guides/using/index.md
