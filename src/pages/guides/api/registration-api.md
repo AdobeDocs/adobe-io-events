@@ -106,6 +106,6 @@ curl -v --request POST \
           }'
 ```
 
-Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling_api.md).
+Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling-api.md).
 
-If you wonder how to fetch the valid provider ids and event codes, look at our [Provider API](provider_api.md).
+If you wonder how to fetch the valid provider ids and event codes, look at our [Provider API](provider-api.md).

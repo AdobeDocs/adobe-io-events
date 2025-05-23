@@ -1,11 +1,11 @@
 {
   "private": true,
-  "name": "dev-site-documentation-template",
+  "name": "Adobe IO Events",
   "version": "1.0.0",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AdobeDocs/dev-site-documentation-template"
+    "url": "https://github.com/AdobeDocs/adobe-io-events"
   },
   "author": {
     "name": "Stephan Ringel",
@@ -31,7 +31,11 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test:links": "remark src/pages --quiet --frail",
-    "lint": "docker run --rm -e RUN_LOCAL=true --env-file '.github/super-linter.env' -v \"$PWD\":/tmp/lint github/super-linter:slim-v4.10.1"
+    "lint": "docker run --rm -e RUN_LOCAL=true --env-file '.github/super-linter.env' -v \"$PWD\":/tmp/lint github/super-linter:slim-v4.10.1",
+    "buildNavigation": "node buildNavigation.js",
+    "buildRedirections": "node buildRedirections.js",
+    "renameFiles": "node renameFiles.js",
+    "normalizeLinks": "node normalizeLinks.js"
   },
   "remarkConfig": {
     "plugins": [
@@ -40,6 +44,7 @@
   },
   "packageManager": "yarn@3.2.2",
   "devDependencies": {
+    "glob": "11.0.0",
     "remark-cli": "^11.0.0",
     "remark-validate-links": "^12.1.0"
   }

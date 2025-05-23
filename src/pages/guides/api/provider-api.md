@@ -7,7 +7,7 @@ title: Provider API
 Our Adobe I/O Events Management API contains endpoints allowing you to manage your `Events Providers` and their associated `Event Metadata`:
 
 * `GET` the list of the `Events Providers` you are entitled to,
-* `POST`, `PUT`, `PATCH`, `DELETE` your [`Custom Events Providers`](../using/custom_events.md)
+* `POST`, `PUT`, `PATCH`, `DELETE` your [`Custom Events Providers`](../using/custom-events.md)
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ curl -i -v --request GET \
   --header "Accept: application/hal+json"
 ```
 
-To create your own [`Custom Events Provider`](../using/custom_events.md) :
+To create your own [`Custom Events Provider`](../using/custom-events.md) :
 
 ```bash
 curl -i -v --request POST \
@@ -89,7 +89,7 @@ curl -i -v --request POST \
 
 With the 2 commands above, your `Custom Events Provider` is ready to be used,
 you can register [webhooks](../index.md) against it;
-to start emitting events on its behalf use our [Events Publishing API](eventsingress_api.md).
+to start emitting events on its behalf use our [Events Publishing API](eventsingress-api.md).
 
 To delete your `Custom Events Provider`:
 

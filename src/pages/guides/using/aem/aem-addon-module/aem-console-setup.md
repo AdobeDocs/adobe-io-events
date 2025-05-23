@@ -38,4 +38,4 @@ In your Adobe Developer Console workspace
 
 * Select `Project overview` in the left-side links menu
 * Click on the `Download` button from the top menu on the right
-* Save the file, you will use it when you will be working on [`aio-events-aem` configuration](aem_workspace_setup.md)
+* Save the file, you will use it when you will be working on [`aio-events-aem` configuration](aem-workspace-setup.md)

@@ -4,7 +4,7 @@ When setting up a project to subscribe to events, there are three ways to intera
 
 ### Journaling
 
-[Getting Started with Journaling](../../journaling_intro.md)
+[Getting Started with Journaling](../../journaling-intro.md)
 
 Important Takeaways:
 

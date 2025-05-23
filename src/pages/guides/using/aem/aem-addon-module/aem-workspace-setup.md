@@ -6,13 +6,13 @@ title: Workspace OSGI configurations
 
 ## Requirements
 
-Make sure you have your Adobe Developer Console Workspace properly [configured](aem_console_setup.md),
+Make sure you have your Adobe Developer Console Workspace properly [configured](aem-console-setup.md),
 
 ## Adobe Developer Console Workspace `aio-aem-events` configurations
 
 The `aio-aem-events` add-on module expects your Adobe Developer Console Workspace defined as OSGI configurations.
 Its [WorkspaceSupplier](https://github.com/adobe/aio-lib-java/blob/main/aem/core_aem/src/main/java/com/adobe/aio/aem/workspace/internal/WorkspaceSupplierImpl.java)
-service looks up the following OSGI configuration keys (refer to your [Adobe Developer Console `project` file](aem_console_setup.md)):
+service looks up the following OSGI configuration keys (refer to your [Adobe Developer Console `project` file](aem-console-setup.md)):
 
 * `aio.project.id` your Adobe Developer Console project id (`project.id`)
 * `aio.consumer.org.id`  your Adobe Developer Console consumer orgnaization id (`project.org.id`)

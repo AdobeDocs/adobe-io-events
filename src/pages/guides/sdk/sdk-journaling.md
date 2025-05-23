@@ -4,15 +4,15 @@ title: Subscribe to Events Using Journaling | Adobe I/O Events SDK
 
 # Subscribe to Events Using Journaling
 
-Journaling is a *pull* model of consuming events, unlike [webhooks](sdk_webhooks.md) which use a *push* model. In journaling, your application will issue a series of API calls to pull batches of one or more events from the journal. 
+Journaling is a *pull* model of consuming events, unlike [webhooks](sdk-webhooks.md) which use a *push* model. In journaling, your application will issue a series of API calls to pull batches of one or more events from the journal. 
 
 The Adobe I/O Events Journaling API response contains event data and the unique position in the journal for every event returned in that batch, and enables applications to consume events according to their own cadence and process them in bulk. 
 
 Unlike webhooks, no additional registration or other configuration is required; every application that is registered for events is automatically enabled for journaling. Journaling data is retained for 7 days.
 
 For information on installing and using the SDK, see
-* our [getting started guide](sdk_getting_started.md)
-* our [Journaling API](../api/journaling_api.md) documentation
+* our [getting started guide](sdk-getting-started.md)
+* our [Journaling API](../api/journaling-api.md) documentation
 * our [Journaling API FAQ](/src/pages/support/faq.md#journaling-faq)
 
 
@@ -26,7 +26,7 @@ The following options can be configured while calling the journaling API:
 |---|---|---|
 |[latest]	|boolean	|*Optional.* By default, the latest is set to false and all events are read from the first valid position in the journal. If set to true, Messages will be read from the latest position. |
 |[since]	|string	|*Optional.* Provide the position in the journal from where events must be fetched. If not specified and latests=false, messages are fetched from the first valid position in the journal.|
-|[limit]	|number	|Maximum number of events returned in the response. Note: unless the events are created at a high frequency, chances are the number of messages will be less than the specified limit value (see our [Journaling API](../api/journaling_api.md#limiting-the-size-of-the-batch) for more details)|
+|[limit]	|number	|Maximum number of events returned in the response. Note: unless the events are created at a high frequency, chances are the number of messages will be less than the specified limit value (see our [Journaling API](../api/journaling-api.md#limiting-the-size-of-the-batch) for more details)|
 
 ### EventsJournalPollingOptions
 
@@ -101,7 +101,7 @@ and filtering are some common functionalities that are most useful using the Jou
 
 This method encapsulates all of the complexities of fetching events by following the `link.next` and `retry-After` headers 
 while you can focus on implementing the business logic of taking action on receiving events 
-(and as mentioned in our [Journaling API documentation](../api/journaling_api.md#fetching-the-next-batch-of-newer-events-from-the-journal), 
+(and as mentioned in our [Journaling API documentation](../api/journaling-api.md#fetching-the-next-batch-of-newer-events-from-the-journal), 
 utilizing this link is **strongly recommended**).
 
 #### Method

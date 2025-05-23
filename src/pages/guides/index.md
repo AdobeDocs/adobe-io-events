@@ -206,7 +206,7 @@ In general, `Adobe I/O Events` will always confirm that your webhook received an
 
 To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your events registration. This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
 
-Note: While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](./journaling_intro.md)).
+Note: While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](./journaling-intro.md)).
 
 *Unstable Event Registration*
 ![Unstable Status](./img/unstable-status.png "Example of an Unstable event registration")

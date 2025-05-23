@@ -1,0 +1,404 @@
+{
+  "total": 99,
+  "offset": 0,
+  "limit": 99,
+  "data": [
+    {
+      "Source": "/events/docs",
+      "Destination": "/events/docs/"
+    },
+    {
+      "Source": "/events/docs/index",
+      "Destination": "/events/docs/"
+    },
+    {
+      "Source": "/events/docs/api/",
+      "Destination": "/events/docs/api"
+    },
+    {
+      "Source": "/events/docs/support/tracing/",
+      "Destination": "/events/docs/support/tracing"
+    },
+    {
+      "Source": "/events/docs/support",
+      "Destination": "/events/docs/support/"
+    },
+    {
+      "Source": "/events/docs/support/index",
+      "Destination": "/events/docs/support/"
+    },
+    {
+      "Source": "/events/docs/support/faq/",
+      "Destination": "/events/docs/support/faq"
+    },
+    {
+      "Source": "/events/docs/support/debug/",
+      "Destination": "/events/docs/support/debug"
+    },
+    {
+      "Source": "/events/docs/guides/journaling-intro/",
+      "Destination": "/events/docs/guides/journaling-intro"
+    },
+    {
+      "Source": "/events/docs/guides",
+      "Destination": "/events/docs/guides/"
+    },
+    {
+      "Source": "/events/docs/guides/index",
+      "Destination": "/events/docs/guides/"
+    },
+    {
+      "Source": "/events/docs/guides/using/privacy-event-setup/",
+      "Destination": "/events/docs/guides/using/privacy-event-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using",
+      "Destination": "/events/docs/guides/using/"
+    },
+    {
+      "Source": "/events/docs/guides/using/index",
+      "Destination": "/events/docs/guides/using/"
+    },
+    {
+      "Source": "/events/docs/guides/using/experience-platform-event-setup/",
+      "Destination": "/events/docs/guides/using/experience-platform-event-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/custom-events/",
+      "Destination": "/events/docs/guides/using/custom-events"
+    },
+    {
+      "Source": "/events/docs/guides/using/cloud-manager-events/",
+      "Destination": "/events/docs/guides/using/cloud-manager-events"
+    },
+    {
+      "Source": "/events/docs/guides/using/analytics-triggers-event-setup/",
+      "Destination": "/events/docs/guides/using/analytics-triggers-event-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/",
+      "Destination": "/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/",
+      "Destination": "/events/docs/guides/using/marketo/marketo-observability-data-stream-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/marketo/marketo-notification-data-stream-setup/",
+      "Destination": "/events/docs/guides/using/marketo/marketo-notification-data-stream-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/marketo/marketo-lead-activity-data-stream-setup/",
+      "Destination": "/events/docs/guides/using/marketo/marketo-lead-activity-data-stream-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/marketo/marketo-data-streams/",
+      "Destination": "/events/docs/guides/using/marketo/marketo-data-streams"
+    },
+    {
+      "Source": "/events/docs/guides/using/marketo/marketo-data-streams-developer-guidelines/",
+      "Destination": "/events/docs/guides/using/marketo/marketo-data-streams-developer-guidelines"
+    },
+    {
+      "Source": "/events/docs/guides/using/marketo/marketo-data-streams-debug/",
+      "Destination": "/events/docs/guides/using/marketo/marketo-data-streams-debug"
+    },
+    {
+      "Source": "/events/docs/guides/using/indesign-apis/indesign-apis-events-data-stream-setup/",
+      "Destination": "/events/docs/guides/using/indesign-apis/indesign-apis-events-data-stream-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/asset-events/asset-events-providers/",
+      "Destination": "/events/docs/guides/using/asset-events/asset-events-providers"
+    },
+    {
+      "Source": "/events/docs/guides/using/asset-events/asset-events-properties/",
+      "Destination": "/events/docs/guides/using/asset-events/asset-events-properties"
+    },
+    {
+      "Source": "/events/docs/guides/using/asset-events/asset-events-landing/",
+      "Destination": "/events/docs/guides/using/asset-events/asset-events-landing"
+    },
+    {
+      "Source": "/events/docs/guides/using/asset-events/asset-events-glossary/",
+      "Destination": "/events/docs/guides/using/asset-events/asset-events-glossary"
+    },
+    {
+      "Source": "/events/docs/guides/using/asset-events/asset-events-configuration/",
+      "Destination": "/events/docs/guides/using/asset-events/asset-events-configuration"
+    },
+    {
+      "Source": "/events/docs/guides/using/asset-events/asset-events-actions/",
+      "Destination": "/events/docs/guides/using/asset-events/asset-events-actions"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem",
+      "Destination": "/events/docs/guides/using/aem/"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/index",
+      "Destination": "/events/docs/guides/using/aem/"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-faq/",
+      "Destination": "/events/docs/guides/using/aem/aem-faq"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/cloud-native",
+      "Destination": "/events/docs/guides/using/aem/cloud-native/"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/cloud-native/index",
+      "Destination": "/events/docs/guides/using/aem/cloud-native/"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/index",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem-workspace-setup/",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-workspace-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem-status-check/",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-status-check"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem-skyline-install/",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-skyline-install"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-package-install/",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-package-install"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-link-externalizer/",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-link-externalizer"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-install/",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-install"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem-console-setup/",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-console-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem-advanced-configurations/",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-advanced-configurations"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk-webhooks/",
+      "Destination": "/events/docs/guides/sdk/sdk-webhooks"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk-signature-verification/",
+      "Destination": "/events/docs/guides/sdk/sdk-signature-verification"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk-publish-events/",
+      "Destination": "/events/docs/guides/sdk/sdk-publish-events"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk-providers/",
+      "Destination": "/events/docs/guides/sdk/sdk-providers"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk-journaling/",
+      "Destination": "/events/docs/guides/sdk/sdk-journaling"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk-getting-started/",
+      "Destination": "/events/docs/guides/sdk/sdk-getting-started"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk-event-metadata/",
+      "Destination": "/events/docs/guides/sdk/sdk-event-metadata"
+    },
+    {
+      "Source": "/events/docs/guides/sdk",
+      "Destination": "/events/docs/guides/sdk/"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/index",
+      "Destination": "/events/docs/guides/sdk/"
+    },
+    {
+      "Source": "/events/docs/guides/runtime-webhooks",
+      "Destination": "/events/docs/guides/runtime-webhooks/"
+    },
+    {
+      "Source": "/events/docs/guides/runtime-webhooks/index",
+      "Destination": "/events/docs/guides/runtime-webhooks/"
+    },
+    {
+      "Source": "/events/docs/guides/runtime-webhooks/autoregistrations/",
+      "Destination": "/events/docs/guides/runtime-webhooks/autoregistrations"
+    },
+    {
+      "Source": "/events/docs/guides/cli",
+      "Destination": "/events/docs/guides/cli/"
+    },
+    {
+      "Source": "/events/docs/guides/cli/index",
+      "Destination": "/events/docs/guides/cli/"
+    },
+    {
+      "Source": "/events/docs/guides/appbuilder",
+      "Destination": "/events/docs/guides/appbuilder/"
+    },
+    {
+      "Source": "/events/docs/guides/appbuilder/index",
+      "Destination": "/events/docs/guides/appbuilder/"
+    },
+    {
+      "Source": "/events/docs/guides/api/registration-api/",
+      "Destination": "/events/docs/guides/api/registration-api"
+    },
+    {
+      "Source": "/events/docs/guides/api/provider-api/",
+      "Destination": "/events/docs/guides/api/provider-api"
+    },
+    {
+      "Source": "/events/docs/guides/api/journaling-api/",
+      "Destination": "/events/docs/guides/api/journaling-api"
+    },
+    {
+      "Source": "/events/docs/guides/api",
+      "Destination": "/events/docs/guides/api/"
+    },
+    {
+      "Source": "/events/docs/guides/api/index",
+      "Destination": "/events/docs/guides/api/"
+    },
+    {
+      "Source": "/events/docs/guides/api/eventsingress-api/",
+      "Destination": "/events/docs/guides/api/eventsingress-api"
+    },
+    {
+      "Source": "/events/docs/guides/amazon-eventbridge",
+      "Destination": "/events/docs/guides/amazon-eventbridge/"
+    },
+    {
+      "Source": "/events/docs/guides/amazon-eventbridge/index",
+      "Destination": "/events/docs/guides/amazon-eventbridge/"
+    },
+    {
+      "Source": "/events/docs/common/retry-doc/",
+      "Destination": "/events/docs/common/retry-doc"
+    },
+    {
+      "Source": "/events/docs/common/receiving-events-for-users-doc/",
+      "Destination": "/events/docs/common/receiving-events-for-users-doc"
+    },
+    {
+      "Source": "/events/docs/common/aem-addon-module-deprecation-notice/",
+      "Destination": "/events/docs/common/aem-addon-module-deprecation-notice"
+    },
+    {
+      "Source": "/events/docs/guides/journaling_intro",
+      "Destination": "/events/docs/guides/journaling-intro"
+    },
+    {
+      "Source": "/events/docs/guides/using/custom_events",
+      "Destination": "/events/docs/guides/using/custom-events"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem_faq",
+      "Destination": "/events/docs/guides/using/aem/aem-faq"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_workspace_setup",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-workspace-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_status_check",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-status-check"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_skyline_install",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-skyline-install"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_on_premise_package_install",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-package-install"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_on_premise_link_externalizer",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-link-externalizer"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_on_premise_install",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-install"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_console_setup",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-console-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_advanced_configurations",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-advanced-configurations"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk_webhooks",
+      "Destination": "/events/docs/guides/sdk/sdk-webhooks"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk_signature_verification",
+      "Destination": "/events/docs/guides/sdk/sdk-signature-verification"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk_publish_events",
+      "Destination": "/events/docs/guides/sdk/sdk-publish-events"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk_providers",
+      "Destination": "/events/docs/guides/sdk/sdk-providers"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk_journaling",
+      "Destination": "/events/docs/guides/sdk/sdk-journaling"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk_getting_started",
+      "Destination": "/events/docs/guides/sdk/sdk-getting-started"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk_event_metadata",
+      "Destination": "/events/docs/guides/sdk/sdk-event-metadata"
+    },
+    {
+      "Source": "/events/docs/guides/runtime_webhooks/",
+      "Destination": "/events/docs/guides/runtime-webhooks/"
+    },
+    {
+      "Source": "/events/docs/guides/runtime_webhooks/autoregistrations",
+      "Destination": "/events/docs/guides/runtime-webhooks/autoregistrations"
+    },
+    {
+      "Source": "/events/docs/guides/api/registration_api",
+      "Destination": "/events/docs/guides/api/registration-api"
+    },
+    {
+      "Source": "/events/docs/guides/api/provider_api",
+      "Destination": "/events/docs/guides/api/provider-api"
+    },
+    {
+      "Source": "/events/docs/guides/api/journaling_api",
+      "Destination": "/events/docs/guides/api/journaling-api"
+    },
+    {
+      "Source": "/events/docs/guides/api/eventsingress_api",
+      "Destination": "/events/docs/guides/api/eventsingress-api"
+    },
+    {
+      "Source": "/events/docs/guides/amazon_eventbridge/",
+      "Destination": "/events/docs/guides/amazon-eventbridge/"
+    }
+  ],
+  ":type": "sheet"
+}

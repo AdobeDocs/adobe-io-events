@@ -80,7 +80,7 @@ Basic instructions for this use case, starting from the [developer console](/con
       - The post request must respond that it received the message or the webhook will re-attempt to send several times before giving up and automatically disabling the webhook sends
     - Enable Runtime action
       - [Getting Started with Adobe I/O Runtime](/runtime/docs/guides/getting-started/)
-      - [Runtime Actions as Webhook](../../runtime_webhooks/index.md)
+      - [Runtime Actions as Webhook](../../runtime-webhooks/index.md)
 - After Saving
 
   ![Verify setup](../../img/MarketoObservability6.png "Verify setup")
