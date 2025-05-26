@@ -18,7 +18,7 @@ With Adobe I/O Events webhooks, your application can sign up to be notified when
 For example, when a user uploads a asset, this action generates an event.
 With the right webhook in place, your application is instantly notified that this event happened.
 
-Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-event/)
+Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](http://developer.adobe.com/developer-console/docs/guides/services/services-add-event/)
 
 To start receiving events, you create an event registration specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks.
 
@@ -164,4 +164,160 @@ Your webhook must respond to the POST request with an HTTP status code of 200 be
 
 Please note that for **security** reasons we **obfuscate** the validation URL in the [debug tracing](../support/tracing.md) tab.
 So, the only way to intercept the original validation URL is if you own the webhook server (*you could simply log all requests*).
-![Validation URL obfuscated in Debug Tracing tab](/img/debug_tracing_challenge_post_obfuscated.png)
+![Validation URL obfuscated in Debug Tracing tab](/img/debug_tracing_challenge_post_obfuscated.png "Validation URL obfuscated in Debug Tracing tab")
+
+### Testing with ngrok
+
+[Ngrok](https://ngrok.com/) is a utility for enabling secure introspectable tunnels to your localhost. With ngrok, you can securely expose a local web server to the internet and run your own personal web services from your own machine, safely encrypted behind your local NAT or firewall. With ngrok, you can iterate quickly without redeploying your app or affecting your customers.
+
+Among other things, ngrok is a great tool for testing webhooks. Once you've downloaded and installed [ngrok](https://ngrok.com/), you run it from a command line, specifying the protocol and port you want to monitor:
+
+```bash
+ngrok http 80
+```
+
+![ngrok on port 80](/img/ngrok.png "ngrok on port 80")
+
+In the ngrok UI, you can see the URL for viewing the ngrok logs, labeled "Web Interface", plus the public-facing URLs ngrok generates to forward HTTP and HTTPS traffic to your localhost. You can use either of those public-facing URLs to register your Webhook with Adobe I/O, so long as your application is configured to respond on your localhost accordingly. Once your testing phase is complete, you can replace the ngrok URL in your Adobe I/O integration with the public URL for your deployed app.
+
+## Create a project in the `Adobe Developer Console`
+
+Integrations are now created as part of a project within the `Adobe Developer Console`. This requires you to have access to the [Console](https://www.adobe.com/go/devs_console_ui) in order to create a project, add events to your project, configure the events, and register your webhook.
+
+For detailed instructions on completing these steps, please begin by reading the [`Adobe Developer Console` Getting Started guide](https://www.adobe.com/go/devs_console_getting_started).
+
+Once you have completed the event registration, check the ngrok log. You should see a `GET` request, including the `challenge` that was passed along in the URL.  
+  
+  ![The challenge GET request received in ngrok](/img/ngrok_2.png "The challenge GET request received in ngrok")  
+
+In the `Adobe Developer Console`, you will be taken to the *Registration Details* page once the event registration is complete.
+
+The *Status* of the registration should show as **Active**. If the registration shows as **Disabled** please see the [troubleshooting](#troubleshooting-a-disabled-registration-status) section that follows.
+
+![Event Registration Details tab in Adobe Developer Console](/img/events-registration-details.png "Event Registration Details tab in Adobe Developer Console")
+
+### Troubleshooting Unstable/Disabled Registration Status
+
+If you made an error transcribing the webhook URL, Adobe I/O Events' test of your webhook would have failed, resulting in a **Disabled** status.
+
+In general, `Adobe I/O Events` will always confirm that your webhook received an event by means of the response code your webhook sends to each HTTP POST request.
+
+<RetryDoc/>
+
+To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your events registration. This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
+
+Note: While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](journaling-intro.md)).
+
+*Unstable Event Registration*
+![Unstable Status](/img/unstable-status.png "Example of an Unstable event registration")
+
+*Disabled Event Registration*
+![Disabled Status](/img/disabled-status.png "Example of a Disabled event registration")
+
+<ReceivingEventsForUsersDoc/>
+
+## Security Considerations
+
+Your webhook URL must necessarily be accessible from the open internet. This means third-party actors can send forged requests to it, tricking your application into handling fake events.
+
+To prevent this from happening, Adobe I/O Events has a robust event validation process in place as defined below that allows users to secure their webhook.
+
+<InlineAlert variant="info" slots="text"/>
+Adobe strongly encourages validating your webhook deliveries using this new mechanism to avoid processing "events" received from malicious third-party actors and make sure your webhook continues to receive events.
+
+### Improved and Resilient Security Verification for Webhook Events
+
+For a more robust and reliable verification, Adobe I/O Events adds below security validations for events delivered to your webhook.
+
+- Adobe I/O Events sends an additional field of `recipient_client_id` as part of your event payload.
+- The event payload is signed digitally using a fixed public/private key pair generated by Adobe I/O Events. The digital signature is sent as a webhook request header.
+- Adobe I/O Events sends the relative path of public key, which is served from our fixed Adobe domain [static.adobeioevents.com](https://static.adobeioevents.com), as webhook request headers.
+
+**How it strengthens security**
+
+- Adobe I/O Events uses the same public/private key pair generated by itself to sign all event payloads flowing through its pipeline. The public keys are also hosted at its own domain i.e. [static.adobeioevents.com](https://static.adobeioevents.com). This ensures that any malicious user can't use their own arbitrary public/private key pair to sign an event payload and send forged requests to your webhook endpoint.
+- Adobe I/O Events sends the event payload with an additional field of `recipient_client_id`. The webhook consumer can match the payload's client id with their own client id to verify if they are the actual recipient of the event. This ensures they don't receive events they haven't subscribed for.
+
+I/O Events uses two public-private key pairs and signs your event payload using two digital signatures following the steps below.
+
+- a message digest of your event payload is computed by applying `rsa-sha256` hash function algorithm
+- the digest is then encrypted using the I/O Events private key to generate the digital signature
+
+I/O Events sends the 2 digital signatures as webhook request headers and they are available via the header fields
+`x-adobe-digital-signature-1` and `x-adobe-digital-signature-2` respectively.
+
+I/O Events also sends 2 public keys corresponding to the private keys used to generate the digital signatures. These public keys are publicly accessible using our Adobe domain [static.adobeioevents.com](https://static.adobeioevents.com). I/O Events sends the relative paths of the public keys i.e. `/prod/keys/pub-key-<random-uuid>.pem` via the webhook request header fields `x-adobe-public-key1-path` and  `x-adobe-public-key2-path` respectively.
+
+As mentioned earlier, I/O Events adds an additional json field `recipient_client_id` to your payload. See the sample payload after the transformation that I/O Events sends to your webhook.
+
+![Sample XDM format asset event payload](/img/xdm_asset_payload_with_recipient_clientid.png "Sample XDM format asset event payload")
+
+Upon receiving a request, you must do the below for leveraging the enhanced security measures
+
+- verify you are the actual recipient of the event using the new `recipient_client_id` field available in the payload
+- once verified, your app should fetch the public key by forming and validating the url using the Adobe domain [static.adobeioevents.com](https://static.adobeioevents.com), and the relative path received from the request header
+- after downloading the public key set it in the cache with cache expiry of `not more than 24h`.
+
+To note, Adobe I/O Events doesn't send any `cache-control` header in the webhook request, so you must set up your cache configuration as mentioned above.
+
+You can also consider implementing a retry mechanism to call public key urls in case of any transient error that might occur.
+
+**Verifying the Signature**
+
+Once you have the `PEM` public keys, you can now verify the digital signatures by following the steps as below:
+
+1. Create the PublicKey object using the pem public key.
+2. Create a `Signature` (for java apps) or `crypto` -> [Verify](https://nodejs.org/docs/latest-v14.x/api/crypto.html#crypto_class_verify) (for nodeJS apps) instance using the `rsa-sha256` hashing algorithm.
+3. Supply **raw** event payload to the instance created in above step.
+4. Use the public key and decoded signature to verify.
+5. Do the above for both the signatures and if any one of the signature validations is successful, then the event is valid.
+
+A pictorial block diagram for the signature validation steps above that you should follow:
+
+![Digital Signature Validation Steps](/img/digi_signature_verification_block_diagram.png "Digital Signature Validation Steps")
+
+Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.5/src/index.js#L519) signature verification method of the events sdk (**nodeJS** based) to understand the above signature validation steps for your webhook app.
+
+For Java based webhook applications, one can verify signature using the below code snippet.
+
+```javascript
+public boolean verifySignature(String message, String signature) throws Exception {
+    byte[] data = message.getBytes(UTF_8);
+
+    // signature generated at I/O Events side is Base64 encoded, so it must be decoded
+    byte[] sign = Base64.decodeBase64(signature);
+    String keyFile = "public_key_pem_file.pem";
+    Signature sig = Signature.getInstance("SHA256withRSA");
+    sig.initVerify(getPublic(keyFile));
+    sig.update(data);
+    return sig.verify(sign);
+}
+
+//Method to retrieve the Public Key from a file
+private PublicKey getPublic(String filename) throws Exception {
+  String key = new String(Files.readAllBytes(new File(filename).toPath()));
+
+  String publicKeyPEM = key
+      .replace("-----BEGIN PUBLIC KEY-----", "")
+      .replaceAll(System.lineSeparator(), "")
+      .replace("-----END PUBLIC KEY-----", "");
+
+  byte[] encoded = Base64.decodeBase64(publicKeyPEM);
+
+  KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+  X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
+  return keyFactory.generatePublic(keySpec);
+}
+```
+
+<InlineAlert variant="info" slots="text"/>
+Kindly note that this digital signature verification process comes out-of-the-box for I/O Runtime actions, and no action is required on that end.
+
+## Quotas
+
+There is an upper limit on the number of registrations that you can create. Following table lists the applicable quotas -
+
+| Maximum number of registrations  | Grouping level             | Adjustable | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|----------------------------------|----------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 2500                             | IMS Org                    | No         | A maximum of 2500 event registrations can be created for an IMS Org. This quota cannot be adjusted.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 30                               | IMS Credential (client Id) | Yes        | A maximum of 30 event registrations can be created for an IMS client-id.   To manage this limit, we recommend subscribing to multiple event types within a single registration. If you need to subscribe to many event types and combining them in one registration isn't feasible, group related event types together. Event types can be categorized by domain, estimated traffic, development effort, or other factors. I/O Events is designed to support a small number of registrations in a **Developer Console** Project. This approach improves resiliency, cost-effectiveness, and reduces the development and operational overhead of managing event-consumer webhooks/runtime actions. If you need a large number of event registrations in a Project, please contact us via the [I/O Events Forum](https://experienceleaguecommunities.adobe.com/t5/adobe-developer/ct-p/adobe-io). We'd like to understand your requirements in detail and recommend an appropriate event-subscription pattern. |
