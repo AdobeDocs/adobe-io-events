@@ -1,12 +1,12 @@
 ## Receiving events for users
 
-Once your integration is set up, and your webhook is in place; to receive events, your integration needs to connect to its event provider on behalf of its user. This requires authentication; see [OAuth Integration](/developer-console/docs/guides/authentication/OAuthIntegration/).
+Once your integration is set up, and your webhook is in place; to receive events, your integration needs to connect to its event provider on behalf of its user. This requires authentication; see [OAuth Integration](http://developer.adobe.com/developer-console/docs/guides/authentication/OAuthIntegration/).
 
-_Depending on your scenario and the Adobe service you're targeting, you may have to enable different types of authentication; see the [Adobe I/O Authentication Overview](/developer-console/docs/guides/authentication/) for more information on how to set up your app for authentication with your users._
+_Depending on your scenario and the Adobe service you're targeting, you may have to enable different types of authentication; see the [Adobe I/O Authentication Overview](http://developer.adobe.com/developer-console/docs/guides/authentication/) for more information on how to set up your app for authentication with your users._
 
-For example for `Creative Cloud Libraries` events, you will need to add the _Creative Cloud Libraries_ as a service, then use the [OAuth 2.0 protocol](/developer-console/docs/guides/authentication/OAuth/) to build an interface for your user to log into your app, and give your app authorization to access Creative Cloud Assets. Once your app is authenticated, Adobe will begin to push events to your integration's webhook via HTTP POST messages.
+For example for `Creative Cloud Libraries` events, you will need to add the _Creative Cloud Libraries_ as a service, then use the [OAuth 2.0 protocol](http://developer.adobe.com/developer-console/docs/guides/authentication/OAuth/) to build an interface for your user to log into your app, and give your app authorization to access Creative Cloud Assets. Once your app is authenticated, Adobe will begin to push events to your integration's webhook via HTTP POST messages.
 
-_Follow [adding an API that uses OAuth to a Console project](/developer-console/docs/guides/services/services-add-api-oauth/) guide, and select Creative Cloud Libraries from the list of available APIs._
+_Follow [adding an API that uses OAuth to a Console project](http://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth/) guide, and select Creative Cloud Libraries from the list of available APIs._
 
 ### Adobe Consent API
 

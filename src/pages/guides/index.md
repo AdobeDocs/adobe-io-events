@@ -197,7 +197,6 @@ The *Status* of the registration should show as **Active**. If the registration 
 ![Event Registration Details tab in Adobe Developer Console](/img/events-registration-details.png "Event Registration Details tab in Adobe Developer Console")
 
 ### Troubleshooting Unstable/Disabled Registration Status
-
 If you made an error transcribing the webhook URL, Adobe I/O Events' test of your webhook would have failed, resulting in a **Disabled** status.
 
 In general, `Adobe I/O Events` will always confirm that your webhook received an event by means of the response code your webhook sends to each HTTP POST request.
