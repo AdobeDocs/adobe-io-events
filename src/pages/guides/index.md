@@ -18,7 +18,7 @@ With Adobe I/O Events webhooks, your application can sign up to be notified when
 For example, when a user uploads a asset, this action generates an event.
 With the right webhook in place, your application is instantly notified that this event happened.
 
-Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](/developer-console/docs/guides/services/services-add-event/)
+Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-event/)
 
 To start receiving events, you create an event registration specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks.
 
@@ -162,55 +162,6 @@ Your webhook must respond to the POST request with an HTTP status code of 200 be
 
 <InlineAlert slots="text"/>
 
-Please note that for **security** reasons we **obfuscate** the validation URL in the [debug tracing](/support/tracing/) tab.
+Please note that for **security** reasons we **obfuscate** the validation URL in the [debug tracing](../support/tracing.md) tab.
 So, the only way to intercept the original validation URL is if you own the webhook server (*you could simply log all requests*).<br/>  
-![Validation URL obfuscated in Debug Tracing tab](/img/debug_tracing_challenge_post_obfuscated.png "Validation URL obfuscated in Debug Tracing tab")
-
-### Testing with ngrok
-
-[Ngrok](https://ngrok.com/) is a utility for enabling secure introspectable tunnels to your localhost. With ngrok, you can securely expose a local web server to the internet and run your own personal web services from your own machine, safely encrypted behind your local NAT or firewall. With ngrok, you can iterate quickly without redeploying your app or affecting your customers.
-
-Among other things, ngrok is a great tool for testing webhooks. Once you've downloaded and installed [ngrok](https://ngrok.com/), you run it from a command line, specifying the protocol and port you want to monitor:
-
-```bash
-ngrok http 80
-```
-
-![ngrok on port 80](/img/ngrok.png "ngrok on port 80")
-
-In the ngrok UI, you can see the URL for viewing the ngrok logs, labeled "Web Interface", plus the public-facing URLs ngrok generates to forward HTTP and HTTPS traffic to your localhost. You can use either of those public-facing URLs to register your Webhook with Adobe I/O, so long as your application is configured to respond on your localhost accordingly. Once your testing phase is complete, you can replace the ngrok URL in your Adobe I/O integration with the public URL for your deployed app.
-
-## Create a project in the `Adobe Developer Console`
-
-Integrations are now created as part of a project within the `Adobe Developer Console`. This requires you to have access to the [Console](https://www.adobe.com/go/devs_console_ui) in order to create a project, add events to your project, configure the events, and register your webhook.
-
-For detailed instructions on completing these steps, please begin by reading the [`Adobe Developer Console` Getting Started guide](https://www.adobe.com/go/devs_console_getting_started).
-
-Once you have completed the event registration, check the ngrok log. You should see a `GET` request, including the `challenge` that was passed along in the URL.  
-  
-  ![The challenge GET request received in ngrok](/img/ngrok_2.png "The challenge GET request received in ngrok")  
-
-In the `Adobe Developer Console`, you will be taken to the *Registration Details* page once the event registration is complete.
-
-The *Status* of the registration should show as **Active**. If the registration shows as **Disabled** please see the [troubleshooting](#troubleshooting-a-disabled-registration-status) section that follows.
-
-![Event Registration Details tab in Adobe Developer Console](/img/events-registration-details.png "Event Registration Details tab in Adobe Developer Console")
-
-### Troubleshooting Unstable/Disabled Registration Status
-
-If you made an error transcribing the webhook URL, Adobe I/O Events' test of your webhook would have failed, resulting in a **Disabled** status.
-
-In general, `Adobe I/O Events` will always confirm that your webhook received an event by means of the response code your webhook sends to each HTTP POST request.
-
-<RetryDoc/>
-
-To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your events registration. This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
-
-Note: While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](journaling-intro.md)).
-
-*Unstable Event Registration*
-![Unstable Status](/img/unstable-status.png "Example of an Unstable event registration")
-
-*Disabled Event Registration*
-![Disabled Status](/img/disabled-status.png "Example of a Disabled event registration")
-
+![Validation URL obfuscated in Debug Tracing tab](/img/debug_tracing_challenge_post_obfuscated.png)
