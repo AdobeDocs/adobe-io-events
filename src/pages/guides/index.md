@@ -163,5 +163,5 @@ Your webhook must respond to the POST request with an HTTP status code of 200 be
 <InlineAlert slots="text"/>
 
 Please note that for **security** reasons we **obfuscate** the validation URL in the [debug tracing](../support/tracing.md) tab.
-So, the only way to intercept the original validation URL is if you own the webhook server (*you could simply log all requests*).<br/>  
+So, the only way to intercept the original validation URL is if you own the webhook server (*you could simply log all requests*).
 ![Validation URL obfuscated in Debug Tracing tab](/img/debug_tracing_challenge_post_obfuscated.png)
