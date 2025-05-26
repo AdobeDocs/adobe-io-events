@@ -20,7 +20,7 @@ A customer AWS account and the corresponding AWS region where the events can be 
 
 ### Configuring Developer Console
 
-Basic instructions for getting started with the EventBridge integration, starting from the [developer console](/console/):
+Basic instructions for getting started with the EventBridge integration, starting from the [developer console](http://developer.adobe.com/console/):
 
 - Start from a new project or an existing one. To create a new project, select `Create new project`.
 
