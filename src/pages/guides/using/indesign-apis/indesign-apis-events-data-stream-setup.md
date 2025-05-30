@@ -201,7 +201,7 @@ ASSET_DOWNLOAD_CANCELLED | Downloading of an individual asset was cancelled beca
 ASSET_SCANNING_STARTED | Scanning the downloaded asset
 ASSET_SCANNING_COMPLETED | Scanning of an individual asset is completed
 ASSET_DOWNLOAD_FAILED | Individual downloading of an asset has failed
-ASSET_SECURITY_CHECK_FAILED | Individual asset is infected and security check failed
+ASSET_SECURITY_CHECK_FAILED | An individual asset is infected and security check failed
 ASSET_SCANNING_FAILED | Individual scanning of an asset has failed
 ASSETS_DOWNLOAD_COMPLETED | Downloading of all assets is completed
 ENGINE_PROCESSING_STARTED | The job was handed over to engine to be processed
