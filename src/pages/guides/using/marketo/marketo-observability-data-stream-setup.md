@@ -35,9 +35,9 @@ The following are required to be able to subscribe to the data stream:
 
 ## Getting Started with Adobe I/O
 
-See the [Adobe I/O Events Docs](/src/pages/index.md)
+See the [Adobe I/O Events Docs](../../../index.md)
 
-Basic instructions for this use case, starting from the [developer console](/console/):
+Basic instructions for this use case, starting from the [developer console](https://developer.adobe.com/console/):
 
 *When prompted, click the designated button to proceed*
 
@@ -79,7 +79,7 @@ Basic instructions for this use case, starting from the [developer console](/con
       - The get request must respond with the challenge query if it exists
       - The post request must respond that it received the message or the webhook will re-attempt to send several times before giving up and automatically disabling the webhook sends
     - Enable Runtime action
-      - [Getting Started with Adobe I/O Runtime](/runtime/docs/guides/getting-started/)
+      - [Getting Started with Adobe I/O Runtime](https://developer.adobe.com/runtime/docs/guides/getting-started/)
       - [Runtime Actions as Webhook](../../runtime-webhooks/index.md)
 - After Saving
 
@@ -245,7 +245,7 @@ the processing results could potentially be reported across multiple events.
 #### Data Field Definitions
 
 Field | Description
---- | ---
+----- | --------
 id | Unique UUID generated per event
 specversion | CloudEvents version specification being used
 type | Type of event used for event subscription routing

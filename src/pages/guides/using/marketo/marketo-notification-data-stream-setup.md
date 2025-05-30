@@ -21,9 +21,9 @@ We typically just need to know the MunchkinId for the subscription, and the asso
 
 ## Setup Adobe I/O
 
-See [Getting Started with Adobe I/O Events](/src/pages/index.md)
+See [Getting Started with Adobe I/O Events](../../../index.md)
 
-For basic instructions for this use case, starting from [console.adobe.io](/console/):
+For basic instructions for this use case, starting from [console.adobe.io](https://developer.adobe.com/console/):
 
 *When prompted, click the designated button to proceed*
 
@@ -61,7 +61,7 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
       - The get request must respond with the challenge query if it exists
       - The post request must respond that it received the message or the webhook will re-attempt to send several times before giving up and automatically disabling the webhook sends
     - Enable Runtime action
-      - [See Setting up your Runtime Environment](/runtime/docs/guides/getting-started/)
+      - [See Setting up your Runtime Environment](https://developer.adobe.com/runtime/docs/guides/getting-started/)
       - Select a pre-made runtime action/runtime namespace
 - After Saving
 

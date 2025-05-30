@@ -40,7 +40,7 @@ A batch of events returned by the Journaling API looks similar to the following 
 
 Every event registration has a corresponding unique journaling endpoint URL. This URL is displayed on the Adobe Developer Console -
 
-1. Log into the [Adobe Developer Console](/console) and open your project.
+1. Log into the [Adobe Developer Console](https://developer.adobe.com/console) and open your project.
 
 2. Navigate to the appropriate Event registration using the left sidebar under the Events section.
 
@@ -53,7 +53,7 @@ Every event registration has a corresponding unique journaling endpoint URL. Thi
 To issue the API call, you need to provide three additional parameters:
 
 * Your integration's API key (Client ID). It can be found either on the Project overview page, in the Credentials tab of the Event registration, or on the specific credential page.
-* An OAuth Server-to-Server token. See [Authentication: Creating an OAuth Server-to-Server Token](/developer-console/docs/guides/authentication/ServerToServerAuthentication/#oauth-server-to-server-credential) for how to create an OAuth Server-to-Server token.
+* An OAuth Server-to-Server token. See [Authentication: Creating an OAuth Server-to-Server Token](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/#oauth-server-to-server-credential) for how to create an OAuth Server-to-Server token.
 * Your organization id in the format `some_id@AdobeOrg`. This is also displayed in the Overview tab for your integration in the Adobe Developer Console.
 
 You combine the URL you got from the Journaling section of the event details with your API key, OAuth Server-to-Server token and organization ID to make the call.

@@ -6,9 +6,9 @@ title: Events Publishing API
 
 ## Prerequisites
 
-* Create a project and a workspace in the [Adobe Developer Console](/developer-console/docs/guides/projects/projects-empty/)
+* Create a project and a workspace in the [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/)
 * Add the `I/O Management API` in this Adobe Developer Console workspace
-* [Generate an OAuth Server-to-Server token](/developer-console/docs/guides/credentials/)
+* [Generate an OAuth Server-to-Server token](https://developer.adobe.com/developer-console/docs/guides/credentials/)
 * Using [Adobe I/O Events Provider API](provider-api.md)
    * create your own `Custom Events Provider`
    * create at least one `Event Metadata` associated with the above

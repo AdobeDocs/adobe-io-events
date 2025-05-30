@@ -30,11 +30,11 @@ Note: Some Marketo Data Streams are currently in Alpha and Beta states.
 
 ## Subscribing to Marketo Events
 
-See the [Adobe I/O Events Docs](/src/pages/index.md)
+See the [Adobe I/O Events Docs](../../../index.md)
 
 Here are some basic getting started instructions that will be the same for each of the available Marketo data streams in I/O Events.
 
-- Start from the [developer console](/console/):
+- Start from the [developer console](https://developer.adobe.com/console/):
 
 - Select `Create new project`
 

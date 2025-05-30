@@ -69,14 +69,14 @@ If you are sure that the event provider can be deleted, then follow the steps do
    1. Your consumer organization id (at `project.org.id`)
    2. Your project id (at `project.id`)
    3. Your workspace id (at `project.workspace.id`)
-3. Using the [provider API](/guides/api/provider_api.md), fetch [your I/O Events providers entitled to the provided organization id](/events/docs/api/#tag/Providers/operation/getProvidersByConsumerOrgId), using the consumer organization id noted from above.
+3. Using the [provider API](../guides/api/provider_api.md), fetch [your I/O Events providers entitled to the provided organization id](../../api.md#tag/Providers/operation/getProvidersByConsumerOrgId), using the consumer organization id noted from above.
 4. Find the conflicting provider against your workspace id (found at `project.workspace.id` from the project json file) from the provider API response, and make a note of the provider `id`.
-5. Delete the provider via the [provider API](/events/docs/api/#tag/Providers/operation/deleteProvider), using the ids noted in above steps.
+5. Delete the provider via the [provider API](../../api.md#tag/Providers/operation/deleteProvider), using the ids noted in above steps.
 6. Repeat the above steps for all conflicting event providers and try deleting the project again. Your project deletion should now go through successfully.
 
 ### Why do I see duplicate fields in the delivered payload for attributes recipient client id and event id?
 
-I/O Events sends cloud event payloads with internal custom attributes like `event_id` (used for event tracking and debugging) and `recipient_client_id` (used by consumers for payload verification, see [securtiy verification guide](/src/pages/guides/index.md#improved-and-resilient-security-verification-for-webhook-events)).
+I/O Events sends cloud event payloads with internal custom attributes like `event_id` (used for event tracking and debugging) and `recipient_client_id` (used by consumers for payload verification, see [securtiy verification guide](../guides/index.md#improved-and-resilient-security-verification-for-webhook-events)).
 
 As part of our recent upgrade to `Java 17`, we have adopted the latest version of the CloudEvents SDK. This version enforces stricter validation rules for custom attribute names, as outlined in the [CloudEvents spec](https://github.com/cloudevents/spec/blob/v1.0/spec.md#attribute-naming-convention). The previous attribute names (`event_id` and `recipient_client_id`) do not conform to these rules and cause serialization failures.
 

@@ -13,7 +13,7 @@ Unlike webhooks, no additional registration or other configuration is required; 
 For information on installing and using the SDK, see
 * our [getting started guide](sdk-getting-started.md)
 * our [Journaling API](../api/journaling-api.md) documentation
-* our [Journaling API FAQ](/src/pages/support/faq.md#journaling-faq)
+* our [Journaling API FAQ](../../support/faq.md#journaling-faq)
 
 
 ## Configuration Options
