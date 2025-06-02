@@ -39,7 +39,7 @@ This section is organized by [asset](asset-events-glossary.md#asset) type ([file
 
 ### Files/Directories
 
----
+<HorizontalLine/>
 
 #### Created
 
@@ -67,7 +67,7 @@ An event is triggered by the creation of a [file](asset-events-glossary.md#file)
 }
 ```
 
----
+<HorizontalLine/>
 
 #### Updated
 
@@ -95,7 +95,7 @@ An event is triggered by an update to a [file](asset-events-glossary.md#file)/[d
 }
 ```
 
----
+<HorizontalLine/>
 
 #### Copied
 
@@ -145,7 +145,7 @@ In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-re
 }
 ```
 
----
+<HorizontalLine/>
 
 #### Moved
 
@@ -204,7 +204,7 @@ In `event:resources`, the [Primary Resource](asset-events-glossary.md#primary-re
 }
 ```
 
----
+<HorizontalLine/>
 
 #### Discarded
 
@@ -230,7 +230,7 @@ An Event is triggered by discarding a [file](asset-events-glossary.md#file)/[dir
 }
 ```
 
----
+<HorizontalLine/>
 
 #### Restored
 
@@ -256,7 +256,7 @@ An Event is triggered by restoring a [file](asset-events-glossary.md#file)/[dire
 }
 ```
 
----
+<HorizontalLine/>
 
 #### Deleted
 
@@ -330,7 +330,7 @@ An Event is triggered by the creation or update of a file's/directory's [Embedde
 }
 ```
 
----
+<HorizontalLine/>
 
 ### Composites
 
@@ -377,7 +377,7 @@ An Event is triggered by the upload of a [Manifest Resource](asset-events-glossa
 }
 ```
 
----
+<HorizontalLine/>
 
 #### Updated Manifest
 

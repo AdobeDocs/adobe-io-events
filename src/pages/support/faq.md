@@ -69,9 +69,9 @@ If you are sure that the event provider can be deleted, then follow the steps do
    1. Your consumer organization id (at `project.org.id`)
    2. Your project id (at `project.id`)
    3. Your workspace id (at `project.workspace.id`)
-3. Using the [provider API](../guides/api/provider_api.md), fetch [your I/O Events providers entitled to the provided organization id](../../api.md#tag/Providers/operation/getProvidersByConsumerOrgId), using the consumer organization id noted from above.
+3. Using the [provider API](../guides/api/provider-api.md), fetch [your I/O Events providers entitled to the provided organization id](../api.md#tag/Providers/operation/getProvidersByConsumerOrgId), using the consumer organization id noted from above.
 4. Find the conflicting provider against your workspace id (found at `project.workspace.id` from the project json file) from the provider API response, and make a note of the provider `id`.
-5. Delete the provider via the [provider API](../../api.md#tag/Providers/operation/deleteProvider), using the ids noted in above steps.
+5. Delete the provider via the [provider API](../api.md#tag/Providers/operation/deleteProvider), using the ids noted in above steps.
 6. Repeat the above steps for all conflicting event providers and try deleting the project again. Your project deletion should now go through successfully.
 
 ### Why do I see duplicate fields in the delivered payload for attributes recipient client id and event id?
@@ -143,7 +143,7 @@ Adobe I/O stores 7 days of subscribed events that can be retrieved via the Journ
 
 ### Why do I only get one event, irrespective of the `limit` I use?
 
-Our Journaling API `limit` parameter is used to specify the “maximum” number of events that may be returned by the API.
+Our Journaling API `limit` parameter is used to specify the "maximum" number of events that may be returned by the API.
 It is used to specify an upper bound to the number of events to ensure that the consumer can handle the response gracefully. The behavior you observe is expected.
 It is perfectly ok to get 1 event when you specify a limit greater than 1.
 The number of events that gets returned in a response can vary depending on the incoming traffic (upper bound being equal to the limit parameter).

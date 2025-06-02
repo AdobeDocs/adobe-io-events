@@ -110,7 +110,7 @@ Integrations are created as part of a project within Adobe Developer Console. Th
 
 For detailed instructions on completing these steps, please begin by reading the [Adobe Developer Console Getting Started guide](https://www.adobe.com/go/devs_console_getting_started). 
 
-When you are ready to [add events to your project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-event/) follow the steps provided, making sure to select **Analytics Triggers**.
+When you are ready to [add events to your project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-event) follow the steps provided, making sure to select **Analytics Triggers**.
 
 Once you have completed the event registration, you will be taken to the *Registration Details* page where you will be able to see the details of your new registration. 
 

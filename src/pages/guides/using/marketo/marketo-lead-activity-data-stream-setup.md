@@ -2,8 +2,8 @@
 title: Setting up Marketo Lead Activity Data Stream with Adobe I/O Events
 ---
 
-import DeveloperGuidelines from '/src/pages/guides/using/marketo/marketo-data-streams-developer-guidelines.md'
-import Debug from '/src/pages/guides/using/marketo/marketo-data-streams-debug.md'
+import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
+import Debug from 'marketo-data-streams-debug.md'
 
 # Setting up Marketo Lead Activity Data Stream with Adobe I/O Events
 
@@ -23,7 +23,7 @@ For the Lead Activity Data Stream, we will also need to know the specific types 
 
 ## Setup Adobe I/O
 
-See [Getting Started with Adobe I/O Events](/src/pages/index.md)
+See [Getting Started with Adobe I/O Events](../../../index.md)
 
 For basic instructions for this use case, starting from [console.adobe.io](https://developer.adobe.com/console/):
 

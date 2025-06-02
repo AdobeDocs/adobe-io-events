@@ -18,7 +18,7 @@ With Adobe I/O Events webhooks, your application can sign up to be notified when
 For example, when a user uploads a asset, this action generates an event.
 With the right webhook in place, your application is instantly notified that this event happened.
 
-Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](http://developer.adobe.com/developer-console/docs/guides/services/services-add-event/)
+Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](http://developer.adobe.com/developer-console/docs/guides/services/services-add-event)
 
 To start receiving events, you create an event registration specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks.
 
@@ -164,7 +164,7 @@ Your webhook must respond to the POST request with an HTTP status code of 200 be
 
 Please note that for **security** reasons we **obfuscate** the validation URL in the [debug tracing](../support/tracing.md) tab.
 So, the only way to intercept the original validation URL is if you own the webhook server (*you could simply log all requests*).
-![Validation URL obfuscated in Debug Tracing tab](/img/debug_tracing_challenge_post_obfuscated.png "Validation URL obfuscated in Debug Tracing tab")
+![Validation URL obfuscated in Debug Tracing tab](img/debug_tracing_challenge_post_obfuscated.png "Validation URL obfuscated in Debug Tracing tab")
 
 ### Testing with ngrok
 
@@ -176,7 +176,7 @@ Among other things, ngrok is a great tool for testing webhooks. Once you've down
 ngrok http 80
 ```
 
-![ngrok on port 80](/img/ngrok.png "ngrok on port 80")
+![ngrok on port 80](img/ngrok.png "ngrok on port 80")
 
 In the ngrok UI, you can see the URL for viewing the ngrok logs, labeled "Web Interface", plus the public-facing URLs ngrok generates to forward HTTP and HTTPS traffic to your localhost. You can use either of those public-facing URLs to register your Webhook with Adobe I/O, so long as your application is configured to respond on your localhost accordingly. Once your testing phase is complete, you can replace the ngrok URL in your Adobe I/O integration with the public URL for your deployed app.
 
@@ -188,13 +188,13 @@ For detailed instructions on completing these steps, please begin by reading the
 
 Once you have completed the event registration, check the ngrok log. You should see a `GET` request, including the `challenge` that was passed along in the URL.  
   
-  ![The challenge GET request received in ngrok](/img/ngrok_2.png "The challenge GET request received in ngrok")  
+  ![The challenge GET request received in ngrok](img/ngrok_2.png "The challenge GET request received in ngrok")  
 
 In the `Adobe Developer Console`, you will be taken to the *Registration Details* page once the event registration is complete.
 
 The *Status* of the registration should show as **Active**. If the registration shows as **Disabled** please see the [troubleshooting](#troubleshooting-a-disabled-registration-status) section that follows.
 
-![Event Registration Details tab in Adobe Developer Console](/img/events-registration-details.png "Event Registration Details tab in Adobe Developer Console")
+![Event Registration Details tab in Adobe Developer Console](img/events-registration-details.png "Event Registration Details tab in Adobe Developer Console")
 
 ### Troubleshooting Unstable/Disabled Registration Status
 If you made an error transcribing the webhook URL, Adobe I/O Events' test of your webhook would have failed, resulting in a **Disabled** status.
@@ -208,10 +208,10 @@ To restart the flow of requests, fix the problem preventing your webhook from re
 Note: While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](journaling-intro.md)).
 
 *Unstable Event Registration*
-![Unstable Status](/img/unstable-status.png "Example of an Unstable event registration")
+![Unstable Status](img/unstable-status.png "Example of an Unstable event registration")
 
 *Disabled Event Registration*
-![Disabled Status](/img/disabled-status.png "Example of a Disabled event registration")
+![Disabled Status](img/disabled-status.png "Example of a Disabled event registration")
 
 <ReceivingEventsForUsersDoc/>
 
@@ -249,7 +249,7 @@ I/O Events also sends 2 public keys corresponding to the private keys used to ge
 
 As mentioned earlier, I/O Events adds an additional json field `recipient_client_id` to your payload. See the sample payload after the transformation that I/O Events sends to your webhook.
 
-![Sample XDM format asset event payload](/img/xdm_asset_payload_with_recipient_clientid.png "Sample XDM format asset event payload")
+![Sample XDM format asset event payload](img/xdm_asset_payload_with_recipient_clientid.png "Sample XDM format asset event payload")
 
 Upon receiving a request, you must do the below for leveraging the enhanced security measures
 
@@ -273,7 +273,7 @@ Once you have the `PEM` public keys, you can now verify the digital signatures b
 
 A pictorial block diagram for the signature validation steps above that you should follow:
 
-![Digital Signature Validation Steps](/img/digi_signature_verification_block_diagram.png "Digital Signature Validation Steps")
+![Digital Signature Validation Steps](img/digi_signature_verification_block_diagram.png "Digital Signature Validation Steps")
 
 Refer to [this](https://github.com/adobe/aio-lib-events/blob/1.1.5/src/index.js#L519) signature verification method of the events sdk (**nodeJS** based) to understand the above signature validation steps for your webhook app.
 

@@ -11,7 +11,7 @@ Our Adobe I/O Events Management API contains endpoints allowing you to manage yo
 
 ## Prerequisites
 
-* Create a project in the [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/)
+* Create a project in the [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty)
 * Add the `I/O Management API` in your Adobe Developer Console project
   * Click on `Add to Project` > `API`
   * Select `I/O Management API`
@@ -26,7 +26,7 @@ Our Adobe I/O Events Management API contains endpoints allowing you to manage yo
     * your project Id (at `project.id`)
     * your consumer Org Id (also called `consumer id`) (at `project.org.id`)
     * your workspace Id (at `project.workspace.id`)
-* [Generate an OAuth Server-to-Server token](https://developer.adobe.com/developer-console/docs/guides/credentials/)
+* [Generate an OAuth Server-to-Server token](https://developer.adobe.com/developer-console/docs/guides/credentials)
 
 ## Test Drive
 

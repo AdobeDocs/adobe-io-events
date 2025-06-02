@@ -184,33 +184,33 @@ The `data` object contains the following fields:
 
 *Note - This is a snapshot listing of most available events.  There may be some events that don't show up or no longer exist.*
 
-Component | Event Type List
---- | ---
-Default Program | clone, create, delete, edit channel, export, modify program setup, modify program token, rename
-Email | approve, clone, create, delete, edit, move, rename, unapprove
-Email Batch Program | approve, childUpdate, clone, create, delete, edit, edit channel, modify program schedule, modify program setup, modify program token, rename, unapprove
-Email Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove
-Engagement Program | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename
-Event Program | clone, create, delete, edit channel, modify program schedule, modify program setup, modify program token, rename
-Folder | create, delete, edit
-Form | approve, clone, create, delete, draftCreate, edit, move, rename
-Landing Page | approve, clone, create, delete, draftDiscard, edit, move, rename, unapprove
-Landing Page Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove
-List | clone, create, delete, rename
-Marketing Folder | create, delete, edit
-Nurture Program | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename
-Segment | create, delete, edit, rename
-Segmentation | approve, create, delete, draftCreated, draftDiscarded, rename, unapprove
-Smart Campaign | abort, activate, clone, create, deactivate, delete, edit, modify campaign schedule, modify flow step action, modify smart list setup, move, rename
-Smart List | clone, create, delete, edit, export, modify smartlist setup, rename
-Snippet | approve, approve with no-draft, clone, create, delete, edit, rename, unapprove
+| Component             | Event Type List                                                                                                                                         |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Default Program       | clone, create, delete, edit channel, export, modify program setup, modify program token, rename                                                         |
+| Email                 | approve, clone, create, delete, edit, move, rename, unapprove                                                                                           |
+| Email Batch Program   | approve, childUpdate, clone, create, delete, edit, edit channel, modify program schedule, modify program setup, modify program token, rename, unapprove |
+| Email Template        | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove                                                                      |
+| Engagement Program    | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename                                          |
+| Event Program         | clone, create, delete, edit channel, modify program schedule, modify program setup, modify program token, rename                                        |
+| Folder                | create, delete, edit                                                                                                                                    |
+| Form                  | approve, clone, create, delete, draftCreate, edit, move, rename                                                                                         |
+| Landing Page          | approve, clone, create, delete, draftDiscard, edit, move, rename, unapprove                                                                             |
+| Landing Page Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove                                                                      |
+| List                  | clone, create, delete, rename                                                                                                                           |
+| Marketing Folder      | create, delete, edit                                                                                                                                    |
+| Nurture Program       | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename                                          |
+| Segment               | create, delete, edit, rename                                                                                                                            |
+| Segmentation          | approve, create, delete, draftCreated, draftDiscarded, rename, unapprove                                                                                |
+| Smart Campaign        | abort, activate, clone, create, deactivate, delete, edit, modify campaign schedule, modify flow step action, modify smart list setup, move, rename      |
+| Smart List            | clone, create, delete, edit, export, modify smartlist setup, rename                                                                                     |
+|  Snippet              | approve, approve with no-draft, clone, create, delete, edit, rename, unapprove                                                                          |
 
 The following events are related to access control and security:
 
-Component | Event Type List
---- | ---
-Login | login success, login failure
-Role | create, delete, edit
-User | create, delete, edit
+| Component | Event Type List              |
+|-----------|------------------------------|
+| Login     | login success, login failure |
+| Role      | create, delete, edit         |
+|  User     | create, delete, edit         |
 
 <Debug/>

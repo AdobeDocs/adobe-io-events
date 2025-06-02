@@ -10,7 +10,7 @@ For long-running (async) actions and guaranteed event handling you should consid
 
 ## Setting up Webhook Integration with Runtime Action
 
-The Runtime cli will let you create a runtime action and hook it up with an integration via Adobe Developer Console. Read [here](http://developer.adobe.com/runtime/docs/guides/getting-started/setup/) to setup your cli with Runtime plugin which is required as pre-requisite.
+The Runtime cli will let you create a runtime action and hook it up with an integration via Adobe Developer Console. Read [here](https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started/setup) to setup your cli with Runtime plugin which is required as pre-requisite.
 
 - Go to Developer Console and start creating an event registration
 - Add [Runtime](http://developer.adobe.com/developer-console/docs/guides/services/#enable-runtime) to your project, this will create the required auth and runtime namespace for you.
@@ -31,7 +31,7 @@ The Runtime cli will let you create a runtime action and hook it up with an inte
 
 ### Built In Signature Verification
 
-With integration between I/O Events and Adobe I/O Runtime, you don't need to worry about security as your runtime actions configured as webhooks are secured with an out-of-the-box signature verification implementation. So, basically whatever runtime action you use to create an event registration, the handler webhook created due to that will place a signature validator action along with your action as in a [sequence](http://developer.adobe.com/runtime/docs/guides/reference/sequences_compositions/). I/O Events signs the event payload using digital signatures generated using its private keys and passes the signatures as well as its public keys as request headers while invoking your webhook. Your business logic runtime action will only be invoked once the validator action successfully verifies any one of the digital signatures using the public keys. You can read more about the digital signatures based authentication mechanism [here](../../guides/index.md#security-considerations).
+With integration between I/O Events and Adobe I/O Runtime, you don't need to worry about security as your runtime actions configured as webhooks are secured with an out-of-the-box signature verification implementation. So, basically whatever runtime action you use to create an event registration, the handler webhook created due to that will place a signature validator action along with your action as in a [sequence](https://developer.adobe.com/app-builder/docs/guides/runtime_guides/reference_docs/sequences-compositions). I/O Events signs the event payload using digital signatures generated using its private keys and passes the signatures as well as its public keys as request headers while invoking your webhook. Your business logic runtime action will only be invoked once the validator action successfully verifies any one of the digital signatures using the public keys. You can read more about the digital signatures based authentication mechanism [here](../../guides/index.md#security-considerations).
 
 ### Tracing Actions with Activation Ids
 

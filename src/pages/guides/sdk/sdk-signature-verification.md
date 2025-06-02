@@ -40,20 +40,20 @@ This SDK api can be used in any digital signature verification implementation fo
 ```javascript
 verifyDigitalSignatureForEvent(event, recipientClientId, [signatureOptions]) ⇒ boolean
 ```
-| Param | Type | Description |
-| --- | --- | --- |
-| event | <code>object</code> | JSON payload delivered to the registered webhook URL |
-| recipientClientId | <code>string</code> | Target recipient client id retrieved from the Adobe I/O Console integration |
-| [signatureOptions] | [<code>SignatureOptions</code>](#SignatureOptions) | Map of digital signature header fields defined in SignatureOptions |
+| Param              | Type                                               | Description                                                                 |
+|--------------------|----------------------------------------------------|-----------------------------------------------------------------------------|
+| event              | <code>object</code>                                | JSON payload delivered to the registered webhook URL                        |
+| recipientClientId  | <code>string</code>                                | Target recipient client id retrieved from the Adobe I/O Console integration |
+| [signatureOptions] | [<code>SignatureOptions</code>](#SignatureOptions) | Map of digital signature header fields defined in SignatureOptions          |
 
 #### SignatureOptions : `object`
 
 **Properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| [digiSignature1] | <code>string</code> | Value of digital signature retrieved from the x-adobe-digital-signature1 header |
-| [digiSignature2] | <code>string</code> | Value of digital signature retrieved from the x-adobe-digital-signature2 header |
+| Name             | Type                | Description                                                                             |
+|------------------|---------------------|-----------------------------------------------------------------------------------------|
+| [digiSignature1] | <code>string</code> | Value of digital signature retrieved from the x-adobe-digital-signature1 header         |
+| [digiSignature2] | <code>string</code> | Value of digital signature retrieved from the x-adobe-digital-signature2 header         |
 | [publicKeyPath1] | <code>string</code> | Relative path of ioevents public key retrieved from the x-adobe-public-key1-path header |
 | [publicKeyPath2] | <code>string</code> | Relative path of ioevents public key retrieved from the x-adobe-public-key2-path header |
 

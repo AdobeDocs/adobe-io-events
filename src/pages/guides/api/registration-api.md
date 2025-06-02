@@ -6,7 +6,7 @@ title: Registration API
 
 ## Prerequisites
 
-* Create a project in the [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/)
+* Create a project in the [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty)
 * Add the `I/O Management API` in your Adobe Developer Console project
   * Click on `Add to Project` > `API`
   * Select `I/O Management API`
@@ -31,7 +31,7 @@ title: Registration API
     * a `provider_id`: defining one of the events source system (the events provider) your organization is entitled to,
     * a `event_code`: defining a type of the events the above system (the events provider) is emitting.
 
-* [Generate an OAuth Server-to-Server token](https://developer.adobe.com/developer-console/docs/guides/credentials/)
+* [Generate an OAuth Server-to-Server token](https://developer.adobe.com/developer-console/docs/guides/credentials)
 
 ## Test Drive
 
