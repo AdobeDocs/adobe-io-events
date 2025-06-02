@@ -36,3 +36,5 @@ In order to create a new app:
 - run aio app init
 - Select the project. By default, the Project is initialized for Workspace Stage, you can run **'aio app use -w <workspace\>'** to switch workspace after initialisation.
 - You will then be presented with an option to select a) All Templates, b) All Extensions and c) Only Templates Supported By My Org. Choose either a or c
+- Select @adobe/generator-app-events-generic using <space\> and press <enter\>
+
