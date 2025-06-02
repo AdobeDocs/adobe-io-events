@@ -269,28 +269,28 @@ All customer-defined activity types will be delivered with an identical event ty
 
 The `data` field contains the following data:
 
-| Field                                  | Type              | Description                                                         |
-|----------------------------------------|-------------------|---------------------------------------------------------------------|
-| munchkinId                             | String            | The Munchkin ID of the Marketo instance                             |
-| leadId                                 | String (Number)   | The ID of the lead that the event is related to                     |
-| lead                                   | Object            | (**optional**) The lead object that the event related to            |
-| &nbsp;&nbsp;&nbsp;&nbsp;lead.id        | Number            | The ID of the lead                                                  |
-| &nbsp;&nbsp;&nbsp;&nbsp;lead.firstName | String            | The first name of the lead                                          |
-| &nbsp;&nbsp;&nbsp;&nbsp;lead.lastName  | String            | The last name of the lead                                           |
-| &nbsp;&nbsp;&nbsp;&nbsp;lead.email     | String            | The email address of the lead                                       |
-| &nbsp;&nbsp;&nbsp;&nbsp;lead.leadScore | Number            | The lead score of the lead                                          |
-| &nbsp;&nbsp;&nbsp;&nbsp;lead.country   | String            | The country of the lead                                             |
-| activityDate                           | String (DateTime) | The timestamp of the event                                          |
-| activityTypeId                         | Number            | The ID of the activity type                                         |
-| activityType                           | String            | The name of the activity type                                       |
-| activityLogItemId                      | Number            | The ID of the activity log item                                     |
-| primaryAttributeValueId                | Number            | The ID of the primary modified attribute                            |
-| primaryAttributeValue                  | String            | The value of the primary modified attribute                         |
-| programId                              | Number            | (**optional**) The ID of the program the lead is associated with    |
-| programName                            | String            | (**optional**) The name of the program the lead is associated with  |
-| campaignId                             | Number            | (**optional**) The ID of the campaign the lead is associated with   |
-| campaignName                           | String            | (**optional**) The name of the campaign the lead is associated with |
-| attributes                             | Array (Attribute) | An array of attribute objects (**see below**)                       |
+| Field                   | Type              | Description                                                         |
+|-------------------------|-------------------|---------------------------------------------------------------------|
+| munchkinId              | String            | The Munchkin ID of the Marketo instance                             |
+| leadId                  | String (Number)   | The ID of the lead that the event is related to                     |
+| lead                    | Object            | (**optional**) The lead object that the event related to            |
+| lead.id                 | Number            | The ID of the lead                                                  |
+| lead.firstName          | String            | The first name of the lead                                          |
+| lead.lastName           | String            | The last name of the lead                                           |
+| lead.email              | String            | The email address of the lead                                       |
+| lead.leadScore          | Number            | The lead score of the lead                                          |
+| lead.country            | String            | The country of the lead                                             |
+| activityDate            | String (DateTime) | The timestamp of the event                                          |
+| activityTypeId          | Number            | The ID of the activity type                                         |
+| activityType            | String            | The name of the activity type                                       |
+| activityLogItemId       | Number            | The ID of the activity log item                                     |
+| primaryAttributeValueId | Number            | The ID of the primary modified attribute                            |
+| primaryAttributeValue   | String            | The value of the primary modified attribute                         |
+| programId               | Number            | (**optional**) The ID of the program the lead is associated with    |
+| programName             | String            | (**optional**) The name of the program the lead is associated with  |
+| campaignId              | Number            | (**optional**) The ID of the campaign the lead is associated with   |
+| campaignName            | String            | (**optional**) The name of the campaign the lead is associated with |
+| attributes              | Array (Attribute) | An array of attribute objects (**see below**)                       |
 
 And finally, all Attribute objects in the `attributes` array will contain the following fields:
 
