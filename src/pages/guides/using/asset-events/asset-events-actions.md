@@ -336,7 +336,7 @@ An Event is triggered by the creation or update of a file's/directory's [Embedde
 
 A [Composite](asset-events-glossary.md#composite) differs from a regular [Files](asset-events-glossary.md#file) in that it a) has a [Manifest Resource](asset-events-glossary.md#manifest) which is closely coupled with—but not the same as—its [Primary Resource](asset-events-glossary.md#primary-resource) and b) has any number of [Component Resources](asset-events-glossary.md#component) which can be created/updated without an immediate update to the Primary/Manifest. These differences make it necessary to include some additional data in the created/updated Events for Composites.
 
----
+<HorizontalLine/>
 
 #### Created Manifest
 
