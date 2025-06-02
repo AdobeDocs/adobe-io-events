@@ -34,8 +34,6 @@ Create a new folder where the code for the new app should be added and cd into t
 In order to create a new app:
 
 - run aio app init
-- Select the project. By default, the Project is initialized for Workspace Stage, you can run **'aio app use -w <workspace\>'** to switch workspace after initialisation.
 - You will then be presented with an option to select a) All Templates, b) All Extensions and c) Only Templates Supported By My Org. Choose either a or c
-- Select  using 
 
 
