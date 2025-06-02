@@ -33,6 +33,24 @@ async function checkExternalLink(url) {
   }
 }
 
+// Function to extract headings from markdown content
+function getHeadings(content) {
+  const headingRegex = /^#{1,6}\s+(.+)$/gm;
+  const headings = new Set();
+  let match;
+  
+  while ((match = headingRegex.exec(content)) !== null) {
+    // Convert heading to lowercase, replace spaces and special chars with hyphens
+    const headingId = match[1]
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-');
+    headings.add(headingId);
+  }
+  
+  return headings;
+}
+
 async function checkLinks() {
   const markdownFiles = getMarkdownFiles('./src/pages');
   const linkRegex = /\[.*?\]\(([^)"'\s]+)(?:\s+"[^"]*")?\)/g;
@@ -47,8 +65,8 @@ async function checkLinks() {
     while ((match = linkRegex.exec(content)) !== null) {
       const url = match[1];
 
-      // Skip anchor links and empty links
-      if (url.startsWith('#') || !url) continue;
+      // Skip empty links
+      if (!url) continue;
 
       if (url.startsWith('http') || url.startsWith('https')) {
         externalLinksToCheck.set(url, file);
@@ -56,10 +74,21 @@ async function checkLinks() {
         // Handle anchor links in local files
         const [filePath, anchor] = url.split('#');
         
-        // Skip pure anchor links (links to sections in the same file)
-        if (!filePath) continue;
+        // Handle pure anchor links (links to sections in the same file)
+        if (!filePath && anchor) {
+          const headings = getHeadings(content);
+          if (!headings.has(anchor)) {
+            brokenLinks.push({
+              file,
+              url,
+              type: 'anchor',
+              error: `Heading "${anchor}" not found in file`
+            });
+          }
+          continue;
+        }
         
-        // Check local links
+        // Check local files and their anchors
         const localPath = filePath.startsWith('/') ?
           path.join('.', filePath.slice(1)) :
           path.join(path.dirname(file), filePath);
@@ -71,13 +100,25 @@ async function checkLinks() {
             type: 'local',
             error: 'File not found'
           });
+        } else if (anchor) {
+          // If file exists and there's an anchor, check if the heading exists
+          const targetContent = fs.readFileSync(localPath, 'utf8');
+          const headings = getHeadings(targetContent);
+          if (!headings.has(anchor)) {
+            brokenLinks.push({
+              file,
+              url,
+              type: 'anchor',
+              error: `Heading "${anchor}" not found in target file`
+            });
+          }
         }
       }
     }
   }
 
   // Second pass: check external links concurrently
-  console.log(`\nChecking ${externalLinksToCheck.size} external links...`);
+  console.log(`\nChecking links...`);
   const externalResults = await Promise.all(
     Array.from(externalLinksToCheck.entries()).map(async ([url, file]) => {
       const isValid = await checkExternalLink(url);
@@ -101,6 +142,8 @@ async function checkLinks() {
     brokenLinks.forEach(({ file, url, type, error }) => {
       if (type === 'local') {
         console.error(`  Warning - Local link in ${file}:  "${url}" - ${error}`);
+      } else if (type === 'anchor') {
+        console.error(`  Warning - Anchor link in ${file}:  "${url}" - ${error}`);
       } else {
         console.error(`  Warning - External link in ${file}:  "${url}" - ${error}`);
       }

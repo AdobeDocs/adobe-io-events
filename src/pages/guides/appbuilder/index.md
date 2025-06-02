@@ -262,7 +262,7 @@ aio app deploy --force-events
 
 On using this flag, all other registrations that are not part of the config file, but are part of the workspace will be deleted. Thus the workspace will be exactly in sync with the current state of the config file of the app builder app.
 
-See more details on [App Builder deployment](https://developer.adobe.com/app-builder/docs/guides/deployment/)
+See more details on [App Builder deployment](https://developer.adobe.com/app-builder/docs/guides/app_builder_guides/deployment/deployment)
 
 ## Un-deploying the Application
 
