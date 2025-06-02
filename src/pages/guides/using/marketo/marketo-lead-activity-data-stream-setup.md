@@ -251,7 +251,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 Many of the fields are common across the different types of events.  The `data` object will contain the specific details of the event.
 In particular, the `attributes` array will contain a subset of all possible attributes (or none at all!) depending on the event type, and the event context.
 
-| Field               | Type              | <div style="width: 300px;">Description</div>      |
+| Field               | Type              | Description    |
 |---------------------|-------------------|---------------------------------------------------|
 | event_id            | String            | Unique UUID generated per event                   |
 | specversion         | String            | CloudEvents version specification being used      |
@@ -306,8 +306,8 @@ These are all of the currently supported Lead Activity Event Types in alphabetic
 
 Here are examples using the "Open Email" event type:
 
-1. Text match on the `activityType` field under the `data` object <br/> (e.g. `payload.data.activityType` = "Open Email")
-2. Number match on the `actitityTypeId` field under the `data` object <br/> (e.g. `payload.data.activityTypeId` = 10)
+1. Text match on the `activityType` field under the `data` object (e.g. `payload.data.activityType` = "Open Email")
+2. Number match on the `actitityTypeId` field under the `data` object (e.g. `payload.data.activityTypeId` = 10)
 3. Text match on the `type` field with the concatenated, lower-cased Event Type (e.g. `payload.type` = "com.adobe.platform.marketo.activity.standard.openemail")
 
 *Note - This is a snapshot listing of most available events.  There may be some events that don't show up or no longer exist.*
