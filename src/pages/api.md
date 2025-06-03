@@ -3,5 +3,4 @@ layout: none
 ---
 
 <RedoclyAPIBlock
-src="/events-api-reference.yaml"
-width="600px"/>
+src="/events-api-reference.yaml" />
