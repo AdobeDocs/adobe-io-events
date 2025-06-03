@@ -23,12 +23,26 @@ async function checkExternalLink(url) {
   try {
     const response = await fetch(url, {
       method: 'HEAD',
-      timeout: 10000, // 10 second timeout
+      timeout: 30000, // Increased to 30 second timeout
       redirect: 'follow'
     });
     // Consider both OK responses and redirects (status 200-399) as valid
     return response.ok;
   } catch (error) {
+    // If it's a timeout error, try one more time with GET method
+    if (error.message.includes('timeout')) {
+      try {
+        console.log(`Retrying ${url} with GET method...`);
+        const response = await fetch(url, {
+          method: 'GET',
+          timeout: 30000,
+          redirect: 'follow'
+        });
+        return response.ok;
+      } catch (retryError) {
+        return false;
+      }
+    }
     return false;
   }
 }
@@ -47,7 +61,7 @@ function getHeadings(content) {
       .replace(/\s+/g, '-');
     headings.add(headingId);
   }
-  
+
   return headings;
 }
 
@@ -73,7 +87,7 @@ async function checkLinks() {
       } else if (!url.startsWith('mailto:')) {
         // Handle anchor links in local files
         const [filePath, anchor] = url.split('#');
-        
+
         // Handle pure anchor links (links to sections in the same file)
         if (!filePath && anchor) {
           const headings = getHeadings(content);
@@ -87,7 +101,7 @@ async function checkLinks() {
           }
           continue;
         }
-        
+
         // Check local files and their anchors
         const localPath = filePath.startsWith('/') ?
           path.join('.', filePath.slice(1)) :
