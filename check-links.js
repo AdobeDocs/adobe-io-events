@@ -32,7 +32,6 @@ async function checkExternalLink(url) {
     // If it's a timeout error, try one more time with GET method
     if (error.message.includes('timeout')) {
       try {
-        console.log(`Retrying ${url} with GET method...`);
         const response = await fetch(url, {
           method: 'GET',
           timeout: 30000,
@@ -52,7 +51,7 @@ function getHeadings(content) {
   const headingRegex = /^#{1,6}\s+(.+)$/gm;
   const headings = new Set();
   let match;
-  
+
   while ((match = headingRegex.exec(content)) !== null) {
     // Convert heading to lowercase, replace spaces and special chars with hyphens
     const headingId = match[1]
