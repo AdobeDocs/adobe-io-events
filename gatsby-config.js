@@ -237,7 +237,7 @@ module.exports = {
           },
           {
             title: "Forums",
-            path: "https://forums.adobe.com/community/adobe-io/adobe-io-events",
+            path: "https://experienceleaguecommunities.adobe.com/t5/adobe-developer/ct-p/adobe-io",
           },
           {
             title: "Frequently Asked Questions (FAQ)",

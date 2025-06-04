@@ -18,6 +18,6 @@ https://ims-na1.adobelogin.com/ims/authorize/v1?response_type=code&client_id=api
 
 You will need to replace `api_key_from_console` with the **Client ID** value provided on the _Credentials_ tab of the _Registration Details_ in your Console project.
 
-_A good utility for testing this process is the [Adobe IMS OAuth Playground](https://runtime.adobe.io/api/v1/web/io-solutions/adobe-oauth-playground/oauth.html). Follow instructions in the FAQ._
+_A good utility for testing this process is the [Adobe IMS OAuth Playground](https://github.com/adobeio/Adobe-IMS-OAuth-Playground)._
 
 Once all of the above steps are completed, try logging into [Creative Cloud Assets](https://assets.adobe.com) using the same Adobe ID as the one you used for `Adobe Developer Console` and create a library. If all went well, then a `cc_library_created` event will be successfully delivered to your webhook.

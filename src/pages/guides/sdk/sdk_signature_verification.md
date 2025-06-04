@@ -44,7 +44,7 @@ verifyDigitalSignatureForEvent(event, recipientClientId, [signatureOptions]) ⇒
 | --- | --- | --- |
 | event | <code>object</code> | JSON payload delivered to the registered webhook URL |
 | recipientClientId | <code>string</code> | Target recipient client id retrieved from the Adobe I/O Console integration |
-| [signatureOptions] | [<code>SignatureOptions</code>](#SignatureOptions) | Map of digital signature header fields defined in SignatureOptions |
+| [signatureOptions] | [<code>SignatureOptions</code>](#signatureoptions--object) | Map of digital signature header fields defined in SignatureOptions |
 
 #### SignatureOptions : `object`
 

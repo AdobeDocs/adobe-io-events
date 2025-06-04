@@ -65,6 +65,8 @@ A JSON file that ties together a [composite](#composite). A manifest contains th
 
 ---
 
+### Structure Nodes
+
 The elements that make up the structure tree of a [composite](#composite). Most composites have some internal structure; for example, a sketchbook is organized into pages, and an image may be composed of a hierarchy of layers. Nodes are recorded in the [manifest](#manifest) as JSON objects, and represent the pages, layers, or other structural elements that constitute a composite. composites always have at least one node (referred to as the _root node_), and each node contains references to [components](#component), as well as child nodes.
 
 ---

@@ -10,7 +10,7 @@ These instructions describe how to use Adobe Analytics triggers to notify you of
 
 ### What are Triggers?
 Triggers is an Experience Cloud Activation core service that enables marketers to identify, define, and monitor key consumer behaviors, and then generate cross-solution communication to re-engage visitors. Triggers uses Adobe Analytics as the data source for consumer behavior.
-For more information on triggers, see the [Triggers Help Page](https://marketing.adobe.com/resources/help/en_US/mcloud/triggers.html).
+For more information on triggers, see the [Triggers Help Page](https://experienceleague.adobe.com/en/docs/core-services/interface/services/triggers).
 
 
 Before setting up and using Adobe I/O, you will need to do the following:
@@ -43,7 +43,7 @@ To set up Analytics Triggers:
 1. [Get product access through Adobe Admin Console](#get-product-access-through-adobe-admin-console)
 2. [Specify a new trigger](#specify-a-new-trigger)
 
-#### Get product access through Adobe Admin Console	 
+#### Get product access through Adobe Admin Console
 
 To get access through the Adobe Admin Console:
 
