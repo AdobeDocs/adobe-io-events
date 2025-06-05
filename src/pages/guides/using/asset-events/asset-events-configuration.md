@@ -2,7 +2,7 @@
 title: Asset Events Configuration
 ---
 
-import ReceivingEventsForUsersDoc from '/src/pages/common/receiving-events-for-users-doc.md'
+import ReceivingEventsForUsersDoc from '../../../common/receiving-events-for-users-doc.md'
 
 # Asset Events Configuration
 
