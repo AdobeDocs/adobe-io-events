@@ -37,7 +37,7 @@ title: Registration API
 ## Test Drive
 
 Once the above are defined (and stuffed as environment variables),
-you are ready to use our [registration API](../../api.md#tag/Registrations/operation/createRegistration).
+you are ready to use our [registration API](../../api.md#operation/createRegistration).
 
 To help you further and document the typical `Webhook Registration Payload`,
 here is a sample `POST` `curl` query that will create a new Webhook Registration against `https://your.webhook`.

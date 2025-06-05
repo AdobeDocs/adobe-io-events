@@ -57,5 +57,5 @@
     - [Support](support/index.md) 
         - [Debugging](support/debug.md) 
         - [Tracing](support/tracing.md) 
-        - [Forums](https://forums.adobe.com/community/adobe-io/adobe-io-events) 
+        - [Forums](https://experienceleaguecommunities.adobe.com/t5/adobe-developer/ct-p/adobe-io) 
         - [Frequently Asked Questions (FAQ)](support/faq.md) 

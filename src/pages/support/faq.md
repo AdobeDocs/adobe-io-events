@@ -22,7 +22,7 @@ We are adding new events providers regularly, at the time of writing, the follow
 * [Platform notifications](https://www.adobe.com/go/devs_events_aep_docs)
 * [Analytics Triggers](https://www.adobe.com/go/devs_events_triggers_docs)
 * [Marketo Data Streams](../guides/using/marketo/marketo-data-streams.md)
-* [Privacy Service](https://www.adobe.com/go/devs_events_privacy_docs)
+* [Privacy Service](../guides/using/privacy-event-setup.md)
 * [Cloud Manager](https://www.adobe.com/go/devs_events_cloudmanager_docs)
 * Asset Compute
 * [AEM](../guides/using/aem/index.md)
@@ -69,9 +69,9 @@ If you are sure that the event provider can be deleted, then follow the steps do
    1. Your consumer organization id (at `project.org.id`)
    2. Your project id (at `project.id`)
    3. Your workspace id (at `project.workspace.id`)
-3. Using the [provider API](../guides/api/provider-api.md), fetch [your I/O Events providers entitled to the provided organization id](../api.md#tag/Providers/operation/getProvidersByConsumerOrgId), using the consumer organization id noted from above.
+3. Using the [provider API](../guides/api/provider-api.md), fetch [your I/O Events providers entitled to the provided organization id](../api.md#operation/getProvidersByConsumerOrgId), using the consumer organization id noted from above.
 4. Find the conflicting provider against your workspace id (found at `project.workspace.id` from the project json file) from the provider API response, and make a note of the provider `id`.
-5. Delete the provider via the [provider API](../api.md#tag/Providers/operation/deleteProvider), using the ids noted in above steps.
+5. Delete the provider via the [provider API](../api.md#operation/deleteProvider), using the ids noted in above steps.
 6. Repeat the above steps for all conflicting event providers and try deleting the project again. Your project deletion should now go through successfully.
 
 ### Why do I see duplicate fields in the delivered payload for attributes recipient client id and event id?

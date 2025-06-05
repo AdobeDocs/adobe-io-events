@@ -42,11 +42,11 @@ This SDK api can be used in any digital signature verification implementation fo
 verifyDigitalSignatureForEvent(event, recipientClientId, [signatureOptions]) ⇒ boolean
 ```
 
-| Param              | Type                                    | Description                                                                 |
-|--------------------|-----------------------------------------|-----------------------------------------------------------------------------|
-| event              | `object`                                | JSON payload delivered to the registered webhook URL                        |
-| recipientClientId  | `string`                                | Target recipient client id retrieved from the Adobe I/O Console integration |
-| [signatureOptions] | [`SignatureOptions`](#SignatureOptions) | Map of digital signature header fields defined in SignatureOptions          |
+| Param              | Type                                   | Description                                                                 |
+|--------------------|----------------------------------------|-----------------------------------------------------------------------------|
+| event              | `object`                               | JSON payload delivered to the registered webhook URL                        |
+| recipientClientId  | `string`                               | Target recipient client id retrieved from the Adobe I/O Console integration |
+| [signatureOptions] | [`SignatureOptions`](#signatureoptions--object) | Map of digital signature header fields defined in SignatureOptions          |
 
 #### SignatureOptions : `object`
 

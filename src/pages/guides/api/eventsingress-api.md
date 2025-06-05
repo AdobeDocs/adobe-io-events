@@ -74,7 +74,7 @@ The API returns
 
 ## HIPAA Compliance Support
 
-I/O Events is compliant with [HIPAA regulation](https://www.hhs.gov/hipaa/for-professionals/privacy/index.html#:~:text=The%20HIPAA%20Privacy%20Rule%20establishes,care%20providers%20that%20conduct%20certain).
+I/O Events is compliant with [HIPAA regulation](https://www.hhs.gov/hipaa/for-professionals/privacy/index.html).
 The event producers are responsible to signal if the event contains PHI data by setting the optional `x-event-phidata` header to `true` in the request.
 When the header is present and set to `true`:
 
