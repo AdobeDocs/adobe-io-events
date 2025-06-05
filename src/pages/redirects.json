@@ -1,7 +1,7 @@
 {
-  "total": 99,
+  "total": 122,
   "offset": 0,
-  "limit": 99,
+  "limit": 122,
   "data": [
     {
       "Source": "/events/docs",
@@ -304,7 +304,15 @@
       "Destination": "/events/docs/guides/journaling-intro"
     },
     {
+      "Source": "/events/docs/guides/journaling_intro/",
+      "Destination": "/events/docs/guides/journaling-intro"
+    },
+    {
       "Source": "/events/docs/guides/using/custom_events",
+      "Destination": "/events/docs/guides/using/custom-events"
+    },
+    {
+      "Source": "/events/docs/guides/using/custom_events/",
       "Destination": "/events/docs/guides/using/custom-events"
     },
     {
@@ -312,7 +320,15 @@
       "Destination": "/events/docs/guides/using/aem/aem-faq"
     },
     {
+      "Source": "/events/docs/guides/using/aem/aem_faq/",
+      "Destination": "/events/docs/guides/using/aem/aem-faq"
+    },
+    {
       "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_workspace_setup",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-workspace-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_workspace_setup/",
       "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-workspace-setup"
     },
     {
@@ -320,7 +336,15 @@
       "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-status-check"
     },
     {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_status_check/",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-status-check"
+    },
+    {
       "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_skyline_install",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-skyline-install"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_skyline_install/",
       "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-skyline-install"
     },
     {
@@ -328,7 +352,15 @@
       "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-package-install"
     },
     {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_on_premise_package_install/",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-package-install"
+    },
+    {
       "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_on_premise_link_externalizer",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-link-externalizer"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_on_premise_link_externalizer/",
       "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-link-externalizer"
     },
     {
@@ -336,7 +368,15 @@
       "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-install"
     },
     {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_on_premise_install/",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-on-premise-install"
+    },
+    {
       "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_console_setup",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-console-setup"
+    },
+    {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_console_setup/",
       "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-console-setup"
     },
     {
@@ -344,7 +384,15 @@
       "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-advanced-configurations"
     },
     {
+      "Source": "/events/docs/guides/using/aem/aem-addon-module/aem_advanced_configurations/",
+      "Destination": "/events/docs/guides/using/aem/aem-addon-module/aem-advanced-configurations"
+    },
+    {
       "Source": "/events/docs/guides/sdk/sdk_webhooks",
+      "Destination": "/events/docs/guides/sdk/sdk-webhooks"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk_webhooks/",
       "Destination": "/events/docs/guides/sdk/sdk-webhooks"
     },
     {
@@ -352,7 +400,15 @@
       "Destination": "/events/docs/guides/sdk/sdk-signature-verification"
     },
     {
+      "Source": "/events/docs/guides/sdk/sdk_signature_verification/",
+      "Destination": "/events/docs/guides/sdk/sdk-signature-verification"
+    },
+    {
       "Source": "/events/docs/guides/sdk/sdk_publish_events",
+      "Destination": "/events/docs/guides/sdk/sdk-publish-events"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk_publish_events/",
       "Destination": "/events/docs/guides/sdk/sdk-publish-events"
     },
     {
@@ -360,7 +416,15 @@
       "Destination": "/events/docs/guides/sdk/sdk-providers"
     },
     {
+      "Source": "/events/docs/guides/sdk/sdk_providers/",
+      "Destination": "/events/docs/guides/sdk/sdk-providers"
+    },
+    {
       "Source": "/events/docs/guides/sdk/sdk_journaling",
+      "Destination": "/events/docs/guides/sdk/sdk-journaling"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk_journaling/",
       "Destination": "/events/docs/guides/sdk/sdk-journaling"
     },
     {
@@ -368,7 +432,15 @@
       "Destination": "/events/docs/guides/sdk/sdk-getting-started"
     },
     {
+      "Source": "/events/docs/guides/sdk/sdk_getting_started/",
+      "Destination": "/events/docs/guides/sdk/sdk-getting-started"
+    },
+    {
       "Source": "/events/docs/guides/sdk/sdk_event_metadata",
+      "Destination": "/events/docs/guides/sdk/sdk-event-metadata"
+    },
+    {
+      "Source": "/events/docs/guides/sdk/sdk_event_metadata/",
       "Destination": "/events/docs/guides/sdk/sdk-event-metadata"
     },
     {
@@ -384,7 +456,15 @@
       "Destination": "/events/docs/guides/api/registration-api"
     },
     {
+      "Source": "/events/docs/guides/api/registration_api/",
+      "Destination": "/events/docs/guides/api/registration-api"
+    },
+    {
       "Source": "/events/docs/guides/api/provider_api",
+      "Destination": "/events/docs/guides/api/provider-api"
+    },
+    {
+      "Source": "/events/docs/guides/api/provider_api/",
       "Destination": "/events/docs/guides/api/provider-api"
     },
     {
@@ -392,7 +472,15 @@
       "Destination": "/events/docs/guides/api/journaling-api"
     },
     {
+      "Source": "/events/docs/guides/api/journaling_api/",
+      "Destination": "/events/docs/guides/api/journaling-api"
+    },
+    {
       "Source": "/events/docs/guides/api/eventsingress_api",
+      "Destination": "/events/docs/guides/api/eventsingress-api"
+    },
+    {
+      "Source": "/events/docs/guides/api/eventsingress_api/",
       "Destination": "/events/docs/guides/api/eventsingress-api"
     },
     {
