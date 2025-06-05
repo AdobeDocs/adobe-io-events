@@ -4,7 +4,10 @@ title: AEM Events
 
 # AEM Events
 
-Currently, there are two ways in which customers can start using AEM Events:<br/>&emsp;1. **[AEM Cloud Service Events](./cloud-native/index.md)** <br/>&emsp;2. [AEM Events powered by AEM Add-on module (Deprecated)](./aem-addon-module/index.md).
+Currently, there are two ways in which customers can start using AEM Events:
+1. **[AEM Cloud Service Events](./cloud-native/index.md)**
+
+2. [AEM Events powered by AEM Add-on module (Deprecated)](./aem-addon-module/index.md).
 
 Please note that choosing **AEM Cloud Service Events** offers the following advantages over the legacy way of consuming AEM Events:
 
