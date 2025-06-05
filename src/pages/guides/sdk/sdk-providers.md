@@ -4,7 +4,7 @@ title: Providers | Adobe I/O Events SDK
 
 # Providers
 
-For information on installing and using the SDK, please begin by reading the [getting started guide](sdk_getting_started.md).
+For information on installing and using the SDK, please begin by reading the [getting started guide](sdk-getting-started.md).
 
 ## List All Providers
 

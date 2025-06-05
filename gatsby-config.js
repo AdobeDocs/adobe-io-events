@@ -45,21 +45,21 @@ module.exports = {
           },
           {
             title: "Runtime Actions As Webhook",
-            path: "guides/runtime_webhooks/index.md",
+            path: "guides/runtime-webhooks/index.md",
             pages: [
               {
                 title: "Automatic event registrations",
-                path: "guides/runtime_webhooks/autoregistrations.md",
+                path: "guides/runtime-webhooks/autoregistrations.md",
               },
             ]
           },
           {
             title: "Introduction to Journaling",
-            path: "guides/journaling_intro.md",
+            path: "guides/journaling-intro.md",
           },
           {
             title: "Integration with Amazon EventBridge",
-            path: "guides/amazon_eventbridge/index.md",
+            path: "guides/amazon-eventbridge/index.md",
           }
         ],
       },
@@ -81,7 +81,7 @@ module.exports = {
               },
               {
                 title: "AEM Events FAQ",
-                path: "guides/using/aem/aem_faq.md",
+                path: "guides/using/aem/aem-faq.md",
               }
             ],
           },
@@ -151,7 +151,7 @@ module.exports = {
           },
           {
             title: 'Custom Events',
-            path: 'guides/using/custom_events.md'
+            path: 'guides/using/custom-events.md'
           },
           {
             title: 'InDesign APIs Events',
@@ -165,19 +165,19 @@ module.exports = {
         pages: [
           {
             title: "Journaling API",
-            path: "guides/api/journaling_api.md",
+            path: "guides/api/journaling-api.md",
           },
           {
             title: "Registration API",
-            path: "guides/api/registration_api.md",
+            path: "guides/api/registration-api.md",
           },
           {
             title: "Provider API",
-            path: "guides/api/provider_api.md",
+            path: "guides/api/provider-api.md",
           },
           {
             title: "Events Publishing API",
-            path: "guides/api/eventsingress_api.md",
+            path: "guides/api/eventsingress-api.md",
           },
         ],
       },
@@ -195,31 +195,31 @@ module.exports = {
         pages: [
           {
             title: "Getting started with Events SDK",
-            path: "guides/sdk/sdk_getting_started.md",
+            path: "guides/sdk/sdk-getting-started.md",
           },
           {
             title: "Event Metadata",
-            path: "guides/sdk/sdk_event_metadata.md",
+            path: "guides/sdk/sdk-event-metadata.md",
           },
           {
             title: "Journaling",
-            path: "guides/sdk/sdk_journaling.md",
+            path: "guides/sdk/sdk-journaling.md",
           },
           {
             title: "Providers",
-            path: "guides/sdk/sdk_providers.md",
+            path: "guides/sdk/sdk-providers.md",
           },
           {
             title: "Publish Events",
-            path: "guides/sdk/sdk_publish_events.md",
+            path: "guides/sdk/sdk-publish-events.md",
           },
           {
             title: "Signature Verification",
-            path: "guides/sdk/sdk_signature_verification.md",
+            path: "guides/sdk/sdk-signature-verification.md",
           },
           {
             title: "Webhooks",
-            path: "guides/sdk/sdk_webhooks.md",
+            path: "guides/sdk/sdk-webhooks.md",
           },
         ],
       },

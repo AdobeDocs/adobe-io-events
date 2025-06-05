@@ -14,7 +14,7 @@ verify you are holding a `System Administrator` role (on the top-right corner of
 ## Adobe Developer Workspace Configuration
 
 Then, if you have no project nor workspace created yet (or if you are new to this,
-please refer to the [step-by-step instructions for creating an empty project in Adobe Developer Console](/developer-console/docs/guides/projects/projects-empty/)),
+please refer to the [step-by-step instructions for creating an empty project in Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty)),
 and create your project's workspace.
 
 For your AEM to be authorized to emit events against Adobe I/O,
@@ -38,4 +38,4 @@ In your Adobe Developer Console workspace
 
 * Select `Project overview` in the left-side links menu
 * Click on the `Download` button from the top menu on the right
-* Save the file, you will use it when you will be working on [`aio-events-aem` configuration](aem_workspace_setup.md)
+* Save the file, you will use it when you will be working on [`aio-events-aem` configuration](aem-workspace-setup.md)

@@ -4,13 +4,13 @@ title: App Builder webhook auto registration
 
 # Overview
 
-The integration between [App builder project and I/O Events](/src/pages/guides/runtime_webhooks/index.md) allows to create applications that listen to Adobe events. Automatic events registrations push this concept further by subscribing your newly deployed project to `I/O Events` automatically, so you can easily deploy your application in different environments or even share your application with other organizations. Also, this technology minimizes the manual routine work for admins and reduces the possibility to mess up things during manual setup in `Developer Console`.
+The integration between [App builder project and I/O Events](../../guides/runtime-webhooks/index.md) allows to create applications that listen to Adobe events. Automatic events registrations push this concept further by subscribing your newly deployed project to `I/O Events` automatically, so you can easily deploy your application in different environments or even share your application with other organizations. Also, this technology minimizes the manual routine work for admins and reduces the possibility to mess up things during manual setup in `Developer Console`.
 
 ## Creating self-contained application
 
 In this chapter, we will create a code that listens to a specific event type and bind itself to this event type.
 
-* Create `App Builder` project(`Runtime`) with webhook using [App builder project and I/O Events](/src/pages/guides/runtime_webhooks/index.md) article. **DON'T go to `Developer Console` to create registrations!**
+* Create `App Builder` project(`Runtime`) with webhook using [App builder project and I/O Events](../../guides/runtime-webhooks/index.md) article. **DON'T go to `Developer Console` to create registrations!**
 * Install `aio-cli-plugin-extension` plugins using AIO CLI(`aio plugins discover -i`)
 * Declare your action as `non-web` and set `require-adobe-auth` to `false` in `app.config.yaml` file. Actions deployed with `aio-cli-plugin-extension` plugin only receive events signed by Adobe I/O Events. All other invocations will be ignored.
 * Define the event types you want to receive in `event-listener-for` section of `app.config.yaml` file like the following:

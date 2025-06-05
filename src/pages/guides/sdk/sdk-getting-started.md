@@ -76,7 +76,7 @@ async function sdkTest() {
 
 This returns an [RxJS Observable](https://rxjs.dev/guide/observable). For more information on how to subscribe to an observable and take action on next, on error, and on complete, please refer to the RxJS documentation.
 
-One observable can have multiple subscribers. Each subscription can be handled differently. For more details on using the poller for journaling, check `getEventsObservableFromJournal` in the [journaling documentation](sdk_journaling.md).
+One observable can have multiple subscribers. Each subscription can be handled differently. For more details on using the poller for journaling, check `getEventsObservableFromJournal` in the [journaling documentation](sdk-journaling.md).
 
 ## Classes
 
@@ -130,9 +130,9 @@ One can configure the following HTTP Options for the SDK. These options will be 
 
 To begin working with `EventsCoreAPI` class methods and calling Adobe I/O Events APIs, please select from the following guides:
 
-* [Providers](sdk_providers.md)
-* [Event Metadata](sdk_event_metadata.md)
-* [Publish Events](sdk_publish_events.md)
-* [Webhooks](sdk_webhooks.md)
-* [Journaling](sdk_journaling.md)
-* [Signature verification](sdk_signature_verification.md)
+* [Providers](sdk-providers.md)
+* [Event Metadata](sdk-event-metadata.md)
+* [Publish Events](sdk-publish-events.md)
+* [Webhooks](sdk-webhooks.md)
+* [Journaling](sdk-journaling.md)
+* [Signature verification](sdk-signature-verification.md)

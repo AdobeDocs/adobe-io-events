@@ -7,11 +7,11 @@ title: Provider API
 Our Adobe I/O Events Management API contains endpoints allowing you to manage your `Events Providers` and their associated `Event Metadata`:
 
 * `GET` the list of the `Events Providers` you are entitled to,
-* `POST`, `PUT`, `PATCH`, `DELETE` your [`Custom Events Providers`](../using/custom_events.md)
+* `POST`, `PUT`, `PATCH`, `DELETE` your [`Custom Events Providers`](../using/custom-events.md)
 
 ## Prerequisites
 
-* Create a project in the [Adobe Developer Console](/developer-console/docs/guides/projects/projects-empty/)
+* Create a project in the [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty)
 * Add the `I/O Management API` in your Adobe Developer Console project
   * Click on `Add to Project` > `API`
   * Select `I/O Management API`
@@ -26,12 +26,12 @@ Our Adobe I/O Events Management API contains endpoints allowing you to manage yo
     * your project Id (at `project.id`)
     * your consumer Org Id (also called `consumer id`) (at `project.org.id`)
     * your workspace Id (at `project.workspace.id`)
-* [Generate an OAuth Server-to-Server token](/developer-console/docs/guides/credentials/)
+* [Generate an OAuth Server-to-Server token](https://developer.adobe.com/developer-console/docs/guides/credentials)
 
 ## Test Drive
 
 Once the above are defined (and stuffed as environment variables),
-you are ready to use the API, refer to its [`swagger`/`OpenApi` documentation](/api/).
+you are ready to use the API, refer to its [`swagger`/`OpenApi` documentation](../../api.md).
 
 To help you further, here are a few sample `curl` commands.
 
@@ -55,7 +55,7 @@ curl -i -v --request GET \
   --header "Accept: application/hal+json"
 ```
 
-To create your own [`Custom Events Provider`](../using/custom_events.md) :
+To create your own [`Custom Events Provider`](../using/custom-events.md) :
 
 ```bash
 curl -i -v --request POST \
@@ -89,7 +89,7 @@ curl -i -v --request POST \
 
 With the 2 commands above, your `Custom Events Provider` is ready to be used,
 you can register [webhooks](../index.md) against it;
-to start emitting events on its behalf use our [Events Publishing API](eventsingress_api.md).
+to start emitting events on its behalf use our [Events Publishing API](eventsingress-api.md).
 
 To delete your `Custom Events Provider`:
 

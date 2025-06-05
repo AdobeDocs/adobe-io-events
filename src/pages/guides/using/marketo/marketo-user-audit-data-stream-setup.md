@@ -2,8 +2,8 @@
 title: Setting up Marketo User Audit Data Stream with Adobe I/O Events
 ---
 
-import DeveloperGuidelines from '/src/pages/guides/using/marketo/marketo-data-streams-developer-guidelines.md'
-import Debug from '/src/pages/guides/using/marketo/marketo-data-streams-debug.md'
+import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
+import Debug from 'marketo-data-streams-debug.md'
 
 # Setting up Marketo User Audit Data Stream with Adobe I/O Events
 
@@ -21,9 +21,9 @@ We typically just need to know the MunchkinId for the subscription, and the asso
 
 ## Setup Adobe I/O
 
-See [Getting Started with Adobe I/O Events](/src/pages/index.md)
+See [Getting Started with Adobe I/O Events](../../../index.md)
 
-For basic instructions for this use case, starting from [console.adobe.io](/console/):
+For basic instructions for this use case, starting from [console.adobe.io](https://developer.adobe.com/console/):
 
 *When prompted, click the designated button to proceed*
 
@@ -61,7 +61,7 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
       - The get request must respond with the challenge query if it exists
       - The post request must respond that it received the message or the webhook will re-attempt to send several times before giving up and automatically disabling the webhook sends
     - Enable Runtime action
-      - [See Setting up your Runtime Environment](/runtime/docs/guides/getting-started/)
+      - [See Setting up your Runtime Environment](https://developer.adobe.com/runtime/docs/guides/getting-started/)
       - Select a pre-made runtime action/runtime namespace
 - After Saving
 
@@ -184,33 +184,33 @@ The `data` object contains the following fields:
 
 *Note - This is a snapshot listing of most available events.  There may be some events that don't show up or no longer exist.*
 
-Component | Event Type List
---- | ---
-Default Program | clone, create, delete, edit channel, export, modify program setup, modify program token, rename
-Email | approve, clone, create, delete, edit, move, rename, unapprove
-Email Batch Program | approve, childUpdate, clone, create, delete, edit, edit channel, modify program schedule, modify program setup, modify program token, rename, unapprove
-Email Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove
-Engagement Program | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename
-Event Program | clone, create, delete, edit channel, modify program schedule, modify program setup, modify program token, rename
-Folder | create, delete, edit
-Form | approve, clone, create, delete, draftCreate, edit, move, rename
-Landing Page | approve, clone, create, delete, draftDiscard, edit, move, rename, unapprove
-Landing Page Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove
-List | clone, create, delete, rename
-Marketing Folder | create, delete, edit
-Nurture Program | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename
-Segment | create, delete, edit, rename
-Segmentation | approve, create, delete, draftCreated, draftDiscarded, rename, unapprove
-Smart Campaign | abort, activate, clone, create, deactivate, delete, edit, modify campaign schedule, modify flow step action, modify smart list setup, move, rename
-Smart List | clone, create, delete, edit, export, modify smartlist setup, rename
-Snippet | approve, approve with no-draft, clone, create, delete, edit, rename, unapprove
+| Component             | Event Type List                                                                                                                                         |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Default Program       | clone, create, delete, edit channel, export, modify program setup, modify program token, rename                                                         |
+| Email                 | approve, clone, create, delete, edit, move, rename, unapprove                                                                                           |
+| Email Batch Program   | approve, childUpdate, clone, create, delete, edit, edit channel, modify program schedule, modify program setup, modify program token, rename, unapprove |
+| Email Template        | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove                                                                      |
+| Engagement Program    | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename                                          |
+| Event Program         | clone, create, delete, edit channel, modify program schedule, modify program setup, modify program token, rename                                        |
+| Folder                | create, delete, edit                                                                                                                                    |
+| Form                  | approve, clone, create, delete, draftCreate, edit, move, rename                                                                                         |
+| Landing Page          | approve, clone, create, delete, draftDiscard, edit, move, rename, unapprove                                                                             |
+| Landing Page Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove                                                                      |
+| List                  | clone, create, delete, rename                                                                                                                           |
+| Marketing Folder      | create, delete, edit                                                                                                                                    |
+| Nurture Program       | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename                                          |
+| Segment               | create, delete, edit, rename                                                                                                                            |
+| Segmentation          | approve, create, delete, draftCreated, draftDiscarded, rename, unapprove                                                                                |
+| Smart Campaign        | abort, activate, clone, create, deactivate, delete, edit, modify campaign schedule, modify flow step action, modify smart list setup, move, rename      |
+| Smart List            | clone, create, delete, edit, export, modify smartlist setup, rename                                                                                     |
+|  Snippet              | approve, approve with no-draft, clone, create, delete, edit, rename, unapprove                                                                          |
 
 The following events are related to access control and security:
 
-Component | Event Type List
---- | ---
-Login | login success, login failure
-Role | create, delete, edit
-User | create, delete, edit
+| Component | Event Type List              |
+|-----------|------------------------------|
+| Login     | login success, login failure |
+| Role      | create, delete, edit         |
+|  User     | create, delete, edit         |
 
 <Debug/>

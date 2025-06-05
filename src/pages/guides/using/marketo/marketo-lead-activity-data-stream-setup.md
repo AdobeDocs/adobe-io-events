@@ -2,8 +2,8 @@
 title: Setting up Marketo Lead Activity Data Stream with Adobe I/O Events
 ---
 
-import DeveloperGuidelines from '/src/pages/guides/using/marketo/marketo-data-streams-developer-guidelines.md'
-import Debug from '/src/pages/guides/using/marketo/marketo-data-streams-debug.md'
+import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
+import Debug from 'marketo-data-streams-debug.md'
 
 # Setting up Marketo Lead Activity Data Stream with Adobe I/O Events
 
@@ -23,9 +23,9 @@ For the Lead Activity Data Stream, we will also need to know the specific types 
 
 ## Setup Adobe I/O
 
-See [Getting Started with Adobe I/O Events](/src/pages/index.md)
+See [Getting Started with Adobe I/O Events](../../../index.md)
 
-For basic instructions for this use case, starting from [console.adobe.io](/console/):
+For basic instructions for this use case, starting from [console.adobe.io](https://developer.adobe.com/console/):
 
 *When prompted, click the designated button to proceed*
 
@@ -63,12 +63,12 @@ For basic instructions for this use case, starting from [console.adobe.io](/cons
       - The get request must respond with the challenge query if it exists
       - The post request must respond that it received the message or the webhook will re-attempt to send several times before giving up and automatically disabling the webhook sends
     - Enable Runtime action
-      - [See Setting up your Runtime Environment](/runtime/docs/guides/getting-started/)
+      - [See Setting up your Runtime Environment](https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started/)
       - Select a pre-made runtime action/runtime namespace
 - After Saving
 
   ![Verify setup](../../img/LeadActivityDataStreamIOSetup7.png "Verify setup")
-  
+
   - Verify that the Status is `Active`
   - If Webhook was selected, verify that it successfully passed the challenge without errors
 
@@ -251,7 +251,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 Many of the fields are common across the different types of events.  The `data` object will contain the specific details of the event.
 In particular, the `attributes` array will contain a subset of all possible attributes (or none at all!) depending on the event type, and the event context.
 
-| Field               | Type              | <div style="width: 300px;">Description</div>      |
+| Field               | Type              | Description    |
 |---------------------|-------------------|---------------------------------------------------|
 | event_id            | String            | Unique UUID generated per event                   |
 | specversion         | String            | CloudEvents version specification being used      |
@@ -269,28 +269,28 @@ All customer-defined activity types will be delivered with an identical event ty
 
 The `data` field contains the following data:
 
-| Field                                  | Type              | Description                                                         |
-|----------------------------------------|-------------------|---------------------------------------------------------------------|
-| munchkinId                             | String            | The Munchkin ID of the Marketo instance                             |
-| leadId                                 | String (Number)   | The ID of the lead that the event is related to                     |
-| lead                                   | Object            | (**optional**) The lead object that the event related to            |
-| &nbsp;&nbsp;&nbsp;&nbsp;lead.id        | Number            | The ID of the lead                                                  |
-| &nbsp;&nbsp;&nbsp;&nbsp;lead.firstName | String            | The first name of the lead                                          |
-| &nbsp;&nbsp;&nbsp;&nbsp;lead.lastName  | String            | The last name of the lead                                           |
-| &nbsp;&nbsp;&nbsp;&nbsp;lead.email     | String            | The email address of the lead                                       |
-| &nbsp;&nbsp;&nbsp;&nbsp;lead.leadScore | Number            | The lead score of the lead                                          |
-| &nbsp;&nbsp;&nbsp;&nbsp;lead.country   | String            | The country of the lead                                             |
-| activityDate                           | String (DateTime) | The timestamp of the event                                          |
-| activityTypeId                         | Number            | The ID of the activity type                                         |
-| activityType                           | String            | The name of the activity type                                       |
-| activityLogItemId                      | Number            | The ID of the activity log item                                     |
-| primaryAttributeValueId                | Number            | The ID of the primary modified attribute                            |
-| primaryAttributeValue                  | String            | The value of the primary modified attribute                         |
-| programId                              | Number            | (**optional**) The ID of the program the lead is associated with    |
-| programName                            | String            | (**optional**) The name of the program the lead is associated with  |
-| campaignId                             | Number            | (**optional**) The ID of the campaign the lead is associated with   |
-| campaignName                           | String            | (**optional**) The name of the campaign the lead is associated with |
-| attributes                             | Array (Attribute) | An array of attribute objects (**see below**)                       |
+| Field                   | Type              | Description                                                         |
+|-------------------------|-------------------|---------------------------------------------------------------------|
+| munchkinId              | String            | The Munchkin ID of the Marketo instance                             |
+| leadId                  | String (Number)   | The ID of the lead that the event is related to                     |
+| lead                    | Object            | (**optional**) The lead object that the event related to            |
+| lead.id                 | Number            | The ID of the lead                                                  |
+| lead.firstName          | String            | The first name of the lead                                          |
+| lead.lastName           | String            | The last name of the lead                                           |
+| lead.email              | String            | The email address of the lead                                       |
+| lead.leadScore          | Number            | The lead score of the lead                                          |
+| lead.country            | String            | The country of the lead                                             |
+| activityDate            | String (DateTime) | The timestamp of the event                                          |
+| activityTypeId          | Number            | The ID of the activity type                                         |
+| activityType            | String            | The name of the activity type                                       |
+| activityLogItemId       | Number            | The ID of the activity log item                                     |
+| primaryAttributeValueId | Number            | The ID of the primary modified attribute                            |
+| primaryAttributeValue   | String            | The value of the primary modified attribute                         |
+| programId               | Number            | (**optional**) The ID of the program the lead is associated with    |
+| programName             | String            | (**optional**) The name of the program the lead is associated with  |
+| campaignId              | Number            | (**optional**) The ID of the campaign the lead is associated with   |
+| campaignName            | String            | (**optional**) The name of the campaign the lead is associated with |
+| attributes              | Array (Attribute) | An array of attribute objects (**see below**)                       |
 
 And finally, all Attribute objects in the `attributes` array will contain the following fields:
 
@@ -306,9 +306,9 @@ These are all of the currently supported Lead Activity Event Types in alphabetic
 
 Here are examples using the "Open Email" event type:
 
-1. Text match on the `activityType` field under the `data` object <br/> (e.g. `payload.data.activityType` = "Open Email")
-2. Number match on the `actitityTypeId` field under the `data` object <br/> (e.g. `payload.data.activityTypeId` = 10)
-3. Text match on the `type` field with the concatenated, lower-cased Event Type <br/> (e.g. `payload.type` = "com.adobe.platform.marketo.activity.standard.openemail")
+1. Text match on the `activityType` field under the `data` object (e.g. `payload.data.activityType` = "Open Email")
+2. Number match on the `actitityTypeId` field under the `data` object (e.g. `payload.data.activityTypeId` = 10)
+3. Text match on the `type` field with the concatenated, lower-cased Event Type (e.g. `payload.type` = "com.adobe.platform.marketo.activity.standard.openemail")
 
 *Note - This is a snapshot listing of most available events.  There may be some events that don't show up or no longer exist.*
 

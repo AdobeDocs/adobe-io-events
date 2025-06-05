@@ -6,7 +6,7 @@ title: Adobe I/O Events Support
 description: Learn where to ask questions, report bugs, make feature requests, and spark discussions.
 ---
 
-<Hero slots="heading, text"/>
+<HeroSimple slots="heading, text"/>
 
 # Adobe I/O Events Support
 

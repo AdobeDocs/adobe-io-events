@@ -6,37 +6,38 @@ title: Registration API
 
 ## Prerequisites
 
-* Create a project in the [Adobe Developer Console](/developer-console/docs/guides/projects/projects-empty/)
-* Add the `I/O Management API` in your Adobe Developer Console project
-  * Click on `Add to Project` > `API`
-  * Select `I/O Management API`
-  * On the `Add Credential` screen, create a new OAuth server-to-server credential
-  * Save
-  * Bookmark your workspace, as you might need to come back to it more than once, to fine tune or troubleshoot your configurations.
-  * Once done, note you have an OAuth server-to-server credential defined
-* Note all your org, api-key and other contextual Ids
-  * Browse to your `Adobe Developer Console` > `Project overview`
-  * Click on `Download`, open the downloaded `json` file with your favorite editor, in there you'll find:
-    * your consumer Org Id (also called `consumer id`) (at `project.org.id`)
-    * your IMS Org Id (at `project.org.ims_org_id`)
-    * your credential Id (also called `application id`) (at `project.workspace.details.credentials[0].id`, note that `credentials` is an array,
-       if you have more than one, pick the one where you defined your OAuth server-to-server credential
-    * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].oauth_server_to_server.client_id`
-* Define your event registration. You will need:
-  * either a webhook url (accessible from the internet, reachable over HTTPS and that correctly responds to a [challenge request](/guides/index.md#the-challenge-request)), refer our [guide on getting started with I/O Events webhooks](/guides/).
-  * or you can also define your [runtime action](/guides/runtime_webhooks/).<br/>
-    **Note** - Do not define both.
-  * a name (a user-friendly name, used for display in the Adobe Developer Console)
-  * an array of events of interests, that are defined with 2 ids
-    * a `provider_id`: defining one of the events source system (the events provider) your organization is entitled to,
-    * a `event_code`: defining a type of the events the above system (the events provider) is emitting.
+* Create a project in the [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty)
 
-* [Generate an OAuth Server-to-Server token](/developer-console/docs/guides/credentials/)
+* Add the `I/O Management API` in your Adobe Developer Console project
+    * Click on `Add to Project` > `API`
+    * Select `I/O Management API`
+    * On the `Add Credential` screen, create a new OAuth server-to-server credential
+    * Save
+    * Bookmark your workspace, as you might need to come back to it more than once, to fine tune or troubleshoot your configurations.
+    * Once done, note you have an OAuth server-to-server credential defined
+* Note all your org, api-key and other contextual Ids
+    * Browse to your `Adobe Developer Console` > `Project overview`
+    * Click on `Download`, open the downloaded `json` file with your favorite editor, in there you'll find:
+        * your consumer Org Id (also called `consumer id`) (at `project.org.id`)
+        * your IMS Org Id (at `project.org.ims_org_id`)
+        * your credential Id (also called `application id`) (at `project.workspace.details.credentials[0].id`, note that `credentials` is an array,)
+          if you have more than one, pick the one where you defined your OAuth server-to-server credential
+        * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].oauth_server_to_server.client_id`)
+* Define your event registration. You will need:
+    * either a webhook url (accessible from the internet, reachable over HTTPS and that correctly responds to a [challenge request](../../guides/index.md#the-challenge-request)), refer our [guide on getting started with I/O Events webhooks](../../guides/index.md).
+    * or you can also define your [runtime action](../../guides/runtime-webhooks/index.md).
+      **Note** - Do not define both.
+    * a name (a user-friendly name, used for display in the Adobe Developer Console)
+    * an array of events of interests, that are defined with 2 ids
+        * a `provider_id`: defining one of the events source system (the events provider) your organization is entitled to,
+        * a `event_code`: defining a type of the events the above system (the events provider) is emitting.
+
+* [Generate an OAuth Server-to-Server token](https://developer.adobe.com/developer-console/docs/guides/credentials)
 
 ## Test Drive
 
 Once the above are defined (and stuffed as environment variables),
-you are ready to use our [registration API](/api/#tag/Registrations/operation/createRegistration).
+you are ready to use our [registration API](../../api.md#operation/createRegistration).
 
 To help you further and document the typical `Webhook Registration Payload`,
 here is a sample `POST` `curl` query that will create a new Webhook Registration against `https://your.webhook`.
@@ -106,6 +107,6 @@ curl -v --request POST \
           }'
 ```
 
-Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling_api.md).
+Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling-api.md).
 
-If you wonder how to fetch the valid provider ids and event codes, look at our [Provider API](provider_api.md).
+If you wonder how to fetch the valid provider ids and event codes, look at our [Provider API](provider-api.md).

@@ -9,7 +9,7 @@ You can listen to events coming from various Adobe Products and Services and bui
 
 ## Prerequisites
 
-You will first need to visit [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui) and create a new project from template in your organization and set up the workspaces using App Builder template. For detailed instructions, follow the steps outlined in this tutorial for [creating a new project from template](/developer-console/docs/guides/projects/projects-template/).
+You will first need to visit [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui) and create a new project from template in your organization and set up the workspaces using App Builder template. For detailed instructions, follow the steps outlined in this tutorial for [creating a new project from template](https://developer.adobe.com/developer-console/docs/guides/projects/projects-template).
 
 <InlineAlert slots="text"/>
 
@@ -17,7 +17,7 @@ The App Builder template is included as part of the App Builder SKU.
 
 ![Select create project from template](../img/ab_select_project_from_template.png)
 
-Once the project and the workspaces have been created, add the *I/O Management API* service with *OAuth Server to Server* credentials to the Stage workspace and any other workspace you will be working with. This will add the required scope to the authentication token required for setting up the project with IO Events Registrations. For a step-by-step guide to adding an API to a project, follow this tutorial for [adding an API to project using OAuth Server-to-Server credential](/developer-console/docs/guides/services/services-add-api-oauth-s2s/) (the type of authentication used by the I/O Management API).
+Once the project and the workspaces have been created, add the *I/O Management API* service with *OAuth Server to Server* credentials to the Stage workspace and any other workspace you will be working with. This will add the required scope to the authentication token required for setting up the project with IO Events Registrations. For a step-by-step guide to adding an API to a project, follow this tutorial for [adding an API to project using OAuth Server-to-Server credential](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s) (the type of authentication used by the I/O Management API).
 
 ![Add IO Management API](../img/ab_add_io_management_api.png)
 
@@ -34,9 +34,9 @@ Create a new folder where the code for the new app should be added and cd into t
 In order to create a new app:
 
 - run aio app init
-- Select the project. By default, the Project is initialized for Workspace Stage, you can run **'aio app use -w <workspace\>'** to switch workspace after initialisation.
-- You will then be presented with an option to select a) All Templates, b) All Extensions and c) Only Templates Supported By My Org. Choose either a or c
-- Select @adobe/generator-app-events-generic using <space\> and press <enter\>
+- Select the project. By default, the Project is initialized for Workspace Stage, you can run **'aio app use -w < workspace\ >'** to switch workspace after initialisation.
+- You will then be presented with an option to select (a) All Templates, (b) All Extensions and (c) Only Templates Supported By My Org. Choose either a or c
+- Select @adobe/generator-app-events-generic using < space\ > and press < enter\ >
 
 ```shell
 app-builder-app % aio app init
@@ -131,12 +131,12 @@ How would you like to name this registration? Registration 1
 ```
 
 - Provider Selection
-  
+
 <InlineAlert slots="text"/>
 
 **IO Events Provider:** Some provider metadata have one or more instances that emit events. Each instance is registered as an IO Events Provider under the specific provider metadata. For eg. an organisation may have multiple instance of Adobe Commerce. Each instance is registered as a different provider. Some provider metadata have only a single source of events. Such provider metadata consist of only a single provider per organisation.
 
-For multi-instance provider metadata, select an instance to listen to events from, and in case of single instance provider metadata, select the specified provider by pressing \<enter\>
+For multi-instance provider metadata, select an instance to listen to events from, and in case of single instance provider metadata, select the specified provider by pressing \< enter\ >
 
 ```shell
 ? Choose from below provider for provider metadata: di_event_code (Use arrow keys)
@@ -262,7 +262,7 @@ aio app deploy --force-events
 
 On using this flag, all other registrations that are not part of the config file, but are part of the workspace will be deleted. Thus the workspace will be exactly in sync with the current state of the config file of the app builder app.
 
-See more details on [App Builder deployment](https://developer.adobe.com/app-builder/docs/guides/deployment/)
+See more details on [App Builder deployment](https://developer.adobe.com/app-builder/docs/guides/app_builder_guides/deployment/deployment)
 
 ## Un-deploying the Application
 
