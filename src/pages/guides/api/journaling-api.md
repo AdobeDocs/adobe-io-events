@@ -60,7 +60,7 @@ You combine the URL you got from the Journaling section of the event details wit
 
 ```bash
 curl -X GET \
-  https://events.adobe.io/events/organizations/xxxxx/integrations/xxxx/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+  https://events-va6.adobe.io/organizations/xxxxx/integrations/xxxx/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
   -H "x-ims-org-id: $ORG_ID" \
   -H "Authorization: Bearer $oauth_s2s_token" \
   -H "x-api-key: $API_KEY"
@@ -74,7 +74,7 @@ For example:
 
 ```bash
 curl -X GET \
-  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
+  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -162,7 +162,7 @@ For example:
 
 ```bash
 curl -X GET \
-  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
+  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -217,7 +217,7 @@ By continuously iterating through the journal and consuming "newer" events, even
 
 ```bash
 curl -X GET \
-  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
+  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -236,7 +236,7 @@ For your benefit whenever you're fetching events `since` the "end" position in t
 
 ```bash
 curl -X GET \
-  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
+  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -304,7 +304,7 @@ For example, here is the same request as before but with the number of events re
 
 ```bash
 curl -X GET \
-  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=1 \
+  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=1 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -359,7 +359,7 @@ For example, our journal above has at least 4 events that we know of, however, e
 
 ```bash
 curl -X GET \
-  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=3 \
+  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=3 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -433,6 +433,31 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 }
 ```
 
+### Starting from a specific point in time with the `seek` parameter
+
+The Journaling API supports a `seek` query parameter, which allows you to start fetching events from a specific point in time, rather than from the oldest or most recent event. This is especially useful when you want to inspect or extract events from a particular time window.
+
+The `seek` parameter accepts values in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations), such as:
+
+* `-PT2H` (2 hours ago)
+* `-P1D` (1 day ago)
+* `-P5DT2H` (5 days and 2 hours ago)
+
+For example, to fetch events starting from 2 hours ago:
+
+```bash
+curl -X GET \
+  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/events?seek=-PT2H \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
+  -H "Authorization: Bearer $USER_TOKEN" \
+  -H "x-api-key: $API_KEY"
+```
+
+**Note:**
+
+* Use the `seek` parameter to seek to a particular point in time in the journal. For subsequent requests, use the `since` parameter as provided in the `next` link from the API response to actually traverse the journal from that point.
+* `seek` and `since` parameters cannot be used together in the same request.
+
 ### Consuming the most recent events
 
 The Journaling endpoint URL when supplied with no query parameters returns the oldest entries in ledger, however, sometimes a client application is not interested in consuming older events. In such a case, the client application can jump straight to the "end" of the journal and start consuming events that are written to the journal after the request was made.
@@ -441,7 +466,7 @@ This can be done by specifying the query parameter `latest=true` on the first AP
 
 ```bash
 curl -X GET \
-  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?latest=true \
+  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?latest=true \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -491,7 +516,7 @@ For example, let's assume that the first three events in our journal got older t
 
 ```bash
 curl -X GET \
-  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
+  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -546,7 +571,7 @@ For example, now that the first three events in our journal have expired, if we 
 
 ```bash
 curl -X GET \
-  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
+  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -568,7 +593,7 @@ For example, once all events in our journal expire:
 
 ```bash
 curl -X GET \
-  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
+  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
