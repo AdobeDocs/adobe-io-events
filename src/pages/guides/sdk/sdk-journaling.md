@@ -25,8 +25,9 @@ The following options can be configured while calling the journaling API:
 | Name | Type | Description |
 |---|---|---|
 | [latest] | boolean | *Optional.* By default, the latest is set to false and all events are read from the first valid position in the journal. If set to true, Messages will be read from the latest position. |
-| [since] | string | *Optional.* Provide the position in the journal from where events must be fetched. If not specified and latests=false, messages are fetched from the first valid position in the journal. |
+| [since] | string | *Optional.* Provide the position in the journal from where events must be fetched. If not specified and `latest=false`, messages are fetched from the first valid position in the journal. |
 | [limit] | number | Maximum number of events returned in the response. Note: unless the events are created at a high frequency, chances are the number of messages will be less than the specified limit value (see our [Journaling API](../api/journaling-api.md#limiting-the-size-of-the-batch) for more details) |
+| [seek] | string | *Optional.* Start fetching events from a specific point in time, using an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) (e.g., `-PT2H` for 2 hours ago, `-P1D` for 1 day ago). Useful for [time-based queries](../api/journaling-api.md#starting-from-a-specific-point-in-time-with-the-seek-parameter). |
 
 ### EventsJournalPollingOptions
 
@@ -39,6 +40,8 @@ The following options can be configured while calling the journaling API:
 The `getEventsFromJournal` SDK expects a journal URL as input and `eventsJournalOptions` if required. If no parameters are specified, messages are fetched from the first valid position in the journal, and the `link.next` header in the response provides the position for the next event in the journal. Following the `link.next` link from each response will help fetch all events in order from the journal.
 
 You can also rewind to start reading from a different position in the journal by providing the `since` query parameter in the options or as part of the journal URL.
+
+Alternatively, you can start from a specific point in time using the `seek` parameter (e.g., `{ seek: '-PT2H' }` to start from 2 hours ago).
 
 ### Method
 

@@ -433,6 +433,31 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 }
 ```
 
+### Starting from a specific point in time with the `seek` parameter
+
+The Journaling API supports a `seek` query parameter, which allows you to start fetching events from a specific point in time, rather than from the oldest or most recent event. This is especially useful when you want to inspect or extract events from a particular time window.
+
+The `seek` parameter accepts values in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations), such as:
+
+* `-PT2H` (2 hours ago)
+* `-P1D` (1 day ago)
+* `-P5DT2H` (5 days and 2 hours ago)
+
+For example, to fetch events starting from 2 hours ago:
+
+```bash
+curl -X GET \
+  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/events?seek=-PT2H \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
+  -H "Authorization: Bearer $USER_TOKEN" \
+  -H "x-api-key: $API_KEY"
+```
+
+**Note:**
+
+* Use the `seek` parameter to seek to a particular point in time in the journal. For subsequent requests, use the `since` parameter as provided in the `next` link from the API response to actually traverse the journal from that point.
+* `seek` and `since` parameters cannot be used together in the same request.
+
 ### Consuming the most recent events
 
 The Journaling endpoint URL when supplied with no query parameters returns the oldest entries in ledger, however, sometimes a client application is not interested in consuming older events. In such a case, the client application can jump straight to the "end" of the journal and start consuming events that are written to the journal after the request was made.

@@ -155,6 +155,11 @@ No, our journaling API does not support retrieving all events in a single query.
 
 However, by using the `since` parameter, you can fetch events incrementally by following the journal's [rel=next Link](../guides/api/journaling-api.md#fetching-the-next-batch-of-newer-events-from-the-journal) in the response headers until all events have been retrieved.
 
+### Is there a way to start fetching events from a specific point in time?
+
+Yes, you can use the `seek` parameter with the Journaling API to start fetching events from a specific point in time, using an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) (e.g., `-PT2H` for 2 hours ago, `-P1D` for 1 day ago).
+This is especially useful for investigating events within a particular time window. See our [Journaling API documentation](../guides/api/journaling-api.md#starting-from-a-specific-point-in-time-with-the-seek-parameter) for more details and examples.
+
 ## Custom Events FAQ
 
 ### I created a `Custom Events Provider`, why is it not showing up in the `Adobe Developer Console`?

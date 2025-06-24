@@ -12,8 +12,10 @@ every enterprise integration that is registered for events is automatically enab
 Journaling data is retained for 7 days.
 
 Important Takeaways on Journaling:
+
 - Stores up to 7 days of history
 - Can be iterated through from any previous event within the history
+- Supports starting from a [specific point in time]((./api/journaling-api.md#starting-from-a-specific-point-in-time-with-the-seek-parameter)) using the `seek` parameter, which is useful for time-based investigations.
 - Will still receive and store events even if webhook is failing
 - Useful for fetching events that were missed due to webhook issues or for a pulling mechanism instead of webhook push
 
