@@ -20,7 +20,8 @@ With the right webhook in place, your application is instantly notified that thi
 
 Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](http://developer.adobe.com/developer-console/docs/guides/services/services-add-event)
 
-To start receiving events, you create an event registration specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks.
+To start receiving events, you create an event registration specifying a webhook URL and the types of events you want to receive. 
+Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks.
 
 ## Getting started
 
@@ -28,68 +29,57 @@ An **Event** is a JSON object that describes something that happened. Events ori
 
 ### Webhook example
 
-Acme Inc. wants to be notified when a new file is uploaded to Adobe Creative Cloud Assets, so it creates the following event registration:
+Acme Inc. wants to be notified when a Change segment for a lead occurs, in Adobe Marketo.
+so it creates a new IO Events registration 
+* selecting `Marketo Lead Activity Data Stream` events provider
+* selecting the `Change Segment` event type
+* specifying their webhook URL `https://acme.example.com/webhook`,
 
-```json
-{
-  "name": "Acme Webhook",
-  "description": "Listen for newly created files",
-  "webhook_url": "https://acme.example.com/webhook",
-  "events_of_interest": [
-    {
-      "provider": "ccstorage", 
-      "event_code": "asset_created"
-    }
-  ]
-}
-```
 
-Now when a file is uploaded, Adobe I/O Events performs the following HTTP request:
+Now when such a segment changes occurs, Adobe I/O Events performs the following `POST` HTTP request against Acme Inc. webhook URL:
 
 ```http
 POST https://acme.example.com/webhook HTTP/1.1
 content-type: application/json
 
 {
-  "@id": "82235bac-2b81-4e70-90b5-2bd1f04b5c7b",
-  "@type": "xdmCreated",
-  "xdmEventEnvelope:objectType": "xdmAsset",
-  "activitystreams:published": "2016-07-16T19:20:30+01:00",
-  "activitystreams:to": {
-    "xdmImsOrg:id": "08B3E5CE5822FC520A494229@AdobeOrg",
-    "@type": "xdmImsOrg"
-  },
-  "activitystreams:generator": {
-    "xdmContentRepository:root": "http://francois.corp.adobe.com:4502/",
-    "@type": "xdmContentRepository"
-  },
-  "activitystreams:actor": {
-    "xdmAemUser:id": "admin",
-    "@type": "xdmAemUser"
-  },
-  "activitystreams:object": {
-    "@type": "xdmAsset",
-    "xdmAsset:asset_id": "urn:aaid:aem:4123ba4c-93a8-4c5d-b979-ffbbe4318185",
-    "xdmAsset:asset_name": "Fx_DUKE-small.png",
-    "xdmAsset:etag": "6fc55d0389d856ae7deccebba54f110e",
-    "xdmAsset:path": "/content/dam/Fx_DUKE-small.png",
-    "xdmAsset:format": "image/png"
-  },
-  "@context": {
-    "activitystreams": "http://www.w3.org/ns/activitystreams#",
-    "xdmEventEnvelope": "https://ns.adobe.com/xdm/common/eventenvelope#",
-    "xdmAsset": "http://ns.adobe.com/xdm/assets/asset#",
-    "xdmImsOrg": "https://ns.adobe.com/xdm/ims/organization#",
-    "xdmContentRepository": "https://ns.adobe.com/xdm/content/repository",
-    "xdmAemUser": "https://ns.adobe.com/xdm/aem/user#",
-    "xdmCreated": "https://ns.adobe.com/xdm/common/event/created#"
+  "specversion": "1.0",
+  "type": "com.adobe.platform.marketo.activity.standard.changesegment",
+  "source": "urn:marketo_activity_stream",
+  "id": "ca67f792-f56e-45f3-ba7c-7c97302bcc00",
+  "time": "2025-06-25T13:03:41Z",
+  "datacontenttype": "application/json",
+  "eventid":"8927ce83-2f10-4df9-9eb4-09c381bc4778",
+  "recipientclientid":"c5a34355b7f5491f8277b8dd63f0bfa3"
+  "data": {
+    "munchkinId": "123-ABC-456",
+    "leadId": "1234",
+    "activityDate": "2025-06-25T13:03:40Z",
+    "activityTypeId": 108,
+    "activityType": "Change Segment",
+    "activityLogItemId": 1234567890,
+    "primaryAttributeValueId": 1234,
+    "primaryAttributeValue": "Attribute Value",
+    "attributes": [
+      {
+        "name": "New Segment ID",
+        "dataType": "object",
+        "value": 5678
+      }, {
+        "name": "Segmentation ID",
+        "dataType": "object",
+        "value": 1234
+      }
+    ]
   }
 }
 ```
 
 ## Your first webhook
 
-Before you can register a webhook, the webhook needs to be online and operational. If not, then the event registration will fail. So you need to take care of setting that up first. Your webhook must be hosted on a server. For development, you may use [webhook.site](https://webhook.site), but ensure you complete the [asynchronous validation](#asynchronous-validation) for it to be considered functional.
+Before you can register a webhook, the webhook needs to be online and operational. If not, then the event registration will fail. 
+So you need to take care of setting that up first. Your webhook must be hosted on a server. For development, you may use [webhook.site](https://webhook.site), 
+but ensure you complete the [asynchronous validation](#asynchronous-validation) for it to be considered functional.
 
 For production, your webhook needs to:
 
@@ -217,16 +207,19 @@ Note: While your event registration is marked `Disabled`, Adobe will continue to
 
 ## Security Considerations
 
-Your webhook URL must necessarily be accessible from the open internet. This means third-party actors can send forged requests to it, tricking your application into handling fake events.
-
-To prevent this from happening, Adobe I/O Events has a robust event validation process in place as defined below that allows users to secure their webhook.
-
 <InlineAlert variant="info" slots="text"/>
-Adobe strongly encourages validating your webhook deliveries using this new mechanism to avoid processing "events" received from malicious third-party actors and make sure your webhook continues to receive events.
+Adobe strongly encourages securing your webhook deliveries to avoid processing malicious request.
 
-### Improved and Resilient Security Verification for Webhook Events
+Indeed, as your webhook URL must necessarily be accessible from the open internet, 
+third-party actors can send forged requests to it, tricking your application into handling fake events.
 
-For a more robust and reliable verification, Adobe I/O Events adds below security validations for events delivered to your webhook.
+To prevent this from happening, Adobe I/O Events offers two options for securing your webhook deliveries:
+* Adobe I/O Events Digital Signature 
+* Adobe I/O Events  `mTLS` support
+
+Both options are described below, pick just one, implementing both would be a waste of resources.
+
+### Adobe I/O Events Digital Signature
 
 - Adobe I/O Events sends an additional field of `recipient_client_id` as part of your event payload.
 - The event payload is signed digitally using a fixed public/private key pair generated by Adobe I/O Events. The digital signature is sent as a webhook request header.
@@ -248,8 +241,6 @@ I/O Events sends the 2 digital signatures as webhook request headers and they ar
 I/O Events also sends 2 public keys corresponding to the private keys used to generate the digital signatures. These public keys are publicly accessible using our Adobe domain [static.adobeioevents.com](https://static.adobeioevents.com). I/O Events sends the relative paths of the public keys i.e. `/prod/keys/pub-key-<random-uuid>.pem` via the webhook request header fields `x-adobe-public-key1-path` and  `x-adobe-public-key2-path` respectively.
 
 As mentioned earlier, I/O Events adds an additional json field `recipient_client_id` to your payload. See the sample payload after the transformation that I/O Events sends to your webhook.
-
-![Sample XDM format asset event payload](img/xdm_asset_payload_with_recipient_clientid.png "Sample XDM format asset event payload")
 
 Upon receiving a request, you must do the below for leveraging the enhanced security measures
 
@@ -311,6 +302,33 @@ private PublicKey getPublic(String filename) throws Exception {
 
 <InlineAlert variant="info" slots="text"/>
 Kindly note that this digital signature verification process comes out-of-the-box for I/O Runtime actions, and no action is required on that end.
+
+### Adobe I/O Events mTLS support
+
+Instead of leveraging the Adobe I/O Events Digital Signature, you may choose to secure your webhook using `mTLS`.
+`mTLS` (mutual Transport Layer Security) will ensure that only Adobe I/O Events can send events to your webhook.
+Once enabled on your server, `mTLS` includes an additional step compared to `TLS`/`https`: for all incoming (webhook) requests,
+your server will ask for the client’s certificate and will verify it at its end.
+
+**No additional configuration is required to activate mTLS. If your server is mTLS enabled, 
+Adobe I/O Events client certificate will automatically be sent to your server, during the ssl-handshake.**
+
+Adobe I/O Events client certificate lifecycle is fully automated to improve reliability and prevent service disruptions.
+With this automation, Adobe I/O Events certificate is:
+* generated with a 13-month expiration date;
+* reissued 60 days before expiration, 
+  * the latest issue being instantly promoted,
+  * the old certificate being revoked 30 days before expiration,
+* revoked if compromised
+
+You are responsible for ensuring that your server does use and trust **all** Adobe I/O Events client certificates (that did not expire and were not revoked).
+To implement this, you will retrieve Adobe I/O Events latest public certificate using [Adobe Platform Certificate API](https://experienceleague.adobe.com/en/docs/experience-platform/data-governance/mtls-api/public-certificate-endpoint).
+
+Notes:
+* you will need to add the `AEP-Default-All-Users` API to your project in the `Adobe Developer Console` to access this Certificate endpoint, see the [Adobe Platform API authentication documentation](https://experienceleague.adobe.com/en/docs/experience-platform/landing/platform-apis/api-authentication).
+* Adobe I/O Events certificate is issued by a Certificate Authority (CA) 
+* Adobe I/O Events certificate Common Name (CN) and Subject Alternative Names (SAN) will remain the same across renewal, and can be used as an additional layer of ownership validation if you wish to do so.
+
 
 ## Quotas
 
