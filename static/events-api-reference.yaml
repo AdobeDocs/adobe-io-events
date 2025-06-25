@@ -397,10 +397,12 @@ paths:
           required: false
           type: integer
           format: int32
+          description: Maximum number of events to return in the batch
         - name: since
           in: query
-          required: false
+          required: true
           type: string
+          description: Position in the journal to fetch events from
       responses:
         default:
           description: successful operation
@@ -426,18 +428,22 @@ paths:
           required: false
           type: integer
           format: int32
+          description: Maximum number of events to return in the batch
         - name: since
           in: query
           required: false
           type: string
+          description: Position in the journal to fetch events from (cannot be used with `seek` parameter)
         - name: seek
           in: query
           required: false
           type: string
+          description: ISO 8601 duration format to seek to a specific point in time (e.g., -PT2H for 2 hours ago, -P1D for 1 day ago)
         - name: latest
           in: query
           required: false
           type: boolean
+          description: Jump to the end of the journal to start consuming the most recent events
       responses:
         default:
           description: successful operation
