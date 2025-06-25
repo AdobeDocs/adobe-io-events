@@ -1,13 +1,16 @@
 ---
 name: Deployment
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       env:
         description: "Select environment to deploy to"
         type: choice
         required: true
-        default: "stage"
+        default: "stage & prod"
         options:
           - stage
           - prod
@@ -26,6 +29,6 @@ jobs:
     name: Deployment
     uses: AdobeDocs/adp-devsite-workflow/.github/workflows/deploy.yml@main
     with:
-      env: ${{ inputs.env }}
-      baseSha: ${{ inputs.baseSha }}
-      deployAll: ${{ inputs.deployAll }}
+      env: ${{ github.event_name == 'workflow_dispatch' && inputs.env || 'stage & prod' }}
+      baseSha: ${{ github.event_name == 'workflow_dispatch' && inputs.baseSha || '' }}
+      deployAll: ${{ github.event_name == 'workflow_dispatch' && inputs.deployAll || false }}
