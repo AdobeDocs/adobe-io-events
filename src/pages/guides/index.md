@@ -307,10 +307,10 @@ Kindly note that this digital signature verification process comes out-of-the-bo
 
 Instead of leveraging the Adobe I/O Events Digital Signature, you may choose to secure your webhook using `mTLS`.
 `mTLS` (mutual Transport Layer Security) will ensure that only Adobe I/O Events can send events to your webhook.
-Once enabled on your server, `mTLS` includes an additional step compared to `TLS`/`https`: for all incoming (webhook) requests,
+Once enabled on your server, `mTLS` includes an additional step on top of `TLS`/`https`: for all incoming (webhook) requests,
 your server will ask for the client’s certificate and will verify it at its end.
 
-**No additional configuration is required to activate mTLS. If your server is mTLS enabled, 
+**No additional project configuration is required to activate mTLS. If your server is mTLS enabled, 
 Adobe I/O Events client certificate will automatically be sent to your server, during the ssl-handshake.**
 
 Adobe I/O Events client certificate lifecycle is fully automated to improve reliability and prevent service disruptions.
@@ -321,12 +321,14 @@ With this automation, Adobe I/O Events certificate is:
   * the old certificate being revoked 30 days before expiration,
 * revoked if compromised
 
-You are responsible for ensuring that your server does use and trust **all** Adobe I/O Events client certificates (that did not expire and were not revoked).
+You are responsible for ensuring that your server trusts Adobe I/O Events client certificates (that did not expire and were not revoked).
 To implement this, you will retrieve Adobe I/O Events latest public certificate using [Adobe Platform Certificate API](https://experienceleague.adobe.com/en/docs/experience-platform/data-governance/mtls-api/public-certificate-endpoint).
 
 Notes:
 * you will need to add the `AEP-Default-All-Users` API to your project in the `Adobe Developer Console` to access this Certificate endpoint, see the [Adobe Platform API authentication documentation](https://experienceleague.adobe.com/en/docs/experience-platform/landing/platform-apis/api-authentication).
-* Adobe I/O Events certificate is issued by a Certificate Authority (CA) 
+* Adobe I/O Events certificate is issued by a Certificate Authority (CA) :
+  * it can be validated using the CA’s public key
+  * if revoked, the certificate will be added to the Certificate Revocation List (CRL) of the CA
 * Adobe I/O Events certificate Common Name (CN) and Subject Alternative Names (SAN) will remain the same across renewal, and can be used as an additional layer of ownership validation if you wish to do so.
 
 
