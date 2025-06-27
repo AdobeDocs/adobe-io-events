@@ -63,7 +63,7 @@ These codes are
 * `604`: Similar to `Gateway Timeout` HTTP `504` status code. 
   This status code indicates that your webhook server did not respond within the
   expected time frame. And that Adobe I/O Events HTTP client failed, timing out.
-* `611` Somewhat similar to `Network Authentication Required` HTTP `511` status code.
+* `611`: Similar to `Network Authentication Required` HTTP `511` status code.
   This error code will be used when the ssl handshake with the webhook server failed,
   mostly due to your server's TLS (or mTLS) configuration issue.
   See our [Security Considerations](../guides/index.md#security-considerations) documentation for more details.
