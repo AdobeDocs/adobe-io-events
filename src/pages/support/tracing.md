@@ -53,7 +53,7 @@ when no HTTP response was received from your webhook server.
 
 These codes are
 
-* `601` Somewhat similar to `Not Implemented` HTTP `501` status code.
+* `601`: Similar to `Not Implemented` HTTP `501` status code.
   This error code indicates that Adobe I/O Events HTTP client
   failed with an unexpected error while trying to `POST` the event to the target webhook endpoint.
 * `602` Somewhat similar to `Bad Gateway` HTTP `502` status code.
