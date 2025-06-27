@@ -193,7 +193,11 @@ In general, `Adobe I/O Events` will always confirm that your webhook received an
 
 <RetryDoc/>
 
-To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your events registration. This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
+To restart the flow of requests, fix the problem preventing your webhook from responding. 
+Then, log into the `Adobe Developer Console` and edit your events registration.
+This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
+
+To help you debug this, have a look at the [Debug Tracing](../support/tracing.md) tab in the `Adobe Developer Console`.
 
 Note: While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](journaling-intro.md)).
 
@@ -330,7 +334,7 @@ To implement this, you will retrieve Adobe I/O Events latest public certificate 
   * it can be validated using the CA’s public key
   * if revoked, the certificate will be added to the Certificate Revocation List (CRL) of the CA
 * Adobe I/O Events certificate Common Name (CN) and Subject Alternative Names (SAN) will remain the same across renewal, and can be used as an additional layer of ownership validation if you wish to do so.
-
+* in order to debug this mTLS handshake, you can use the `Debug Tracing` UI, see our [Debug Tracing documentation](../support/tracing.md) for more details.
 
 ## Quotas
 
