@@ -16,7 +16,7 @@ Note that the maximum size of 'request-body' and 'response-body' in a trace is 6
 
 * Log into [Adobe Developer Console](https://developer.adobe.com/console/) and select the project containing the event registration.
 * From the *Project Overview* page, select the event registration under *Events* in the left navigation.
-* From the *Registration Details*, select the *Debug Tracing* tab. You will see a list of events, beginning with the most recent.
+* On the *Registration Details* page, click the *Debug Tracing* tab to see all event delivery traces, with the most recent entries shown first.
 
 ## What's in Debug Tracing
 
