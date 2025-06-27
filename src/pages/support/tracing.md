@@ -56,7 +56,7 @@ These codes are
 * `601`: Similar to `Not Implemented` HTTP `501` status code.
   This error code indicates that Adobe I/O Events HTTP client
   failed with an unexpected error while trying to `POST` the event to the target webhook endpoint.
-* `602` Somewhat similar to `Bad Gateway` HTTP `502` status code.
+* `602`: Similar to `Bad Gateway` HTTP `502` status code.
   This status code indicates that Adobe I/O Events HTTP client 
   faced network issues or failures to connect to the target webhook endpoint
   (errors such, `No Route To Host` or `Socket` exception).
