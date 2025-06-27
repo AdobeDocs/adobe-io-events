@@ -60,7 +60,7 @@ These codes are
   This status code indicates that Adobe I/O Events HTTP client 
   faced network issues or failures to connect to the target webhook endpoint
   (errors such as `No Route To Host` or `Socket` exception).
-* `604` Somewhat similar to `Gateway Timeout` HTTP `504` status code. 
+* `604`: Similar to `Gateway Timeout` HTTP `504` status code. 
   This status code indicates that your webhook server did not respond within the
   expected time frame. And that Adobe I/O Events HTTP client failed, timing out.
 * `611` Somewhat similar to `Network Authentication Required` HTTP `511` status code.
