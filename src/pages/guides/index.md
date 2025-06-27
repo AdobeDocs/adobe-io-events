@@ -334,7 +334,7 @@ To implement this, you will retrieve Adobe I/O Events latest public certificate 
   * it can be validated using the CA’s public key
   * if revoked, the certificate will be added to the Certificate Revocation List (CRL) of the CA
 * Adobe I/O Events certificate Common Name (CN) and Subject Alternative Names (SAN) will remain the same across renewal, and can be used as an additional layer of ownership validation if you wish to do so.
-* in order to debug this mTLS handshake, you can use the `Debug Tracing` UI, see our [Debug Tracing documentation](../support/tracing.md) for more details.
+* In order to debug this mTLS handshake, you can use the [Debug Tracing](../support/tracing.md) tab in Developer Console.
 
 ## Quotas
 
