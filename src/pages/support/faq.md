@@ -108,9 +108,15 @@ Please note that if an event delivery fails with a response status code of [429 
 We continue to retry the event delivery for 24 hours. If all retry attempts are exhausted and the event still isn't delivered, the event will be dropped.
 However, do note that the event registration will remain as **Active** and shall continue to process events.
 
+### What are these non-standard `6xx` webhook status codes ?
+
+`Adobe I/O Events` uses a set of custom status `6xx` codes to indicate specific issues encountered during event delivery, when no HTTP response was received from your webhook server.
+see [Debug Tracing](tracing.md#6xx-custom-status-codes) for more details.
+
 ### Does every Adobe I/O Events webhook HTTP request come with a signature?
 
 Yes, to allow your webhook to reject forged requests, Adobe I/O Events adds a [`x-adobe-signature`](../guides/index.md#security-considerations) header to every single HTTP request it makes to your webhook URL (even the first `challenge` GET request).
+see [Security Considerations](../guides/index.md#security-considerations) for more details.
 
 ### Do Adobe I/O Events notifications come from a range of static IPs?
 
