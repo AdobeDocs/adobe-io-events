@@ -83,7 +83,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 ````json
 [
   {
-    "event_id": "ec2c6092-1e94-45e9-b2dd-0b6bad0baa6f",
+    "eventid": "ec2c6092-1e94-45e9-b2dd-0b6bad0baa6f",
     "specversion": "1.0",
     "type": "com.adobe.platform.marketo.activity.standard.openemail",
     "source": "urn:marketo_activity_stream",
@@ -132,10 +132,10 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         }
       ]
     },
-    "recipient_client_id": "<your_client_id>"
+    "recipientclientid": "<your_client_id>"
   },
   {
-    "event_id": "97980214-3c8f-4964-88a3-75b42833a1f9",
+    "eventid": "97980214-3c8f-4964-88a3-75b42833a1f9",
     "specversion": "1.0",
     "type": "com.adobe.platform.marketo.activity.standard.visitwebpage",
     "source": "urn:marketo_activity_stream",
@@ -184,7 +184,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         }
       ]
     },
-    "recipient_client_id": "<your_client_id>"
+    "recipientclientid": "<your_client_id>"
   }
 ]
 ````
@@ -193,7 +193,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 
 ````json
 {
-  "event_id": "4109a990-da28-4c5b-bad9-22df8903ed9a",
+  "eventid": "4109a990-da28-4c5b-bad9-22df8903ed9a",
   "specversion": "1.0",
   "type": "com.adobe.platform.marketo.activity.standard.clicklink",
   "source": "urn:marketo_activity_stream",
@@ -242,7 +242,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
       }
     ]
   },
-  "recipient_client_id": "<your_client_id>"
+  "recipientclientid": "<your_client_id>"
 }
 ````
 
@@ -253,7 +253,7 @@ In particular, the `attributes` array will contain a subset of all possible attr
 
 | Field               | Type              | Description    |
 |---------------------|-------------------|---------------------------------------------------|
-| event_id            | String            | Unique UUID generated per event                   |
+| eventid            | String            | Unique UUID generated per event                   |
 | specversion         | String            | CloudEvents version specification being used      |
 | type                | String            | Type of event used for event subscription routing |
 | source              | String            | Context in which an event happened                |
@@ -261,7 +261,7 @@ In particular, the `attributes` array will contain a subset of all possible attr
 | time                | String (DateTime) | Timestamp of the completion of the action         |
 | datacontenttype     | String            | Content type of the data object                   |
 | data                | Object            | Event data object (**see below**)                 |
-| recipient_client_id | String            | The ID of the client that is receiving the event  |
+| recipientclientid | String            | The ID of the client that is receiving the event  |
 
 The `type` field will always be the Event Type name, all lowercase with spaces removed, appended to the string "**com.adobe.platform.marketo.activity.standard**". For example, for the "Open Email" Event Type, the `type` string will be "**com.adobe.platform.marketo.activity.standard.openemail**".
 

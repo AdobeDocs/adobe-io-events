@@ -37,7 +37,7 @@ The following shows a sample cloud event accepted by the event receiver:
 ```json
 {
     "id": "<id>",
-    "event_id": "<event_id>",
+    "eventid": "<event-id>",
     "specversion": "1.0",
     "type": "<event-code>",
     "source": "urn:uuid:<provider-id>",

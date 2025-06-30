@@ -81,7 +81,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 ````json
 [
   {
-    "event_id": "64e73a16-c903-4faf-9502-9603ce887759",
+    "eventid": "64e73a16-c903-4faf-9502-9603ce887759",
     "event": {
       "body": {
         "specversion": "1.0",
@@ -105,10 +105,10 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         }
       }
     },
-    "recipient_client_id": "0f13cce22f4645328e01b90262b3ee51"
+    "recipientclientid": "0f13cce22f4645328e01b90262b3ee51"
   },
   {
-    "event_id": "1519a09d-0331-4e96-a91a-908037d78e88",
+    "eventid": "1519a09d-0331-4e96-a91a-908037d78e88",
     "event": {
       "body": {
         "specversion": "1.0",
@@ -129,7 +129,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         }
       }
     },
-    "recipient_client_id": "0f13cce22f4645328e01b90262b3ee51"
+    "recipientclientid": "0f13cce22f4645328e01b90262b3ee51"
   }
 ]
 ````
@@ -138,7 +138,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 
 ````json
 {
-  "event_id": "661cbe45-753a-49fc-95f7-1bb2378d13d5",
+  "eventid": "661cbe45-753a-49fc-95f7-1bb2378d13d5",
   "event": {
     "body": {
       "specversion": "1.0",
@@ -159,7 +159,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
       }
     }
   },
-  "recipient_client_id": "0f13cce22f4645328e01b90262b3ee51"
+  "recipientclientid": "0f13cce22f4645328e01b90262b3ee51"
 }
 ````
 
@@ -169,7 +169,7 @@ Many of the fields are common across the different types of events. The `event.b
 
 | Field           | Type              | Description                                       |
 |-----------------|-------------------|---------------------------------------------------|
-| event_id        | String            | Unique UUID generated per event                   |
+| eventid        | String            | Unique UUID generated per event                   |
 | specversion     | String            | CloudEvents version specification being used      |
 | type            | String            | Type of event used for event subscription routing |
 | source          | String            | Context in which an event happened                |
