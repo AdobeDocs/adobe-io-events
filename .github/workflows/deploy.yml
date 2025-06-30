@@ -29,6 +29,6 @@ jobs:
     name: Deployment
     uses: AdobeDocs/adp-devsite-workflow/.github/workflows/deploy.yml@main
     with:
-      env: ${{ github.event_name == 'workflow_dispatch' && inputs.env || 'stage & prod' }}
+      env: ${{ github.event_name == 'workflow_dispatch' && inputs.env || 'stage' }}
       baseSha: ${{ github.event_name == 'workflow_dispatch' && inputs.baseSha || '' }}
-      deployAll: ${{ github.event_name == 'workflow_dispatch' && inputs.deployAll || false }}
+      deployAll: ${{ github.event_name == 'workflow_dispatch' && inputs.deployAll || true }}
