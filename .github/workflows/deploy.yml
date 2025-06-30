@@ -10,7 +10,7 @@ on:
         description: "Select environment to deploy to"
         type: choice
         required: true
-        default: "stage & prod"
+        default: "prod"
         options:
           - stage
           - prod
@@ -23,7 +23,7 @@ on:
       deployAll:
         description: "Force deploy all files"
         type: boolean
-        default: false
+        default: true
 jobs:
   deployment:
     name: Deployment
