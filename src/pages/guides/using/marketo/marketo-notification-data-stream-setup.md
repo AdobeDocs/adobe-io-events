@@ -25,7 +25,7 @@ See [Getting Started with Adobe I/O Events](../../../index.md)
 
 For basic instructions for this use case, starting from [console.adobe.io](https://developer.adobe.com/console/):
 
-*When prompted, click the designated button to proceed*
+*When prompted, click the designated button to proceed*:
 
 - Select `Create new project`
 
@@ -76,7 +76,7 @@ For basic instructions for this use case, starting from [console.adobe.io](https
 
 Events are structured in JSON format using the [CloudEvents](https://cloudevents.io/) spec
 
-*Example Event (batch)*
+*Example Event (batch)*:
 
 ````json
 [
@@ -134,7 +134,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 ]
 ````
 
-*Example Event (single)*
+*Example Event (single)*:
 
 ````json
 {
