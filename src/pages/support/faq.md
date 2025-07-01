@@ -13,19 +13,21 @@ import RetryDoc from '../common/retry-doc.md'
 Adobe I/O Events regularly adds new event providers. As of now, the following Adobe solutions are supported:
 
 - Adobe Campaign Standard
+- [Adobe Commerce](https://developer.adobe.com/commerce/extensibility/events/)
 - Adobe Document Cloud
-- [AEM](../guides/using/aem/index.md)
+- [Adobe Experience Manager (AEM)](../guides/using/aem/index.md)
+- [Adobe Experience Platform Notifications](../guides/using/experience-platform-event-setup.md)
+- [Adobe Experience Platform Privacy Service](../guides/using/privacy-event-setup.md)
+- [Adobe Experience Platform Data Hygiene](https://experienceleague.adobe.com/en/docs/experience-platform/data-lifecycle/best-practices#monitor)
 - [Analytics Triggers](https://www.adobe.com/go/devs_events_triggers_docs)
 - Asset Compute
+- [Asset Events (Creative Cloud)](../guides/using/asset-events/asset-events-landing.md)
 - [Cloud Manager](https://www.adobe.com/go/devs_events_cloudmanager_docs)
-- [Creative Cloud Assets](https://www.adobe.com/go/devs_events_cc_docs)
-- Creative Cloud Libraries
-- Imaging API
+- Globalization Content Service
+- [Imaging APIs](https://developer.adobe.com/firefly-services/docs/photoshop/features/#webhooks-through-adobe-io-events)
+- [InDesign APIs](../guides/using/indesign-apis/indesign-apis-events-data-stream-setup.md)
 - [Marketo Data Streams](../guides/using/marketo/marketo-data-streams.md)
-- [Platform Notifications](https://www.adobe.com/go/devs_events_aep_docs)
-- [Privacy Service](../guides/using/privacy-event-setup.md)
-
-You can also register your own [Custom Events Provider](../guides/using/custom-events.md).
+- You can also register your own [Custom Events Provider](../guides/using/custom-events.md)
 
 ### What is the guarantee of events delivery?
 
