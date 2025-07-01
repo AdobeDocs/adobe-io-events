@@ -23,6 +23,7 @@ Adobe I/O Events regularly adds new event providers. As of now, the following Ad
 - Asset Compute
 - [Asset Events (Creative Cloud)](../guides/using/asset-events/asset-events-landing.md)
 - [Cloud Manager](https://www.adobe.com/go/devs_events_cloudmanager_docs)
+- [Content Log Events](../guides/using/contentlogs/contentlogs-setup.md)
 - Globalization Content Service
 - [Imaging APIs](https://developer.adobe.com/firefly-services/docs/photoshop/features/#webhooks-through-adobe-io-events)
 - [InDesign APIs](../guides/using/indesign-apis/indesign-apis-events-data-stream-setup.md)
