@@ -6,311 +6,194 @@ import RetryDoc from '../common/retry-doc.md'
 
 # Adobe I/O Events Frequently Asked Questions (FAQ)
 
-## General questions
+## General Questions
 
-### Which events are currently supported by `Adobe I/O Events`?
+### Which events are currently supported by Adobe I/O Events?
 
-We are adding new events providers regularly, at the time of writing, the following Adobe solutions are supported via I/O Events:
+Adobe I/O Events regularly adds new event providers. As of now, the following Adobe solutions are supported:
 
-* [Creative Cloud Assets](https://www.adobe.com/go/devs_events_cc_docs) (deprecated)
-* Creative Cloud Libraries (replacing the above)
-* Imaging API
-* Adobe XD
+- Adobe Campaign Standard
+- Adobe Document Cloud
+- [AEM](../guides/using/aem/index.md)
+- [Analytics Triggers](https://www.adobe.com/go/devs_events_triggers_docs)
+- Asset Compute
+- [Cloud Manager](https://www.adobe.com/go/devs_events_cloudmanager_docs)
+- [Creative Cloud Assets](https://www.adobe.com/go/devs_events_cc_docs)
+- Creative Cloud Libraries
+- Imaging API
+- [Marketo Data Streams](../guides/using/marketo/marketo-data-streams.md)
+- [Platform Notifications](https://www.adobe.com/go/devs_events_aep_docs)
+- [Privacy Service](../guides/using/privacy-event-setup.md)
 
-* Adobe Document Cloud
-
-* [Platform notifications](https://www.adobe.com/go/devs_events_aep_docs)
-* [Analytics Triggers](https://www.adobe.com/go/devs_events_triggers_docs)
-* [Marketo Data Streams](../guides/using/marketo/marketo-data-streams.md)
-* [Privacy Service](../guides/using/privacy-event-setup.md)
-* [Cloud Manager](https://www.adobe.com/go/devs_events_cloudmanager_docs)
-* Asset Compute
-* [AEM](../guides/using/aem/index.md)
-* Adobe Campaign Standard
-
-You can also register [your own `Custom Events Provider`](../guides/using/custom-events.md)
+You can also register your own [Custom Events Provider](../guides/using/custom-events.md).
 
 ### What is the guarantee of events delivery?
 
-`Adobe I/O Events` provides durable delivery. **It delivers each event at least once for each registration**.
-If the webhook endpoint doesn't acknowledge receipt of an event, `Adobe I/O Events` retries the delivery of the event (see the [webhook FAQ](#webhook-faq) section below).
+Adobe I/O Events provides **durable delivery**. Each event is delivered at least once for each registration.
+If your webhook endpoint does not acknowledge receipt of the event delivery, Adobe I/O Events retries delivery. See the [Webhook FAQ](#webhook-faq) for more details.
 
-Note that `Adobe I/O Events`:
+**Important notes:**
 
-* Currently doesn't guarantee the order of events delivery, so subscribers may receive them out of order (this applies to our Journaling API as well).
-* May send the same events more than once.
-* Is adding a unique event uuid in the event payload.
-* Is passing the same uuid in the `x-adobe-event-id` header of the webhook request.
+- Event order is not guaranteed. Events may arrive out of order (applies to [Journaling API](../guides/journaling-intro.md) as well).
+- Duplicate events may be sent.
+- Each event payload includes a unique event UUID.
+- The same UUID is included in the `x-adobe-event-id` header of the webhook request.
 
 ### Do you guarantee the order of events delivery?
 
-No, see the paragraph above for details.
+No. Event order is not guaranteed. See the previous answer for details.
 
-### What permissions are required to use I/O Events?
+### What permissions are required to use Adobe I/O Events?
 
-The various required permissions and entitlements vary according to the events provider, (see the list above) some are opened to all Adobe customers, others to enterprise developers or administrators only.
-Some of these events providers will require licensing, while others will be available to all.
-Please reach out to your Adobe account manager for licensing related questions.
+Permissions and entitlements depend on the event provider:
 
-### Which subscription types do I/O Events support?
+- Some providers are available to all Adobe customers.
+- Others require enterprise developer or administrator access.
+- Some providers require licensing.
 
-I/O Events supports [webhooks](../guides/index.md) for near-real time notifications (push) as well as [a Journaling API](../guides/journaling-intro.md) (pull) to grab groups of events at a time.
+For licensing questions, contact your Adobe account manager.
+
+### Which subscription types does Adobe I/O Events support?
+
+Adobe I/O Events supports:
+
+- For near-real-time notifications (push model):
+  - [Webhooks](../guides/index.md)
+  - [Runtime actions as Webhooks](../guides/runtime-webhooks/index.md)
+  - [Amazon EventBridge](../guides/amazon-eventbridge/index.md)
+- For batch retrieval of events (pull model):
+  - [Journaling API](../guides/journaling-intro.md)
 
 ### What should I do if I am unable to delete a project because of a conflicting provider?
 
-If while deleting a project in developer console, you get an error as shown in the screenshot below, it means that you created an event provider associated with the same workspace, and until you delete that event provider you cannot go ahead with the project deletion.
+If you see an error when deleting a project in the Developer Console, it may be due to an event provider associated with the same workspace.
+You must delete the event provider before deleting the project.
+
+**Steps to resolve:**
+
+1. In the Developer Console, select "Project overview" from the left menu.
+2. Click "Download" in the top menu to download the project metadata JSON file.
+3. Open the JSON file and note:
+   - Consumer organization id (`project.org.id`)
+   - Project id (`project.id`)
+   - Workspace id (`project.workspace.id`)
+4. Use the [Provider API documentation](../guides/api/provider-api.md) to fetch your I/O Events providers for the organization id.
+5. Find the provider with the matching workspace id. Note the provider `id`.
+6. Delete the provider using the [Provider API](../api.md#operation/deleteProvider) and the ids from above.
+7. Repeat for all conflicting providers, then try deleting the project again.
 
 ![Error while deleting a project](./img/project-delete-violation.png "Error while deleting a project")
 
-If you are sure that the event provider can be deleted, then follow the steps documented below to remove the conflicting event provider:
+### Why do I see duplicate fields for recipient client id and event id in the delivered payload?
 
-1. Select Project overview in the left-side links menu.
-2. Click on the "Download" button from the top menu on the right to download the project metadata json file. Open the downloaded json file with your favorite editor, and make note of the following:
-   1. Your consumer organization id (at `project.org.id`)
-   2. Your project id (at `project.id`)
-   3. Your workspace id (at `project.workspace.id`)
-3. Using the [provider API](../guides/api/provider-api.md), fetch [your I/O Events providers entitled to the provided organization id](../api.md#operation/getProvidersByConsumerOrgId), using the consumer organization id noted from above.
-4. Find the conflicting provider against your workspace id (found at `project.workspace.id` from the project json file) from the provider API response, and make a note of the provider `id`.
-5. Delete the provider via the [provider API](../api.md#operation/deleteProvider), using the ids noted in above steps.
-6. Repeat the above steps for all conflicting event providers and try deleting the project again. Your project deletion should now go through successfully.
+Adobe I/O Events sends cloud event payloads with custom attributes:
 
-### Why do I see duplicate fields in the delivered payload for attributes recipient client id and event id?
+- `event_id` (for event tracking and debugging)
+- `recipient_client_id` (for payload verification)
 
-I/O Events sends cloud event payloads with internal custom attributes like `event_id` (used for event tracking and debugging) and `recipient_client_id` (used by consumers for payload verification, see [securtiy verification guide](../guides/index.md#improved-and-resilient-security-verification-for-webhook-events)).
+After upgrading to Java 17 and the latest CloudEvents SDK, stricter attribute naming rules are enforced.
+The old names (`event_id`, `recipient_client_id`) do not conform to the [CloudEvents spec](https://github.com/cloudevents/spec/blob/v1.0/spec.md#attribute-naming-convention).
 
-As part of our recent upgrade to `Java 17`, we have adopted the latest version of the CloudEvents SDK. This version enforces stricter validation rules for custom attribute names, as outlined in the [CloudEvents spec](https://github.com/cloudevents/spec/blob/v1.0/spec.md#attribute-naming-convention). The previous attribute names (`event_id` and `recipient_client_id`) do not conform to these rules and cause serialization failures.
+**To ensure compatibility:**
 
-To ensure backward compatibility while rolling out our Java 17 upgrade, we are now including two additional attributes in the payload namely `eventid` and `recipientclientid` conforming to the cloud events spec.
+- New attributes `eventid` and `recipientclientid` are now included (CloudEvents-compliant).
+- You may see all four fields: `event_id`, `recipient_client_id`, `eventid`, `recipientclientid`.
 
-As a result, you may notice *four fields* in your delivered payload (existing  format - `event_id` , `recipient_client_id` and new compliant format `eventid`, `recipientclientid`).
+**Action required:**
 
-**Action for consumers** -
-If your integration relies on `event_id` or `recipient_client_id`, please update it to use `eventid` and `recipientclientid`.  We will *deprecate `event_id` and `recipient_client_id` by the end of 2025*, after which only the CloudEvents compliant attributes (`eventid` and `recipientclientid`) will be included in the payload.
+- Update your integration to use `eventid` and `recipientclientid`.
+- The old fields will be deprecated by the end of 2025.
 
 ## Webhook FAQ
 
 ### What happens if my webhook is down? Why is my event registration marked as `Unstable`?
 
+If your webhook is down, Adobe I/O Events retries delivery (see details below). Your event registration may be marked as `Unstable`.
+
 <RetryDoc/>
 
-Note: You can then use the [Journaling API](../guides/journaling-intro.md) to **retrieve** events that were published while your webhook was down. Once your webhook gets restored, you can re-enable your event registration (see the question below).
+You can use the [Journaling API](../guides/journaling-intro.md) to retrieve events published while your webhook was down.
+Once your webhook is restored, you can re-enable your event registration (see next question).
 
-### How can I re-enable my event registration (disabled after a downtime)? How can I retrieve the events I missed?
+### How can I re-enable my event registration after downtime? How can I retrieve missed events?
 
-To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your event registration. This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
+1. Fix the issue preventing your webhook from responding.
+2. Log in to the Adobe Developer Console.
+3. Edit your event registration. This triggers a webhook challenge request and re-activates your registration.
 
-While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](../guides/journaling-intro.md)).
+While your registration is disabled, Adobe logs events in your Journal. You can retrieve all events for the past 7 days using the [Journaling API documentation](../guides/journaling-intro.md).
 
-### What happens if my webhook is unable to handle a specific event but handles all other events gracefully?
+### What happens if my webhook cannot handle a specific event but handles others?
 
-Please note that if an event delivery fails with a response status code of [429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429), or with any response status code in the range of 500 to 599 except for [505 HTTP Version Not Supported](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505), then those events are retried. Events that fail with any other response status codes are **not retried**.
+- If delivery fails with any of the following status codes, Adobe I/O Events retries delivery.
+  - [429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429)
+  - 5xx error codes (except [505 HTTP Version Not Supported](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505))
+  - 6xx error codes ([Adobe I/O Events custom error codes](tracing.md#6xx-custom-status-codes))
+- Other status codes are **not retried**.
+- Retries continue for 24 hours. If all attempts fail, the event is dropped.
+- The event registration remains **Active** and continues processing other events.
 
-We continue to retry the event delivery for 24 hours. If all retry attempts are exhausted and the event still isn't delivered, the event will be dropped.
-However, do note that the event registration will remain as **Active** and shall continue to process events.
+### What are non-standard 6xx webhook status codes?
 
-### What are these non-standard `6xx` webhook status codes ?
+Adobe I/O Events uses custom 6xx status codes to indicate specific issues when no HTTP response is received from your webhook server. See [Debug Tracing: 6xx Custom Status Codes](tracing.md#6xx-custom-status-codes) for details.
 
-`Adobe I/O Events` uses a set of custom status `6xx` codes to indicate specific issues encountered during event delivery, when no HTTP response was received from your webhook server.
-see [Debug Tracing](tracing.md#6xx-custom-status-codes) for more details.
+### Does every Adobe I/O Events webhook HTTP request include a signature?
 
-### Does every Adobe I/O Events webhook HTTP request come with a signature?
+Yes. Every request includes a [`x-adobe-signature`](../guides/index.md#security-considerations) header, including the initial challenge GET request. See [Security Considerations](../guides/index.md#security-considerations) for more information.
 
-Yes, to allow your webhook to reject forged requests, Adobe I/O Events adds a [`x-adobe-signature`](../guides/index.md#security-considerations) header to every single HTTP request it makes to your webhook URL (even the first `challenge` GET request).
-see [Security Considerations](../guides/index.md#security-considerations) for more details.
+### Do Adobe I/O Events notifications come from static IPs?
 
-### Do Adobe I/O Events notifications come from a range of static IPs?
+No. Adobe I/O Events notifications are sent from AWS and Azure, and their IPs change over time.
 
-We had a few customers asking this in the context of securing their endpoint;  their requirement: accepting traffic only from a range of static IPs.
+**Security note:**
 
-The answer is **no**. Adobe I/O Events notifications services are hosted on AWS and Azure, their IPs change over time.
+- Each request includes a signature header (see above).
+- If you require static IPs, use the pull model and the [Journaling API](../guides/journaling-intro.md).
 
-*Reminder*: Each Adobe I/O Events HTTP request holds a signature header (see the previous question), however if this is not enough and if the above is a non-negotiable requirement, you may choose to use the pull model instead, and leverage our [Journaling API](../guides/journaling-intro.md).
+### What is the size of notifications in batch delivery style?
 
-### What is the size of notifications when in batch delivery style?
+When registering a webhook, you can choose the delivery style:
 
-When registering a webhook to receive Adobe I/O Events notifications, you can select the delivery style:
+- **Single:** One event per HTTP request.
+- **Batch:** Multiple events per request. Batch size is up to 2MB and a maximum of 20 events. Please note that the batch size may vary depending on the incoming traffic.
 
-* Either receiving one event at a time ("Single"): each event resulting in an HTTP request to the webhook URL.
-* Or multiple events together ("Batch"): in this case, HTTP requests will still remain near-real time, the batch size will vary depending on the incoming traffic and the batch size will be at max 2MB bytes and will contain a maximum of 20 events.
+### How can I debug and see logs for successful invocations to my runtime action (configured as webhook)?
 
-### How to debug and see logs for successful invocations to my runtime_action (configured as webhook)
-
-To improve the debugging experience for successful invocations, user can relay the `activation_id` of
-his target user action as a new response header (for example, you can use this header `x-target-action-activation-id`)
-from that action itself.
-So, even without enabling the `x-ow-extra-logging=on` header and impacting runtime performance,
-user can get hold of the successful activation via the debug tracing on Developer Console.
+To debug successful invocations, relay the `activation_id` of your target user action as a response header (e.g., `x-target-action-activation-id`). This allows you to trace activations in the Developer Console without enabling the `x-ow-extra-logging=on` header (which also impacts Runtime performance).
 
 ## Journaling FAQ
 
 ### How far back are I/O Events available via the Journaling API?
 
-Adobe I/O stores 7 days of subscribed events that can be retrieved via the Journaling API.
+Adobe I/O stores 7 days of subscribed events, retrievable via the Journaling API.
 
-### Why do I only get one event, irrespective of the `limit` I use?
+### Why do I only get one event, regardless of the `limit` I use?
 
-Our Journaling API `limit` parameter is used to specify the "maximum" number of events that may be returned by the API.
-It is used to specify an upper bound to the number of events to ensure that the consumer can handle the response gracefully. The behavior you observe is expected.
-It is perfectly ok to get 1 event when you specify a limit greater than 1.
-The number of events that gets returned in a response can vary depending on the incoming traffic (upper bound being equal to the limit parameter).
-See our [Journaling API documentation](../guides/api/journaling-api.md#limiting-the-size-of-the-batch) for more details.
+The Journaling API `limit` parameter sets the **maximum** number of events returned. You may receive fewer events than the limit, depending on the incoming traffic. This is expected. For example, you may only see a single event in a journal batch/page even when the journal holds more than 1 event.
+See the [Journaling API documentation](../guides/api/journaling-api.md#limiting-the-size-of-the-batch) for details.
 
-### Is there a way to retrieve all events in one request?
+### Can I retrieve all events in one request?
 
-No, our journaling API does not support retrieving all events in a single query.
+No. The Journaling API does not support retrieving all events in a single query. Use the `since` parameter and follow the journal's [rel=next Link](../guides/api/journaling-api.md#fetching-the-next-batch-of-newer-events-from-the-journal) to fetch events incrementally.
 
-However, by using the `since` parameter, you can fetch events incrementally by following the journal's [rel=next Link](../guides/api/journaling-api.md#fetching-the-next-batch-of-newer-events-from-the-journal) in the response headers until all events have been retrieved.
+### Can I start fetching events from a specific point in time?
 
-### Is there a way to start fetching events from a specific point in time?
-
-Yes, you can use the `seek` parameter with the Journaling API to start fetching events from a specific point in time, using an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) (e.g., `-PT2H` for 2 hours ago, `-P1D` for 1 day ago).
-This is especially useful for investigating events within a particular time window. See our [Journaling API documentation](../guides/api/journaling-api.md#starting-from-a-specific-point-in-time-with-the-seek-parameter) for more details and examples.
+Yes. Use the `seek` parameter with the Journaling API to start from a specific point in time, using an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) (e.g., `-PT2H` for 2 hours ago, `-P1D` for 1 day ago).
+This is especially useful for investigating events within a particular time window.
+See the [Journaling API documentation](../guides/api/journaling-api.md#starting-from-a-specific-point-in-time-with-the-seek-parameter) for examples.
 
 ## Custom Events FAQ
 
-### I created a `Custom Events Provider`, why is it not showing up in the `Adobe Developer Console`?
+### Why is my Custom Events Provider not showing up in the Adobe Developer Console?
 
-If you successfully create a `Custom Events Provider` using our [Provider API](../guides/api/provider-api.md), it will only appear in the `Adobe Developer Console` once you create at least one `Event Metadata` associated with it.
+If you create a Custom Events Provider using the [Provider API](../guides/api/provider-api.md), it will only appear in the Adobe Developer Console after you create at least one Event Metadata associated with it.
 
-Once associated with its `Event Metadata`, your `Custom Events Provider` will be ready to be used:
+**After associating Event Metadata:**
 
-1. It will appear in your (refreshed) `Adobe Developer Console` project.
-2. You will be able to register against it.
-3. And to start emitting events on its behalf use our [Events Publishing API](../guides/api/eventsingress-api.md).
+- The provider appears in your Developer Console project.
+- You can register against it.
+- You can emit events using the [Events Publishing API](../guides/api/eventsingress-api.md).
 
-### Does `Custom Events Provider` support High Volume ? Do you have a throttling policy in place ?
+### Does Custom Events Provider support high volume? Is there a throttling policy?
 
-We do have a throttling policy in place, read our [Events Publishing API guide](../guides/api/eventsingress-api.md) for more details.
-However, if you have a high volume use-case in mind, contact us, we'd love to hear about it
-and discuss how we could accommodate it.
-
-## Analytics Triggers Events
-
-### Where can I find instructions on setting up Analytics Triggers for I/O?
-
-You'll find it in this guide at [Integrate Analytics Triggers with Adobe I/O Events](../guides/using/analytics-triggers-event-setup.md).
-
-### Where do I configure Analytics Triggers for I/O?
-
-Analytics Triggers are set up and managed via the Experience Cloud Activation UI. Once a Trigger has been created, it will appear in the `Adobe Developer Console` under the available I/O Events list.
-
-### What does an Analytics Triggers payload look like?
-
-Here is a sample:
-
-```json
-{
-  "event_id": "52ebf673-8aeb-4347-8852-bf86a18292e4",
-  "event": {
-    "envelopeType": "DATA",
-    "partition": 13,
-    "offset": 438465548,
-    "createTime": 1516324157242,
-    "topic": "triggers",
-    "com.adobe.mcloud.pipeline.pipelineMessage": {
-      "header": {
-        "messageType": "TRIGGER",
-        "source": "triggers",
-        "sentTime": 1516324157228,
-        "imsOrg": "C74F69D7594880280A495D09@AdobeOrg",
-        "properties": [
-          {
-            "name": "trace",
-            "value": "false"
-          },
-          {
-            "name": "sourceFirstTimestamp",
-            "value": "1516324106"
-          },
-          {
-            "name": "sourceLastTimestamp",
-            "value": "1516324128"
-          },
-          {
-            "name": "triggerFiredTimestamp",
-            "value": "1516324153995"
-          }
-        ],
-        "messageId": "1a69fc40-7600-4928-b7bb-d66588a045f3"
-      },
-      "com.adobe.mcloud.protocol.trigger": {
-        "triggerId": "697514a8-3337-4efc-ba75-1f0ba896c288",
-        "triggerTimestamp": 1516324157228,
-        "mcId": "00000000000000000000000000000000000000",
-        "enrichments": {
-          "analyticsHitSummary": {
-            "dimensions": {
-              "eVar3": {
-                "type": "string",
-                "data": [
-                  "localhost:4502/content/we-retail.html",
-                  "localhost:4502/content/we-retail/us/en/men.html",
-                  "localhost:4502/content/we-retail.html",
-                  "localhost:4502/content/we-retail/us/en.html",
-                  "localhost:4502/content/we-retail/us/en.html",
-                  "localhost:4502/content/we-retail/us/en/products/men/shirts/eton-short-sleeve-shirt.html",
-                  "localhost:4502/content/we-retail/us/en/products/men/shirts/eton-short-sleeve-shirt.html",
-                  "localhost:4502/content/we-retail/us/en/men.html",
-                  "localhost:4502/content/we-retail/us/en/user/cart.html"
-                ],
-                "name": "eVar3",
-                "source": "session summary"
-              },
-              "pageURL": {
-                "type": "string",
-                "data": [
-                  "http://localhost:4502/content/we-retail.html",
-                  "",
-                  "",
-                  "http://localhost:4502/content/we-retail/us/en.html",
-                  "",
-                  "",
-                  "http://localhost:4502/content/we-retail/us/en/products/men/shirts/eton-short-sleeve-shirt.html",
-                  "http://localhost:4502/content/we-retail/us/en/men.html",
-                  "http://localhost:4502/content/we-retail/us/en/user/cart.html"
-                ],
-                "name": "pageURL",
-                "source": "session summary"
-              }
-            },
-            "products": {}
-          }
-        },
-        "triggerPath": [
-          {
-            "timestamp": 1516324118010,
-            "stateId": "start_and_and",
-            "transition": "null"
-          },
-          {
-            "timestamp": 1516324148711,
-            "stateId": "vmi_and_1",
-            "transition": "conditional -> select * where evars.evars.eVar3 like 'localhost:4502/content/we-retail/us/en/user/cart.html'"
-          },
-          {
-            "timestamp": 1516324148711,
-            "stateId": "notify_wait",
-            "transition": "states visited -> [StateVisitedNode [stateId=vmi_and_1, count=1, operator=GE]]"
-          },
-          {
-            "timestamp": 1516324153994,
-            "stateId": "notify",
-            "transition": "inactive_timeout -> 5"
-          }
-        ]
-      }
-    }
-  }
-```
-
-**I receive errors trying to access Triggers.**
-
-The company/org is entitled for Analytics Triggers but I receive the following errors when trying to set up a Trigger:
-
-![Report Suite null](./img/events_FAQ_01.png "Report Suite null")
-
-![Error fetching Report Suites](./img/events_FAQ_02.png "Error fetching Report Suites")
-
-**To fix:**  Ensure that Triggers is enabled in the Analytics Product Profile in the Admin Console.
-
-![Enabling Triggers in Admin Console](./img/events_FAQ_03.png "Enabling Triggers in Admin Console")
+Yes, there is a throttling policy. See the [Events Publishing API guide](../guides/api/eventsingress-api.md) for details. For high-volume use cases, contact Adobe to discuss your needs.
