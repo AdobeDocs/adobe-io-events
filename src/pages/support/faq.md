@@ -55,7 +55,7 @@ For licensing questions, contact your Adobe account manager.
 
 ### Which subscription types does Adobe I/O Events support?
 
-Adobe I/O Events supports:
+Adobe I/O Events supports the following subscription types:
 
 - For near-real-time notifications (push model):
   - [Webhooks](../guides/index.md)
