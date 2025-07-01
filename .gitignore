@@ -44,3 +44,4 @@ local-test.yml
 # yalc
 .yalc
 yalc.lock
+.markdownlint.json
