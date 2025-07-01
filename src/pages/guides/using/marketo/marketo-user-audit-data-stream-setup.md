@@ -25,7 +25,7 @@ See [Getting Started with Adobe I/O Events](../../../index.md)
 
 For basic instructions for this use case, starting from [console.adobe.io](https://developer.adobe.com/console/):
 
-*When prompted, click the designated button to proceed*
+*When prompted, click the designated button to proceed*:
 
 - Select `Create new project`
 
@@ -76,12 +76,12 @@ For basic instructions for this use case, starting from [console.adobe.io](https
 
 Events are structured in JSON format using the [CloudEvents](https://cloudevents.io/) spec
 
-*Example Event (batch)*
+*Example Event (batch)*:
 
 ````json
 [
     {
-        "event_id": "cf904f43-56bc-4f80-935d-a484de6e4181",
+        "eventid": "cf904f43-56bc-4f80-935d-a484de6e4181",
         "event": {
             "body": {
                 "specversion": "1.0",
@@ -100,10 +100,10 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                 }
             }
         },
-        "recipient_client_id": "<your_client_id>"
+        "recipientclientid": "<your_client_id>"
     },
     {
-        "event_id": "e931c3ec-9d76-406b-ac89-626e9650813a",
+        "eventid": "e931c3ec-9d76-406b-ac89-626e9650813a",
         "event": {
             "body": {
                 "specversion": "1.0",
@@ -122,16 +122,16 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                 }
             }
         },
-        "recipient_client_id": "<your_client_id>"
+        "recipientclientid": "<your_client_id>"
     }
 ]
 ````
 
-*Example Event (single)*
+*Example Event (single)*:
 
 ````json
 {
-    "event_id": "a9ef9c3c-bafe-48b8-9eae-bc63dfaed28c",
+    "eventid": "a9ef9c3c-bafe-48b8-9eae-bc63dfaed28c",
     "event": {
         "body": {
             "specversion": "1.0",
@@ -149,7 +149,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                 "userId": "user@marketo.com"
             }
         },
-        "recipient_client_id": "<your_client_id>"
+        "recipientclientid": "<your_client_id>"
     }
 }
 ````
@@ -160,7 +160,7 @@ Many of the fields are common across the different types of events. The `event.b
 
 | Field           | Type              | Description                                              |
 |-----------------|-------------------|----------------------------------------------------------|
-| event_id        | String            | Unique UUID generated per event                          |
+| eventid        | String            | Unique UUID generated per event                          |
 | specversion     | String            | CloudEvents version specification being used             |
 | type            | String            | Type of event used for event subscription routing        |
 | source          | String            | Context in which an event happened                       |

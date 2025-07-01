@@ -16,7 +16,7 @@ See [Getting Started with Adobe I/O Events](../../../index.md)
 
 For basic instructions for this use case, starting from [developer.adobe.com/console](https://developer.adobe.com/console/):
 
-*When prompted, click the designated button to proceed*
+*When prompted, click the designated button to proceed*:
 
 - Select `Create new project`
 
@@ -72,7 +72,7 @@ For basic instructions for this use case, starting from [developer.adobe.com/con
 
 Events are structured in JSON format using the [CloudEvents](https://cloudevents.io/) spec
 
-*Example Event (batch)*
+*Example Event (batch)*:
 
 ````json
 [
@@ -93,8 +93,8 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
       "type": "QUEUED",
       "datacontenttype": "application/json",
       "time": "2024-07-10T17:10:48.985Z",
-      "event_id": "420c1092-a7fd-4132-9ee8-de7a41c01bcd",
-      "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
+      "eventid": "420c1092-a7fd-4132-9ee8-de7a41c01bcd",
+      "recipientclientid": "7af7ab96045640b5a6e4724810145eb9"
     },
   {
       "data": {
@@ -113,8 +113,8 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
       "type": "ASSETS_DOWNLOAD_STARTED",
       "datacontenttype": "application/json",
       "time": "2024-07-10T17:10:49.165Z",
-      "event_id": "d1c47805-a971-4685-8e63-863ba4ecd325",
-      "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
+      "eventid": "d1c47805-a971-4685-8e63-863ba4ecd325",
+      "recipientclientid": "7af7ab96045640b5a6e4724810145eb9"
     }
   ,
   {
@@ -134,13 +134,13 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
       "type": "ASSET_DOWNLOAD_STARTED",
       "datacontenttype": "application/json",
       "time": "2024-07-10T17:10:49.238Z",
-      "event_id": "1bf6e136-967f-47c3-a64e-afe90f6656d0",
-      "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
+      "eventid": "1bf6e136-967f-47c3-a64e-afe90f6656d0",
+      "recipientclientid": "7af7ab96045640b5a6e4724810145eb9"
     }
 ]
 ````
 
-*Example Event (single)*
+*Example Event (single)*:
 
 ````json
 {
@@ -167,8 +167,8 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
   "type": "ASSET_DOWNLOAD_FAILED",
   "datacontenttype": "application/json",
   "time": "2024-07-10T17:10:49.509Z",
-  "event_id": "f60a502e-c16b-49c6-b3c1-770666a1921f",
-  "recipient_client_id": "7af7ab96045640b5a6e4724810145eb9"
+  "eventid": "f60a502e-c16b-49c6-b3c1-770666a1921f",
+  "recipientclientid": "7af7ab96045640b5a6e4724810145eb9"
 }
 
 ````
@@ -177,7 +177,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
 
 Field | Description
 --- | ---
-event_id | Unique UUID generated per event
+eventid | Unique UUID generated per event
 id | Unique UUID generated per event
 type | Type of event used for event subscription routing
 source | Context in which an event happened
