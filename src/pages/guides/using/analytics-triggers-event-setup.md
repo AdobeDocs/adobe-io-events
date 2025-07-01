@@ -129,3 +129,77 @@ To watch your trigger work on Slack:
     ![Listening to webhook events](../img/events_atrig_29.png "Listening to webhook events")
 
 Trigger messages are received as `POST` requests on this thread.
+
+Here is a sample Analytics Triggers event payload:
+
+```json
+{
+  "event_id": "52ebf673-8aeb-4347-8852-bf86a18292e4",
+  "event": {
+    "com.adobe.mcloud.pipeline.pipelineMessage": {
+      "header": {
+        "sentTime": 1727104300204,
+        "imsOrg": "6578A55456E84E247F000101@AdobeOrg"
+      },
+      "com.adobe.mcloud.protocol.trigger": {
+        "triggerId": "697514a8-3337-4efc-ba75-1f0ba896c288",
+        "triggerTimestamp": 1516324157228,
+        "mcId": "00000000000000000000000000000000000000",
+        "enrichments": {
+          "analyticsHitSummary": {
+            "dimensions": {
+              "eVar3": {
+                "type": "string",
+                "data": [
+                  "localhost:4502/content/we-retail.html",
+                  "localhost:4502/content/we-retail/us/en.html",
+                  "localhost:4502/content/we-retail/us/en/products/men/shirts/eton-short-sleeve-shirt.html",
+                  "localhost:4502/content/we-retail/us/en/men.html",
+                  "localhost:4502/content/we-retail/us/en/user/cart.html"
+                ],
+                "name": "eVar3",
+                "source": "session summary"
+              },
+              "pageURL": {
+                "type": "string",
+                "data": [
+                  "http://localhost:4502/content/we-retail.html",
+                  "http://localhost:4502/content/we-retail/us/en.html",
+                  "http://localhost:4502/content/we-retail/us/en/products/men/shirts/eton-short-sleeve-shirt.html",
+                  "http://localhost:4502/content/we-retail/us/en/men.html",
+                  "http://localhost:4502/content/we-retail/us/en/user/cart.html"
+                ],
+                "name": "pageURL",
+                "source": "session summary"
+              }
+            },
+            "products": {}
+          }
+        },
+        "triggerPath": [
+          {
+            "timestamp": 1516324118010,
+            "stateId": "start_and_and",
+            "transition": "null"
+          },
+          {
+            "timestamp": 1516324148711,
+            "stateId": "vmi_and_1",
+            "transition": "conditional -> select * where evars.evars.eVar3 like 'localhost:4502/content/we-retail/us/en/user/cart.html'"
+          },
+          {
+            "timestamp": 1516324148711,
+            "stateId": "notify_wait",
+            "transition": "states visited -> [StateVisitedNode [stateId=vmi_and_1, count=1, operator=GE]]"
+          },
+          {
+            "timestamp": 1516324153994,
+            "stateId": "notify",
+            "transition": "inactive_timeout -> 5"
+          }
+        ]
+      }
+    }
+  }
+}
+```
