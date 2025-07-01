@@ -31,4 +31,4 @@ jobs:
     with:
       env: ${{ github.event_name == 'workflow_dispatch' && inputs.env || 'stage' }}
       baseSha: ${{ github.event_name == 'workflow_dispatch' && inputs.baseSha || '' }}
-      deployAll: ${{ github.event_name == 'workflow_dispatch' && inputs.deployAll || true }}
+      deployAll: ${{ github.event_name == 'workflow_dispatch' && inputs.deployAll || 'true' }}
