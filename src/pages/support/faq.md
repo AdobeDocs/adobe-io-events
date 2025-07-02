@@ -86,25 +86,28 @@ You must delete the event provider before deleting the project.
 
 ![Error while deleting a project](./img/project-delete-violation.png "Error while deleting a project")
 
-### Why do I see duplicate fields for recipient client id and event id in the delivered payload?
+### Why do I see duplicate fields for `recipient client ID` and `event ID` in the delivered payload?
 
-Adobe I/O Events sends cloud event payloads with custom attributes:
+Adobe I/O Events delivers payloads with both the new and deprecated attribute names for `recipient client ID` and `event Id` to ensure compatibility during the transition to stricter [CloudEvents specification compliance](https://github.com/cloudevents/spec/blob/v1.0/spec.md#attribute-naming-convention).
 
-- `event_id` (for event tracking and debugging)
-- `recipient_client_id` (for payload verification)
+**You may see all four fields in your event payload:**
 
-After upgrading to Java 17 and the latest CloudEvents SDK, stricter attribute naming rules are enforced.
-The old names (`event_id`, `recipient_client_id`) do not conform to the [CloudEvents spec](https://github.com/cloudevents/spec/blob/v1.0/spec.md#attribute-naming-convention).
+- `eventid` (CloudEvents-compliant, **new**)
+- `recipientclientid` (CloudEvents-compliant, **new**)
+- `event_id` (**deprecated**)
+- `recipient_client_id` (**deprecated**)
 
-**To ensure compatibility:**
+**Why are there duplicate fields?**
 
-- New attributes `eventid` and `recipientclientid` are now included (CloudEvents-compliant).
-- You may see all four fields: `event_id`, `recipient_client_id`, `eventid`, `recipientclientid`.
+- The new attributes `eventid` and `recipientclientid` follow the [CloudEvents attribute naming convention](https://github.com/cloudevents/spec/blob/v1.0/spec.md#attribute-naming-convention) and are required for future compatibility.
+- The old attributes `event_id` and `recipient_client_id` are included temporarily to avoid breaking existing integrations.
+- Both sets of fields carry the same values in each event payload.
 
 **Action required:**
 
-- Update your integration to use `eventid` and `recipientclientid`.
-- The old fields will be deprecated by the end of 2025.
+- Update your integration to use the new `eventid` and `recipientclientid` fields.
+- The deprecated fields (`event_id`, `recipient_client_id`) will be removed by the **end of 2025**.
+- We recommend migrating as soon as possible to ensure continued compatibility.
 
 ## Webhook FAQ
 
