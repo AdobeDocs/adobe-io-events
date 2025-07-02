@@ -76,9 +76,9 @@ You must delete the event provider before deleting the project.
 1. In the Developer Console, select "Project overview" from the left menu.
 2. Click "Download" in the top menu to download the project metadata JSON file.
 3. Open the JSON file and note:
-   - Consumer organization id (`project.org.id`)
-   - Project id (`project.id`)
-   - Workspace id (`project.workspace.id`)
+   - Consumer organization ID (`project.org.id`)
+   - Project ID (`project.id`)
+   - Workspace ID (`project.workspace.id`)
 4. Use the [Provider API documentation](../guides/api/provider-api.md) to fetch your I/O Events providers for the organization id.
 5. Find the provider with the matching workspace id. Note the provider `id`.
 6. Delete the provider using the [Provider API](../api.md#operation/deleteProvider) and the ids from above.
