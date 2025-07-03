@@ -14,6 +14,7 @@ Setting up an integration to subscribe to Adobe I/O Events is straightforward. T
 * [Analytics Triggers](analytics-triggers-event-setup.md)
 * [Asset Events (Creative Cloud)](asset-events/asset-events-landing.md)
 * [Cloud Manager](https://developer.adobe.com/experience-cloud/cloud-manager/guides/getting-started/create-event-integration/)
+* [Content Log Events](contentlogs/contentlogs-setup.md)
 * [Imaging APIs](https://developer.adobe.com/firefly-services/docs/photoshop/features/#webhooks-through-adobe-io-events)
 * [InDesign APIs](indesign-apis/indesign-apis-events-data-stream-setup.md)
 * [Marketo Data Streams](marketo/marketo-data-streams.md)
