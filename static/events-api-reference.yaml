@@ -31,12 +31,19 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EventMetadataHalModel'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
+        '404':
+          description: The providerId / eventCode does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
   '/events/providers/{providerId}/eventmetadata':
     get:
       tags:
         - Event Metadata
       summary: List the Event Metadata associated with a given Adobe I/O Events Provider ID
-      description: ''
       operationId: getByProviderId
       produces:
         - application/hal+json
@@ -50,12 +57,19 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EventMetadataCollectionHalModel'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
+        '404':
+          description: The providerId does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers/{providerId}/eventmetadata':
     post:
       tags:
         - Event Metadata
-      summary: Create an Adobe I/O Events Provider Event Metadata
-      description: ''
+      summary: Create an Adobe I/O Events Event Metadata
       operationId: post
       produces:
         - application/hal+json
@@ -69,20 +83,28 @@ paths:
         - $ref: '#/parameters/accept-hal-json'
         - in: body
           name: body
-          description: The Input Model necessary to create an Adobe I/O Events Provider Event Metadata
-          required: false
+          description: The Input Model necessary to create an Adobe I/O Events Event Metadata
+          required: true
           schema:
             $ref: '#/definitions/EventMetadataInputModel'
       responses:
         '201':
-          description: The created Adobe I/O Events Provider Event Metadata.
+          description: The created Adobe I/O Events Event Metadata.
           schema:
             $ref: '#/definitions/EventMetadataHalModel'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
+        '404':
+          description: The providerId does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
+
     delete:
       tags:
         - Event Metadata
       summary: Delete all Event Metadata associated with the given Adobe I/O Events Provider ID
-      description: ''
       operationId: deleteByProviderId
       produces:
         - application/hal+json
@@ -97,14 +119,19 @@ paths:
       responses:
         '204':
           description: Successful deletion
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
         '404':
           description: The providerId does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers/{providerId}/eventmetadata/{eventCode}':
     put:
       tags:
         - Event Metadata
-      summary: Update an Adobe I/O Events Provider Event Metadata
-      description: ''
+      summary: Update an Adobe I/O Events Event Metadata
       operationId: putEventMetadata
       produces:
         - application/hal+json
@@ -119,20 +146,29 @@ paths:
         - $ref: '#/parameters/accept-hal-json'
         - in: body
           name: body
-          description: The Input Model necessary to update an Adobe I/O Events Provider Event Metadata
-          required: false
+          description: The Input Model necessary to update an Adobe I/O Events Event Metadata
+          required: true
           schema:
             $ref: '#/definitions/EventMetadataInputModel'
       responses:
         '200':
-          description: successful operation
+          description: successfully updated the event metadata
           schema:
             $ref: '#/definitions/EventMetadataHalModel'
+        '400':
+          description: The event code in URI does not match the input model's event code
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
+        '404':
+          description: The providerId / eventCode does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
     patch:
       tags:
         - Event Metadata
-      summary: PATCH an Adobe I/O Events Provider Event Metadata using JSON Patch
-      description: ''
+      summary: PATCH an Adobe I/O Events Event Metadata using JSON Patch
       operationId: patchEventMetadata
       consumes:
         - application/json-patch+json
@@ -150,7 +186,7 @@ paths:
         - in: body
           name: body
           description: 'A JSON Patch of the EventMetadata Input Model see https://tools.ietf.org/html/rfc6902, http://jsonpatch.com/'
-          required: false
+          required: true
           schema:
             $ref: '#/definitions/JsonPatch'
         - $ref: '#/parameters/contentTypeJSONPatch'
@@ -161,11 +197,20 @@ paths:
             $ref: '#/definitions/EventMetadataHalModel'
         '204':
           description: If the patch had no effect
+        '400':
+          description: The event code in URI does not match the input model's event code
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
+        '404':
+          description: The providerId / eventCode does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
     delete:
       tags:
         - Event Metadata
       summary: Delete the Event Metadata associated with the given Adobe I/O Events Provider ID and event code
-      description: ''
       operationId: deleteByProviderIdAndEventCode
       produces:
         - application/hal+json
@@ -181,14 +226,19 @@ paths:
       responses:
         '204':
           description: Successful deletion
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
         '404':
-          description: The event metadata does not exist
+          description: The providerId / eventCode does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
   '/events/{consumerOrgId}/providers':
     get:
       tags:
         - Providers
       summary: List all Adobe I/O Events Providers entitled to the provided Organization ID
-      description: ''
       operationId: getProvidersByConsumerOrgId
       produces:
         - application/hal+json
@@ -197,17 +247,46 @@ paths:
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
         - $ref: '#/parameters/accept-hal-json'
+        - name: providerMetadataId
+          in: query
+          description: Filter by provider metadata id
+          required: false
+          type: string
+        - name: instanceId
+          in: query
+          description: Filter by instance id
+          required: false
+          type: string
+        - name: providerMetadataIds
+          in: query
+          description: List of provider metadata ids to filter. Only one of providerMetadataIds or providerMetadataId can be passed
+          required: false
+          type: array
+          items:
+            type: string
+        - name: eventmetadata
+          in: query
+          description: The optional boolean to fetch or not this provider's event metadata, default false
+          required: false
+          type: boolean
       responses:
         '200':
           description: successful operation
           schema:
             $ref: '#/definitions/ProviderCollectionHalModel'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
+        '404':
+          description: Provider associated with the consumerOrgId, providerMetadataId or instanceID does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
   '/events/providers/{id}':
     get:
       tags:
         - Providers
       summary: View Adobe I/O Events Provider by ID
-      description: ''
       operationId: getProvidersById
       produces:
         - application/hal+json
@@ -231,12 +310,19 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/ProviderHalModel'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
+        '404':
+          description: Provider id does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers':
     post:
       tags:
         - Providers
       summary: Create an Adobe I/O Events Provider
-      description: ''
       operationId: createProvider
       produces:
         - application/hal+json
@@ -250,7 +336,7 @@ paths:
         - in: body
           name: body
           description: The Input Model necessary to create an Adobe I/O Events Provider
-          required: false
+          required: true
           schema:
             $ref: '#/definitions/ProviderInputModel'
       responses:
@@ -258,12 +344,21 @@ paths:
           description: The created Adobe I/O Events Provider.
           schema:
             $ref: '#/definitions/ProviderHalModel'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          description: Unauthorized or forbidden access (e.g., invalid scopes, attempt to create a non multi-instance provider)
+        '404':
+          description: Provider metadata provided in the input model does not exist
+        '409':
+          description: The provider already exists. The header `x-conflicting-id` contains the conflicting providerId.
+        '500':
+          $ref: '#/responses/InternalServerError'
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers/{providerId}':
     put:
       tags:
         - Providers
       summary: Update an Adobe I/O Events Provider
-      description: ''
       operationId: putProvider
       produces:
         - application/hal+json
@@ -278,7 +373,7 @@ paths:
         - in: body
           name: body
           description: The Input Model necessary to update an Adobe I/O Events Provider
-          required: false
+          required: true
           schema:
             $ref: '#/definitions/ProviderInputModel'
       responses:
@@ -286,11 +381,18 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/ProviderHalModel'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          description: Unauthorized or forbidden access (e.g., invalid scopes, attempt to update a non multi-instance provider)
+        '404':
+          description: Provider id does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
     patch:
       tags:
         - Providers
       summary: PATCH an Adobe I/O Events Provider using JSON Patch
-      description: ''
       operationId: patchProvider
       consumes:
         - application/json-patch+json
@@ -308,7 +410,7 @@ paths:
         - in: body
           name: body
           description: 'A JSON Patch of the Provider Input Model see https://tools.ietf.org/html/rfc6902, http://jsonpatch.com/'
-          required: false
+          required: true
           schema:
             $ref: '#/definitions/JsonPatch'
       responses:
@@ -318,11 +420,18 @@ paths:
             $ref: '#/definitions/ProviderHalModel'
         '204':
           description: If the patch had no effect
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          description: Unauthorized or forbidden access (e.g., invalid scopes, attempt to update a non multi-instance provider)
+        '404':
+          description: The providerId does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
     delete:
       tags:
         - Providers
       summary: Delete an Adobe I/O Events Provider by ID
-      description: ''
       operationId: deleteProvider
       produces:
         - application/hal+json
@@ -337,14 +446,19 @@ paths:
       responses:
         '204':
           description: Successful deletion
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
         '404':
           description: The providerId does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
   '/events/providers/{providerId}/eventmetadata/{eventCode}/sample_event':
     get:
       tags:
         - Sample Event
       summary: Get a sample event HAL JSON model of the provided Adobe I/O Events Provider ID and event code
-      description: ''
       operationId: getSampleByProviderIdAndEventCode
       produces:
         - application/hal+json
@@ -359,11 +473,18 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/TheSampleEventHALmodel'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
+        '404':
+          description: Invalid provider / invalid event code / no sample event is available
+        '500':
+          $ref: '#/responses/InternalServerError'
     head:
       tags:
         - Sample Event
       summary: Check if a sample event is available for the provided Adobe I/O Events Provider ID and event code
-      description: ''
       operationId: checkSampleEvent
       parameters:
         - $ref: '#/parameters/providerId'
@@ -374,7 +495,50 @@ paths:
         '200':
           description: If a sample event is available
         '404':
-          description: If no sample event is available
+          description: If no sample event is available or not supported yet
+        '500':
+          $ref: '#/responses/InternalServerError'
+  '/events/providers/{providerId}/eventmetadata/{eventCode}/sample_event/{registrationId}':
+    post:
+      tags:
+        - Sample Event
+      summary: Post a sample event for a specific registration (for test/debugging purposes)
+      description: For test/debugging purposes, this posts a sample event as it would be posted by the provided (id and event code) Adobe I/O Events Provider.
+      operationId: postSampleEventForRegistration
+      produces:
+        - application/json
+      parameters:
+        - name: providerId
+          in: path
+          required: true
+          type: string
+        - name: eventCode
+          in: path
+          required: true
+          type: string
+        - name: registrationId
+          in: path
+          required: true
+          type: string
+        - name: Accept
+          in: header
+          description: application/json
+          required: false
+          type: string
+      requestBody:
+        description: Any JSON Event Payload
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: If a sample event was posted against the provided registration
+        '204':
+          description: If no sample was posted (sample payload is not supported yet)
+        '500':
+          $ref: '#/responses/InternalServerError'
   '/events/organizations/{consumerOrgId}/integrations/{credentialId}/{registrationId}/validate':
     get:
       tags:
@@ -476,12 +640,22 @@ paths:
             $ref: '#/definitions/RegistrationHalModel'
         '400':
           description: Bad request, possible issue with the request payload
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
+        '404':
+          description: Registration does not exist
         '409':
-          description: Maximum registration limit hit for client id or org
+          description: |
+            The registration name already exists in the same workspace. The header `x-conflicting-id` will contain the conflicting registrationId.
+            [OR] Maximum registration limit hit for client id or org.
+        '500':
+          $ref: '#/responses/InternalServerError'
     get:
       tags:
         - Registrations
-      summary: Get All Registrations
+      summary: Get All Registrations associated with a workspace
       operationId: getRegistrations
       produces:
         - application/hal+json
@@ -496,8 +670,14 @@ paths:
           description: Successfully fetched registrations
           schema:
             $ref: '#/definitions/RegistrationCollectionHalModel'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
         '404':
           description: Registration does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}':
     get:
       tags:
@@ -518,8 +698,14 @@ paths:
           description: Successfully fetched registration
           schema:
             $ref: '#/definitions/RegistrationHalModel'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
         '404':
           description: Registration does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
     put:
       tags:
         - Registrations
@@ -549,8 +735,14 @@ paths:
             $ref: '#/definitions/RegistrationHalModel'
         '400':
           description: Bad request, possible issue with the request payload
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
         '404':
           description: Registration does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
     patch:
       tags:
         - Registrations
@@ -580,8 +772,14 @@ paths:
             $ref: '#/definitions/RegistrationHalModel'
         '400':
           description: Bad request, possible issue with the request payload
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
         '404':
           description: Registration does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
     delete:
       tags:
         - Registrations
@@ -599,8 +797,14 @@ paths:
       responses:
         '204':
           description: Successful deletion
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
         '404':
           description: The registration does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
   '/events/{consumerOrgId}/registrations':
     get:
       tags:
@@ -636,6 +840,12 @@ paths:
             $ref: '#/definitions/RegistrationPaginatedHalModel'
         '400':
           description: Page number or size exceeded or page size is less than 1
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
+        '500':
+          $ref: '#/responses/InternalServerError'
   '/events/organizations/{consumerOrgId}/integrations/{credentialId}/tracing/{registrationId}':
     get:
       tags:
@@ -658,6 +868,14 @@ paths:
             type: array
             items:
               $ref: '#/definitions/TracingRequestResponse'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '403':
+          $ref: '#/responses/ForbiddenError'
+        '404':
+          description: The registrationId does not exist
+        '500':
+          $ref: '#/responses/InternalServerError'
 parameters:
   consumerOrgId:
     name: consumerOrgId
@@ -818,7 +1036,7 @@ definitions:
             $ref: '#/definitions/HALLink'
           self:
             $ref: '#/definitions/HALLink'
-    description: The Adobe I/O Events Provider Event Metadata HAL model
+    description: The Adobe I/O Events Event Metadata HAL model
   HALLink:
     type: object
     properties:
@@ -906,7 +1124,7 @@ definitions:
         minLength: 0
         maxLength: 87382
         pattern: '^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$'
-    description: The Input Model necessary to POST/PUT an Adobe I/O Events Provider Event Metadata
+    description: The Input Model necessary to POST/PUT an Adobe I/O Events Event Metadata
   ProviderHalModel:
     type: object
     properties:
@@ -1329,3 +1547,9 @@ definitions:
           type: array
           items:
             type: string
+  UnauthorizedError:
+    description: Unauthorized access (e.g., invalid access token)
+  ForbiddenError:
+    description: Unauthorized or forbidden access (e.g., invalid scopes)
+  InternalServerError:
+    description: Upstream service failures / Internal server error
