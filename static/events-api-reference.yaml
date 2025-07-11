@@ -880,54 +880,54 @@ parameters:
   consumerOrgId:
     name: consumerOrgId
     in: path
-    description: Your consumer organization Id (owning the Adobe I/O Events Provider)
+    description: Consumer Organization ID (owning the Adobe I/O Events Provider)
     required: true
     type: string
   projectId:
     name: projectId
     in: path
-    description: The project Id where the Adobe I/O Events Provider belongs
+    description: Project ID where the Adobe I/O Events Provider belongs
     required: true
     type: string
   workspaceId:      
     name: workspaceId
     in: path
-    description: The workspace Id where the Adobe I/O Events Provider belongs
+    description: Workspace ID where the Adobe I/O Events Provider belongs
     required: true
     type: string
   providerId:
     name: providerId
     in: path
-    description: The requested provider ID.
+    description: Provider ID.
     required: true
     type: string
   eventCode:
     name: eventCode
     in: path
-    description: The requested eventmetadata event code
+    description: Event Code for the Event Metadata
     required: true
     type: string
   credentialId:
     name: credentialId
     in: path
-    description: The credential Id associated with the credential in the project/workspace you created your registration in
+    description: Credential ID associated with the credential in the Project/Workspace where the registration was created
     required: true
     type: string
   registrationId:
     name: registrationId
     in: path
-    description: The registration Id associated with the registration
+    description: Registration ID associated with the registration
     required: true
     type: string
   authorization:
     name: Authorization
-    description: 'Your authorization token in format "Bearer {token}" It must hold the `I/O Management API` scope (`adobeio_api` scope contained in `s/ent_adobeio_sdk` metascope)'
+    description: 'Authorization token in the format "Bearer {token}". Must hold the I/O Management API scope (`adobeio_api` scope contained in `s/ent_adobeio_sdk` metascope).'
     required: true
     type: string
     in: header
   x-api-key:
     name: x-api-key
-    description: 'API key whiltelisted at Adobe.io'
+    description: API Key whitelisted at Adobe.io
     required: true
     type: string
     in: header
