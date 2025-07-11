@@ -133,6 +133,7 @@ No, wildcard patterns are not supported in SDF filters. Use `prefix` or `suffix`
 ### Can I use multiple filters per registration?
 No, currently only one filter is allowed per registration. See [Restrictions](../guides/subscriber_defined_filtering/dsl.md#restrictions).
 
+
 ### Which registrations are compatible with Subscriber Defined Filtering?
 To use SDF, your registration must only include Cloud Events deliveries. Registrations that have AWS EventBridge configured as a delivery method are not compatible with SDF. For more details, see the [SDF documentation](../guides/subscriber_defined_filtering/index.md#prerequisites).
 
