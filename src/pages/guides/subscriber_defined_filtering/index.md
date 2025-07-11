@@ -187,10 +187,8 @@ Events that pass your subscriber filters maintain the same format as unfiltered 
 
 ### Support
 
-For additional support with Subscriber Defined Filtering:
-- Review the Adobe I/O Events documentation
-- Check the Adobe Developer Community forums
-- Contact Adobe Developer Support for technical assistance
+- Check the [Adobe Developer Community forums](https://forums.adobe.com/community/developers)
+- Contact [Adobe Developer Support](https://developer.adobe.com/support/)
 
 ## Migration Guide
 
