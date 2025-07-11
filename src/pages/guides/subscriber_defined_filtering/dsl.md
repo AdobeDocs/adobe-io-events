@@ -6,7 +6,7 @@ title: Subscriber Defined Filtering DSL Reference
 
 Adobe I/O Events Subscriber Defined Filtering (SDF) uses a powerful, JSON-based Domain Specific Language (DSL) to let you precisely control which events you receive. This page provides a comprehensive reference for the supported operators, their syntax, and practical examples using real event payloads.
 
-> **Note:** The SDF DSL is based on a subset of the [Event Ruler DSL](https://github.com/aws/event-ruler?tab=readme-ov-file) (which is also used as the [AWS EventBridge event pattern syntax](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-pattern-operators.html)). Some advanced or rarely used operators may not be supported. See the restrictions section below.
+> **Note:** The SDF DSL is based on a subset of the [Event Ruler DSL](https://github.com/aws/event-ruler?tab=readme-ov-file) (which is also used as the [AWS EventBridge event pattern syntax](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-pattern-operators.html)). Some advanced or rarely used operators may not be supported. See the [restrictions section](#restrictions--differences-from-aws-eventbridge) below.
 
 ## Event Example
 
@@ -151,6 +151,8 @@ Matches if any of the listed conditions are true (logical OR across fields or su
 
 ## Practical Filter Examples
 
+For end-to-end setup and API usage, see the [SDF Overview](./index.md).
+
 ### Example 1: Only receive published JPEG assets larger than 300KB
 ```json
 {
@@ -196,9 +198,9 @@ Matches if any of the listed conditions are true (logical OR across fields or su
 }
 ```
 
-## Restrictions & Differences from AWS EventBridge
+## Restrictions
 
-- **Subset of Operators:** Not all AWS EventBridge operators are supported. The most common operators (`equals`, `anything-but`, `prefix`, `suffix`, `numeric`, `exists`, `equals-ignore-case`, `$or`) are available.
+- **Subset of Operators:** Not all Event Ruler operators are supported. The most common operators (`equals`, `anything-but`, `prefix`, `suffix`, `numeric`, `exists`, `equals-ignore-case`, `$or`) are available.
 - **Filter Size Limit:** There is a maximum size for the filter JSON. Very large filters may be rejected.
 - **No Nested `$or` in Reserved Keywords:** `$or` cannot be used inside objects with reserved keywords (e.g., `{ "numeric": ... }`).
 - **Leaf Node Matching:** Most operators only work on leaf fields (not objects or arrays), except for `$or` and `anything-but`.
@@ -208,6 +210,7 @@ Matches if any of the listed conditions are true (logical OR across fields or su
 - **JSON Syntax and Field Names:** Filters must be valid JSON. Field names and values must match the event payload structure exactly.
 - **No Duplicate Keys:** If a filter contains matching expression at the same path, the filter is considered invalid to avoid confusion on which expression is applied. 
 - **Validation Endpoint:** Always use the filter validation endpoint to check your filter before saving it. This will catch all syntax errors. You can use custom payloads to check whether your filtering logic applies ex expected.
+- **One Filter per Registration:** Only one filter is allowed per Registration.
 
 ## Best Practices
 

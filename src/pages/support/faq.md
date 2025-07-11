@@ -110,6 +110,32 @@ Adobe I/O Events delivers payloads with both the new and deprecated attribute na
 - The deprecated fields (`event_id`, `recipient_client_id`) will be removed by the **end of 2025**.
 - We recommend migrating as soon as possible to ensure continued compatibility.
 
+## Subscriber Defined Filtering (SDF) FAQ
+
+### What is Subscriber Defined Filtering?
+Subscriber Defined Filtering (SDF) allows you to define custom JSON-based filters for your event registrations, so you only receive events that match your criteria. See the [SDF documentation](../guides/subscriber_defined_filtering/index.md) for details.
+
+### What operators are supported in SDF filters?
+SDF supports a subset of the Event Ruler DSL operators: `equals`, `anything-but`, `prefix`, `suffix`, `numeric`, `exists`, `equals-ignore-case`, and `$or`. See the [Supported Operators](../guides/subscriber_defined_filtering/dsl.md#supported-operators) for examples and syntax.
+
+### How do I validate my filter?
+You can use the filter validation endpoint to check your filter before saving it. This will catch syntax errors and help you test your logic with sample events. See [Validating Filters](../guides/subscriber_defined_filtering/index.md#validating-filters).
+
+### What are common reasons my filter does not work?
+- The filter is not valid JSON.
+- Field names do not match the event payload structure.
+- The filter is too complex or too large.
+See [Troubleshooting](../guides/subscriber_defined_filtering/index.md#troubleshooting) and [Restrictions](../guides/subscriber_defined_filtering/dsl.md#restrictions) for more details.
+
+### Are wildcards supported in SDF filters?
+No, wildcard patterns are not supported in SDF filters. Use `prefix` or `suffix` for pattern matching. See [Restrictions](../guides/subscriber_defined_filtering/dsl.md#restrictions).
+
+### Can I use multiple filters per registration?
+No, currently only one filter is allowed per registration. See [Restrictions](../guides/subscriber_defined_filtering/dsl.md#restrictions).
+
+### Which registrations are compatible with Subscriber Defined Filtering?
+To use SDF, your registration must only include Cloud Events deliveries. Registrations that have AWS EventBridge configured as a delivery method are not compatible with SDF. For more details, see the [SDF documentation](../guides/subscriber_defined_filtering/index.md#prerequisites).
+
 ## Webhook FAQ
 
 ### What happens if my webhook is down? Why is my event registration marked as `Unstable`?

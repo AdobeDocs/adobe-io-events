@@ -84,7 +84,7 @@ Subscriber filters use [JSON-based filter definitions](./dsl.md). Here are some 
 
 ### Validating Filters
 
-Before creating a filter, you can validate it against your registered event types and custom sample events:
+Before creating a filter, you can validate it against your registered event types and custom sample events. See the [DSL reference](./dsl.md) for supported operators and syntax.
 
 ```bash
 curl -X POST \
@@ -171,14 +171,14 @@ Events that pass your subscriber filters maintain the same format as unfiltered 
 ### Common Issues
 
 **Filter Not Working**
-- Verify the filter syntax is valid JSON
+- Verify the filter syntax is valid JSON [Restrictions](./dsl.md#restrictions)
 - Check that field names match the event payload structure
-- Ensure the filter logic matches your intended behavior
+- Ensure the filter logic matches your intended behavior [Practical Filter Examples](./dsl.md#practical-filter-examples)
 
 **Performance Issues**
-- Simplify complex filters
-- Avoid overly broad pattern matching
-- Consider breaking complex filters into multiple simpler ones
+- Simplify complex filters [Best Practices](./dsl.md#best-practices)
+- Avoid overly broad pattern matching [Best Practices](./dsl.md#best-practices)
+- Consider breaking complex filters into multiple simpler ones [Best Practices](./dsl.md#best-practices)
 
 **Validation Errors**
 - Review the error message for specific syntax issues
