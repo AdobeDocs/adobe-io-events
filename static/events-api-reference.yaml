@@ -16,7 +16,7 @@ paths:
     get:
       tags:
         - Event Metadata
-      summary: Get the Event Metadata associated with a given Adobe I/O Events Provider ID and event code
+      summary: Get the event metadata associated with a given provider ID and event code
       operationId: getByProviderIdAndEventCode
       produces:
         - application/hal+json
@@ -43,7 +43,7 @@ paths:
     get:
       tags:
         - Event Metadata
-      summary: List the Event Metadata associated with a given Adobe I/O Events Provider ID
+      summary: List the event metadata associated with a given provider ID
       operationId: getByProviderId
       produces:
         - application/hal+json
@@ -69,7 +69,7 @@ paths:
     post:
       tags:
         - Event Metadata
-      summary: Create an Adobe I/O Events Event Metadata
+      summary: Create event metadata
       operationId: post
       produces:
         - application/hal+json
@@ -83,13 +83,13 @@ paths:
         - $ref: '#/parameters/accept-hal-json'
         - in: body
           name: body
-          description: The Input Model necessary to create an Adobe I/O Events Event Metadata
+          description: The input model necessary to create event metadata
           required: true
           schema:
             $ref: '#/definitions/EventMetadataInputModel'
       responses:
         '201':
-          description: The created Adobe I/O Events Event Metadata.
+          description: The created event metadata.
           schema:
             $ref: '#/definitions/EventMetadataHalModel'
         '401':
@@ -104,7 +104,7 @@ paths:
     delete:
       tags:
         - Event Metadata
-      summary: Delete all Event Metadata associated with the given Adobe I/O Events Provider ID
+      summary: Delete all event metadata associated with the given provider ID
       operationId: deleteByProviderId
       produces:
         - application/hal+json
@@ -131,7 +131,7 @@ paths:
     put:
       tags:
         - Event Metadata
-      summary: Update an Adobe I/O Events Event Metadata
+      summary: Update event metadata
       operationId: putEventMetadata
       produces:
         - application/hal+json
@@ -146,7 +146,7 @@ paths:
         - $ref: '#/parameters/accept-hal-json'
         - in: body
           name: body
-          description: The Input Model necessary to update an Adobe I/O Events Event Metadata
+          description: The input model necessary to update event metadata
           required: true
           schema:
             $ref: '#/definitions/EventMetadataInputModel'
@@ -168,7 +168,7 @@ paths:
     patch:
       tags:
         - Event Metadata
-      summary: PATCH an Adobe I/O Events Event Metadata using JSON Patch
+      summary: PATCH event metadata using JSON Patch
       operationId: patchEventMetadata
       consumes:
         - application/json-patch+json
@@ -185,14 +185,14 @@ paths:
         - $ref: '#/parameters/accept-hal-json'
         - in: body
           name: body
-          description: 'A JSON Patch of the EventMetadata Input Model see https://tools.ietf.org/html/rfc6902, http://jsonpatch.com/'
+          description: 'A JSON Patch of the EventMetadata input model see https://tools.ietf.org/html/rfc6902, http://jsonpatch.com/'
           required: true
           schema:
             $ref: '#/definitions/JsonPatch'
         - $ref: '#/parameters/contentTypeJSONPatch'
       responses:
         '200':
-          description: The updated/patched Event Metadata
+          description: The updated/patched event metadata
           schema:
             $ref: '#/definitions/EventMetadataHalModel'
         '204':
@@ -210,7 +210,7 @@ paths:
     delete:
       tags:
         - Event Metadata
-      summary: Delete the Event Metadata associated with the given Adobe I/O Events Provider ID and event code
+      summary: Delete the event metadata associated with the given provider ID and event code
       operationId: deleteByProviderIdAndEventCode
       produces:
         - application/hal+json
@@ -238,7 +238,7 @@ paths:
     get:
       tags:
         - Providers
-      summary: List all Adobe I/O Events Providers entitled to the provided Organization ID
+      summary: List all event providers entitled to the provided organization ID
       operationId: getProvidersByConsumerOrgId
       produces:
         - application/hal+json
@@ -286,14 +286,14 @@ paths:
     get:
       tags:
         - Providers
-      summary: View Adobe I/O Events Provider by ID
+      summary: View event provider by ID
       operationId: getProvidersById
       produces:
         - application/hal+json
       parameters:
         - name: id
           in: path
-          description: The requested provider Id
+          description: The requested event provider ID
           required: true
           type: string
         - $ref: '#/parameters/authorization'
@@ -315,14 +315,14 @@ paths:
         '403':
           $ref: '#/responses/ForbiddenError'
         '404':
-          description: Provider id does not exist
+          description: Provider ID does not exist
         '500':
           $ref: '#/responses/InternalServerError'
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers':
     post:
       tags:
         - Providers
-      summary: Create an Adobe I/O Events Provider
+      summary: Create an event provider
       operationId: createProvider
       produces:
         - application/hal+json
@@ -335,30 +335,30 @@ paths:
         - $ref: '#/parameters/accept-hal-json'
         - in: body
           name: body
-          description: The Input Model necessary to create an Adobe I/O Events Provider
+          description: The input model necessary to create an event provider
           required: true
           schema:
             $ref: '#/definitions/ProviderInputModel'
       responses:
         '201':
-          description: The created Adobe I/O Events Provider.
+          description: The created event provider.
           schema:
             $ref: '#/definitions/ProviderHalModel'
         '401':
           $ref: '#/responses/UnauthorizedError'
         '403':
-          description: Unauthorized or forbidden access (e.g., invalid scopes, attempt to create a non multi-instance provider)
+          description: Unauthorized or forbidden access (e.g., invalid scopes, attempt to create a non multi-instance event provider)
         '404':
           description: Provider metadata provided in the input model does not exist
         '409':
-          description: The provider already exists. The header `x-conflicting-id` contains the conflicting providerId.
+          description: The event provider already exists. The header `x-conflicting-id` contains the conflicting providerId.
         '500':
           $ref: '#/responses/InternalServerError'
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers/{providerId}':
     put:
       tags:
         - Providers
-      summary: Update an Adobe I/O Events Provider
+      summary: Update an event provider
       operationId: putProvider
       produces:
         - application/hal+json
@@ -372,7 +372,7 @@ paths:
         - $ref: '#/parameters/accept-hal-json'
         - in: body
           name: body
-          description: The Input Model necessary to update an Adobe I/O Events Provider
+          description: The input model necessary to update an eventprovider
           required: true
           schema:
             $ref: '#/definitions/ProviderInputModel'
@@ -384,15 +384,15 @@ paths:
         '401':
           $ref: '#/responses/UnauthorizedError'
         '403':
-          description: Unauthorized or forbidden access (e.g., invalid scopes, attempt to update a non multi-instance provider)
+          description: Unauthorized or forbidden access (e.g., invalid scopes, attempt to update a non multi-instance event provider)
         '404':
-          description: Provider id does not exist
+          description: Provider ID does not exist
         '500':
           $ref: '#/responses/InternalServerError'
     patch:
       tags:
         - Providers
-      summary: PATCH an Adobe I/O Events Provider using JSON Patch
+      summary: PATCH an eventprovider using JSON Patch
       operationId: patchProvider
       consumes:
         - application/json-patch+json
@@ -409,13 +409,13 @@ paths:
         - $ref: '#/parameters/contentTypeJSONPatch'
         - in: body
           name: body
-          description: 'A JSON Patch of the Provider Input Model see https://tools.ietf.org/html/rfc6902, http://jsonpatch.com/'
+          description: 'A JSON Patch of the event provider input model see https://tools.ietf.org/html/rfc6902, http://jsonpatch.com/'
           required: true
           schema:
             $ref: '#/definitions/JsonPatch'
       responses:
         '200':
-          description: The updated/patched provider
+          description: The updated/patched event provider
           schema:
             $ref: '#/definitions/ProviderHalModel'
         '204':
@@ -425,13 +425,13 @@ paths:
         '403':
           description: Unauthorized or forbidden access (e.g., invalid scopes, attempt to update a non multi-instance provider)
         '404':
-          description: The providerId does not exist
+          description: Provider ID does not exist
         '500':
           $ref: '#/responses/InternalServerError'
     delete:
       tags:
         - Providers
-      summary: Delete an Adobe I/O Events Provider by ID
+      summary: Delete an event provider by ID
       operationId: deleteProvider
       produces:
         - application/hal+json
@@ -458,7 +458,7 @@ paths:
     get:
       tags:
         - Sample Event
-      summary: Get a sample event HAL JSON model of the provided Adobe I/O Events Provider ID and event code
+      summary: Get a sample event HAL model of the provided event provider ID and event code
       operationId: getSampleByProviderIdAndEventCode
       produces:
         - application/hal+json
@@ -478,13 +478,13 @@ paths:
         '403':
           $ref: '#/responses/ForbiddenError'
         '404':
-          description: Invalid provider / invalid event code / no sample event is available
+          description: Invalid event provider / invalid event code / no sample event is available
         '500':
           $ref: '#/responses/InternalServerError'
     head:
       tags:
         - Sample Event
-      summary: Check if a sample event is available for the provided Adobe I/O Events Provider ID and event code
+      summary: Check if a sample event is available for the provided event provider ID and event code
       operationId: checkSampleEvent
       parameters:
         - $ref: '#/parameters/providerId'
@@ -503,7 +503,7 @@ paths:
       tags:
         - Sample Event
       summary: Post a sample event for a specific registration (for test/debugging purposes)
-      description: For test/debugging purposes, this posts a sample event as it would be posted by the provided (id and event code) Adobe I/O Events Provider.
+      description: For test/debugging purposes, this posts a sample event as it would be posted by the provided (id and event code) provider.
       operationId: postSampleEventForRegistration
       produces:
         - application/json
@@ -629,7 +629,7 @@ paths:
         - $ref: '#/parameters/x-api-key'
         - in: body
           name: body
-          description: The Input Model necessary to create an Adobe I/O Events Registration
+          description: The input model necessary to create an event registration
           required: false
           schema:
             $ref: '#/definitions/RegistrationCreateModel'
@@ -655,7 +655,7 @@ paths:
     get:
       tags:
         - Registrations
-      summary: Get All Registrations associated with a workspace
+      summary: Get all event registrations associated with a workspace
       operationId: getRegistrations
       produces:
         - application/hal+json
@@ -682,7 +682,7 @@ paths:
     get:
       tags:
         - Registrations
-      summary: Get registration for registration id
+      summary: Get event registration for registration ID
       operationId: getRegistrationById
       produces:
         - application/hal+json
@@ -709,7 +709,7 @@ paths:
     put:
       tags:
         - Registrations
-      summary: Updates an event registration specified by the Registration ID.
+      summary: Update event registration specified by the registration ID.
       operationId: updateRegistrationById
       consumes:
         - application/json
@@ -724,7 +724,7 @@ paths:
         - $ref: '#/parameters/x-api-key'
         - in: body
           name: body
-          description: The Input Model necessary to create an Adobe I/O Events Registration
+          description: The input model necessary to create an event registration
           required: true
           schema:
             $ref: '#/definitions/RegistrationUpdateModel'
@@ -783,7 +783,7 @@ paths:
     delete:
       tags:
         - Registrations
-      summary: Delete registration by Registration ID
+      summary: Delete event registration by registration ID
       operationId: deleteRegistration
       produces:
         - text/plain
@@ -873,26 +873,26 @@ paths:
         '403':
           $ref: '#/responses/ForbiddenError'
         '404':
-          description: The registrationId does not exist
+          description: The registration ID does not exist
         '500':
           $ref: '#/responses/InternalServerError'
 parameters:
   consumerOrgId:
     name: consumerOrgId
     in: path
-    description: Consumer Organization ID (owning the Adobe I/O Events Provider)
+    description: Consumer Organization ID (owning the provider)
     required: true
     type: string
   projectId:
     name: projectId
     in: path
-    description: Project ID where the Adobe I/O Events Provider belongs
+    description: Project ID where the event provider belongs
     required: true
     type: string
   workspaceId:      
     name: workspaceId
     in: path
-    description: Workspace ID where the Adobe I/O Events Provider belongs
+    description: Workspace ID where the event provider belongs
     required: true
     type: string
   providerId:
@@ -904,7 +904,7 @@ parameters:
   eventCode:
     name: eventCode
     in: path
-    description: Event Code for the Event Metadata
+    description: Event code for the event metadata
     required: true
     type: string
   credentialId:
@@ -1024,7 +1024,7 @@ definitions:
         type: object
         properties:
           sample_event:
-            description: A sample event HAL Model
+            description: A sample event HAL model
             $ref: '#/definitions/TheSampleEventHALmodel'
       _links:
         type: object
@@ -1032,11 +1032,11 @@ definitions:
           'rel:sample_event':
             $ref: '#/definitions/HALLink'
           'rel:update':
-            description: 'The link to the workspace context to perform update and delete operations.This link will only be set if the Events Provider is yours to update, and not Adobe''s.'
+            description: 'The link to the workspace context to perform update and delete operations. This link will only be set if the event provider is yours to update, and not Adobe''s.'
             $ref: '#/definitions/HALLink'
           self:
             $ref: '#/definitions/HALLink'
-    description: The Adobe I/O Events Event Metadata HAL model
+    description: The event metadata HAL model
   HALLink:
     type: object
     properties:
@@ -1068,7 +1068,7 @@ definitions:
         description: 'The delivery format associated with this event sample,`adobe_io`, `cloud_events` '
       sample_payload:
         type: string
-        description: A generated sample Json Payload as expected in the webhook or journal deliveries of Adobe I/O Events
+        description: A generated sample Json Payload as expected in the webhook or journal deliveries
       _links:
         type: object
         properties:
@@ -1082,7 +1082,7 @@ definitions:
         properties:
           eventmetadata:
             type: array
-            description: Adobe I/O Events Providers Event Metadata collection.
+            description: Providers event metadata collection.
             items:
               $ref: '#/definitions/EventMetadataHalModel'
       _links:
@@ -1090,7 +1090,7 @@ definitions:
         properties:
           self:
             $ref: '#/definitions/HALLink'
-    description: Adobe I/O Events Providers Event Metadata Collection HAL model
+    description: Providers event metadata collection HAL model
   JsonPatch:
     type: object
   EventMetadataInputModel:
@@ -1124,50 +1124,50 @@ definitions:
         minLength: 0
         maxLength: 87382
         pattern: '^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$'
-    description: The Input Model necessary to POST/PUT an Adobe I/O Events Event Metadata
+    description: The input model necessary to POST/PUT event metadata
   ProviderHalModel:
     type: object
     properties:
       id:
         type: string
-        description: The Id of this Events Provider
+        description: The ID of this event provider
       label:
         type: string
-        description: 'The label of this Events Provider, as shown on the Adobe Developer Console'
+        description: 'The label of this event provider, as shown on the Adobe Developer Console'
       description:
         type: string
-        description: 'The description of this Events Provider, as shown on the Adobe Developer Console'
+        description: 'The description of this event provider, as shown on the Adobe Developer Console'
       source:
         type: string
         description: 'A URI-reference (this provider id prefixed with `urn:uuid:`), identifying the context in which an event happened. Producers MUST ensure that source + event.id is unique for each distinct event. See https://github.com/cloudevents/spec/blob/master/spec.md#source-1'
         readOnly: true
       docs_url:
         type: string
-        description: 'The documentation url of this Events Provider, as shown on the Adobe Developer Console'
+        description: 'The documentation URL of this event provider, as shown on the Adobe Developer Console'
       publisher:
         type: string
-        description: 'The publisher is `Adobe` for Adobe Cloud Solution. In the case of multi-instances or on-premise Adobe solutions:  the publisher will be set to the organization_id owning this solution. In the case of event-providers registered by an organization using Adobe I/O registration API:  the publisher will be set to the organization_id which registered this events provider'
+        description: 'The publisher is `Adobe` for Adobe Cloud Solution. In the case of multi-instances or on-premise Adobe solutions: the publisher will be set to the organization_id owning this solution. In the case of event providers registered by an organization using the Adobe I/O registration API: the publisher will be set to the organization_id which registered this event provider'
       _embedded:
         type: object
         properties:
           eventmetadata:
             type: array
-            description: The list of event metadata associated with this Events Provider
+            description: The list of event metadata associated with this event provider
             items:
               $ref: '#/definitions/EventMetadataHalModel'
       _links:
         type: object
         properties:
           'rel:eventmetadata':
-            description: The links to the event metadata associated with this Events Provider
+            description: The links to the event metadata associated with this event provider
             $ref: '#/definitions/HALLink'
           'rel:update':
-            description: 'The link to the workspace context to perform update and delete operations.This link will only be set if the Events Provider is yours to update, and not Adobe''s.'
+            description: 'The link to the workspace context to perform update and delete operations. This link will only be set if the event provider is yours to update, and not Adobe''s.'
             $ref: '#/definitions/HALLink'
           self:
             description: link to self
             $ref: '#/definitions/HALLink'
-    description: The Adobe I/O Events Provider HAL model
+    description: The provider HAL model
   ProviderCollectionHalModel:
     type: object
     properties:
@@ -1176,7 +1176,7 @@ definitions:
         properties:
           providers:
             type: array
-            description: Adobe I/O Events Providers collection.
+            description: Providers collection.
             items:
               $ref: '#/definitions/ProviderHalModel'
       _links:
@@ -1184,7 +1184,7 @@ definitions:
         properties:
           self:
             $ref: '#/definitions/HALLink'
-    description: Adobe I/O Events Providers Collection HAL model
+    description: Providers Collection HAL model
   ProviderInputModel:
     type: object
     required:
@@ -1192,23 +1192,23 @@ definitions:
     properties:
       label:
         type: string
-        description: 'The label of this Events Provider, as shown on the Adobe Developer Console'
+        description: 'The label of this event provider, as shown on the Adobe Developer Console'
         minLength: 1
         maxLength: 255
         pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
       description:
         type: string
-        description: 'The description of this Events Provider, as shown on the Adobe Developer Console'
+        description: 'The description of this event provider, as shown on the Adobe Developer Console'
         minLength: 0
         maxLength: 255
         pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
       docs_url:
         type: string
-        description: 'The documentation url of this Events Provider, as shown on the Adobe Developer Console'
+        description: 'The documentation URL of this event provider, as shown on the Adobe Developer Console'
         minLength: 0
         maxLength: 255
         pattern: 'https?://(([^/:.\s]+(\.[^/:.\s]+)*)|([0-9](\.[0-9]{3})))(:[0-9]+)?((/[^?#\s]+)(\?[^#\s]+)?(#.+)?)?/?'
-    description: The Input Model necessary to POST/PUT an Adobe I/O Events Provider
+    description: The input model necessary to POST/PUT an event provider
   EventsOfInterestModel:
     type: object
     required:
@@ -1236,14 +1236,14 @@ definitions:
         type: string
       event_delivery_format:
         type: string
-    description: Adobe I/O Events Events of Interest for a Registration
+    description: Events of Interest for a Registration
   RegistrationHalModel:
     type: object
     properties:
       id:
         type: integer
         format: int64
-        description: The id of the event registratiom. This is different from the registration id, and is used in the Developer Console URL to identify the registration
+        description: The ID of the event registration. This is different from the registration ID, and is used in the Developer Console URL to identify the registration
       name:
         type: string
         description: The name of the registration which will be displayed on Developer Console
@@ -1255,7 +1255,7 @@ definitions:
         description: Client id for which the registration is created, as obtained from Developer Console
       registration_id:
         type: string
-        description: Unique id associated with the registration
+        description: Unique ID associated with the registration
       events_of_interest:
         type: array
         description: The events for which the registration is to be subscribed to
@@ -1273,13 +1273,13 @@ definitions:
         description: Date when the registration was last updated
       consumer_id:
         type: string
-        description: Consumer id associated with the registration, obtained from Developer Console
+        description: Consumer ID associated with the registration, obtained from Developer Console
       project_id:
         type: string
-        description: Project id associated with the registration, obtained from Developer Console
+        description: Project ID associated with the registration, obtained from Developer Console
       workspace_id:
         type: string
-        description: Workspace id associated with the registration, obtained from Developer Console
+        description: Workspace ID associated with the registration, obtained from Developer Console
       webhook_url:
         type: string
         description: (Optional) A valid webhook url where the events would be delivered
@@ -1296,7 +1296,7 @@ definitions:
         type: object
         properties:
           rel:events:
-            description: link to Journaling URL to fetch events
+            description: link to journaling URL to fetch events
             $ref: '#/definitions/HALLink'
           rel:trace:
             description: link to fetch the tracing events for the purpose of debugging
@@ -1304,7 +1304,7 @@ definitions:
           self:
             description: link to self
             $ref: '#/definitions/HALLink'
-    description: The Adobe I/O Events Registration HAL model
+    description: The registration HAL model
   EventsOfInterestInputModel:
     type: object
     required:
@@ -1320,7 +1320,7 @@ definitions:
         type: string
         minLength: 1
         maxLength: 38
-    description: Adobe I/O Events Events of Interest for a Registration
+    description: Events of Interest for a Registration
   RegistrationCreateModel:
     type: object
     required:
@@ -1366,7 +1366,7 @@ definitions:
       enabled:
         type: boolean
         description: Enable or disable the registration
-    description: The Input Model necessary to create an Adobe I/O Events Registration
+    description: The input model necessary to create a registration
   RegistrationCollectionHalModel:
     type: object
     properties:
@@ -1380,10 +1380,10 @@ definitions:
         properties:
           registrations:
             type: array
-            description: Adobe I/O Event Registration collection.
+            description: Registration collection.
             items:
               $ref: '#/definitions/RegistrationHalModel'
-    description: Adobe I/O Events Registration Collection HAL model
+    description: Registration Collection HAL model
   PageMetadata:
     type: object
     properties:
@@ -1425,10 +1425,10 @@ definitions:
         properties:
           registrations:
             type: array
-            description: Adobe I/O Event Registration collection.
+            description: Registration collection.
             items:
               $ref: '#/definitions/RegistrationHalModel'
-    description: Adobe I/O Events Registration Collection HAL model for Paginated response
+    description: Registration Collection HAL model for Paginated response
   RegistrationUpdateModel:
     type: object
     required:
@@ -1468,7 +1468,7 @@ definitions:
       enabled:
         type: boolean
         description: Enable or disable the registration
-    description: The Input Model necessary to PATCH/PUT an Adobe I/O Events Registration
+    description: The input model necessary to PATCH/PUT a registration
   Trace:
     type: object
     properties:
