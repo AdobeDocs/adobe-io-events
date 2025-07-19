@@ -458,7 +458,7 @@ paths:
     get:
       tags:
         - Sample Event
-      summary: Get a sample event HAL model of the provided event provider ID and event code
+      summary: Get a sample event HAL JSON model for the given event provider ID and event code
       operationId: getSampleByProviderIdAndEventCode
       produces:
         - application/hal+json
@@ -484,7 +484,7 @@ paths:
     head:
       tags:
         - Sample Event
-      summary: Check if a sample event is available for the provided event provider ID and event code
+      summary: Check if a sample event is available for the given event provider ID and event code
       operationId: checkSampleEvent
       parameters:
         - $ref: '#/parameters/providerId'
@@ -534,7 +534,7 @@ paths:
               type: object
       responses:
         '200':
-          description: If a sample event was posted against the provided registration
+          description: If a sample event was posted against the given registration
         '204':
           description: If no sample was posted (sample payload is not supported yet)
         '500':
@@ -682,7 +682,7 @@ paths:
     get:
       tags:
         - Registrations
-      summary: Get event registration for registration ID
+      summary: Get event registration by registration ID
       operationId: getRegistrationById
       produces:
         - application/hal+json
