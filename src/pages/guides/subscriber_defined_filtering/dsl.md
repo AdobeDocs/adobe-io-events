@@ -55,6 +55,8 @@ Here is a real event payload you might receive from Adobe I/O Events:
 | `exists`            | Field exists or not                         | `"assetMetadata": {"customProperty1": [{"exists": true}]}`                |
 | `equals-ignore-case`| Case-insensitive match                      | `"tier": [{"equals-ignore-case": "PUBLISH"}]`                              |
 | `$or`               | Logical OR across fields or conditions      | `"$or": [{"tier": ["publish"]}, {"repo:size": [{"numeric": [">", 1000000]}]}]` |
+| `cidr`               | IP address matches CIDR range (both IPv4 and IPv6)              | `"ip": [{"cidr": "192.168.0.0/16"}]`                               |
+
 
 The `and` logical operator is implicit. Fields in JSON objects in the rule are conditions in `and`. 
 
@@ -149,6 +151,19 @@ Matches if any of the listed conditions are true (logical OR across fields or su
 }
 ```
 
+#### 10. `cidr`
+Matches if the field value (an IP address) is within the specified CIDR range(s).
+```json
+{
+  "data": {
+    "detail": {
+      "source-ip": [{"cidr": "192.168.0.0/16"}]
+    }
+  }
+}
+```
+
+
 ## Practical Filter Examples
 
 For end-to-end setup and API usage, see the [SDF Overview](./index.md).
@@ -200,13 +215,13 @@ For end-to-end setup and API usage, see the [SDF Overview](./index.md).
 
 ## Restrictions
 
-- **Subset of Operators:** Not all Event Ruler operators are supported. The most common operators (`equals`, `anything-but`, `prefix`, `suffix`, `numeric`, `exists`, `equals-ignore-case`, `$or`) are available.
+- **Subset of Operators:** Not all Event Ruler operators are supported. The most common operators (`equals`, `anything-but`, `prefix`, `suffix`, `numeric`, `exists`, `equals-ignore-case`, `$or`, `cidr`) are available.
 - **Filter Size Limit:** There is a maximum size for the filter JSON. Very large filters may be rejected.
 - **No Nested `$or` in Reserved Keywords:** `$or` cannot be used inside objects with reserved keywords (e.g., `{ "numeric": ... }`).
 - **Leaf Node Matching:** Most operators only work on leaf fields (not objects or arrays), except for `$or` and `anything-but`.
 - **No Wildcards:** Wildcard patterns are not supported.
 - **Performance/Complexity Limits:** Filters that are too complex (deep `$or` nesting, or too many rule combinations) may be rejected for performance reasons.
-- **Case Sensitivity:** By default, string matching is case-sensitive unless `equals-ignore-case` is used.
+- **Case Sensitivity:** By default, string matching is case-sensitive unless `equals-ignore-case` is used. You can compose this operator with `prefix` or `suffix` matching.
 - **JSON Syntax and Field Names:** Filters must be valid JSON. Field names and values must match the event payload structure exactly.
 - **No Duplicate Keys:** If a filter contains matching expression at the same path, the filter is considered invalid to avoid confusion on which expression is applied. 
 - **Validation Endpoint:** Always use the filter validation endpoint to check your filter before saving it. This will catch all syntax errors. You can use custom payloads to check whether your filtering logic applies ex expected.
@@ -221,6 +236,6 @@ For end-to-end setup and API usage, see the [SDF Overview](./index.md).
 - **Check Field Names:** Ensure your filter field names match the event payload structure exactly.
 
 ## Further Reading
-- [AWS EventBridge Pattern Operators](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-pattern-operators.html)
+- [Subscriber Defined Filtering Overview](./index.md)
 - [Event Ruler Syntax](https://github.com/aws/event-ruler?tab=readme-ov-file)
-- [Subscriber Defined Filtering Overview](./index.md) 
+- [AWS EventBridge Pattern Operators](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-pattern-operators.html)

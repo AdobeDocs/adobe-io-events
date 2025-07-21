@@ -4,7 +4,7 @@ title: Subscriber Defined Filtering
 
 # Adobe I/O Events Subscriber Defined Filtering
 
-Adobe I/O Events Subscriber Defined Filtering (SDF) empowers you to create custom filters that specify exactly which events you want to receive. Instead of receiving all events for a given event type, you can now define precise filtering criteria using JSON-based filter definitions, allowing you to reduce noise and focus on the events that matter most to your application.
+Adobe I/O Events Subscriber Defined Filtering (SDF) empowers you to create custom filters that specify exactly which events you want to receive. Instead of receiving all events for a given event type, you can now define precise filtering criteria using [JSON-based filter definitions](dsl.md), allowing you to reduce noise and focus on the events that matter most to your application.
 
 By leveraging this feature, you can significantly reduce the number of irrelevant events your application receives, improving performance and reducing costs associated with processing unwanted events.
 
@@ -20,15 +20,16 @@ Key benefits include:
 ## Prerequisites
 
 - An active Adobe I/O Events registration which is compatible with SDF:
-  - Only includes Cloud Events deliveries.
-  - AWS EventBridge is not configured among the delivery methods.
+  - Only includes [CloudEvents](https://cloudevents.io) deliveries.
+  - [AWS EventBridge](../amazon_eventbridge/index.md) is not configured among the delivery methods.
 - Access to the Adobe I/O Events API with proper authentication
   - You can either use the Developer Console or add your filters through the APIs 
 - Understanding of JSON syntax and your event payload structure
+  - Check the [filtering language details](dsl.md)
 
 ## Getting Started
 
-We assume you already have a Registration for which SDF is applicable.
+We assume you already have a Registration for which [SDF is applicable](#prerequisites).
 
 ### Creating Your First Filter (API)
 
@@ -36,7 +37,7 @@ To create a subscriber filter, you'll need to make a POST request to the Adobe I
 
 ```bash
 curl -X POST \
-  'https://api.adobe.io/events/consumersorgid/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters' \
+  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters' \
   -H 'Authorization: Bearer {ACCESS_TOKEN}' \
   -H 'x-api-key: {API_KEY}' \
   -H 'Content-Type: application/json' \
@@ -46,6 +47,8 @@ curl -X POST \
     "subscriber_filter": "{\"type\":[\"asset_created\"], \"data\":{\"asset_type\":[\"image\"]}}"
   }'
 ```
+
+This will add the SDF to the registration identified by `registrationId`.
 
 ### Filter Definition Format
 
@@ -96,7 +99,7 @@ curl -X POST \
     "subscriber_filter": {
       "name": "Test Filter",
       "description": "Filter validation test",
-      "subscriber_filter": "{\"type\":[\"asset_created\"]}"
+      "subscriber_filter": "{\"data\":{\"asset_type\":[\"image\"]}}"
     },
     "custom_sample_events": [
       {
@@ -124,13 +127,107 @@ curl -X POST \
 
 Creates a new subscriber filter for the specified registration.
 
-**Request Body:**
-```json
-{
-  "name": "<your-filter-name>",
-  "description": "<your-filter-description>",
-  "subscriber_filter": "{\"data\": {\"asset_type\": [\"image\"]}}"
-}
+```bash
+curl -X POST \
+  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters' \
+  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
+  -H 'x-api-key: {API_KEY}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "My Asset Filter",
+    "description": "Filter for image and video assets",
+    "subscriber_filter": "{\"data\":{\"asset_type\":[\"image\", \"video\"]}}"
+  }'
+```
+
+### Get All Filters
+**GET** `/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters`
+
+Retrieves all subscriber filters for a given registration.
+
+```bash
+curl -X GET \
+  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters' \
+  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
+  -H 'x-api-key: {API_KEY}'
+```
+
+### Get Filter by ID
+**GET** `/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}`
+
+Retrieves a specific subscriber filter by its ID.
+
+```bash
+curl -X GET \
+  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}' \
+  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
+  -H 'x-api-key: {API_KEY}'
+```
+
+### Update Filter
+**PUT** `/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}`
+
+Updates an existing subscriber filter.
+
+```bash
+curl -X PUT \
+  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}' \
+  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
+  -H 'x-api-key: {API_KEY}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "Updated Asset Filter",
+    "description": "Updated filter for image assets only",
+    "subscriber_filter": "{\"data\":{\"asset_type\":[\"image\"]}}"
+  }'
+```
+
+### Delete Filter
+**DELETE** `/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}`
+
+Deletes a subscriber filter by its ID.
+
+```bash
+curl -X DELETE \
+  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}' \
+  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
+  -H 'x-api-key: {API_KEY}'
+```
+
+### Validate Filter
+**POST** `/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filter/validate`
+
+Validates a subscriber filter against the registration and optional custom sample events.
+
+```bash
+curl -X POST \
+  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filter/validate' \
+  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
+  -H 'x-api-key: {API_KEY}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "subscriber_filter": {
+      "name": "Test Filter",
+      "description": "Filter validation test",
+      "subscriber_filter": "{\"data\":{\"asset_type\":[\"image\"]}}"
+    },
+    "custom_sample_events": [
+      {
+        "name": "sample_event",
+        "sample_payload": {
+          "specversion": "1.0",
+          "type": "asset_created",
+          "source": "urn:uuid:example",
+          "id": "12345",
+          "time": "2023-01-01T00:00:00Z",
+          "data": {
+            "asset_type": "image",
+            "size": 2048
+          }
+        }
+      }
+    ]
+  }'
 ```
 
 ## Best Practices
@@ -138,9 +235,9 @@ Creates a new subscriber filter for the specified registration.
 ### Filter Design
 
 1. **Start Simple**: Begin with basic filters and gradually add complexity
-2. **Test Thoroughly**: Always validate filters before deploying to production
+2. **Test Thoroughly**: Always validate filters before deploying to production. Remember that the filter will be applied to all delivery methods, journal included.
 3. **Use Specific Patterns**: More specific filters are generally more efficient
-4. **Consider Performance**: Complex filters may impact processing time
+4. **Consider Performance**: Complex filters may impact processing time, so do not add unneed operators in your definitions.
 
 ### Error Handling
 
