@@ -86,7 +86,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
             "body": {
                 "specversion": "1.0",
                 "type": "com.adobe.platform.marketo.audit.user.email",
-                "source": "https://www.marketo.com",
+                "source": "urn:mlm",
                 "time": "2024-07-11 13:20:42.755",
                 "datacontenttype": "application/json",
                 "dataschema": "V2.0",
@@ -108,7 +108,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
             "body": {
                 "specversion": "1.0",
                 "type": "com.adobe.platform.marketo.audit.user.landingpage",
-                "source": "https://www.marketo.com",
+                "source": "urn:mlm",
                 "time": "2024-07-11 13:20:42.755",
                 "datacontenttype": "application/json",
                 "dataschema": "V2.0",
@@ -136,7 +136,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         "body": {
             "specversion": "1.0",
             "type": "com.adobe.platform.marketo.audit.user.email",
-            "source": "https://www.marketo.com",
+            "source": "urn:mlm",
             "time": "2024-07-11 13:20:42.755",
             "datacontenttype": "application/json",
             "dataschema": "V2.0",

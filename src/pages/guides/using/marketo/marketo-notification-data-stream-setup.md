@@ -85,7 +85,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
     "event": {
       "body": {
         "specversion": "1.0",
-        "source": "https://www.marketo.com",
+        "source": "urn:mlm",
         "time": "2024-12-18T07:32:30Z",
         "type": "com.adobe.platform.marketo.notification.web_services",
         "dataschema": "V1.0",
@@ -112,7 +112,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
     "event": {
       "body": {
         "specversion": "1.0",
-        "source": "https://www.marketo.com",
+        "source": "urn:mlm",
         "time": "2024-12-18T07:34:20Z",
         "type": "com.adobe.platform.marketo.notification.campaign_failure",
         "dataschema": "V1.0",
@@ -142,7 +142,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
   "event": {
     "body": {
       "specversion": "1.0",
-      "source": "https://www.marketo.com",
+      "source": "urn:mlm",
       "time": "2024-12-18T07:35:12Z",
       "type": "com.adobe.platform.marketo.notification.campaign_abort",
       "dataschema": "V1.0",
