@@ -172,7 +172,7 @@ Many of the fields are common across the different types of events. The `event.b
 | eventid        | String            | Unique UUID generated per event                   |
 | specversion     | String            | CloudEvents version specification being used      |
 | type            | String            | Type of event used for event subscription routing |
-| source          | String            | Context in which an event happened. It's values can be "urn:mlm", "urn:userservice", "urn:asset_api"                         |
+| source          | String            | Context in which an event happened. Its values can be "urn:mlm", "urn:userservice", "urn:asset_api"                         |
 | time            | String (DateTime) | Timestamp of the completion of the action         |
 | datacontenttype | String            | Content type of the data object                   |
 | dataschema      | String            | User Audit Data Stream event schema version       |
