@@ -85,7 +85,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
     "event": {
       "body": {
         "specversion": "1.0",
-        "source": "https://www.marketo.com",
+        "source": "urn:mlm",
         "time": "2024-12-18T07:32:30Z",
         "type": "com.adobe.platform.marketo.notification.web_services",
         "dataschema": "V1.0",
@@ -112,7 +112,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
     "event": {
       "body": {
         "specversion": "1.0",
-        "source": "https://www.marketo.com",
+        "source": "urn:mlm",
         "time": "2024-12-18T07:34:20Z",
         "type": "com.adobe.platform.marketo.notification.campaign_failure",
         "dataschema": "V1.0",
@@ -142,7 +142,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
   "event": {
     "body": {
       "specversion": "1.0",
-      "source": "https://www.marketo.com",
+      "source": "urn:mlm",
       "time": "2024-12-18T07:35:12Z",
       "type": "com.adobe.platform.marketo.notification.campaign_abort",
       "dataschema": "V1.0",
@@ -172,7 +172,7 @@ Many of the fields are common across the different types of events. The `event.b
 | eventid        | String            | Unique UUID generated per event                   |
 | specversion     | String            | CloudEvents version specification being used      |
 | type            | String            | Type of event used for event subscription routing |
-| source          | String            | Context in which an event happened                |
+| source          | String            | Context in which an event happened. Its values can be "urn:mlm", "urn:userservice", "urn:asset_api"                         |
 | time            | String (DateTime) | Timestamp of the completion of the action         |
 | datacontenttype | String            | Content type of the data object                   |
 | dataschema      | String            | User Audit Data Stream event schema version       |
