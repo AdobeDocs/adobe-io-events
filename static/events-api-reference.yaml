@@ -32,13 +32,13 @@ paths:
           schema:
             $ref: '#/definitions/EventMetadataHalModel'
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: The providerId / eventCode does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/providers/{providerId}/eventmetadata':
     get:
       tags:
@@ -58,13 +58,13 @@ paths:
           schema:
             $ref: '#/definitions/EventMetadataCollectionHalModel'
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: The providerId does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers/{providerId}/eventmetadata':
     post:
       tags:
@@ -93,13 +93,13 @@ paths:
           schema:
             $ref: '#/definitions/EventMetadataHalModel'
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: The providerId does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
 
     delete:
       tags:
@@ -120,13 +120,13 @@ paths:
         '204':
           description: Successful deletion
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: The providerId does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers/{providerId}/eventmetadata/{eventCode}':
     put:
       tags:
@@ -158,13 +158,13 @@ paths:
         '400':
           description: The event code in URI does not match the input model's event code
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: The providerId / eventCode does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
     patch:
       tags:
         - Event Metadata
@@ -200,13 +200,13 @@ paths:
         '400':
           description: The event code in URI does not match the input model's event code
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: The providerId / eventCode does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
     delete:
       tags:
         - Event Metadata
@@ -227,13 +227,13 @@ paths:
         '204':
           description: Successful deletion
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: The providerId / eventCode does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/{consumerOrgId}/providers':
     get:
       tags:
@@ -275,13 +275,13 @@ paths:
           schema:
             $ref: '#/definitions/ProviderCollectionHalModel'
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: Provider associated with the consumerOrgId, providerMetadataId or instanceID does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/providers/{id}':
     get:
       tags:
@@ -311,13 +311,13 @@ paths:
           schema:
             $ref: '#/definitions/ProviderHalModel'
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: Provider ID does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers':
     post:
       tags:
@@ -345,7 +345,7 @@ paths:
           schema:
             $ref: '#/definitions/ProviderHalModel'
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
           description: Unauthorized or forbidden access (e.g., invalid scopes, attempt to create a non multi-instance event provider)
         '404':
@@ -353,7 +353,7 @@ paths:
         '409':
           description: The event provider already exists. The header `x-conflicting-id` contains the conflicting providerId.
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/providers/{providerId}':
     put:
       tags:
@@ -382,13 +382,13 @@ paths:
           schema:
             $ref: '#/definitions/ProviderHalModel'
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
           description: Unauthorized or forbidden access (e.g., invalid scopes, attempt to update a non multi-instance event provider)
         '404':
           description: Provider ID does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
     patch:
       tags:
         - Providers
@@ -421,13 +421,13 @@ paths:
         '204':
           description: If the patch had no effect
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
           description: Unauthorized or forbidden access (e.g., invalid scopes, attempt to update a non multi-instance provider)
         '404':
           description: Provider ID does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
     delete:
       tags:
         - Providers
@@ -447,13 +447,13 @@ paths:
         '204':
           description: Successful deletion
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: The providerId does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/providers/{providerId}/eventmetadata/{eventCode}/sample_event':
     get:
       tags:
@@ -474,13 +474,13 @@ paths:
           schema:
             $ref: '#/definitions/TheSampleEventHALmodel'
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: Invalid event provider / invalid event code / no sample event is available
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
     head:
       tags:
         - Sample Event
@@ -497,7 +497,7 @@ paths:
         '404':
           description: If no sample event is available or not supported yet
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/providers/{providerId}/eventmetadata/{eventCode}/sample_event/{registrationId}':
     post:
       tags:
@@ -538,7 +538,7 @@ paths:
         '204':
           description: If no sample was posted (sample payload is not supported yet)
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/organizations/{consumerOrgId}/integrations/{credentialId}/{registrationId}/validate':
     get:
       tags:
@@ -641,9 +641,9 @@ paths:
         '400':
           description: Bad request, possible issue with the request payload
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: Registration does not exist
         '409':
@@ -651,7 +651,7 @@ paths:
             The registration name already exists in the same workspace. The header `x-conflicting-id` will contain the conflicting registrationId.
             [OR] Maximum registration limit hit for client id or org.
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
     get:
       tags:
         - Registrations
@@ -671,13 +671,13 @@ paths:
           schema:
             $ref: '#/definitions/RegistrationCollectionHalModel'
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: Registration does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}':
     get:
       tags:
@@ -699,13 +699,13 @@ paths:
           schema:
             $ref: '#/definitions/RegistrationHalModel'
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: Registration does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
     put:
       tags:
         - Registrations
@@ -736,13 +736,13 @@ paths:
         '400':
           description: Bad request, possible issue with the request payload
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: Registration does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
     patch:
       tags:
         - Registrations
@@ -773,13 +773,13 @@ paths:
         '400':
           description: Bad request, possible issue with the request payload
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: Registration does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
     delete:
       tags:
         - Registrations
@@ -798,13 +798,13 @@ paths:
         '204':
           description: Successful deletion
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: The registration does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/{consumerOrgId}/registrations':
     get:
       tags:
@@ -841,11 +841,11 @@ paths:
         '400':
           description: Page number or size exceeded or page size is less than 1
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
   '/events/organizations/{consumerOrgId}/integrations/{credentialId}/tracing/{registrationId}':
     get:
       tags:
@@ -869,13 +869,13 @@ paths:
             items:
               $ref: '#/definitions/TracingRequestResponse'
         '401':
-          $ref: '#/responses/UnauthorizedError'
+          $ref: '#/definitions/UnauthorizedError'
         '403':
-          $ref: '#/responses/ForbiddenError'
+          $ref: '#/definitions/ForbiddenError'
         '404':
           description: The registration ID does not exist
         '500':
-          $ref: '#/responses/InternalServerError'
+          $ref: '#/definitions/InternalServerError'
 parameters:
   consumerOrgId:
     name: consumerOrgId
