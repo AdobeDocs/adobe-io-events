@@ -1220,7 +1220,7 @@ definitions:
         example: '3rd_party_custom_events'
       instance_id:
         type: string
-        description : 'A technical instance ID; optional. If omitted and `provider_metadata` is `3rd_party_custom_events`, a random UUID is generated; otherwise, you may specify a custom value, which must be unique at the `provider_metadata` level.'
+        description : 'A technical instance ID; optional. If omitted and `provider_metadata` is `3rd_party_custom_events`, a random UUID is generated; otherwise, you must specify a custom value, which must be unique at the `provider_metadata` level.'
         minLength: 0
         maxLength: 255
         pattern: '[\w-_:\@\./]+'
