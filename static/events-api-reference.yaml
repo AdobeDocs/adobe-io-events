@@ -1211,11 +1211,6 @@ definitions:
         maxLength: 255
         pattern: 'https?://(([^/:.\s]+(\.[^/:.\s]+)*)|([0-9](\.[0-9]{3})))(:[0-9]+)?((/[^?#\s]+)(\?[^#\s]+)?(#.+)?)?/?'
         example: 'https://developer.adobe.com/events/docs'
-      event_delivery_format:
-        type: string
-        description: 'The event delivery format, either: `cloud_events_v1` or `adobe_io`. If none is provided, the default at the provider_metadata level will be used. It is cloud_events_v1 for the default `3rd_party_custom_events` provider_metadata. We strongly encourage using the CloudEvents open specification format (see https://github.com/cloudevents/spec).'
-        pattern: 'cloud_events_v1|adobe_io'
-        example: 'cloud_events_v1'
       provider_metadata:
         type: string
         description: 'The provider metadata id; optional. If none is provided, the default `3rd_party_custom_events` will be used.'
