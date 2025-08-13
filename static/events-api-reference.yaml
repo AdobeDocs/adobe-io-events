@@ -1213,21 +1213,21 @@ definitions:
         example: 'https://developer.adobe.com/events/docs'
       provider_metadata:
         type: string
-        description: 'The provider metadata id; optional. If none is provided, the default `3rd_party_custom_events` will be used.'
+        description: 'The provider metadata ID; optional. If omitted, the default `3rd_party_custom_events` will be used.'
         minLength: 1
         maxLength: 255
         pattern: '3rd_party_custom_events|acs|aem|asset_compute|dx_commerce_events'
         example: '3rd_party_custom_events'
       instance_id:
         type: string
-        description : 'A technical instance id; optional. If none is provided and the provider_metadata is `3rd_party_custom_events`, then a random UUID will be used. This should be unique at the provider_metadata level.'
+        description : 'A technical instance ID; optional. If omitted and `provider_metadata` is `3rd_party_custom_events`, a random UUID is generated; otherwise, you may specify a custom value, which must be unique at the `provider_metadata` level.'
         minLength: 0
         maxLength: 255
         pattern: '[\w-_:\@\./]+'
         example: 'instance-1'
       data_residency_region:
         type: string
-        description: 'The data residency region; optional. If none is provided, the default `va6` will be used. This defines where your events are stored and processed. Currently we only support two regions: US (va6) and Europe (irl1).'
+        description: 'The data residency region; optional. If omitted, the default `va6` will be used. Currently we only support two regions: US (va6) and Europe (irl1). This defines where your events are stored and processed.'
         minLength: 3
         maxLength: 5
         pattern: 'va6|irl1'
