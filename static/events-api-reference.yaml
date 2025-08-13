@@ -70,7 +70,7 @@ paths:
       tags:
         - Event Metadata
       summary: Create event metadata
-      operationId: post
+      operationId: postEventMetadata
       produces:
         - application/hal+json
       parameters:
