@@ -805,6 +805,11 @@ paths:
       responses:
         '200':
           description: Subscriber Defined Filters retrieved successfully
+          schema:
+            type: array
+            uniqueItems: true
+            items:
+              $ref: '#/definitions/SubscriberFilterModel'
         '404':
           description: Registration not found
     post:
@@ -855,6 +860,8 @@ paths:
       responses:
         '200':
           description: Subscriber Defined Filter retrieved successfully
+          schema:
+            $ref: '#/definitions/SubscriberFilterModel'
         '404':
           description: Subscriber Defined Filter not found
     put:
