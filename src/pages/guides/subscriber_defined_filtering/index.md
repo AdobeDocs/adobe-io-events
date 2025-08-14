@@ -269,7 +269,7 @@ curl -X POST \
 
 ### Error Handling
 
-- Invalid filter syntax will return a 400 error with a detailed explanation to guide the user to resolution. 
+- Invalid filter syntax will return a 400 error with a detailed explanation to guide you to resolution. 
 - Use the validation endpoint to catch issues before deployment
 
 ## Output Event Format
@@ -281,14 +281,15 @@ Events that pass your subscriber filters maintain the same format as unfiltered 
 ### Common Issues
 
 **Filter Not Working**
-- Verify the filter syntax is valid JSON [Restrictions](./dsl.md#restrictions)
+- Verify the filter syntax is valid JSON. See [Restrictions](./dsl.md#restrictions)
 - Check that field names match the event payload structure
-- Ensure the filter logic matches your intended behavior [Practical Filter Examples](./dsl.md#practical-filter-examples)
+- Ensure the filter logic matches your intended behavior. See [Practical Filter Examples](./dsl.md#practical-filter-examples)
 
 **Performance Issues**
-- Simplify complex filters [Best Practices](./dsl.md#best-practices)
-- Avoid overly broad pattern matching [Best Practices](./dsl.md#best-practices)
-- Consider breaking complex filters into multiple simpler ones [Best Practices](./dsl.md#best-practices)
+See [Best Practices](./dsl.md#best-practices):
+- Simplify complex filters
+- Avoid overly broad pattern matching
+- Consider breaking complex filters into multiple simpler ones
 
 **Validation Errors**
 - Review the error message for specific syntax issues
@@ -312,13 +313,13 @@ If you're currently using event type filtering only, here's how to migrate to su
 
 This approach ensures a smooth transition while maximizing the benefits of more precise event filtering. 
 
-In case your registration is not compatible with SDF:
+### In case your registration is not compatible with SDF:
 
-### Mixed delivery formats in the Registration (Cloud Events and Adobe I/O)
+#### Mixed delivery formats in the Registration (Cloud Events and Adobe I/O)
 
 You can split the registration and move all Adobe I/O event deliveries to a separate registration. Now you can add a SDF for all events in Cloud Events format.
 
-### AWS EventBridge enabled registrations
+#### AWS EventBridge enabled registrations
 
 We currently do not support registrations delivering events to EventBridge to add SDF. Please add the filtering logic in AWS.
 
