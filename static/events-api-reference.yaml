@@ -508,13 +508,12 @@ paths:
           description: application/json
           required: false
           type: string
-      requestBody:
-        description: Any JSON Event Payload
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
+        - in: body
+          name: body
+          description: Any JSON Event Payload
+          required: false
+          schema:
+            type: object
       responses:
         '200':
           description: If a sample event was posted against the given registration
