@@ -23,7 +23,7 @@ Key benefits include:
   - Only includes [CloudEvents](https://cloudevents.io) deliveries.
   - [AWS EventBridge](../amazon_eventbridge/index.md) is not configured among the delivery methods.
 - Access to the Adobe I/O Events API with proper authentication
-  - You can either use the Developer Console or add your filters through the APIs 
+  - You can either use the Developer Console or add your filters through the [Registration APIs](../api/registration-api.md) 
 - Understanding of JSON syntax and your event payload structure
   - Check the [filtering language details](dsl.md)
 
@@ -33,14 +33,15 @@ We assume you already have a Registration for which [SDF is applicable](#prerequ
 
 ### Creating Your First Filter (API)
 
-To create a subscriber filter, you'll need to make a POST request to the Adobe I/O Events API. Here's the basic structure:
+To create a subscriber filter, you'll need to make a POST request to the Adobe I/O Events API. If you didn't already configure your environment variables, please follow the documentation [here](#prerequisites-1). 
+Here's the basic structure to [add a filter to an existing registration](../../api.md#operation/createSubscriberFilter):
 
 ```bash
 curl -X POST \
-  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters' \
-  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
-  -H 'x-api-key: {API_KEY}' \
-  -H 'Content-Type: application/json' \
+  "https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations/${registration_id}/filters" \
+  -H "Authorization: Bearer ${oauth_s2s_token}" \
+  -H "x-api-key: ${api_key}" \
+  -H "Content-Type: application/json" \
   -d '{
     "name": "My First Filter",
     "description": "Filter for specific asset events",
@@ -48,7 +49,7 @@ curl -X POST \
   }'
 ```
 
-This will add the SDF to the registration identified by `registrationId`.
+This will add the SDF to the registration identified by `registration_id`.
 
 ### Filter Definition Format
 
@@ -91,10 +92,10 @@ Before creating a filter, you can validate it against your registered event type
 
 ```bash
 curl -X POST \
-  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filter/validate' \
-  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
-  -H 'x-api-key: {API_KEY}' \
-  -H 'Content-Type: application/json' \
+  "https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations/${registration_id}/filter/validate" \
+  -H "Authorization: Bearer ${oauth_s2s_token}" \
+  -H "x-api-key: ${api_key}" \
+  -H "Content-Type: application/json" \
   -d '{
     "subscriber_filter": {
       "name": "Test Filter",
@@ -122,6 +123,24 @@ curl -X POST \
 
 ## API Reference
 
+For your convenience, here is an overview of the Subscriber Defined Filtering related APIs with example curl commands. 
+
+### Prerequisites
+
+Before using these examples, you need to set up your environment variables. See the [Registration API prerequisites](../api/registration-api.md#prerequisites) for detailed instructions on how to obtain these values:
+
+```bash
+# Set up environment variables (replace with your actual values)
+export oauth_s2s_token="your_oauth_s2s_token"
+export api_key="your_client_id"
+export consumer_id="your_consumer_org_id"
+export project_id="your_project_id"
+export workspace_id="your_workspace_id"
+export registration_id="your_registration_id"
+```
+
+You can also [generate an OAuth Server-to-Server token](https://developer.adobe.com/developer-console/docs/guides/credentials) if you haven't already.
+
 ### Create Filter
 **POST** `/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters`
 
@@ -129,10 +148,10 @@ Creates a new subscriber filter for the specified registration.
 
 ```bash
 curl -X POST \
-  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters' \
-  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
-  -H 'x-api-key: {API_KEY}' \
-  -H 'Content-Type: application/json' \
+  "https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations/${registration_id}/filters" \
+  -H "Authorization: Bearer ${oauth_s2s_token}" \
+  -H "x-api-key: ${api_key}" \
+  -H "Content-Type: application/json" \
   -d '{
     "name": "My Asset Filter",
     "description": "Filter for image and video assets",
@@ -147,9 +166,9 @@ Retrieves all subscriber filters for a given registration.
 
 ```bash
 curl -X GET \
-  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters' \
-  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
-  -H 'x-api-key: {API_KEY}'
+  "https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations/${registration_id}/filters" \
+  -H "Authorization: Bearer ${oauth_s2s_token}" \
+  -H "x-api-key: ${api_key}"
 ```
 
 ### Get Filter by ID
@@ -158,10 +177,13 @@ curl -X GET \
 Retrieves a specific subscriber filter by its ID.
 
 ```bash
+# Set the filter ID you want to retrieve
+export subscriber_filter_id="your_filter_id"
+
 curl -X GET \
-  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}' \
-  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
-  -H 'x-api-key: {API_KEY}'
+  "https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations/${registration_id}/filters/${subscriber_filter_id}" \
+  -H "Authorization: Bearer ${oauth_s2s_token}" \
+  -H "x-api-key: ${api_key}"
 ```
 
 ### Update Filter
@@ -170,11 +192,14 @@ curl -X GET \
 Updates an existing subscriber filter.
 
 ```bash
+# Set the filter ID you want to update
+export subscriber_filter_id="your_filter_id"
+
 curl -X PUT \
-  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}' \
-  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
-  -H 'x-api-key: {API_KEY}' \
-  -H 'Content-Type: application/json' \
+  "https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations/${registration_id}/filters/${subscriber_filter_id}" \
+  -H "Authorization: Bearer ${oauth_s2s_token}" \
+  -H "x-api-key: ${api_key}" \
+  -H "Content-Type: application/json" \
   -d '{
     "name": "Updated Asset Filter",
     "description": "Updated filter for image assets only",
@@ -188,10 +213,13 @@ curl -X PUT \
 Deletes a subscriber filter by its ID.
 
 ```bash
+# Set the filter ID you want to delete
+export subscriber_filter_id="your_filter_id"
+
 curl -X DELETE \
-  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}' \
-  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
-  -H 'x-api-key: {API_KEY}'
+  "https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations/${registration_id}/filters/${subscriber_filter_id}" \
+  -H "Authorization: Bearer ${oauth_s2s_token}" \
+  -H "x-api-key: ${api_key}"
 ```
 
 ### Validate Filter
@@ -201,10 +229,10 @@ Validates a subscriber filter against the registration and optional custom sampl
 
 ```bash
 curl -X POST \
-  'https://api.adobe.io/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filter/validate' \
-  -H 'Authorization: Bearer {ACCESS_TOKEN}' \
-  -H 'x-api-key: {API_KEY}' \
-  -H 'Content-Type: application/json' \
+  "https://api.adobe.io/events/${consumer_id}/${project_id}/${workspace_id}/registrations/${registration_id}/filter/validate" \
+  -H "Authorization: Bearer ${oauth_s2s_token}" \
+  -H "x-api-key: ${api_key}" \
+  -H "Content-Type: application/json" \
   -d '{
     "subscriber_filter": {
       "name": "Test Filter",
@@ -246,22 +274,7 @@ curl -X POST \
 
 ## Output Event Format
 
-Events that pass your subscriber filters maintain the same format as unfiltered events, they are not modified (Cloud Events):
-
-```json
-{
-  "specversion": "1.0",
-  "id": "4bc56dd4-8009-9893-2bc0-a65214f1ef02",
-  "type": "asset_created",
-  "source": "urn:uuid:example-source",
-  "time": "2023-11-26T13:44:51Z",
-  "data": {
-    "asset_type": "image",
-    "size": 2048576,
-    "path": "/content/dam/marketing/banner.jpg"
-  }
-}
-```
+Events that pass your subscriber filters maintain the same format as unfiltered events, they are not modified (Cloud Events).
 
 ## Troubleshooting
 
