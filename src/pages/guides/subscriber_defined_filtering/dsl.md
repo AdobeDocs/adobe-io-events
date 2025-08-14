@@ -216,15 +216,14 @@ For end-to-end setup and API usage, see the [SDF Overview](./index.md).
 ## Restrictions
 
 - **Subset of Operators:** Not all Event Ruler operators are supported. The most common operators (`equals`, `anything-but`, `prefix`, `suffix`, `numeric`, `exists`, `equals-ignore-case`, `$or`, `cidr`) are available.
-- **Filter Size Limit:** There is a maximum size for the filter JSON. Very large filters may be rejected.
+- **Filter Size Limit:** There is a maximum size for the filter JSON definition. Very large filters may be rejected.
 - **No Nested `$or` in Reserved Keywords:** `$or` cannot be used inside objects with reserved keywords (e.g., `{ "numeric": ... }`).
-- **Leaf Node Matching:** Most operators only work on leaf fields (not objects or arrays), except for `$or` and `anything-but`.
 - **No Wildcards:** Wildcard patterns are not supported.
 - **Performance/Complexity Limits:** Filters that are too complex (deep `$or` nesting, or too many rule combinations) may be rejected for performance reasons.
 - **Case Sensitivity:** By default, string matching is case-sensitive unless `equals-ignore-case` is used. You can compose this operator with `prefix` or `suffix` matching.
 - **JSON Syntax and Field Names:** Filters must be valid JSON. Field names and values must match the event payload structure exactly.
 - **No Duplicate Keys:** If a filter contains matching expression at the same path, the filter is considered invalid to avoid confusion on which expression is applied. 
-- **Validation Endpoint:** Always use the filter validation endpoint to check your filter before saving it. This will catch all syntax errors. You can use custom payloads to check whether your filtering logic applies ex expected.
+- **Validation Endpoint:** Always use the filter validation endpoint to check your filter before saving it. This will catch all syntax errors. You can use custom payloads to check whether your filtering logic applies as expected.
 - **One Filter per Registration:** Only one filter is allowed per Registration.
 
 ## Best Practices
