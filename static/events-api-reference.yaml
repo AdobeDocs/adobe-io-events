@@ -647,8 +647,6 @@ paths:
         - $ref: '#/parameters/workspaceId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
-        - $ref: '#/parameters/providerMetadataId'
-        - $ref: '#/parameters/instanceId'
       responses:
         '200':
           description: Successfully fetched registrations
