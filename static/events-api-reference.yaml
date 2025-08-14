@@ -796,7 +796,7 @@ paths:
       summary: Retrieves all Subscriber Defined Filters for a given registration
       operationId: getAllSubscriberFilters
       produces:
-        - application/hal+json
+        - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
         - $ref: '#/parameters/projectId'
@@ -817,7 +817,7 @@ paths:
       consumes:
         - application/json
       produces:
-        - application/hal+json
+        - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
         - $ref: '#/parameters/projectId'
@@ -845,7 +845,7 @@ paths:
       summary: Retrieves a specific Subscriber Defined Filter by its ID
       operationId: getSubscriberFilterById
       produces:
-        - application/hal+json
+        - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
         - $ref: '#/parameters/projectId'
@@ -1549,7 +1549,6 @@ definitions:
       delivery_type:
         type: string
         description: Delivery type can be one of [`webhook`, `webhook_batch`, `journal`, `aws_eventbridge`]
-        minLength: 1
         enum:
           - webhook
           - webhook_batch
@@ -1573,16 +1572,6 @@ definitions:
         uniqueItems: true
         items:
           $ref: '#/definitions/CreateSubscriberFilterModel'
-      event_delivery_formats:
-        type: array
-        description: The set of delivery formats from the providers
-        uniqueItems: true
-        items:
-          type: string
-          pattern: adobe_io|cloud_events_v1
-          description: The set of delivery formats from the providers
-      runtimeWebhook:
-        type: boolean
     description: The input model necessary to create a registration
   RegistrationCollectionHalModel:
     type: object
@@ -1677,7 +1666,6 @@ definitions:
       delivery_type:
         type: string
         description: Delivery type can be one of [`webhook`, `webhook_batch`, `journal`, `aws_eventbridge`]
-        minLength: 1
         enum:
           - webhook
           - webhook_batch
@@ -1701,14 +1689,6 @@ definitions:
         uniqueItems: true
         items:
           $ref: '#/definitions/CreateSubscriberFilterModel'
-      event_delivery_formats:
-        type: array
-        description: The set of delivery formats from the providers
-        uniqueItems: true
-        items:
-          type: string
-          pattern: adobe_io|cloud_events_v1
-          description: The set of delivery formats from the providers
       runtimeWebhook:
         type: boolean
     description: The input model necessary to PATCH/PUT a registration
