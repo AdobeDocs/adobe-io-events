@@ -147,6 +147,40 @@ No, subscriber defined filters are applied at the registration level and affect 
 ### What happens if I delete all filters from a registration?
 When you remove all subscriber filters from a registration, it will receive all events for the registered event types without any filtering applied. Make sure your application can handle the incresed load before applying the change.
 
+### Why does my `Exists` filter not work on nested objects?
+The `Exists` operator only works on leaf nodes (final field values) and does not work on intermediate nodes (nested objects or arrays). For example, you can check if a field like `data.user.email` exists, but you cannot check if `data.user` (an object) exists.
+
+**Example Cloud Event:**
+```json
+{
+  "specversion": "1.0",
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "source": "/example/source",
+  "type": "examplelogin",
+  "time": "2023-01-01T12:00:00Z",
+  "data": {
+    "user": {
+      "id": "user123",
+      "email": "user@example.com",
+      "profile": {
+        "name": "Test User",
+        "age": 30
+      }
+    },
+    "action": "login"
+  }
+}
+```
+
+**Valid `Exists` filters (leaf nodes):**
+- `{"data.user.email": [{"exists": true}]}` ✅
+- `{"data.user.profile.name": [{"exists": true}]}` ✅
+- `{"data.action": [{"exists": true}]}` ✅
+
+**Invalid `Exists` filters (intermediate nodes):**
+- `{"data.user": [{"exists": true}]}` ❌ (object)
+- `{"data.user.profile": [{"exists": true}]}` ❌ (object)
+
 ## Webhook FAQ
 
 ### What happens if my webhook is down? Why is my event registration marked as `Unstable`?

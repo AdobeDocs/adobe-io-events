@@ -128,6 +128,8 @@ Matches if the field exists (or does not exist) in the event.
 }
 ```
 
+Note `Exists` match only works on the leaf nodes. It does not work on intermediate nodes.
+
 #### 8. `equals-ignore-case`
 Matches if the field value equals the given value, ignoring case.
 ```json
