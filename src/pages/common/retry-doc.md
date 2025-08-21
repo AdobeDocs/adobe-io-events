@@ -2,7 +2,7 @@ If `Adobe I/O Events` fails to receive a successful response code from your webh
 - Default webhooks: The timeout is 10 seconds.
 - [Runtime Actions as webhooks](../guides/runtime-webhooks/index.md): The timeout is 60 seconds.
 
-**Note:** The timeout spans the whole delivery attempt, including the time to setup the HTTP connection, therefore, if the webhook handler takes exactly 10 seconds to respond (or 60 seconds in the Runtime Action case), the delivery will fail, since there is the added overhead of setting up the connection.
+**Note:** The timeout spans the entire delivery attempt, including the overhead of setting up the HTTP connection. This means that if your webhook handler responds in exactly 10 seconds (or 60 seconds for Runtime Actions), the delivery will still fail due to the additional overhead of setting up the connection.
 
 <InlineAlert variant="info" slots="text"/>
 
