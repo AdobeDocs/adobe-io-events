@@ -1,4 +1,6 @@
-If `Adobe I/O Events` fails to receive a successful response code from your webhook within 10 seconds, it retries the request, including a special header `x-adobe-retry-count`. This header indicates how many times the delivery of an event or a batch of events has been attempted. If the [webhook is pointing to a Runtime Action](../guides/runtime-webhooks/index.md), the timeout is increased to 60 seconds instead.
+If `Adobe I/O Events` fails to receive a successful response code from your webhook within the configured timeout window, it retries the request, including a special header `x-adobe-retry-count`. This header indicates how many times the delivery of an event or a batch of events has been attempted.
+- Default webhooks: The timeout is 10 seconds.
+- [Runtime Actions as webhooks](../guides/runtime-webhooks/index.md): The timeout is 60 seconds.
 
 **Note:** The timeout spans the whole delivery attempt, including the time to setup the HTTP connection, therefore, if the webhook handler takes exactly 10 seconds to respond (or 60 seconds in the Runtime Action case), the delivery will fail, since there is the added overhead of setting up the connection.
 
