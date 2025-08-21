@@ -145,7 +145,7 @@ No, when you apply subscriber defined filters to a registration, events that don
 No, subscriber defined filters are applied at the registration level and affect all delivery methods (webhooks, journal, etc.) equally. If you need different filtering logic for different delivery methods, you would need to create separate registrations.
 
 ### What happens if I delete all filters from a registration?
-When you remove all subscriber filters from a registration, it will receive all events for the registered event types without any filtering applied. Make sure your application can handle the incresed load before applying the change.
+When you remove all subscriber filters from a registration, it will receive all events for the registered event types without any filtering applied. Make sure your application can handle the increased load before applying the change.
 
 ### Why does my `Exists` filter not work on nested objects?
 The `Exists` operator only works on leaf nodes (final field values) and does not work on intermediate nodes (nested objects or arrays). For example, you can check if a field like `data.user.email` exists, but you cannot check if `data.user` (an object) exists.
