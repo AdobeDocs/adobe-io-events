@@ -315,6 +315,8 @@ This approach ensures a smooth transition while maximizing the benefits of more 
 
 ### In case your registration is not compatible with SDF:
 
+![Unsupported registration](../img/subsriber_defined_filtering/sf_incompatible_registration.png)
+
 #### Mixed delivery formats in the Registration (Cloud Events and Adobe I/O)
 
 You can split the registration and move all Adobe I/O event deliveries to a separate registration. Now you can add a SDF for all events in Cloud Events format.
