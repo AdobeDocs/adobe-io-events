@@ -107,6 +107,8 @@ curl -v --request POST \
           }'
 ```
 
+You can also add [Subscriber Defined Filters](../subscriber_defined_filtering/index.md) when creating or updating your registrations.
+
 Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling-api.md).
 
 If you wonder how to fetch the valid provider ids and event codes, look at our [Provider API](provider-api.md).
