@@ -1,55 +1,91 @@
-# Adobe I/O Events Documentation
+# Adobe IO Events Documentation
 
-For prod:
-see <https://developer.adobe.com/events/docs/>
+Adobe IO Events documentation site deployed to EDS.
+The production address is https://developer.adobe.com/events/docs/
 
-For stage:
-see <https://developer-stage.adobe.com/events/docs/>
+## Quick Start
 
-## Git config
+For local development, you need to start three servers:
 
+1. **Main dev server** (this repo):
 ```bash
-git config core.ignorecase false
+npm run dev
 ```
 
-## How to set navigation
+2. **ADP Devsite** ([adp-devsite](https://github.com/AdobeDocs/adp-devsite)):
+```bash
+git clone https://github.com/AdobeDocs/adp-devsite
+cd adp-devsite
+npm install
+npm run dev
+```
 
-Create a directory hierarchy in `src/pages/config.md`
+3. **Runtime connector** ([devsite-runtime-connector](https://github.com/aemsites/devsite-runtime-connector)):
+```bash
+git clone https://github.com/aemsites/devsite-runtime-connector
+cd devsite-runtime-connector
+npm install
+npm run dev
+```
 
-## Local development
+Once all three servers are running, navigate to http://localhost:3000
 
-This is not possible at the moment (we're still working on it)
+## Commands
 
-## Launching a deploy
+**Development**
+- `npm run dev` - Start local server (requires other services above)
 
-### Automatic Deployment (Stage)
+**Content Management**
+- `npm run buildNavigation` - Generate navigation structure (one-time Gatsby migration only)
+- `npm run buildRedirections` - Build URL redirections (one-time Gatsby migration only)
+- `npm run renameFiles` - Rename files to Adobe conventions
+- `npm run normalizeLinks` - Normalize internal/external links
 
-When PRs are merged to the `main` branch, the documentation automatically deploys to the **stage environment**.
-This allows you to review changes and share the staging URL with anyone before going live.
+**Validation**
+- `npm run lint` - Run linting checks
 
-### Manual Deployment (Production)
+**Site Features**
+- `npm run buildSiteWideBanner` - Generate site-wide banner
 
-To deploy to production:
+*All commands use `@AdobeDocs/adp-devsite-utils` for standardized tooling.*
 
-1. Go to **Actions** > **Deployment** > **Run workflow**
-2. Select your deployment options:
-   - **Environment**:
-     - `prod` - Production only (default)
-     - `stage` - Staging only  
-     - `stage & prod` - Both environments
-   - **Base SHA**: Optional commit SHA (empty = last commit before HEAD)
-   - **Force deploy all files**: `true` to force full deployment (default: `true`)
+## Linting
 
-**Deployment Workflow:**
+**Automated**: Runs on PRs when `src/pages/**` files change
+**Manual**: `npm run lint`
 
-1. Create PR > merge to `main` > auto-deploys to *stage*
-2. Review on *stage* environment
-3. When ready, manually deploy to *production* environment
+Validates markdown syntax, links, content structure, and Adobe style guidelines.
 
-## Where to ask for help
+**Troubleshooting**: If pages are not showing up as expected, check lint warnings to identify potential issues.
 
-The slack channel [#adobe-developer-website](https://adobe.enterprise.slack.com/archives/C01GU3V8XE0) is our main point of contact for help. Feel free to join the channel and ask any questions.
+## Navigation
 
-## Troubleshoot
+To update navigation structure:
+1. Edit `src/pages/config.md` directly
 
-[The Next Generation Developer Website](https://wiki.corp.adobe.com/display/AdobeCloudPlatform/The+Next+Generation+Developer+Website+-+DevDocs+and+DevBiz#DeveloperWebsite--63309052)
+*Note: `npm run buildNavigation` is only needed for initial Gatsby migration.*
+
+## Redirects
+
+To manage URL redirections:
+1. Edit `src/pages/redirects.json` directly
+
+*Note: `npm run buildRedirections` is only needed for initial Gatsby migration.*
+
+## Deployment
+
+**Staging**:
+- Actions > Deployment > Run workflow
+- Can deploy from any branch to staging
+- Uses incremental builds from last commit by default
+- Use `deployAll` function for full rebuild if needed
+- **URL**: `developer-stage.adobe.com/events/docs/`
+
+**Production**:
+- Automatically deploys from `main` branch
+- Uses incremental builds from last commit
+- **URL**: `developer.adobe.com/events/docs/`
+
+## Support
+
+Join `#adobe-developer-website` Slack channel for help.
