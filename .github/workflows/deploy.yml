@@ -1,16 +1,13 @@
 ---
 name: Deployment
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       env:
         description: "Select environment to deploy to"
         type: choice
         required: true
-        default: "prod"
+        default: "stage"
         options:
           - stage
           - prod
@@ -23,12 +20,20 @@ on:
       deployAll:
         description: "Force deploy all files"
         type: boolean
-        default: true
+        default: false
 jobs:
   deployment:
     name: Deployment
     uses: AdobeDocs/adp-devsite-workflow/.github/workflows/deploy.yml@main
     with:
-      env: ${{ github.event_name == 'workflow_dispatch' && inputs.env || 'stage' }}
-      baseSha: ${{ github.event_name == 'workflow_dispatch' && inputs.baseSha || '' }}
-      deployAll: true
+      env: ${{ inputs.env }}
+      baseSha: ${{ inputs.baseSha }}
+      deployAll: ${{ inputs.deployAll }}
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Lint
+        run: npx --yes github:AdobeDocs/adp-devsite-utils runLint -v
