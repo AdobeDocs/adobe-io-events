@@ -62,4 +62,3 @@ Some of the headers sent in the event delivery request are also available to the
 - any headers starting with the `x-adobe-` prefix, **except** `x-adobe-digital-signature-1`, `x-adobe-digital-signature-2`, `x-adobe-public-key1-path`, `x-adobe-public-key2-path` (since the [signature verification is already taken care of](#built-in-signature-verification))
   - this means that `x-adobe-retry-count` is available to the target user runtime action; see the [event delivery retrying process](../../support/faq.md#what-happens-if-my-webhook-is-down-why-is-my-event-registration-marked-as-unstable) for more details
 
-![Runtime Webhook Request Headers not available to user action](../img/runtime_webhook_request_headers_in_debug_tracing.png "Runtime Webhook Request Headers not available to user action")
