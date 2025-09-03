@@ -146,7 +146,8 @@ function main(params) {
         if (retryCount >= 3) {
             // Exceeded 3 retry attempts, signal to no longer retry processing this event
             return errorResponse(400, 'Exceeded 3 retry attempts')
-        }    }
+        }    
+    }
 
     try {
         // Process the event
