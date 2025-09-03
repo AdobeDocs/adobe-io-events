@@ -55,9 +55,11 @@ However, in case of any failed invocation to your webhook, you will get an error
 
     ![Activation Id for Failed User Action](../img/activation_id_for_failed_user_action.png)
 
-<InlineAlert slots="text"/>
+### Request Headers
 
-Please note that the headers sent in the event registration request (highlighted in below) are **not** available to the target user runtime action which was
-used to set up the runtime event registration. This is only available and used by the `event handler webhook` (web action)
-which fronts the user runtime action.
+Some of the headers sent in the event delivery request are also available to the target user runtime action:
+- `x-request-id`
+- any headers starting with the `x-adobe-` prefix, **except** `x-adobe-digital-signature-1`, `x-adobe-digital-signature-2`, `x-adobe-public-key1-path`, `x-adobe-public-key2-path` (since the [signature verification is already taken care of](#built-in-signature-verification))
+  - this means that `x-adobe-retry-count` is available to the target user runtime action; see the [event delivery retrying process](../../support/faq.md#what-happens-if-my-webhook-is-down-why-is-my-event-registration-marked-as-unstable) for more details
+
 ![Runtime Webhook Request Headers not available to user action](../img/runtime_webhook_request_headers_in_debug_tracing.png "Runtime Webhook Request Headers not available to user action")
