@@ -55,9 +55,20 @@ However, in case of any failed invocation to your webhook, you will get an error
 
     ![Activation Id for Failed User Action](../img/activation_id_for_failed_user_action.png)
 
-<InlineAlert slots="text"/>
+### Request Headers
 
-Please note that the headers sent in the event registration request (highlighted in below) are **not** available to the target user runtime action which was
-used to set up the runtime event registration. This is only available and used by the `event handler webhook` (web action)
-which fronts the user runtime action.
-![Runtime Webhook Request Headers not available to user action](../img/runtime_webhook_request_headers_in_debug_tracing.png "Runtime Webhook Request Headers not available to user action")
+Some of the headers sent in the event delivery request are also available to the target user runtime action:
+
+- `x-request-id`
+- any headers starting with the `x-adobe-` prefix, **except** `x-adobe-digital-signature-1`,
+  `x-adobe-digital-signature-2`, `x-adobe-public-key1-path`, `x-adobe-public-key2-path` (since
+  the [signature verification is already taken care of](#built-in-signature-verification))
+
+| Header Name         | Description                                                                                                                                                                                                                                                                        | Example Value(s)                                                                               |
+|:--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| x-request-id        | The request id used for tracing the request in logs. Different for each request/delivery attempt.                                                                                                                                                                                  | y1FE6aNgRkxXmLstRPfrdjZD27cZw1Kg                                                               |
+| x-adobe-delivery-id | The delivery id used for tracing the delivery in logs. Different for each request/delivery attempt.                                                                                                                                                                                | 42d69d83-1732-47b0-9cff-3cd2d8924b1d                                                           |
+| x-adobe-event-code  | The type (event code) of the event.                                                                                                                                                                                                                                                | com.adobe.test.runtime_headers_test_cloudevents                                                |
+| x-adobe-event-id    | The event id used for tracing the event in logs. The same event id is used for all the delivery attempts of a particular event.                                                                                                                                                    | 9ca7ca63-4ccc-4c74-a84e-304988f25d0b                                                           |
+| x-adobe-provider    | The event provider name that produced this event.                                                                                                                                                                                                                                  | 3rd_party_custom_events_908936ED5D35CC220A495CD4@AdobeOrg_01990f09-74be-73fa-9455-bd0711ad287c |
+| x-adobe-retry-count | The delivery retry count — not present in the first delivery attempt, only present in the subsequent retries. See the [event delivery retrying process](../../support/faq.md#what-happens-if-my-webhook-is-down-why-is-my-event-registration-marked-as-unstable) for more details. | 1, 2, ...                                                                                      |
