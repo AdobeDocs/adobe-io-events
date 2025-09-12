@@ -123,7 +123,7 @@ Your enterprise may have its own tool that you can use to subscribe and listen t
 
 To watch your trigger work on Slack:
 
-1. Clone the repository and follow the setup described on [webhook_server](https://github.com/hirenshah111/webhook_server).
+1. Clone the repository and follow the setup described on [webhook_server](https://github.com/hirenoble/webhook_server).
 2. Modify the Slack details in `webhook_server/public/javascripts/app.js` according to how you want to see the notifications.
 3. Run the application and create a **triggers2** listener, then select **Connect**.
     ![Listening to webhook events](../img/events_atrig_29.png "Listening to webhook events")
