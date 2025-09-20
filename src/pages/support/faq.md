@@ -200,6 +200,42 @@ Once your webhook is restored, you can re-enable your event registration (see ne
 
 While your registration is disabled, Adobe logs events in your Journal. You can retrieve all events for the past 7 days using the [Journaling API documentation](../guides/journaling-intro.md).
 
+### How can I read the delivery retry count (and other request headers) in my runtime action configured as a webhook?
+
+The (subset of) request headers pertaining to the event delivery can be read from the `__adobe_headers` action param:
+```js
+const { errorResponse } = require('../utils');
+
+function main(params) {
+    const headers = params['__adobe_headers'];
+    const retryCountValue = headers['x-adobe-retry-count'];
+    // The x-adobe-retry-count header is not always present (it's missing on the very first delivery attempt)
+    // Only if the first delivery attempt fails, the subsequent requests will have this header present
+    if (retryCountValue !== undefined) {
+        // All header values are strings
+        const retryCount = Number(retryCountValue);
+        if (retryCount >= 3) {
+            // Exceeded 3 retry attempts, signal to no longer retry processing this event
+            return errorResponse(400, 'Exceeded 3 retry attempts')
+        }    
+    }
+
+    try {
+        // Process the event
+    } catch (e) {
+        // This will trigger a retry attempt
+        return errorResponse(500, 'An unexpected error occured');
+    }
+    
+    return {
+        statusCode: 200,
+        body: 'Event processed successfully'
+    };
+}
+```
+
+For details on which headers are passed to the user action, see [Runtime Webhooks Request Headers](../guides/runtime-webhooks/index.md#request-headers).
+
 ### What happens if my webhook cannot handle a specific event but handles others?
 
 - If delivery fails with any of the following status codes, Adobe I/O Events retries delivery.
