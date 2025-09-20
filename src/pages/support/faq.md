@@ -25,7 +25,7 @@ Adobe I/O Events regularly adds new event providers. As of now, the following Ad
 - [Cloud Manager](https://www.adobe.com/go/devs_events_cloudmanager_docs)
 - [Content Log Events](../guides/using/contentlogs/contentlogs-setup.md)
 - Globalization Content Service
-- [Imaging APIs](https://developer.adobe.com/firefly-services/docs/photoshop/features/#webhooks-through-adobe-io-events)
+- [Imaging APIs](https://developer.adobe.com/firefly-services/docs/photoshop/getting_started/webhooks/)
 - [InDesign APIs](../guides/using/indesign-apis/indesign-apis-events-data-stream-setup.md)
 - [Marketo Data Streams](../guides/using/marketo/marketo-data-streams.md)
 - You can also register your own [Custom Events Provider](../guides/using/custom-events.md)

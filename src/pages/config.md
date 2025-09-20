@@ -36,7 +36,7 @@
       - [Asset Events Glossary](guides/using/asset-events/asset-events-glossary.md)
     - [Cloud Manager Events](guides/using/cloud-manager-events.md)
     - [Content Log Events](guides/using/contentlogs/contentlogs-setup.md)
-    - [Imaging APIs Events](https://developer.adobe.com/firefly-services/docs/photoshop/features/#webhooks-through-adobe-io-events)
+    - [Imaging APIs Events](https://developer.adobe.com/firefly-services/docs/photoshop/getting_started/webhooks/)
     - [InDesign APIs Events](guides/using/indesign-apis/indesign-apis-events-data-stream-setup.md)
     - [Marketo Data Streams](guides/using/marketo/marketo-data-streams.md)
       - [Lead Activity](guides/using/marketo/marketo-lead-activity-data-stream-setup.md)
