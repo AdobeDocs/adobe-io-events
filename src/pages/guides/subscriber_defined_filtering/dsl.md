@@ -26,7 +26,7 @@ title: Subscriber Defined Filtering DSL Reference
 
 Adobe I/O Events Subscriber Defined Filtering (SDF) uses a powerful, JSON-based Domain Specific Language (DSL) to let you precisely control which events you receive. This page provides a comprehensive reference for the supported operators, their syntax, and practical examples using real event payloads.
 
-> **Note:** The SDF DSL is based on a subset of the [Event Ruler DSL](https://github.com/aws/event-ruler?tab=readme-ov-file) (which is also used as the [AWS EventBridge event pattern syntax](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-pattern-operators.html)). Some advanced or rarely used operators may not be supported. See the [restrictions section](#restrictions--differences-from-aws-eventbridge) below.
+> **Note:** The SDF DSL is based on a subset of the [Event Ruler DSL](https://github.com/aws/event-ruler?tab=readme-ov-file) (which is also used as the [AWS EventBridge event pattern syntax](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-pattern-operators.html)). Some advanced or rarely used operators may not be supported. See the [restrictions section](#restrictions) below.
 
 ## Event Example
 
@@ -77,13 +77,14 @@ Here is a real event payload you might receive from Adobe I/O Events:
 | `$or`               | Logical OR across fields or conditions      | `"$or": [{"tier": ["publish"]}, {"repo:size": [{"numeric": [">", 1000000]}]}]` |
 | `cidr`               | IP address matches CIDR range (both IPv4 and IPv6)              | `"ip": [{"cidr": "192.168.0.0/16"}]`                               |
 
-
-The `and` logical operator is implicit. Fields in JSON objects in the rule are conditions in `and`. 
+The `and` logical operator is implicit. Fields in JSON objects in the rule are conditions in `and`.
 
 ### Operator Details & Examples
 
 #### 1. `equals` (default)
+
 Matches if the field value is exactly equal to one of the listed values.
+
 ```json
 {
   "type": ["aem.assets.asset.published", "aem.assets.asset.deleted"]
@@ -91,7 +92,9 @@ Matches if the field value is exactly equal to one of the listed values.
 ```
 
 #### 2. `anything-but`
+
 Matches if the field value is NOT equal to the given value or values.
+
 ```json
 {
   "data": {
@@ -101,7 +104,9 @@ Matches if the field value is NOT equal to the given value or values.
 ```
 
 #### 3. `prefix`
+
 Matches if the field value starts with the given string.
+
 ```json
 {
   "data": {
@@ -113,7 +118,9 @@ Matches if the field value starts with the given string.
 ```
 
 #### 4. `suffix`
+
 Matches if the field value ends with the given string.
+
 ```json
 {
   "data": {
@@ -125,7 +132,9 @@ Matches if the field value ends with the given string.
 ```
 
 #### 6. `numeric`
+
 Matches if the field value (number) satisfies the numeric comparison(s).
+
 ```json
 {
   "data": {
@@ -137,7 +146,9 @@ Matches if the field value (number) satisfies the numeric comparison(s).
 ```
 
 #### 7. `exists`
+
 Matches if the field exists (or does not exist) in the event.
+
 ```json
 {
   "data": {
@@ -151,7 +162,9 @@ Matches if the field exists (or does not exist) in the event.
 Note `Exists` match only works on the leaf nodes. It does not work on intermediate nodes.
 
 #### 8. `equals-ignore-case`
+
 Matches if the field value equals the given value, ignoring case.
+
 ```json
 {
   "data": {
@@ -161,7 +174,9 @@ Matches if the field value equals the given value, ignoring case.
 ```
 
 #### 9. `$or`
+
 Matches if any of the listed conditions are true (logical OR across fields or sub-conditions).
+
 ```json
 {
   "data": {
@@ -174,7 +189,9 @@ Matches if any of the listed conditions are true (logical OR across fields or su
 ```
 
 #### 10. `cidr`
+
 Matches if the field value (an IP address) is within the specified CIDR range(s).
+
 ```json
 {
   "data": {
@@ -185,12 +202,12 @@ Matches if the field value (an IP address) is within the specified CIDR range(s)
 }
 ```
 
-
 ## Practical Filter Examples
 
 For end-to-end setup and API usage, see the [SDF Overview](./index.md).
 
 ### Example 1: Only receive published JPEG assets larger than 300KB
+
 ```json
 {
   "type": ["aem.assets.asset.published"],
@@ -204,6 +221,7 @@ For end-to-end setup and API usage, see the [SDF Overview](./index.md).
 ```
 
 ### Example 2: Exclude events for assets in a specific folder
+
 ```json
 {
   "data": {
@@ -215,6 +233,7 @@ For end-to-end setup and API usage, see the [SDF Overview](./index.md).
 ```
 
 ### Example 3: Match if asset is published OR asset size is over 1MB
+
 ```json
 {
   "$or": [
@@ -225,6 +244,7 @@ For end-to-end setup and API usage, see the [SDF Overview](./index.md).
 ```
 
 ### Example 4: Only receive events where a custom property exists
+
 ```json
 {
   "data": {
@@ -244,7 +264,7 @@ For end-to-end setup and API usage, see the [SDF Overview](./index.md).
 - **Performance/Complexity Limits:** Filters that are too complex (deep `$or` nesting, or too many rule combinations) may be rejected for performance reasons.
 - **Case Sensitivity:** By default, string matching is case-sensitive unless `equals-ignore-case` is used. You can compose this operator with `prefix` or `suffix` matching.
 - **JSON Syntax and Field Names:** Filters must be valid JSON. Field names and values must match the event payload structure exactly.
-- **No Duplicate Keys:** If a filter contains matching expression at the same path, the filter is considered invalid to avoid confusion on which expression is applied. 
+- **No Duplicate Keys:** If a filter contains matching expression at the same path, the filter is considered invalid to avoid confusion on which expression is applied.
 - **Validation Endpoint:** Always use the filter validation endpoint to check your filter before saving it. This will catch all syntax errors. You can use custom payloads to check whether your filtering logic applies as expected.
 - **One Filter per Registration:** Only one filter is allowed per Registration.
 
@@ -257,6 +277,7 @@ For end-to-end setup and API usage, see the [SDF Overview](./index.md).
 - **Check Field Names:** Ensure your filter field names match the event payload structure exactly.
 
 ## Further Reading
+
 - [Subscriber Defined Filtering Overview](./index.md)
 - [Event Ruler Syntax](https://github.com/aws/event-ruler?tab=readme-ov-file)
 - [AWS EventBridge Pattern Operators](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-pattern-operators.html)
