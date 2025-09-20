@@ -1,4 +1,18 @@
 ---
+keywords:
+  - Subscriber Defined Filtering
+  - SDF
+  - Event Filtering
+  - CloudEvents
+  - Filter Validation
+  - Filter API
+  - Create Filter
+  - Update Filter
+  - Delete Filter
+  - Get Filters
+  - Filter Examples
+  - Event Volume Reduction
+  - Cost Optimization
 title: Subscriber Defined Filtering
 ---
 

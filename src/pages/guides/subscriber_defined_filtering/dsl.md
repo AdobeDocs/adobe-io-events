@@ -1,4 +1,24 @@
 ---
+keywords:
+  - DSL Reference
+  - Subscriber Defined Filtering
+  - Event Ruler DSL
+  - Event Pattern
+  - Filter Operators
+  - equals
+  - anything-but
+  - prefix
+  - suffix
+  - numeric
+  - exists
+  - equals-ignore-case
+  - $or
+  - cidr
+  - Filter Restrictions
+  - Pattern Matching
+  - Logical Operators
+  - Case Sensitivity
+  - Wildcards
 title: Subscriber Defined Filtering DSL Reference
 ---
 

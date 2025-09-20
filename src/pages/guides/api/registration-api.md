@@ -1,4 +1,10 @@
 ---
+keywords:
+  - Registration API
+  - Event Registration
+  - Webhook Registration
+  - Journal Registration
+  - Runtime Action
 title: Registration API
 ---
 
