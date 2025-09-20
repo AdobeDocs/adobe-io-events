@@ -27,6 +27,7 @@ By leveraging this feature, you can significantly reduce the number of irrelevan
 SDF allows you to specify custom filter criteria for each event registration. These filters are evaluated on Adobe’s servers before events are delivered to your webhook or journal. You only receive events that match your filter, reducing the need for post-processing and minimizing unwanted traffic.
 
 Key benefits include:
+
 - **Reduced Event Volume**: Only receive events that match your specific criteria, filters are applied on Adobe's servers
 - **Cost Optimization**: Lower processing costs by filtering out irrelevant events at the source
 - **Improved Performance**: Reduce network traffic and application load
@@ -37,7 +38,7 @@ Key benefits include:
   - Only includes [CloudEvents](https://cloudevents.io) deliveries.
   - [AWS EventBridge](../amazon_eventbridge/index.md) is not configured among the delivery methods.
 - Access to the Adobe I/O Events API with proper authentication
-  - You can either use the Developer Console or add your filters through the [Registration APIs](../api/registration-api.md) 
+  - You can either use the Developer Console or add your filters through the [Registration APIs](../api/registration-api.md)
 - Understanding of JSON syntax and your event payload structure
   - Check the [filtering language details](dsl.md)
 
@@ -47,7 +48,7 @@ We assume you already have a Registration for which [SDF is applicable](#prerequ
 
 ### Creating Your First Filter (API)
 
-To create a subscriber filter, you'll need to make a POST request to the Adobe I/O Events API. If you didn't already configure your environment variables, please follow the documentation [here](#prerequisites-1). 
+To create a subscriber filter, you'll need to make a POST request to the Adobe I/O Events API. If you didn't already configure your environment variables, please follow the documentation [here](#api-prerequisites).
 Here's the basic structure to [add a filter to an existing registration](../../api.md#operation/createSubscriberFilter):
 
 ```bash
@@ -70,6 +71,7 @@ This will add the SDF to the registration identified by `registration_id`.
 Subscriber filters use [JSON-based filter definitions](./dsl.md). Here are some examples:
 
 #### Basic Event Type Filter
+
 ```json
 {
   "type": ["asset_created", "asset_updated"]
@@ -77,6 +79,7 @@ Subscriber filters use [JSON-based filter definitions](./dsl.md). Here are some 
 ```
 
 #### Field-based Filtering
+
 ```json
 {
   "type": ["asset_created"],
@@ -88,6 +91,7 @@ Subscriber filters use [JSON-based filter definitions](./dsl.md). Here are some 
 ```
 
 #### Advanced Pattern Matching
+
 ```json
 {
   "type": ["asset_created"],
@@ -137,9 +141,9 @@ curl -X POST \
 
 ## API Reference
 
-For your convenience, here is an overview of the Subscriber Defined Filtering related APIs with example curl commands. 
+For your convenience, here is an overview of the Subscriber Defined Filtering related APIs with example curl commands.
 
-### Prerequisites
+### API Prerequisites
 
 Before using these examples, you need to set up your environment variables. See the [Registration API prerequisites](../api/registration-api.md#prerequisites) for detailed instructions on how to obtain these values:
 
@@ -156,6 +160,7 @@ export registration_id="your_registration_id"
 You can also [generate an OAuth Server-to-Server token](https://developer.adobe.com/developer-console/docs/guides/credentials) if you haven't already.
 
 ### Create Filter
+
 **POST** `/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters`
 
 Creates a new subscriber filter for the specified registration.
@@ -174,6 +179,7 @@ curl -X POST \
 ```
 
 ### Get All Filters
+
 **GET** `/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters`
 
 Retrieves all subscriber filters for a given registration.
@@ -186,6 +192,7 @@ curl -X GET \
 ```
 
 ### Get Filter by ID
+
 **GET** `/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}`
 
 Retrieves a specific subscriber filter by its ID.
@@ -201,6 +208,7 @@ curl -X GET \
 ```
 
 ### Update Filter
+
 **PUT** `/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}`
 
 Updates an existing subscriber filter.
@@ -222,6 +230,7 @@ curl -X PUT \
 ```
 
 ### Delete Filter
+
 **DELETE** `/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}`
 
 Deletes a subscriber filter by its ID.
@@ -237,6 +246,7 @@ curl -X DELETE \
 ```
 
 ### Validate Filter
+
 **POST** `/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filter/validate`
 
 Validates a subscriber filter against the registration and optional custom sample events.
@@ -283,7 +293,7 @@ curl -X POST \
 
 ### Error Handling
 
-- Invalid filter syntax will return a 400 error with a detailed explanation to guide you to resolution. 
+- Invalid filter syntax will return a 400 error with a detailed explanation to guide you to resolution.
 - Use the validation endpoint to catch issues before deployment
 
 ## Output Event Format
@@ -294,18 +304,22 @@ Events that pass your subscriber filters maintain the same format as unfiltered 
 
 ### Common Issues
 
-**Filter Not Working**
+#### Filter Not Working
+
 - Verify the filter syntax is valid JSON. See [Restrictions](./dsl.md#restrictions)
 - Check that field names match the event payload structure
 - Ensure the filter logic matches your intended behavior. See [Practical Filter Examples](./dsl.md#practical-filter-examples)
 
-**Performance Issues**
+#### Performance Issues
+
 See [Best Practices](./dsl.md#best-practices):
+
 - Simplify complex filters
 - Avoid overly broad pattern matching
 - Consider breaking complex filters into multiple simpler ones
 
-**Validation Errors**
+#### Validation Errors
+
 - Review the error message for specific syntax issues
 - Use the validation endpoint to test filters
 - Verify that sample events match your expected payload structure
@@ -325,9 +339,9 @@ If you're currently using event type filtering only, here's how to migrate to su
 4. **Deploy Gradually**: Start with non-critical registrations to test the functionality or create a copy registration and use the Journalling API to check for the correct logic of your filter without incurring additional infrastructure costs
 5. **Monitor Performance**: Watch for any impact on event processing times.
 
-This approach ensures a smooth transition while maximizing the benefits of more precise event filtering. 
+This approach ensures a smooth transition while maximizing the benefits of more precise event filtering.
 
-### In case your registration is not compatible with SDF:
+### In case your registration is not compatible with SDF
 
 ![Unsupported registration](../img/subsriber_defined_filtering/sf_incompatible_registration.png)
 
@@ -338,4 +352,3 @@ You can split the registration and move all Adobe I/O event deliveries to a sepa
 #### AWS EventBridge enabled registrations
 
 We currently do not support registrations delivering events to EventBridge to add SDF. Please add the filtering logic in AWS.
-
