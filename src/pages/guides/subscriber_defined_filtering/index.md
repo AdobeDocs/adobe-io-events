@@ -37,8 +37,8 @@ Key benefits include:
 
 ### Creating Your First Filter
 
-1. [SDF UI Guide](./sdf_ui_guide.md)
-2. [SDF API Guide](./sdf_api_guide.md)
+1. [SDF UI Guide](./sdf-ui-guide.md)
+2. [SDF API Guide](./sdf-api-guide.md)
 
 ## Best Practices
 
