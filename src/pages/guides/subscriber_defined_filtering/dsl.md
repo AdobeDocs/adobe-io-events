@@ -19,6 +19,8 @@ keywords:
   - Logical Operators
   - Case Sensitivity
   - Wildcards
+  - Filter Examples
+  - Filter Syntax
 title: Subscriber Defined Filtering DSL Reference
 ---
 
