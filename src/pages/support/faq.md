@@ -1,4 +1,14 @@
 ---
+keywords:
+  - FAQ
+  - Frequently Asked Questions
+  - Troubleshooting
+  - Webhook Issues
+  - Journaling Issues
+  - Subscriber Defined Filtering
+  - Event Order
+  - Duplicate Events
+  - Retry Policy
 title: Adobe I/O Events FAQ
 ---
 
@@ -25,7 +35,7 @@ Adobe I/O Events regularly adds new event providers. As of now, the following Ad
 - [Cloud Manager](https://www.adobe.com/go/devs_events_cloudmanager_docs)
 - [Content Log Events](../guides/using/contentlogs/contentlogs-setup.md)
 - Globalization Content Service
-- [Imaging APIs](https://developer.adobe.com/firefly-services/docs/photoshop/features/#webhooks-through-adobe-io-events)
+- [Imaging APIs](https://developer.adobe.com/firefly-services/docs/photoshop/getting_started/webhooks/)
 - [InDesign APIs](../guides/using/indesign-apis/indesign-apis-events-data-stream-setup.md)
 - [Marketo Data Streams](../guides/using/marketo/marketo-data-streams.md)
 - You can also register your own [Custom Events Provider](../guides/using/custom-events.md)
@@ -110,6 +120,89 @@ Adobe I/O Events delivers payloads with both the new and deprecated attribute na
 - The deprecated fields (`event_id`, `recipient_client_id`) will be removed by the **end of 2025**.
 - We recommend migrating as soon as possible to ensure continued compatibility.
 
+## Subscriber Defined Filtering (SDF) FAQ
+
+### What is Subscriber Defined Filtering?
+
+Subscriber Defined Filtering (SDF) allows you to define custom JSON-based filters for your event registrations, so you only receive events that match your criteria. See the [SDF documentation](../guides/subscriber_defined_filtering/index.md) for details.
+
+### What operators are supported in SDF filters?
+
+SDF supports a subset of the Event Ruler DSL operators: `equals`, `anything-but`, `prefix`, `suffix`, `numeric`, `exists`, `equals-ignore-case`, `cidr`, and `$or`. See the [Supported Operators](../guides/subscriber_defined_filtering/dsl.md#supported-operators) for examples and syntax.
+
+### How do I validate my filter?
+
+You can use the filter validation endpoint to check your filter before saving it. This will catch syntax errors and help you test your logic with sample events. See [Validating Filters](../guides/subscriber_defined_filtering/index.md#validating-filters).
+
+### What are common reasons my filter does not work / is not valid?
+
+- The filter is not valid JSON.
+- Field names do not match the event payload structure.
+- The filter is too complex or too large.
+See [Troubleshooting](../guides/subscriber_defined_filtering/index.md#troubleshooting) and [Restrictions](../guides/subscriber_defined_filtering/dsl.md#restrictions) for more details.
+
+### Are wildcards supported in SDF filters?
+
+No, wildcard patterns are not supported in SDF filters. Use `prefix` or `suffix` for pattern matching. See [Restrictions](../guides/subscriber_defined_filtering/dsl.md#restrictions).
+
+### Can I use multiple filters per registration?
+
+No, currently only one filter is allowed per registration. See [Restrictions](../guides/subscriber_defined_filtering/dsl.md#restrictions).
+
+### Which registrations are compatible with Subscriber Defined Filtering?
+
+To use SDF, your registration must only include Cloud Events deliveries. Registrations that have AWS EventBridge configured as a delivery method are not compatible with SDF. For more details, see the [SDF documentation](../guides/subscriber_defined_filtering/index.md#prerequisites).
+
+### Are filtered events available in the journal?
+
+No, when you apply subscriber defined filters to a registration, events that don't match your filter criteria are completely filtered out and will not be available in any delivery method, including the journal. The filtering happens on Adobe's servers before events are delivered to any destination. It is therefore utterly important to check the validity of your filter before applying it in production. Although I/O Events doesn't accept filters that are [syntactically incorrect](../guides/subscriber_defined_filtering/index.md#error-handling), you should use the [validation API](../guides/subscriber_defined_filtering/index.md#validating-filters) to check for [correct semantic](../guides/subscriber_defined_filtering/index.md#best-practices) of your filter against custom sample events.
+
+### Can I have different filters for different delivery methods?
+
+No, subscriber defined filters are applied at the registration level and affect all delivery methods (webhooks, journal, etc.) equally. If you need different filtering logic for different delivery methods, you would need to create separate registrations.
+
+### What happens if I delete all filters from a registration?
+
+When you remove all subscriber filters from a registration, it will receive all events for the registered event types without any filtering applied. Make sure your application can handle the increased load before applying the change.
+
+### Why does my `Exists` filter not work on nested objects?
+
+The `Exists` operator only works on leaf nodes (final field values) and does not work on intermediate nodes (nested objects or arrays). For example, you can check if a field like `data.user.email` exists, but you cannot check if `data.user` (an object) exists.
+
+**Example Cloud Event:**
+
+```json
+{
+  "specversion": "1.0",
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "source": "/example/source",
+  "type": "examplelogin",
+  "time": "2023-01-01T12:00:00Z",
+  "data": {
+    "user": {
+      "id": "user123",
+      "email": "user@example.com",
+      "profile": {
+        "name": "Test User",
+        "age": 30
+      }
+    },
+    "action": "login"
+  }
+}
+```
+
+**Valid `Exists` filters (leaf nodes):**
+
+- `{"data.user.email": [{"exists": true}]}` ✅
+- `{"data.user.profile.name": [{"exists": true}]}` ✅
+- `{"data.action": [{"exists": true}]}` ✅
+
+**Invalid `Exists` filters (intermediate nodes):**
+
+- `{"data.user": [{"exists": true}]}` ❌ (object)
+- `{"data.user.profile": [{"exists": true}]}` ❌ (object)
+
 ## Webhook FAQ
 
 ### What happens if my webhook is down? Why is my event registration marked as `Unstable`?
@@ -132,6 +225,7 @@ While your registration is disabled, Adobe logs events in your Journal. You can 
 ### How can I read the delivery retry count (and other request headers) in my runtime action configured as a webhook?
 
 The (subset of) request headers pertaining to the event delivery can be read from the `__adobe_headers` action param:
+
 ```js
 const { errorResponse } = require('../utils');
 

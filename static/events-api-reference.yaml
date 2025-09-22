@@ -247,16 +247,8 @@ paths:
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
         - $ref: '#/parameters/accept-hal-json'
-        - name: providerMetadataId
-          in: query
-          description: Filter by provider metadata id
-          required: false
-          type: string
-        - name: instanceId
-          in: query
-          description: Filter by instance id
-          required: false
-          type: string
+        - $ref: '#/parameters/providerMetadataId'
+        - $ref: '#/parameters/instanceId'
         - name: providerMetadataIds
           in: query
           description: List of provider metadata ids to filter. Only one of providerMetadataIds or providerMetadataId can be passed
@@ -264,11 +256,7 @@ paths:
           type: array
           items:
             type: string
-        - name: eventmetadata
-          in: query
-          description: The optional boolean to fetch or not this provider's event metadata, default false
-          required: false
-          type: boolean
+        - $ref: '#/parameters/eventmetadata'
       responses:
         '200':
           description: successful operation
@@ -299,12 +287,7 @@ paths:
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
         - $ref: '#/parameters/accept-hal-json'
-        - name: eventmetadata
-          in: query
-          description: The optional boolean to fetch or not this provider's event metadata
-          required: false
-          type: boolean
-          default: false
+        - $ref: '#/parameters/eventmetadata'
       responses:
         '200':
           description: successful operation
@@ -525,13 +508,12 @@ paths:
           description: application/json
           required: false
           type: string
-      requestBody:
-        description: Any JSON Event Payload
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
+        - in: body
+          name: body
+          description: Any JSON Event Payload
+          required: false
+          schema:
+            type: object
       responses:
         '200':
           description: If a sample event was posted against the given registration
@@ -630,7 +612,7 @@ paths:
         - in: body
           name: body
           description: The input model necessary to create an event registration
-          required: false
+          required: true
           schema:
             $ref: '#/definitions/RegistrationCreateModel'
       responses:
@@ -805,6 +787,164 @@ paths:
           description: The registration does not exist
         '500':
           $ref: '#/definitions/InternalServerError'
+  '/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters':
+    get:
+      tags:
+        - Registrations
+      summary: Retrieves all Subscriber Defined Filters for a given registration
+      operationId: getAllSubscriberFilters
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+      responses:
+        '200':
+          description: Subscriber Defined Filters retrieved successfully
+          schema:
+            type: array
+            uniqueItems: true
+            items:
+              $ref: '#/definitions/SubscriberFilterModel'
+        '404':
+          description: Registration not found
+    post:
+      tags:
+        - Registrations
+      summary: Creates a new Subscriber Defined Filter for the given registration
+      operationId: createSubscriberFilter
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - in: body
+          name: body
+          description: The Subscriber Defined Filter model to create
+          required: true
+          schema:
+            $ref: '#/definitions/CreateSubscriberFilterModel'
+      responses:
+        '201':
+          description: Subscriber Defined Filter created successfully
+        '400':
+          description: Bad request, possible issue with the request payload
+        '404':
+          description: Registration does not exist
+  '/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filters/{subscriberFilterId}':
+    get:
+      tags:
+        - Registrations
+      summary: Retrieves a specific Subscriber Defined Filter by its ID
+      operationId: getSubscriberFilterById
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/subscriberFilterId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+      responses:
+        '200':
+          description: Subscriber Defined Filter retrieved successfully
+          schema:
+            $ref: '#/definitions/SubscriberFilterModel'
+        '404':
+          description: Subscriber Defined Filter not found
+    put:
+      tags:
+        - Registrations
+      summary: Updates an existing Subscriber Defined Filter
+      operationId: updateSubscriberFilter
+      consumes:
+        - application/json
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/subscriberFilterId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - in: body
+          name: body
+          description: The updated Subscriber Defined Filter model
+          required: true
+          schema:
+            $ref: '#/definitions/CreateSubscriberFilterModel'
+      responses:
+        '200':
+          description: Subscriber Defined Filter updated successfully
+        '400':
+          description: Bad request, possible issue with the request payload
+        '404':
+          description: Subscriber Defined Filter not found
+    delete:
+      tags:
+        - Registrations
+      summary: Deletes a specific Subscriber Defined Filter
+      operationId: deleteSubscriberFilter
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/subscriberFilterId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+      responses:
+        '204':
+          description: Subscriber Defined Filter deleted successfully
+        '404':
+          description: Subscriber Defined Filter not found
+  '/events/{consumerOrgId}/{projectId}/{workspaceId}/registrations/{registrationId}/filter/validate':
+    post:
+      tags:
+        - Registrations
+      summary: Validate if the given Subscriber Defined Filter payload is acceptable and checks the effect on the existing interesting event codes and provided custom events
+      operationId: validateFilters
+      consumes:
+        - application/json
+      produces:
+        - application/hal+json
+      parameters:
+        - $ref: '#/parameters/consumerOrgId'
+        - $ref: '#/parameters/projectId'
+        - $ref: '#/parameters/workspaceId'
+        - $ref: '#/parameters/registrationId'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/x-api-key'
+        - in: body
+          name: body
+          description: The Subscriber Defined Filter to be tested and the optional list of custom events to be used
+          required: false
+          schema:
+            $ref: '#/definitions/SubscriberFilterValidationInputModel'
+      responses:
+        '200':
+          description: The validation was performed successfully
+        '400':
+          description: Bad request, possible issue with authentication or payload
+        '404':
+          description: Registration does not exist
+
   '/events/{consumerOrgId}/registrations':
     get:
       tags:
@@ -815,22 +955,8 @@ paths:
         - application/hal+json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - name: page
-          in: query
-          description: The page number. Default value is 0
-          required: false
-          type: integer
-          default: 0
-          format: int32
-        - name: size
-          in: query
-          description: The size of each page. Default page size 10. Max allowed size 100
-          required: false
-          type: integer
-          default: 10
-          maximum: 100
-          minimum: 1
-          format: int32
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/size'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
       responses:
@@ -919,6 +1045,49 @@ parameters:
     description: Registration ID associated with the registration
     required: true
     type: string
+  subscriberFilterId:
+    name: subscriberFilterId
+    in: path
+    description: The ID of the Subscriber Defined Filter
+    required: true
+    type: string
+    format: uuid
+  providerMetadataId:
+    name: providerMetadataId
+    in: query
+    description: Provider metadata ID of the provider to filter
+    required: false
+    type: string
+  instanceId:
+    name: instanceId
+    in: query
+    description: Instance ID for the multi-instance provider to filter
+    required: false
+    type: string
+  page:
+    name: page
+    in: query
+    description: The page number. Default value is 0
+    required: false
+    type: integer
+    default: 0
+    format: int32
+  size:
+    name: size
+    in: query
+    description: The size of each page. Default page size 10. Max allowed size 100
+    required: false
+    type: integer
+    default: 10
+    maximum: 100
+    minimum: 1
+    format: int32
+  eventmetadata:
+    name: eventmetadata
+    in: query
+    description: The optional boolean to fetch or not this provider's event metadata, default false
+    required: false
+    type: boolean
   authorization:
     name: Authorization
     description: 'Authorization token in the format "Bearer {token}". Must hold the I/O Management API scope (`adobeio_api` scope contained in `s/ent_adobeio_sdk` metascope).'
@@ -1092,6 +1261,8 @@ definitions:
             $ref: '#/definitions/HALLink'
     description: Providers event metadata collection HAL model
   JsonPatch:
+    type: object
+  JsonNode:
     type: object
   EventMetadataInputModel:
     type: object
@@ -1357,7 +1528,8 @@ definitions:
         type: string
         description: Client id for which the registration is created, as obtained from Developer Console
         minLength: 3
-        maxLength: 255
+        maxLength: 128
+        pattern: "[\\w-\\.]+"
       name:
         type: string
         description: The name of the event registration which will be displayed on Developer Console
@@ -1382,6 +1554,11 @@ definitions:
       delivery_type:
         type: string
         description: Delivery type can be one of [`webhook`, `webhook_batch`, `journal`, `aws_eventbridge`]
+        enum:
+          - webhook
+          - webhook_batch
+          - journal
+          - aws_eventbridge
       runtime_action:
         type: string
         description: (Optional) Runtime action to be invoked by the published events
@@ -1389,7 +1566,17 @@ definitions:
         maxLength: 255
       enabled:
         type: boolean
-        description: Enable or disable the registration
+        description: Enable or Disable the registration
+      destination_metadata:
+        $ref: '#/definitions/DestinationMetadata'
+      subscriber_filters:
+        type: array
+        description: (Optional) Subscriber Defined Filters to be applied to the events before delivering.
+        minItems: 0
+        maxItems: 1
+        uniqueItems: true
+        items:
+          $ref: '#/definitions/CreateSubscriberFilterModel'
     description: The input model necessary to create a registration
   RegistrationCollectionHalModel:
     type: object
@@ -1484,6 +1671,11 @@ definitions:
       delivery_type:
         type: string
         description: Delivery type can be one of [`webhook`, `webhook_batch`, `journal`, `aws_eventbridge`]
+        enum:
+          - webhook
+          - webhook_batch
+          - journal
+          - aws_eventbridge
       runtime_action:
         type: string
         description: (Optional) Runtime action to be invoked by the published events
@@ -1491,7 +1683,19 @@ definitions:
         maxLength: 255
       enabled:
         type: boolean
-        description: Enable or disable the registration
+        description: Enable or Disable the registration
+      destination_metadata:
+        $ref: '#/definitions/DestinationMetadata'
+      subscriber_filters:
+        type: array
+        description: Subscriber Defined Filters to be applied to the events before delivering.
+        minItems: 0
+        maxItems: 1
+        uniqueItems: true
+        items:
+          $ref: '#/definitions/CreateSubscriberFilterModel'
+      runtimeWebhook:
+        type: boolean
     description: The input model necessary to PATCH/PUT a registration
   Trace:
     type: object
@@ -1577,3 +1781,83 @@ definitions:
     description: Unauthorized or forbidden access (e.g., invalid scopes)
   InternalServerError:
     description: Upstream service failures / Internal server error
+  CreateSubscriberFilterModel:
+    type: object
+    required:
+      - name
+      - subscriber_filter
+    properties:
+      name:
+        type: string
+        description: The name of the Subscriber Defined Filter.
+        minLength: 3
+        maxLength: 80
+      description:
+        type: string
+        description: An optional description of the Subscriber Defined Filter.
+        minLength: 0
+        maxLength: 250
+      subscriber_filter:
+        type: string
+        description: The filter expression to be used for filtering the events. The filter expression is a JSON in event-ruler syntax with additional restriction.
+    description: Create Subscriber Defined Filter Model
+  SubscriberFilterModel:
+    type: object
+    required:
+      - name
+      - subscriber_filter
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: The unique identifier of the Subscriber Defined Filter.
+      name:
+        type: string
+        description: The name of the Subscriber Defined Filter.
+        minLength: 3
+        maxLength: 80
+      description:
+        type: string
+        description: An optional description of the Subscriber Defined Filter.
+        minLength: 0
+        maxLength: 250
+      subscriber_filter:
+        type: string
+        description: The filter expression to be used for filtering the events. The filter expression is a JSON in event-ruler syntax with additional restriction.
+    description: Subscriber Defined Filter Model
+  SubscriberFilterValidationInputModel:
+    type: object
+    required:
+      - subscriber_filter
+    properties:
+      subscriber_filter:
+        $ref: '#/definitions/SubscriberFilterModel'
+      custom_sample_events:
+        type: array
+        description: Custom sample events that can be used to validate the Subscriber Defined Filter. This is optional and can be used to test the behavior of the Subscriber Defined Filter.
+        uniqueItems: true
+        items:
+          $ref: '#/definitions/CustomSampleEventModel'
+    description: Subscriber Defined Filter Validation Model
+  CustomSampleEventModel:
+    type: object
+    required:
+      - name
+      - sample_payload
+    properties:
+      name:
+        type: string
+        description: The name of the custom sample event
+        minLength: 1
+      sample_payload:
+        $ref: '#/definitions/JsonNode'
+    description: Custom Sample Event Model
+  DestinationMetadata:
+    type: object
+    properties:
+      aws_region:
+        type: string
+        pattern: "(us|ca|eu|af|ap|cn|me|sa|il)-[a-z]+-\\d"
+      aws_account_id:
+        type: string
+        pattern: "^\\d{12}$"

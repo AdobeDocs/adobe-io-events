@@ -1,4 +1,10 @@
 ---
+keywords:
+  - Registration API
+  - Event Registration
+  - Webhook Registration
+  - Journal Registration
+  - Runtime Action
 title: Registration API
 ---
 
@@ -106,6 +112,8 @@ curl -v --request POST \
             }]
           }'
 ```
+
+You can also add [Subscriber Defined Filters](../subscriber_defined_filtering/index.md) when creating or updating your registrations.
 
 Once successfully registered, events from the journal can then be retrieved using the [Journaling API](journaling-api.md).
 

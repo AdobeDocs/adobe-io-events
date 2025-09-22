@@ -1,6 +1,7 @@
 If `Adobe I/O Events` fails to receive a successful response code from your webhook within the configured timeout window, it retries the request, including a special header `x-adobe-retry-count`. This header indicates how many times the delivery of an event or a batch of events has been attempted.
+
 - Default webhooks: The timeout is 10 seconds.
-- [Runtime Actions as webhooks](../guides/runtime-webhooks/index.md): The timeout is 60 seconds.
+- [Runtime Actions as webhooks](/src/pages/guides/runtime-webhooks/index.md): The timeout is 60 seconds.
 
 **Note:** The timeout spans the entire delivery attempt, including the overhead of setting up the HTTP connection. This means that if your webhook handler responds in exactly 10 seconds (or 60 seconds for Runtime Actions), the delivery will still fail due to the additional overhead of setting up the connection.
 
@@ -19,9 +20,9 @@ Please note that if an event delivery fails with a response status code of [429 
 
 `Adobe I/O Events` changes the state of an event registration based on the below criteria:
 
- - **UNSTABLE** - Event registration is marked as unstable if, in the last 30 minutes, over 80% of at least 10 deliveries were unsuccessful.
- - **DISABLED** - Event registration is marked as disabled if, in the last 24 hours, over 80% of at least 10 deliveries were unsuccessful.
- - **ACTIVE**  - Event registration is marked as active if, in the last 30 minutes, over 80% of at least 10 deliveries were successful.
+- **UNSTABLE** - Event registration is marked as unstable if, in the last 30 minutes, over 80% of at least 10 deliveries were unsuccessful.
+- **DISABLED** - Event registration is marked as disabled if, in the last 24 hours, over 80% of at least 10 deliveries were unsuccessful.
+- **ACTIVE**  - Event registration is marked as active if, in the last 30 minutes, over 80% of at least 10 deliveries were successful.
 
 For an **Unstable** event registration `Adobe I/O Events` still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid it from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
 
