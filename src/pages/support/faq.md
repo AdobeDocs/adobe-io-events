@@ -132,7 +132,7 @@ SDF supports a subset of the Event Ruler DSL operators: `equals`, `anything-but`
 
 ### How do I validate my filter?
 
-You can use the filter validation endpoint to check your filter before saving it. This will catch syntax errors and help you test your logic with sample events. See [Validating Filters](../guides/subscriber_defined_filtering/index.md#validating-filters).
+You can use the filter validation endpoint to check your filter before saving it. This will catch syntax errors and help you test your logic with sample events. See [Validating Filters](../guides/subscriber_defined_filtering/sdf-api-guide.md#validating-filters).
 
 ### What are common reasons my filter does not work / is not valid?
 
@@ -155,7 +155,7 @@ To use SDF, your registration must only include Cloud Events deliveries. Registr
 
 ### Are filtered events available in the journal?
 
-No, when you apply subscriber defined filters to a registration, events that don't match your filter criteria are completely filtered out and will not be available in any delivery method, including the journal. The filtering happens on Adobe's servers before events are delivered to any destination. It is therefore utterly important to check the validity of your filter before applying it in production. Although I/O Events doesn't accept filters that are [syntactically incorrect](../guides/subscriber_defined_filtering/index.md#error-handling), you should use the [validation API](../guides/subscriber_defined_filtering/index.md#validating-filters) to check for [correct semantic](../guides/subscriber_defined_filtering/index.md#best-practices) of your filter against custom sample events.
+No, when you apply subscriber defined filters to a registration, events that don't match your filter criteria are completely filtered out and will not be available in any delivery method, including the journal. The filtering happens on Adobe's servers before events are delivered to any destination. It is therefore utterly important to check the validity of your filter before applying it in production. Although I/O Events doesn't accept filters that are [syntactically incorrect](../guides/subscriber_defined_filtering/index.md#error-handling), you should use the [validation API](../guides/subscriber_defined_filtering/sdf-api-guide.md#validating-filters) to check for [correct semantic](../guides/subscriber_defined_filtering/index.md#best-practices) of your filter against custom sample events.
 
 ### Can I have different filters for different delivery methods?
 
