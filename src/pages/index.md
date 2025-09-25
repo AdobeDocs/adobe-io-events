@@ -37,6 +37,7 @@ Following are the prerequisites:
 * [Introduction to Amazon EventBridge Integration](guides/amazon-eventbridge/index.md)
 * Jump to the Adobe Developer Console documentation to learn how to [add Events to a project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-event.md)
 * Discover the [available events](guides/using/index.md)
+* Learn how to apply [Subscriber Defined Filters](guides/subscriber_defined_filtering/index.md)
 
 ## Going Further
 
