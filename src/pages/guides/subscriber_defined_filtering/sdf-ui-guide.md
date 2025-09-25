@@ -15,13 +15,23 @@ title: Subscriber Defined Filtering UI Guide
 description: Learn how to create, test, and apply subscriber-defined filters for event registrations using the Adobe Developer Console UI.
 ---
 
-import SdfGettingStarted from '/src/pages/common/sdf-getting-started.md'
-
 # Subscriber Defined Filtering UI Guide
 
 This guide walks you through creating a **subscriber-defined filter** for an event registration using the Adobe Developer Console. You will also learn how to test the filter against sample events and apply it with the appropriate event patterns.
 
-<SdfGettingStarted/>
+## Getting Started
+
+We assume you already have a Registration for which [SDF is applicable](#prerequisites).
+
+## Prerequisites
+
+- An active Adobe I/O Events registration which is compatible with SDF:
+  - Only includes [CloudEvents](https://cloudevents.io) deliveries.
+  - [AWS EventBridge](/src/pages/guides/amazon-eventbridge/index.md) is not configured among the delivery methods.
+- Access to the Adobe I/O Events API with proper authentication
+  - You can either use the Developer Console or add your filters through the [Registration APIs](/src/pages/guides/api/registration-api.md)
+- Understanding of JSON syntax and your event payload structure
+  - Check the [filtering language details](dsl.md)
 
 ## Step 1: Navigate to the Event Filtering Tab
 

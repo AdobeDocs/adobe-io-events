@@ -15,8 +15,6 @@ keywords:
 title: Subscriber Defined Filtering
 ---
 
-import SdfGettingStarted from '/src/pages/common/sdf-getting-started.md'
-
 # Adobe I/O Events Subscriber Defined Filtering
 
 Adobe I/O Events Subscriber Defined Filtering (SDF) empowers you to create custom filters that specify exactly which events you want to receive. Instead of receiving all events for a given event type, you can now define precise filtering criteria using [JSON-based filter definitions](dsl.md), allowing you to reduce noise and focus on the events that matter most to your application.
@@ -33,7 +31,19 @@ Key benefits include:
 - **Cost Optimization**: Lower processing costs by filtering out irrelevant events at the source
 - **Improved Performance**: Reduce network traffic and application load
 
-<SdfGettingStarted/>
+## Getting Started
+
+We assume you already have a Registration for which [SDF is applicable](#prerequisites).
+
+## Prerequisites
+
+- An active Adobe I/O Events registration which is compatible with SDF:
+  - Only includes [CloudEvents](https://cloudevents.io) deliveries.
+  - [AWS EventBridge](/src/pages/guides/amazon-eventbridge/index.md) is not configured among the delivery methods.
+- Access to the Adobe I/O Events API with proper authentication
+  - You can either use the Developer Console or add your filters through the [Registration APIs](/src/pages/guides/api/registration-api.md)
+- Understanding of JSON syntax and your event payload structure
+  - Check the [filtering language details](dsl.md)
 
 ### Creating Your First Filter
 
