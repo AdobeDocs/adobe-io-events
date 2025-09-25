@@ -486,6 +486,10 @@
     {
       "Source": "/events/docs/guides/amazon_eventbridge/",
       "Destination": "/events/docs/guides/amazon-eventbridge/"
+    },
+    {
+      "Source": "/events/docs/guides/subscriber_defined_filtering/",
+      "Destination": "/events/docs/guides/amazon-subscriber_defined_filtering/"
     }
   ],
   ":type": "sheet"
