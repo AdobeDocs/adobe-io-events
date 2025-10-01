@@ -4,6 +4,7 @@ title: Setting up Marketo Lead Activity Data Stream with Adobe I/O Events
 
 import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
 import Debug from 'marketo-data-streams-debug.md'
+import MultipleInstances from 'marketo-data-streams-multiple-instances.md'
 
 # Setting up Marketo Lead Activity Data Stream with Adobe I/O Events
 
@@ -15,9 +16,13 @@ The Lead Activity Data Stream provides near real-time streaming of audit trackin
 
 ## Setup Lead Activity Data Stream in Marketo
 
-Data Streams are available to those that have purchased a Marketo Engage Performance Tier Package. Once a Performance Tier agreement is in place, work with your TAM and Customer Engineering team to enable this Data Stream for your subscription.
+The following are required to be able to subscribe to the Lead Activity Data Stream:
 
-We typically just need to know the MunchkinId for the subscription, and the associated Adobe OrgId, which enables access to the Adobe IO Developer Console.
+- Marketo Engage subscription that is IMS-enabled
+- Marketo Engage subscription provisioned with a Performance or Ultimate tier package
+- Developer or Admin account in the Experience Cloud
+
+Please contact your Adobe representative with your Munchkin ID and request to enable this data stream.
 
 ## Setup Adobe I/O
 
@@ -71,6 +76,8 @@ For basic instructions for this use case, starting from [console.adobe.io](https
   - If Webhook was selected, verify that it successfully passed the challenge without errors
 
 <DeveloperGuidelines/>
+
+<MultipleInstances/>
 
 ### Event Data Structure
 
@@ -298,9 +305,11 @@ And finally, all Attribute objects in the `attributes` array will contain the fo
 | dataType  | String | The data type of the attribute |
 | value     | Any    | The value of the attribute     |
 
+You are always able to emit a sample event from within the Adobe Developer Console to see the exact structure of the event.
+
 ## Event List
 
-These are all of the currently supported Lead Activity Event Types in alphabetical order. If you have a "firehose" endpoint configured that is subscribed to more than one event type, you can identify the type of event in three different ways.
+These are all of the currently supported Lead Activity Event Types. If you have a "firehose" endpoint configured that is subscribed to more than one event type, you can identify the type of event in three different ways.
 
 Here are examples using the "Open Email" event type:
 
@@ -308,74 +317,72 @@ Here are examples using the "Open Email" event type:
 2. Number match on the `actitityTypeId` field under the `data` object (e.g. `payload.data.activityTypeId` = 10)
 3. Text match on the `type` field with the concatenated, lower-cased Event Type (e.g. `payload.type` = "com.adobe.platform.marketo.activity.standard.openemail")
 
-*Note - This is a snapshot listing of most available events.  There may be some events that don't show up or no longer exist.*
-
-| Event Type                      | Event ID | Attributes                                                                                                                      |
-|---------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------|
-| Custom                          | 100000+  |                                                                                                                                 |
-| Achieve Goal In Referral        | 403      | Social Network, Social App Type ID, Webpage ID                                                                                  |
-| Add To List                     | 24       | List ID, Campaign                                                                                                               |
-| Add To Nurture                  | 113      | Program ID, Track ID, Track Name                                                                                                |
-| Add to Opportunity              | 34       | Oppty ID, Is Primary, Role                                                                                                      |
-| Add to SFDC Campaign            | 42       | Campaign ID, Status                                                                                                             |
-| Call Webhook                    | 110      | Error Type                                                                                                                      |
-| Change Data Value               | 13       | Reason, Attribute Name, New Value, Old Value, Source, Campaign, Channel                                                         |
-| Change Lead Partition           | 100      | New Partition ID, Old Partition ID, Reason                                                                                      |
-| Change Owner                    | 23       | Owner, Old Owner, Campaign                                                                                                      |
-| Change Nurture Cadence          | 115      | New Nurture Cadence, Program ID                                                                                                 |
-| Change Nurture Track            | 114      | Previous Track ID, New Track ID, Track Name, Program ID, Previous Track Name                                                    |
-| Change Program Member Data      | 123      | Program ID, Attribute Name, New Value, Old Value, Reason, Source, Attribute Display Name, Campaign                              |
-| Change Revenue Stage            | 101      | Reason, Old Stage ID, Model ID, New Stage ID                                                                                    |
-| Change Score                    | 22       | Reason, Change Value, New Value, Old Value, Score Name                                                                          |
-| Change Segment                  | 108      | New Segment ID, Segmentation ID                                                                                                 |
-| Change Status In Progression    | 104      | Acquired By, Old Status, New Status ID, Success, New Status, Program ID, Old Status ID                                          |
-| Change Status in SFDC Campaign  | 44       | Campaign ID, Old Status, New Status                                                                                             |
-| Click Email                     | 11       | Campaign Run ID, Mailing ID, Link                                                                                               |
-| Click Link                      | 3        | Link ID, Client IP Address, Query Parameters, Referrer URL, User Agent, Webpage ID                                              |
-| Click Predictive Content        | 133      | Asset ID, Type                                                                                                                  |
-| Click RTP Call to Action        | 132      | Asset ID                                                                                                                        |
-| Click Sales Email               | 41       | Sent by, Artifact ID, Template ID, Link                                                                                         |
-| Click Shared Link               | 405      | Social Network, Social App Type ID, Sharer ID, Webpage ID                                                                       |
-| Convert Lead                    | 21       | Assign To, Converted Status, Send Notification Email, Campaign                                                                  |
-| Delete Lead                     | 37       |                                                                                                                                 |
-| Delete Lead from SFDC           | 29       | Delete in Marketo                                                                                                               |
-| Disqualify Sweepstakes          | 408      | Disqualified Reason, Social Network, Webpage ID                                                                                 |
-| Earn Entry In Social App        | 409      | Social Network, Social App Type ID, Webpage ID                                                                                  |
-| Email Bounced                   | 8        | Subcategory, Category, Email, Mailing ID, Details                                                                               |
-| Email Bounced Soft              | 27       | Campaign Run ID, Subcategory, Category, Email, Mailing ID, Details                                                              |
-| Email Delivered                 | 7        | Choice Number, Campaign Run ID, Mailing ID                                                                                      |
-| Enter Sweepstakes               | 407      | Social Network, Webpage ID                                                                                                      |
-| Fill Out Facebook Lead Ads Form | 131      | Lead Ad Form ID                                                                                                                 |
-| Fill Out Form                   | 2        | Client ID Address, Query Parameters, Referrer URL, User Agent, Webpage ID, Form Fields                                          |
-| Fill Out Linked Lead Gen Form   | 147      | Lead Gen Form ID, Lead Gen Campaign Name, Lead Gen Account Name, Lead Gen Creative ID                                           |
-| Interesting Moment              | 46       | Source, Date, Type                                                                                                              |
-| Merge Leads                     | 32       | Merge IDs, Merge Fields                                                                                                         |
-| New Lead                        | 12       | Created Date, Source Type                                                                                                       |
-| Open Email                      | 10       | Campaign Run ID, Platform, Device, Mailing ID, User Agent, Is Mobile Device                                                     |
-| Open Sales Email                | 40       | Sent by, Artifact ID, Template ID                                                                                               |
-| Push Lead to Marketo            | 145      | Reason, Source                                                                                                                  |
-| Receive Forward to Friend Email | 112      | Mailing ID, LeadID                                                                                                              |
-| Receive Sales Email             | 45       | Artifact ID, Received by                                                                                                        |
-| Refer to Social App             | 410      | Social Network, Social App Type ID, Webpage ID, Referred Type                                                                   |
-| Remove from List                | 25       | List ID, Campaign, Channel                                                                                                      |
-| Remove from SFDC Campaign       | 43       | Campaign ID, Status                                                                                                             |
-| Request Campaign                | 47       | Campaign ID, Source                                                                                                             |
-| Sales Email Bounced             | 48       |                                                                                                                                 |
-| Send Alert                      | 38       | Send To Owner, Send To List, Mailing ID                                                                                         |
-| Send Email                      | 6        | Campaign Run ID, Step ID, Mailing ID                                                                                            |
-| Send Sales Email                | 39       | Sent by, Artifact ID                                                                                                            |
-| Send Forward to Friend Email    | 111      | Mailing ID, Lead ID                                                                                                             |
-| SFDC Activity                   | 26       | Is Task, Subject, Due Date, Description, Priority, Activity Owner, Status                                                       |
-| SFDC Activity Updated           | 30       | Is Task, Subject, Due Date, Description, Priority, Activity Owner, Status                                                       |
-| SFDC Merge Leads                | 31       | Merged, Winning Values (object of key/value pairs)                                                                              |
-| Share Content                   | 400      | Share Message, Social Network, Social App Type ID, Webpage ID                                                                   |
-| Sign Up for Referral Offer      | 402      | Social Network, Social App Type ID, Webpage ID                                                                                  |
-| Sync Lead to Microsoft          | 300      | Assign To, Sync As                                                                                                              |
-| Sync Lead to SFDC               | 19       | Assign To, Campaign                                                                                                             |
-| Sync Lead Updates to SFDC       | 28       |                                                                                                                                 |
-| Unsubscribe Email               | 9        | Campaign Run ID, Client ID Address, Mailing ID, Query Parameters, Referrer URL, User Agent, Webpage ID, Webform ID, Form Fields |
-| Visit Webpage                   | 1        | Client IP Address, Query Parameters, Referrer URL, User Agent, Webpage ID, Webpage URL                                          |
-| Vote in Poll                    | 401      | Vote Choice, Social Network, Webpage ID                                                                                         |
-| Win Sweepstakes                 | 406      | Drawing Date, Social Network, Webpage ID                                                                                        |
+| Event Type                      | Event ID |
+|---------------------------------|----------|
+| Visit Webpage                   | 1        |
+| Fill Out Form                   | 2        |
+| Click Link                      | 3        |
+| Send Email                      | 6        |
+| Email Delivered                 | 7        |
+| Email Bounced                   | 8        |
+| Unsubscribe Email               | 9        |
+| Open Email                      | 10       |
+| Click Email                     | 11       |
+| New Lead                        | 12       |
+| Change Data Value               | 13       |
+| Sync Lead to SFDC               | 19       |
+| Convert Lead                    | 21       |
+| Change Score                    | 22       |
+| Change Owner                    | 23       |
+| Add To List                     | 24       |
+| Remove from List                | 25       |
+| SFDC Activity                   | 26       |
+| Email Bounced Soft              | 27       |
+| Sync Lead Updates to SFDC       | 28       |
+| Delete Lead from SFDC           | 29       |
+| SFDC Activity Updated           | 30       |
+| SFDC Merge Leads                | 31       |
+| Merge Leads                     | 32       |
+| Add to Opportunity              | 34       |
+| Delete Lead                     | 37       |
+| Send Alert                      | 38       |
+| Send Sales Email                | 39       |
+| Open Sales Email                | 40       |
+| Click Sales Email               | 41       |
+| Add to SFDC Campaign            | 42       |
+| Remove from SFDC Campaign       | 43       |
+| Change Status in SFDC Campaign  | 44       |
+| Receive Sales Email             | 45       |
+| Interesting Moment              | 46       |
+| Request Campaign                | 47       |
+| Sales Email Bounced             | 48       |
+| Change Lead Partition           | 100      |
+| Change Revenue Stage            | 101      |
+| Change Status In Progression    | 104      |
+| Change Segment                  | 108      |
+| Call Webhook                    | 110      |
+| Send Forward to Friend Email    | 111      |
+| Receive Forward to Friend Email | 112      |
+| Add To Nurture                  | 113      |
+| Change Nurture Track            | 114      |
+| Change Nurture Cadence          | 115      |
+| Change Program Member Data      | 123      |
+| Fill Out Facebook Lead Ads Form | 131      |
+| Click RTP Call to Action        | 132      |
+| Click Predictive Content        | 133      |
+| Push Lead to Marketo            | 145      |
+| Fill Out Linked Lead Gen Form   | 147      |
+| Sync Lead to Microsoft          | 300      |
+| Share Content                   | 400      |
+| Vote in Poll                    | 401      |
+| Sign Up for Referral Offer      | 402      |
+| Achieve Goal In Referral        | 403      |
+| Click Shared Link               | 405      |
+| Win Sweepstakes                 | 406      |
+| Enter Sweepstakes               | 407      |
+| Disqualify Sweepstakes          | 408      |
+| Earn Entry In Social App        | 409      |
+| Refer to Social App             | 410      |
+| Custom                          | 100000+  |
 
 <Debug/>

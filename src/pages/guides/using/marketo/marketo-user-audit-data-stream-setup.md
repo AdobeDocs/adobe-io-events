@@ -4,6 +4,7 @@ title: Setting up Marketo User Audit Data Stream with Adobe I/O Events
 
 import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
 import Debug from 'marketo-data-streams-debug.md'
+import MultipleInstances from 'marketo-data-streams-multiple-instances.md'
 
 # Setting up Marketo User Audit Data Stream with Adobe I/O Events
 
@@ -15,9 +16,13 @@ User Audit Data Stream provides all the user-driven change events that are shown
 
 ## Setup User Audit Data Stream in Marketo
 
-Data Streams are available to those that have purchased a Marketo Engage Performance Tier Package. Once a Performance Tier agreement is in place, work with your TAM and Customer Engineering team to enable this Data Stream for your subscription.
+The following are required to be able to subscribe to the User Audit Data Stream:
 
-We typically just need to know the MunchkinId for the subscription, and the associated Adobe OrgId, which enables access to the Adobe IO Developer Console.
+- Marketo Engage subscription that is IMS-enabled
+- Marketo Engage subscription provisioned with a Performance or Ultimate tier package
+- Developer or Admin account in the Experience Cloud
+
+Please contact your Adobe representative with your Munchkin ID and request to enable this data stream.
 
 ## Setup Adobe I/O
 
@@ -71,6 +76,8 @@ For basic instructions for this use case, starting from [console.adobe.io](https
   - If Webhook was selected, verify that it successfully passed the challenge without errors
 
 <DeveloperGuidelines/>
+
+<MultipleInstances/>
 
 ### Event Data Structure
 
