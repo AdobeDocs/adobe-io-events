@@ -4,6 +4,8 @@ title: Setting up the Marketo Observability Data Stream
 
 import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
 import Debug from 'marketo-data-streams-debug.md'
+import MultipleInstances from 'marketo-data-streams-multiple-instances.md'
+import SettingUpGADataStream from 'marketo-data-streams-setting-up-ga-stream.md'
 
 # Setting up the Marketo Observability Data Stream
 
@@ -25,13 +27,7 @@ The Marketo Observability Data Stream (MODS) provides insights about the data fl
 
 Note: MODS (Marketo Observability Data Stream) is currently a Beta Product
 
-## Prerequisite Setup
-
-The following are required to be able to subscribe to the data stream:
-
-- Marketo Engage subscription that is IMS-enabled
-- Marketo Engage subscription provisioned with a Performance Tier or CET package
-- Developer or admin account in the Experience Cloud
+<SettingUpGADataStream/>
 
 ## Getting Started with Adobe I/O
 
@@ -89,6 +85,7 @@ Basic instructions for this use case, starting from the [developer console](http
   - If Webhook was selected, verify that it successfully passed the challenge without errors
 
 <DeveloperGuidelines/>
+<MultipleInstances/>
 
 ### Event Data Structure Examples
 

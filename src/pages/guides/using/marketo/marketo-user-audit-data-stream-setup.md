@@ -5,6 +5,7 @@ title: Setting up Marketo User Audit Data Stream with Adobe I/O Events
 import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
 import Debug from 'marketo-data-streams-debug.md'
 import MultipleInstances from 'marketo-data-streams-multiple-instances.md'
+import SettingUpGADataStream from 'marketo-data-streams-setting-up-ga-stream.md'
 
 # Setting up Marketo User Audit Data Stream with Adobe I/O Events
 
@@ -14,15 +15,7 @@ These instructions describe how to set up and get started using Adobe I/O Events
 
 User Audit Data Stream provides all the user-driven change events that are shown in the MLM Audit Trail as an event stream to which you can subscribe.
 
-## Setup User Audit Data Stream in Marketo
-
-The following are required to be able to subscribe to the User Audit Data Stream:
-
-- Marketo Engage subscription that is IMS-enabled
-- Marketo Engage subscription provisioned with a Performance or Ultimate tier package
-- Developer or Admin account in the Experience Cloud
-
-Please contact your Adobe representative with your Munchkin ID and request to enable this data stream.
+<SettingUpGADataStream>
 
 ## Setup Adobe I/O
 

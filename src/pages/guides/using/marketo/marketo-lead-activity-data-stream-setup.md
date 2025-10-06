@@ -5,6 +5,7 @@ title: Setting up Marketo Lead Activity Data Stream with Adobe I/O Events
 import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
 import Debug from 'marketo-data-streams-debug.md'
 import MultipleInstances from 'marketo-data-streams-multiple-instances.md'
+import SettingUpGADataStream from 'marketo-data-streams-setting-up-ga-stream.md'
 
 # Setting up Marketo Lead Activity Data Stream with Adobe I/O Events
 
@@ -14,15 +15,7 @@ These instructions describe how to set up and get started using Adobe I/O Events
 
 The Lead Activity Data Stream provides near real-time streaming of audit tracking Lead Activities where large volumes of Lead Activities can be sent to a customer’s external system. Streams enable customers to effectively audit Lead-related events, usage patterns, provide views into Lead changes and trigger processes and workflows based upon the different types of Lead Events.
 
-## Setup Lead Activity Data Stream in Marketo
-
-The following are required to be able to subscribe to the Lead Activity Data Stream:
-
-- Marketo Engage subscription that is IMS-enabled
-- Marketo Engage subscription provisioned with a Performance or Ultimate tier package
-- Developer or Admin account in the Experience Cloud
-
-Please contact your Adobe representative with your Munchkin ID and request to enable this data stream.
+<SettingUpGADataStream/>
 
 ## Setup Adobe I/O
 
@@ -279,12 +272,6 @@ The `data` field contains the following data:
 | munchkinId              | String            | The Munchkin ID of the Marketo instance                             |
 | leadId                  | String (Number)   | The ID of the lead that the event is related to                     |
 | lead                    | Object            | (**optional**) The lead object that the event related to            |
-| lead.id                 | Number            | The ID of the lead                                                  |
-| lead.firstName          | String            | The first name of the lead                                          |
-| lead.lastName           | String            | The last name of the lead                                           |
-| lead.email              | String            | The email address of the lead                                       |
-| lead.leadScore          | Number            | The lead score of the lead                                          |
-| lead.country            | String            | The country of the lead                                             |
 | activityDate            | String (DateTime) | The timestamp of the event                                          |
 | activityTypeId          | Number            | The ID of the activity type                                         |
 | activityType            | String            | The name of the activity type                                       |
@@ -305,7 +292,8 @@ And finally, all Attribute objects in the `attributes` array will contain the fo
 | dataType  | String | The data type of the attribute |
 | value     | Any    | The value of the attribute     |
 
-You are always able to emit a sample event from within the Adobe Developer Console to see the exact structure of the event.
+You are always able to emit a sample event for every event type from within the Adobe Developer Console to see an
+example of the event structure.
 
 ## Event List
 
