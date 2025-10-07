@@ -4,6 +4,7 @@ title: Setting up Marketo Notification Data Stream with Adobe I/O Events
 
 import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
 import Debug from 'marketo-data-streams-debug.md'
+import MultipleInstances from 'marketo-data-streams-multiple-instances.md'
 
 # Setting up Marketo Notification Data Stream with Adobe I/O Events
 
@@ -71,6 +72,7 @@ For basic instructions for this use case, starting from [console.adobe.io](https
   - If Webhook was selected, verify that it successfully passed the challenge without errors
 
 <DeveloperGuidelines/>
+<MultipleInstances/>
 
 ### Event Data Structure
 

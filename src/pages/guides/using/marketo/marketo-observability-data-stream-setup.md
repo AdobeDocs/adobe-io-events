@@ -4,6 +4,7 @@ title: Setting up the Marketo Observability Data Stream
 
 import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
 import Debug from 'marketo-data-streams-debug.md'
+import MultipleInstances from 'marketo-data-streams-multiple-instances.md'
 
 # Setting up the Marketo Observability Data Stream
 
@@ -89,6 +90,7 @@ Basic instructions for this use case, starting from the [developer console](http
   - If Webhook was selected, verify that it successfully passed the challenge without errors
 
 <DeveloperGuidelines/>
+<MultipleInstances/>
 
 ### Event Data Structure Examples
 
