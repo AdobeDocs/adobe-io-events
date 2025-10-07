@@ -5,7 +5,6 @@ title: Setting up the Marketo Observability Data Stream
 import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
 import Debug from 'marketo-data-streams-debug.md'
 import MultipleInstances from 'marketo-data-streams-multiple-instances.md'
-import SettingUpGADataStream from 'marketo-data-streams-setting-up-ga-stream.md'
 
 # Setting up the Marketo Observability Data Stream
 
@@ -27,7 +26,13 @@ The Marketo Observability Data Stream (MODS) provides insights about the data fl
 
 Note: MODS (Marketo Observability Data Stream) is currently a Beta Product
 
-<SettingUpGADataStream/>
+## Prerequisite Setup
+
+The following are required to be able to subscribe to the data stream:
+
+- Marketo Engage subscription that is IMS-enabled
+- Marketo Engage subscription provisioned with a Performance Tier or CET packageCollapse commentComment on line L33bejohnso commented on Oct 6, 2025 bejohnsoon Oct 6, 2025More actionsCan't do the generic pattern for this one, it's not GA yet and only available to performance or CET, not ultimateWrite a replyResolve commentCode has comments. Press enter to view.
+- Developer or admin account in the Experience Cloud
 
 ## Getting Started with Adobe I/O
 

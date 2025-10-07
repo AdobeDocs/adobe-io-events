@@ -271,7 +271,6 @@ The `data` field contains the following data:
 |-------------------------|-------------------|---------------------------------------------------------------------|
 | munchkinId              | String            | The Munchkin ID of the Marketo instance                             |
 | leadId                  | String (Number)   | The ID of the lead that the event is related to                     |
-| lead                    | Object            | (**optional**) The lead object that the event related to            |
 | activityDate            | String (DateTime) | The timestamp of the event                                          |
 | activityTypeId          | Number            | The ID of the activity type                                         |
 | activityType            | String            | The name of the activity type                                       |
@@ -292,8 +291,8 @@ And finally, all Attribute objects in the `attributes` array will contain the fo
 | dataType  | String | The data type of the attribute |
 | value     | Any    | The value of the attribute     |
 
-You are always able to emit a sample event for every event type from within the Adobe Developer Console to see an
-example of the event structure.
+Some events may include additional metadata with their response. You are always able to emit a sample event for every
+event type from within the Adobe Developer Console to see an example of the event structure.
 
 ## Event List
 
