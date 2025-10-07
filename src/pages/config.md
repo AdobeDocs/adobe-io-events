@@ -41,7 +41,7 @@
     - [Marketo Data Streams](guides/using/marketo/marketo-data-streams.md)
       - [Lead Activity](guides/using/marketo/marketo-lead-activity-data-stream-setup.md)
       - [User Audit](guides/using/marketo/marketo-user-audit-data-stream-setup.md)
-      - [Notification](guides/using/marketo/marketo-notification-data-stream-setup.md)
+      - [Notification (Beta)](guides/using/marketo/marketo-notification-data-stream-setup.md)
       - [Observability (Beta)](guides/using/marketo/marketo-observability-data-stream-setup.md)
   - [API](guides/api/index.md)
     - [Journaling API](guides/api/journaling-api.md)
