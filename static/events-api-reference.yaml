@@ -1398,11 +1398,11 @@ definitions:
         example: 'instance-1'
       data_residency_region:
         type: string
-        description: 'The data residency region; optional. If omitted, the default `va6` will be used. Currently we only support two regions: US (va6) and Europe (irl1). This defines where your events are stored and processed.'
+        description: 'The data residency region; optional. If omitted, the default `VA6` will be used. Currently we only support two regions: US (VA6) and Europe (IRL1). This defines where your events are stored and processed.'
         minLength: 3
         maxLength: 5
-        pattern: 'va6|irl1'
-        example: 'va6'
+        pattern: 'VA6|IRL1'
+        example: 'VA6'
     description: The input model necessary to POST/PUT an event provider
   EventsOfInterestModel:
     type: object
