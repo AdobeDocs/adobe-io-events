@@ -321,7 +321,7 @@ paths:
           description: The input model necessary to create an event provider
           required: true
           schema:
-            $ref: '#/definitions/ProviderInputModel'
+            $ref: '#/definitions/ProviderCreateModel'
       responses:
         '201':
           description: The created event provider.
@@ -1356,7 +1356,7 @@ definitions:
           self:
             $ref: '#/definitions/HALLink'
     description: Providers Collection HAL model
-  ProviderInputModel:
+  ProviderCreateModel:
     type: object
     required:
       - label
@@ -1403,7 +1403,7 @@ definitions:
         maxLength: 5
         pattern: 'VA6|IRL1'
         example: 'VA6'
-    description: The input model necessary to POST/PUT an event provider
+    description: The input model necessary to create an event provider
   EventsOfInterestModel:
     type: object
     required:
