@@ -1370,14 +1370,14 @@ definitions:
         example: 'My Event Provider'
       description:
         type: string
-        description: 'The description of this event provider, as shown on the Adobe Developer Console'
+        description: 'The description of this event provider, as shown on the Adobe Developer Console. If omitted, the default description defined in the provider metadata will be used.'
         minLength: 0
         maxLength: 255
         pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
         example: 'A description for this event provider'
       docs_url:
         type: string
-        description: 'The documentation URL of this event provider, as shown on the Adobe Developer Console'
+        description: 'The documentation URL of this event provider, as shown on the Adobe Developer Console. If omitted, the default documentation URL defined in the provider metadata will be used.'
         minLength: 0
         maxLength: 255
         pattern: 'https?://(([^/:.\s]+(\.[^/:.\s]+)*)|([0-9](\.[0-9]{3})))(:[0-9]+)?((/[^?#\s]+)(\?[^#\s]+)?(#.+)?)?/?'
