@@ -358,7 +358,7 @@ paths:
           description: The input model necessary to update an event provider
           required: true
           schema:
-            $ref: '#/definitions/ProviderInputModel'
+            $ref: '#/definitions/ProviderUpdateModel'
       responses:
         '200':
           description: successful operation
@@ -392,7 +392,7 @@ paths:
         - $ref: '#/parameters/contentTypeJSONPatch'
         - in: body
           name: body
-          description: 'A JSON Patch of the event provider input model see https://tools.ietf.org/html/rfc6902, http://jsonpatch.com/'
+          description: 'A JSON Patch of the event provider update model see https://tools.ietf.org/html/rfc6902, http://jsonpatch.com/'
           required: true
           schema:
             $ref: '#/definitions/JsonPatch'
@@ -1404,6 +1404,36 @@ definitions:
         pattern: 'VA6|IRL1'
         example: 'VA6'
     description: The input model necessary to create an event provider
+
+  ProviderUpdateModel:
+    type: object
+    required:
+      - label
+    properties:
+      label:
+        type: string
+        description: 'The label of this event provider, as shown on the Adobe Developer Console'
+        minLength: 1
+        maxLength: 255
+        pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
+        example: 'My Event Provider'
+      description:
+        type: string
+        description: 'The description of this event provider, as shown on the Adobe Developer Console. If omitted, the default description defined in the provider metadata will be used.'
+        minLength: 0
+        maxLength: 255
+        pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
+        example: 'A description for this event provider'
+      docs_url:
+        type: string
+        description: 'The documentation URL of this event provider, as shown on the Adobe Developer Console. If omitted, the default documentation URL defined in the provider metadata will be used.'
+        minLength: 0
+        maxLength: 255
+        pattern: 'https?://(([^/:.\s]+(\.[^/:.\s]+)*)|([0-9](\.[0-9]{3})))(:[0-9]+)?((/[^?#\s]+)(\?[^#\s]+)?(#.+)?)?/?'
+        example: 'https://developer.adobe.com/events/docs/guides/using/'
+      
+    description: The input model necessary to update an event provider
+
   EventsOfInterestModel:
     type: object
     required:
