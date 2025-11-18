@@ -3,4 +3,4 @@ layout: none
 ---
 
 <RedoclyAPIBlock
-    src="/events-api-reference.yaml" scrollYOffset={64} />
+    src="/assets/events-api-reference.yaml" scrollYOffset={64} />
