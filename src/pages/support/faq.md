@@ -117,7 +117,7 @@ Adobe I/O Events delivers payloads with both the new and deprecated attribute na
 **Action required:**
 
 - Update your integration to use the new `eventid` and `recipientclientid` fields.
-- The deprecated fields (`event_id`, `recipient_client_id`) will be removed by the **end of 2025**.
+- The deprecated fields (`event_id`, `recipient_client_id`) will be removed by the **end of 2026**.
 - We recommend migrating as soon as possible to ensure continued compatibility.
 
 ## Subscriber Defined Filtering (SDF) FAQ
