@@ -2,11 +2,6 @@
 title: Setting up Marketo User Audit Data Stream with Adobe I/O Events
 ---
 
-import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
-import Debug from 'marketo-data-streams-debug.md'
-import MultipleInstances from 'marketo-data-streams-multiple-instances.md'
-import SettingUpGADataStream from 'marketo-data-streams-setting-up-ga-stream.md'
-
 # Setting up Marketo User Audit Data Stream with Adobe I/O Events
 
 These instructions describe how to set up and get started using Adobe I/O Events for Marketo user-driven change events.  You can use Adobe I/O for streaming Marketo user-driven change events such as the modification of emails, campaigns, and landing pages.
@@ -15,7 +10,7 @@ These instructions describe how to set up and get started using Adobe I/O Events
 
 User Audit Data Stream provides all the user-driven change events that are shown in the MLM Audit Trail as an event stream to which you can subscribe.
 
-<SettingUpGADataStream>
+<Fragment src="marketo-data-streams-setting-up-ga-stream.md"/>
 
 ## Setup Adobe I/O
 
@@ -68,9 +63,9 @@ For basic instructions for this use case, starting from [console.adobe.io](https
   - Verify that the Status is `Active`
   - If Webhook was selected, verify that it successfully passed the challenge without errors
 
-<DeveloperGuidelines/>
+<Fragment src="marketo-data-streams-developer-guidelines.md"/>
 
-<MultipleInstances/>
+<Fragment src="marketo-data-streams-multiple-instances.md"/>
 
 ### Event Data Structure
 
@@ -213,4 +208,4 @@ The following events are related to access control and security:
 | Role      | create, delete, edit         |
 |  User     | create, delete, edit         |
 
-<Debug/>
+<Fragment src="marketo-data-streams-debug.md"/>

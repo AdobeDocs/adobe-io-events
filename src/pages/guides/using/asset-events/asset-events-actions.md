@@ -31,7 +31,7 @@ Asset Events are initiated by actions, which are operations (create, update, mov
 
    ![event:updated object with a repo:path property](../../img/event-updated.png)
 
-<br/>
+\<br/\>
 
 ## Actions by Asset Type
 

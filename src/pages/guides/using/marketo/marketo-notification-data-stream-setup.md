@@ -2,10 +2,6 @@
 title: Setting up Marketo Notification Data Stream with Adobe I/O Events
 ---
 
-import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
-import Debug from 'marketo-data-streams-debug.md'
-import MultipleInstances from 'marketo-data-streams-multiple-instances.md'
-
 # Setting up Marketo Notification Data Stream with Adobe I/O Events
 
 These instructions describe how to set up and get started using Adobe I/O Events for Marketo notification events. This will provide you with an event stream for all Marketo in-app notifications, in near-real-time.
@@ -71,8 +67,8 @@ For basic instructions for this use case, starting from [console.adobe.io](https
   - Verify that the Status is `Active`
   - If Webhook was selected, verify that it successfully passed the challenge without errors
 
-<DeveloperGuidelines/>
-<MultipleInstances/>
+<Fragment src="marketo-data-streams-developer-guidelines.md"/>
+<Fragment src="marketo-data-streams-multiple-instances.md"/>
 
 ### Event Data Structure
 
@@ -208,4 +204,4 @@ The `eventAction` object will vary depending on the `componentType` of the event
 |-------------------------|----------------------------|---------------------------|
 | Campaign Abort          | Campaign Failure           | Web Services Daily Quota  |
 
-<Debug/>
+<Fragment src="marketo-data-streams-debug.md"/>

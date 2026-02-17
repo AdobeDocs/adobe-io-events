@@ -2,8 +2,6 @@
 title: Asset Events Configuration
 ---
 
-import ReceivingEventsForUsersDoc from '../../../common/receiving-events-for-users-doc.md'
-
 # Asset Events Configuration
 
 To configure Asset Events, refer to [Add Events](https://developer.adobe.com/developer-console/docs/guides/services/services-add-event), keeping in mind the following amendments to the **Add Events** and **Credentials** sections:
@@ -30,4 +28,4 @@ OAuth allows your end users to sign in to your integration with an Adobe ID. Wit
 
 Note that your application using end user based integration will be receiving events generated within your organization personalized to the users using your application. That is all events will be tagged with the user ID of the intended recipient user and only events for assets, libraries, and cloud documents (read) accessible to the recipient user will be forwarded to your application. As a consequence your application will be responsible to only make events available to the user tagged in the event itself.
 
-<ReceivingEventsForUsersDoc/>
+<Fragment src="../../../common/receiving-events-for-users-doc.md"/>

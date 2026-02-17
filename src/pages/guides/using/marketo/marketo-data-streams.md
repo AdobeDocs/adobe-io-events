@@ -49,6 +49,6 @@ Here are some basic getting started instructions that will be the same for each 
 
 You should see the various Marketo Data Streams available.  Please see the individual page for each stream for further setup instructions.
 
-<DeveloperGuidelines/>
+<Fragment src="marketo-data-streams-developer-guidelines.md"/>
 
-<Debug/>
+<Fragment src="marketo-data-streams-debug.md"/>
