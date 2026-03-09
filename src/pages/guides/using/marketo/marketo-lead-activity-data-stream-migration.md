@@ -212,7 +212,7 @@ Understanding how to handle failures ensures minimal disruption during and after
 
 | Scenario | Detection Method | Immediate Response | Recovery Action |
 |----------|------------------|-------------------|-----------------|
-| **Webhook Failure** | HTTP 5xx responses, timeouts | Automatic retry with exponential backoff<br/>Automatic email notification to project admin | Fix endpoint, fetch from journal |
+| **Webhook Failure** | HTTP 5xx responses, timeouts | Automatic retry with exponential backoff\<br/\>Automatic email notification to project admin | Fix endpoint, fetch from journal |
 | **Adobe I/O Outage** | No events received for >1 hour | Alert operations team |
 | **Payload Corruption** | JSON parsing errors | Log error, continue processing | Refer to sample events to confirm structure |
 
