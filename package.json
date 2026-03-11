@@ -1,14 +1,18 @@
 {
-  "name": "dev-docs-template",
+  "private": true,
+  "name": "Adobe IO Events",
   "version": "1.0.0",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AdobeDocs/dev-docs-template"
+    "url": "https://github.com/AdobeDocs/adobe-io-events"
   },
   "author": {
     "name": "Tim Kim",
     "url": "https://github.com/timkim"
+  },
+  "dependencies": {
+    "experience-manager-apis": "https://github.com/AdobeDocs/experience-manager-apis"
   },
   "scripts": {
     "dev": "npx --yes github:AdobeDocs/adp-devsite-utils dev",
