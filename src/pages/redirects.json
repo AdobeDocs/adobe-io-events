@@ -132,6 +132,26 @@
       "Destination": "/events/docs/guides/using/asset-events/asset-events-actions"
     },
     {
+      "Source": "/events/docs/guides/using/admin-audit-logs",
+      "Destination": "/events/docs/guides/using/admin-audit-logs/"
+    },
+    {
+      "Source": "/events/docs/guides/using/admin-audit-logs/index",
+      "Destination": "/events/docs/guides/using/admin-audit-logs/"
+    },
+    {
+      "Source": "/events/docs/guides/using/admin-audit-logs/format/",
+      "Destination": "/events/docs/guides/using/admin-audit-logs/format"
+    },
+    {
+      "Source": "/events/docs/guides/using/admin-audit-logs/adobe-admin-ocsf/",
+      "Destination": "/events/docs/guides/using/admin-audit-logs/adobe-admin-ocsf"
+    },
+    {
+      "Source": "/events/docs/guides/using/admin-audit-logs/changelog/",
+      "Destination": "/events/docs/guides/using/admin-audit-logs/changelog"
+    },
+    {
       "Source": "/events/docs/guides/using/aem",
       "Destination": "/events/docs/guides/using/aem/"
     },
