@@ -6,6 +6,7 @@
 .history
 .idea
 .editorconfig
+.cursor
 
 # npm yarn
 node_modules
@@ -44,7 +45,8 @@ local-test.yml
 # yalc
 .yalc
 yalc.lock
+.markdownlint.json
 
-#txt
+# Added by update-bot
 linter-output.txt
 linter-report.txt
