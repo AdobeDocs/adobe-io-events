@@ -20,6 +20,7 @@ title: Adobe I/O Events FAQ
 
 Adobe I/O Events regularly adds new event providers. As of now, the following Adobe solutions are supported:
 
+- [Adobe Admin Console Audit Log Events](../guides/using/admin-audit-logs/index.md)
 - Adobe Campaign Standard
 - [Adobe Commerce](https://developer.adobe.com/commerce/extensibility/events/)
 - Adobe Document Cloud
