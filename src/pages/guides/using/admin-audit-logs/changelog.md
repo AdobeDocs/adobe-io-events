@@ -17,4 +17,4 @@ be the one that is currently active.
 
 | Version    | Description                                                                     |
 |------------|---------------------------------------------------------------------------------|
-| 2026.03.17 | Initial public release.                                                         |
+| 2026.03.10 | Initial public release.                                                         |
