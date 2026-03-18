@@ -1,14 +1,25 @@
 ---
-title: Migrating from Legacy Activity Push to Adobe I/O Lead Activity Data Stream
+title: Migrating Legacy LADS to Adobe I/O
+description: Guide for migrating from the legacy Lead Activity Data Stream to Adobe I/O LADS.
 ---
 
-# Migrating from Legacy Activity Push to Adobe I/O Lead Activity Data Stream
+# Migrating from Legacy Lead Activity Data Stream to Adobe I/O Lead Activity Data Stream
 
 This guide provides comprehensive instructions for migrating customers from the legacy Lead Activity Data Stream to the new Adobe I/O Lead Activity Data Stream (LADS).
 
+<InlineAlert variant="info" slots="title, text"/>
+
+Does this affect me?
+
+This migration affects only a very small subset of customers who were onboarded to the Lead Activity Data Stream before it was integrated with Adobe I/O Events. If you are a newer data streams customer or already manage the Lead Activity Data Stream via I/O Events, this will have no impact on you.
+
+We have reached out to all customers still using the legacy version of the stream to coordinate migration and will make sure to reach out again as a reminder of the action needed. Also, to clarify, this only affects the Lead Activity Data Stream, and no other Marketo Data Streams are affected.
+
+If you think this might affect you, but are unsure, feel free to reach out to your account/support teams, and we will help confirm.
+
 ## Overview
 
-The migration to Adobe I/O Lead Activity Data Stream enables customers to leverage enhanced reliability, standardized CloudEvents format, and improved scalability with minimal downtime, and enhanced monitoring capabilities.
+The migration enables enhanced reliability, CloudEvents format, scalability, minimal downtime, better monitoring, and self-service capabilities.
 
 ## Migration Process Overview
 
@@ -32,9 +43,18 @@ Understanding the differences between the legacy and new systems is critical for
 ### Adobe I/O Project Configuration
 
 **Required Actions:**
-When setting up a project to subscribe to events, there are three ways to interact with those event subscriptions in order to receive the events. The first is Journaling, which provides a pull model in which events can be pulled via API and stores up to 7 days of past events. The second is Webhooks, which can be configured to send events either as single events or batched to a webhook endpoint in near real-time with the event occurrence. Third is Runtime, where you can set up your own custom function within Adobe that events will automatically run through near-real time. Depending on the mechanism, the following actions are required
+When setting up a project to subscribe to events, there are four differnet ways to interact with those event subscriptions.
 
-- **Create Adobe I/O Project:** Set up a new project or use an existing one in [Adobe Developer Console](https://console.adobe.io)
+The Journaling is always available by default, which provides a pull model in which events can be pulled via API and stores up to 7 days of past events.
+In addition to this, you can optionally choose one of the below options:
+
+1. Webhooks, which can be configured to send events either as single events or batched to a webhook endpoint in near real-time with the event occurrence. 
+2. Runtime, where you can set up your own custom function within Adobe that events will automatically run through near-real time. 
+3. AWS Event Bridge, which enables you to route events between your own applications, third-party SaaS applications, and AWS services. For more information, refer to [Adobe Developer Docs for Event Bridge](https://developer.adobe.com/events/docs/guides/amazon-eventbridge/)
+
+Depending on the mechanism, the following actions are required. 
+
+- **Create Adobe I/O Project:** Set up a new project or use an existing one in [Adobe Developer Console](https://developer.adobe.com/console/)
 - **Configure OAuth Server-to-Server:** Generate client credentials for authentication. The authentication will be required for Journaling.
 - **Subscribe to Events:** Select specific Lead Activity events needed
 - **Set Webhook URL:** Provide production-ready HTTPS endpoint to receive these events, if webhook is chosen as the subscription mechanism 
@@ -56,7 +76,7 @@ The legacy system sends activities in a batch wrapper format:
 ```json
 {
     "sourceApplication": "Marketo",
-    "munchkinId": "XXX-XXX-XXX",
+    "munchkinId": "123-ABC-456",
     "messageId": "12345",
     "messageCreatedDate": "2025-09-10T15:28:49Z",
     "activities": [
@@ -68,8 +88,8 @@ The legacy system sends activities in a batch wrapper format:
             "campaignName": "My Campaign Name.Form",
             "primaryAttributeValueId": 15,
             "primaryAttributeValue": "Some asset name",
-            "activityTypeId": 12,
-            "activityType": "New Lead",
+            "activityTypeId": 3,
+            "activityType": "Click Link",
             "attributes": [...]
         }
     ]
@@ -78,7 +98,7 @@ The legacy system sends activities in a batch wrapper format:
 
 #### New Adobe I/O LADS Payload Structure
 
-The new system uses the CloudEvents specification:
+The new system uses the CloudEvents specification. See [Setting up Marketo Lead Activity Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-lead-activity-data-stream-setup) for more details.
 
 ```json
 {
@@ -141,11 +161,11 @@ The safest migration approach involves running both systems in parallel before s
 
 #### Phase 2: Gradual Cutover
 
-- Schedule maintenance window (typically 2-4 hours)
-- Stop legacy stream at predetermined time
-- Integrate the Adobe I/O streams receiving service with first-party systems
+- Schedule maintenance window for your system (typically 2-4 hours)
+- Integrate the Adobe I/O streams receiving service with first-party systems and handle dedeuplication
 - Verify Adobe I/O stream receiving service and downstream systems are receiving all events
-- Monitor continuously for 24-48 hours
+- Stop legacy stream at predetermined time
+- Monitor for 24-48 hours
 
 ## Data Loss Prevention
 
@@ -200,11 +220,11 @@ Refer to [Journaling API](https://developer.adobe.com/events/docs/guides/api/jou
 
 | Phase | Activities | Owner | Success Criteria |
 |-------|-----------|-------|------------------|
-| **Assessment** | <ul><li>Audit current integration</li><li>Identify payload dependencies</li><li>Plan service updates</li></ul> | Customer + Adobe | Migration plan approved |
-| **Development** | <ul><li>Create new receiving service for Adobe I/O Webhook integration</li><li>Set up Adobe I/O project</li></ul> | Customer | Test environment working |
-| **Testing** | <ul><li>Parallel stream validation</li><li>New receiving service used for validation but not integrated with first-party systems</li><li>Load testing</li><li>Failure scenario testing</li></ul> | Customer + Adobe | 100% data accuracy |
-| **Cutover** | <ul><li>Legacy stream shutdown</li><li>Production cutover with new receiving service integrated with first-party systems</li><li>48-hour monitoring</li></ul> | Customer + Adobe | Zero data loss |
-| **Stabilization** | <ul><li>Performance optimization</li><li>Documentation update</li></ul> | Customer | Stable operations |
+| **Assessment** | Audit current integration; Identify payload dependencies; Plan service updates | Customer + Adobe | Migration plan approved |
+| **Development** | Create new receiving service for Adobe I/O Webhook integration; Set up Adobe I/O project | Customer | Test environment working |
+| **Testing** | Parallel stream validation; New receiving service used for validation but not integrated with first-party systems; Load testing; Failure scenario testing | Customer + Adobe | 100% data accuracy |
+| **Cutover** | Legacy stream shutdown; Production cutover with new receiving service integrated with first-party systems; 48-hour monitoring | Customer + Adobe | Zero data loss |
+| **Stabilization** | Performance optimization; Documentation update | Customer | Stable operations |
 
 ## Failure Handling and Recovery
 
@@ -212,8 +232,8 @@ Understanding how to handle failures ensures minimal disruption during and after
 
 | Scenario | Detection Method | Immediate Response | Recovery Action |
 |----------|------------------|-------------------|-----------------|
-| **Webhook Failure** | HTTP 5xx responses, timeouts | Automatic retry with exponential backoff\<br/\>Automatic email notification to project admin | Fix endpoint, fetch from journal |
-| **Adobe I/O Outage** | No events received for >1 hour | Alert operations team |
+| **Webhook Failure** | HTTP 5xx responses, timeouts | Automatic retry with exponential backoff; Automatic email notification to project admin | Fix endpoint, fetch from journal |
+| **Adobe I/O Outage** | No events received for >1 hour | Alert operations team | Use journaling to recover missed events |
 | **Payload Corruption** | JSON parsing errors | Log error, continue processing | Refer to sample events to confirm structure |
 
 ## Post-Migration Benefits
