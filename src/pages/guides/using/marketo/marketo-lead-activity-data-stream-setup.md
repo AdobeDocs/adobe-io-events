@@ -2,11 +2,6 @@
 title: Setting up Marketo Lead Activity Data Stream with Adobe I/O Events
 ---
 
-import DeveloperGuidelines from 'marketo-data-streams-developer-guidelines.md'
-import Debug from 'marketo-data-streams-debug.md'
-import MultipleInstances from 'marketo-data-streams-multiple-instances.md'
-import SettingUpGADataStream from 'marketo-data-streams-setting-up-ga-stream.md'
-
 # Setting up Marketo Lead Activity Data Stream with Adobe I/O Events
 
 These instructions describe how to set up and get started using Adobe I/O Events for Marketo lead-based activities and change events.
@@ -15,7 +10,7 @@ These instructions describe how to set up and get started using Adobe I/O Events
 
 The Lead Activity Data Stream provides near real-time streaming of audit tracking Lead Activities where large volumes of Lead Activities can be sent to a customer’s external system. Streams enable customers to effectively audit Lead-related events, usage patterns, provide views into Lead changes and trigger processes and workflows based upon the different types of Lead Events.
 
-<SettingUpGADataStream/>
+<Fragment src="marketo-data-streams-setting-up-ga-stream.md"/>
 
 ## Setup Adobe I/O
 
@@ -68,9 +63,9 @@ For basic instructions for this use case, starting from [console.adobe.io](https
   - Verify that the Status is `Active`
   - If Webhook was selected, verify that it successfully passed the challenge without errors
 
-<DeveloperGuidelines/>
+<Fragment src="marketo-data-streams-developer-guidelines.md"/>
 
-<MultipleInstances/>
+<Fragment src="marketo-data-streams-multiple-instances.md"/>
 
 ### Event Data Structure
 
@@ -372,4 +367,4 @@ Here are examples using the "Open Email" event type:
 | Refer to Social App             | 410      |
 | Custom                          | 100000+  |
 
-<Debug/>
+<Fragment src="marketo-data-streams-debug.md"/>

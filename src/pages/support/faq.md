@@ -12,8 +12,6 @@ keywords:
 title: Adobe I/O Events FAQ
 ---
 
-import RetryDoc from '../common/retry-doc.md'
-
 # Adobe I/O Events Frequently Asked Questions (FAQ)
 
 ## General Questions
@@ -22,6 +20,7 @@ import RetryDoc from '../common/retry-doc.md'
 
 Adobe I/O Events regularly adds new event providers. As of now, the following Adobe solutions are supported:
 
+- [Adobe Admin Console Audit Log Events](../guides/using/admin-audit-logs/index.md)
 - Adobe Campaign Standard
 - [Adobe Commerce](https://developer.adobe.com/commerce/extensibility/events/)
 - Adobe Document Cloud
@@ -205,11 +204,11 @@ The `Exists` operator only works on leaf nodes (final field values) and does not
 
 ## Webhook FAQ
 
-### What happens if my webhook is down? Why is my event registration marked as `Unstable`?
+### What happens if my webhook is down? Why is my event registration marked as `Unstable`/`Disabled`?
 
 If your webhook is down, Adobe I/O Events retries delivery (see details below). Your event registration may be marked as `Unstable`.
 
-<RetryDoc/>
+<Fragment src="../common/retry-doc.md"/>
 
 You can use the [Journaling API](../guides/journaling-intro.md) to retrieve events published while your webhook was down.
 Once your webhook is restored, you can re-enable your event registration (see next question).

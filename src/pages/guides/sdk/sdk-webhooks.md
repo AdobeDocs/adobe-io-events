@@ -2,10 +2,6 @@
 title: Event Registrations | Adobe I/O Events SDK
 ---
 
-import CodeBreakStyles from '../../components/CodeBreakStyles'
-
-<CodeBreakStyles/>
-
 # Webhooks
 
 With Adobe I/O Events webhooks, your application can sign up to be notified whenever certain events occur. For example, when a user uploads a file to Adobe Creative Cloud Assets, this action generates an event. With the right webhook in place, your application is instantly notified that this event happened.

@@ -13,9 +13,6 @@ title: Introduction to Adobe I/O Events Webhooks
 description: With Adobe I/O Events webhooks, your application can sign up to be notified whenever certain events occur. For example, when a user uploads an asset, this action generates an event. With the right webhook in place, your application is instantly notified that this event happened.
 ---
 
-import RetryDoc from '../common/retry-doc.md'
-import ReceivingEventsForUsersDoc from '../common/receiving-events-for-users-doc.md'
-
 # Introduction to Adobe I/O Events Webhooks
 
 With Adobe I/O Events webhooks, your application can sign up to be notified whenever certain events occur.
@@ -174,7 +171,7 @@ ngrok http 80
 
 In the ngrok UI, you can see the URL for viewing the ngrok logs, labeled "Web Interface", plus the public-facing URLs ngrok generates to forward HTTP and HTTPS traffic to your localhost. You can use either of those public-facing URLs to register your Webhook with Adobe I/O, so long as your application is configured to respond on your localhost accordingly. Once your testing phase is complete, you can replace the ngrok URL in your Adobe I/O integration with the public URL for your deployed app.
 
-## Create a project in the `Adobe Developer Console`
+### Create a project in the `Adobe Developer Console`
 
 Integrations are now created as part of a project within the `Adobe Developer Console`. This requires you to have access to the [Console](https://www.adobe.com/go/devs_console_ui) in order to create a project, add events to your project, configure the events, and register your webhook.
 
@@ -190,13 +187,13 @@ The *Status* of the registration should show as **Active**. If the registration 
 
 ![Event Registration Details tab in Adobe Developer Console](img/events-registration-details.png "Event Registration Details tab in Adobe Developer Console")
 
-### Troubleshooting Unstable/Disabled Registration Status
+## Troubleshooting Unstable/Disabled Registration Status
 
 If you made an error transcribing the webhook URL, Adobe I/O Events' test of your webhook would have failed, resulting in a **Disabled** status.
 
 In general, `Adobe I/O Events` will always confirm that your webhook received an event by means of the response code your webhook sends to each HTTP POST request.
 
-<RetryDoc/>
+<Fragment src="../common/retry-doc.md"/>
 
 To restart the flow of requests, fix the problem preventing your webhook from responding.
 Then, log into the `Adobe Developer Console` and edit your events registration.
@@ -212,7 +209,56 @@ Note: While your event registration is marked `Disabled`, Adobe will continue to
 *Disabled Event Registration*
 ![Disabled Status](img/disabled-status.png "Example of a Disabled event registration")
 
-<ReceivingEventsForUsersDoc/>
+### What happens when an Event Registration is Disabled
+
+When an event registration is disabled automatically due to delivery failures, the following behavior applies:
+
+- **New events** are not delivered to your event registration while the registration is disabled.
+- **Scheduled retry attempts** that were scheduled before the registration was disabled will execute if they remain within their 24-hour retry window. Disabling does not cancel these scheduled attempts.
+- **Retry windows continue aging** for each event individually. Disabling a registration does not pause or reset the retry lifecycle for any event.
+- Events are still logged to your Journal for 7 days, allowing you to retrieve them using the [Journaling API](../guides/journaling-intro.md).
+
+**Note:** The same behavior applies if you delete an event registration that has scheduled retry attempts. Scheduled retries will continue to execute until their retry windows expire.
+
+### Re-enabling a Registration
+
+When you re-enable a disabled registration:
+
+- **New events** will be delivered to your webhook going forward.
+- **Retry lifecycle is not reset** for events that were already being retried.
+- **Expired retries are not recreated**. If an event's retry window has expired, that event will not be retried.
+- **Scheduled retries** that are still within their 24-hour window will execute after re-enabling.
+
+**Important:** To retrieve events that were not delivered (including those whose retry windows expired while disabled), use the [Journaling API](../guides/journaling-intro.md) to fetch events from the past 7 days.
+
+### Known Limitations and Edge Cases
+
+**Low-Traffic Registrations**
+
+If your event registration receives fewer than 10 delivery attempts in the evaluation window:
+- State evaluation may not occur even when individual events reach retry milestones
+- The registration may skip the `Unstable` state and transition directly from `Active` to `Disabled`, because the evaluation window of the `Disabled` state is 24 hours, thus it can gather more data points with respect to the 30 minutes evaluation window of the `Unstable` state.
+
+**Mixed Success/Failure Patterns**
+
+For registrations with inconsistent delivery patterns:
+- A registration in `Unstable` state may remain there indefinitely if neither the 80% success nor 80% failure threshold is consistently met
+- This is expected behavior - the registration is genuinely unstable
+
+### Best Practices
+
+To ensure reliable operation and avoid unexpected state transitions:
+
+1. **Monitor Your Webhook Endpoint Health**: Don't rely solely on Adobe I/O Events email state change notifications. Implement your own monitoring of:
+   - Delivery success rates
+   - Response times
+   - Error patterns
+2. **Respond Quickly to Unstable Notifications**: Once you receive an `Unstable` notification, fix issues promptly to prevent your registration from being **disabled**.
+3. **Use Debug Tracing**: Leverage the [Debug Tracing](../support/tracing.md) tab in Developer Console to diagnose delivery issues before they trigger state transitions.
+4. **Monitor Registration Status via API**: Use the [Adobe I/O Events GetRegistrationById API](https://developer.adobe.com/events/docs/api#operation/getRegistrationById) to periodically check your registration status (**Active**, **Unstable**, **Disabled**) and trigger alerts when the status changes to **Unstable** or **Disabled**, allowing you to react before the impact grows.
+5. **Plan for Manual Recovery**: Document your process for re-enabling `Disabled` registrations, as this requires manual intervention through Developer Console.
+
+<Fragment src="../common/receiving-events-for-users-doc.md"/>
 
 ## Security Considerations
 

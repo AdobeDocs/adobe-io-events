@@ -6,6 +6,7 @@ title: Using Adobe I/O Events
 
 Setting up an integration to subscribe to Adobe I/O Events is straightforward. The following pages guide you through setting up and using Adobe I/O Events with various Adobe solutions.
 
+* [Adobe Admin Console Audit Logs](admin-audit-logs/index.md)
 * [Adobe Commerce](https://developer.adobe.com/commerce/extensibility/events/)
 * [Adobe Experience Manager (AEM)](aem/index.md)
 * [Adobe Experience Platform Notifications](experience-platform-event-setup.md)

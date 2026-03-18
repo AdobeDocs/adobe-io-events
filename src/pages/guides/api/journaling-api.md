@@ -447,7 +447,7 @@ For example, to fetch events starting from 2 hours ago:
 
 ```bash
 curl -X GET \
-  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/events?seek=-PT2H \
+  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?seek=-PT2H \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"

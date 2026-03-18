@@ -2,11 +2,9 @@
 title: AEM Events powered by AEM add-on module (Deprecated)
 ---
 
-import AemAddonModuleDeprecationNotice from '../../../../common/aem-addon-module-deprecation-notice.md'
-
 # AEM Events powered by AEM add-on module (Deprecated)
 
-<AemAddonModuleDeprecationNotice />
+<Fragment src="../../../../common/aem-addon-module-deprecation-notice.md" />
 
 **The AEM add-on module that facilitates integration with Adobe I/O Events is open source as the [`aem-io-events`](https://github.com/adobe/aio-lib-java/tree/main/aem/aio_aem_events) component of our [`aio-lib-java`](https://github.com/adobe/aio-lib-java) GitHub project.**
 
