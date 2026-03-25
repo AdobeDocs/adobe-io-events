@@ -21,7 +21,7 @@ from other event providers in terms of who can create projects that use the even
 providers are available for use by anyone with any developer role. Instead, the audit log event
 provider is limited to use only by:
 
-* **System Administrators**
+* **System administrators**
 * **Admin developers**
 
 System Admins can use all event providers as usual. When creating a project within Adobe
