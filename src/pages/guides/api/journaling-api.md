@@ -156,6 +156,10 @@ _Also, for your benefit, all the examples in the journaling documentation are in
 
 Once your application has fetched a batch of events from the journal, it can fetch the next batch of "newer" events by supplying the `position` of the `last` event in the current batch. The `position` of the `last` event needs to be supplied back in the query parameter `since`. The API call can then be read semantically as: **`GET` a batch of events `since` the given `position` in the journal.**
 
+<InlineAlert variant="info" slots="text"/>
+
+The `since` parameter is **exclusive** and does not include the event at the given position. To re-consume a specific event, use the position of the event *before* it, or use `seek` with a timestamp.
+
 Instead of constructing the URL to the next batch of "newer" events it is **strongly recommended** that you utilize the link provided in the response headers. Every successful response from the journaling API contains a `Link` response header with the relation type `rel=next`. The URL in the `next` link is pre-populated with the `since` query parameter to fetch the next batch of "newer" events.
 
 For example:
