@@ -67,17 +67,17 @@ The response from the SDK contains the following as part of the json result:
 ```json
 { "events":
    [ {
-       "position":"<cursor_position_of_this_event>",
+       "position":"cursor_position_of_this_event",
        "event":
         {
-            "header": "<headers_map>"
+            "header": "headers_map"
         },
           "body":
-           "<json_payload>"
+           "json_payload"
     } ],
   "_page":
    {
-      "last": "<cursor_position_of_this_event>",
+      "last": "cursor_position_of_this_event",
       "count": 1
    },
   "link":

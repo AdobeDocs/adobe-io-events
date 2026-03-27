@@ -40,14 +40,14 @@ The following is a sample JSON request body to register a journal URL. The reque
 
 ```json
 {
-    "name": "<name>",
-    "description": "<desc>",
-    "client_id": "<client_id>",
+    "name": "registration_name",
+    "description": "registration_description",
+    "client_id": "your_client_id",
     "delivery_type": "JOURNAL",
     "events_of_interest": [
         {
-            "event_code": "<event_code>",
-            "provider_id": "<provider_id>"
+            "event_code": "event_code",
+            "provider_id": "provider_id"
         }
     ]
 }
@@ -59,16 +59,15 @@ The following is a sample JSON request body to register a webhook URL. You can p
 
 ```json
 {
-    "name": "<name>",
-    "description": "<desc>",
-    "client_id": "<client_id>",
-    "webhook_url": "<url>",
+    "name": "registration_name",
+    "description": "registration_description",
+    "client_id": "your_client_id",
+    "webhook_url": "https://example.com/webhook",
     "events_of_interest": [
     {
-        "event_code": "<event_code>",
-        "provider_id": "<provider_id>"
-    },
-    ...
+        "event_code": "event_code",
+        "provider_id": "provider_id"
+    }
   ]
 }
 ```
@@ -94,29 +93,29 @@ getWebhookRegistration(consumerOrgId, credentialId, registrationId) ⇒ Promise.
 ```json
 {
         "id": 248713,
-        "name": "<name>",
-        "description": "<desc>",
-        "client_id": "<client_id>",
-        "parent_client_id": "<client_id>",
-        "webhook_url": "<url>",
+        "name": "registration_name",
+        "description": "registration_description",
+        "client_id": "your_client_id",
+        "parent_client_id": "parent_client_id",
+        "webhook_url": "https://example.com/webhook",
         "status": "VERIFIED",
         "type": "APP",
         "integration_status": "ENABLED",
         "events_of_interest":
-        [  
+        [
             {
-                "event_code": "<event_code>",
-                "event_label": "<label>",
-                "event_description": "<event_desc>",
-                "provider_id": "<provider_id>",
-                "provider": "<provider_name>",
-                "provider_label": "<provider label>",
-                "event_delivery_format": "<cloud_events or adobe_io>"
+                "event_code": "event_code",
+                "event_label": "event_label",
+                "event_description": "event_description",
+                "provider_id": "provider_id",
+                "provider": "provider_name",
+                "provider_label": "provider_label",
+                "event_delivery_format": "cloud_events"
             }
         ],
-        "registration_id": "<reg_id>",
-        "delivery_type": "<WEBHOOK or JOURNAL>",
-        "events_url": "<journal_url>",
+        "registration_id": "registration_id",
+        "delivery_type": "WEBHOOK",
+        "events_url": "https://example.com/journal",
         "created_date": "2020-02-21T07:31:24.000Z",
         "updated_date": "2020-02-21T07:31:24.000Z",
         "runtime_action": ""
@@ -146,34 +145,33 @@ The response array contains an object providing the details for each webhook reg
 [
     {
         "id": "248713",
-        "name": "<name>",
-        "description": "<desc>",
-        "client_id": "<client_id>",
-        "parent_client_id": "<client_id>",
-        "webhook_url": "<url>",
+        "name": "registration_name",
+        "description": "registration_description",
+        "client_id": "your_client_id",
+        "parent_client_id": "parent_client_id",
+        "webhook_url": "https://example.com/webhook",
         "status": "VERIFIED",
         "type": "APP",
         "integration_status": "ENABLED",
         "events_of_interest":
-        [  
+        [
             {
-                "event_code": "<event_code>",
-                "event_label": "<label>",
-                "event_description": "<event_desc>",
-                "provider_id": "<provider_id>",
-                "provider": "<provider_name>",
-                "provider_label": "<provider label>",
+                "event_code": "event_code",
+                "event_label": "event_label",
+                "event_description": "event_description",
+                "provider_id": "provider_id",
+                "provider": "provider_name",
+                "provider_label": "provider_label",
                 "event_delivery_format": "cloud_events"
             }
         ],
-        "registration_id": "<reg_id>",
-        "delivery_type": "<WEBHOOK or JOURNAL>",
-        "events_url": "<journal_url>",
+        "registration_id": "registration_id",
+        "delivery_type": "WEBHOOK",
+        "events_url": "https://example.com/journal",
         "created_date": "2020-02-21T07:31:24.000Z",
         "updated_date": "2020-02-21T07:31:24.000Z",
         "runtime_action": ""
-    },
-    ...
+    }
 ]
 ```
 

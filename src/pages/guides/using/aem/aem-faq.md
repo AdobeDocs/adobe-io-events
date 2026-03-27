@@ -18,11 +18,11 @@ The `CloudEvents` event envelope looks like this :
 ```json
 {
   "specversion": "1.0",
-  "source": "urn:uuid:<the AEM provider_id>",
-  "type": "<the AEM event_code>",
-  "id": "<the AEM event_id>",
+  "source": "urn:uuid:the_AEM_provider_id",
+  "type": "the_AEM_event_code",
+  "id": "the_AEM_event_id",
   "datacontenttype": "application/json",
-  "data": "<the AEM event payload>"
+  "data": "the_AEM_event_payload"
 }
 ```
 
@@ -30,8 +30,8 @@ Whereas the legacy [XDM Event Model](https://github.com/adobe/xdm-event-model) e
 
 ```json
 {
-  "event_id": "<the AEM event_id>",
-  "event": "<the AEM event payload>"
+  "event_id": "the_AEM_event_id",
+  "event": "the_AEM_event_payload"
 }
 ```
 

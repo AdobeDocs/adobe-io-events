@@ -45,10 +45,10 @@ Returns a list of all providers. This response has been truncated to show only t
             "href": "https://api.adobe.io/events/providers/<providerId>"
           }
         },
-        "id": "<providerId>",
-        "label": "<label>",
-        "source": "<providerId>",
-        "publisher": "<Publisher_Org>"
+        "id": "providerId",
+        "label": "provider_label",
+        "source": "providerId",
+        "publisher": "Publisher_Org"
       },
      ...
     ]
@@ -80,9 +80,9 @@ Creating a provider requires a unique label for the provider which will be the n
 
 ```json
 {
-  "label":  "<Label for provider>",
-  "docs_url": "<link to documentation if present>",
-  "description": "<description>"
+  "label":  "Provider Label",
+  "docs_url": "https://example.com/docs",
+  "description": "Provider description"
 }
 ```
 
@@ -123,11 +123,11 @@ Returns the details of the provider specified by the provider ID. The "source" v
         "href":  "https://api.adobe.io/events/providers/<providerId>"
       }
     },
-    "id": "<provider_id>",
-    "label": "<label>",
+    "id": "provider_id",
+    "label": "provider_label",
     "description": "A Custom IO Events Provider",
-    "source": "urn:uuid:<provider_id>",
-    "publisher": "<Publisher_Org>"
+    "source": "urn:uuid:provider_id",
+    "publisher": "Publisher_Org"
 }
 ```
 
@@ -162,17 +162,17 @@ Returns the details of the provider specified by the provider ID along with even
             "href": "https://api.adobe.io/events/providers/<provider_id>/eventmetadata/<event_code>"
           }
           },
-        "description": "<description of the event code>",
-        "label": "<event code label>",
-        "event_code": "<event_code>"
-      }, ...
+        "description": "description_of_the_event_code",
+        "label": "event_code_label",
+        "event_code": "event_code"
+      }
     ]
   },
-  "id": "<provider_id>",
-  "label": "<label>",
+  "id": "provider_id",
+  "label": "provider_label",
   "description": "A custom events provider.",
-  "source": "urn:uuid:<provider_id>",
-  "publisher": "<Publisher_Org>"
+  "source": "urn:uuid:provider_id",
+  "publisher": "Publisher_Org"
 }
 ```
 

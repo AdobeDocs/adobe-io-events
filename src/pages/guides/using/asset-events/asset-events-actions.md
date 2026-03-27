@@ -172,8 +172,8 @@ The `event:updated` object contains two properties that describe the source loca
         "http://ns.adobe.com/adobecloud/rel/metadata/repository": {
           "event:action": "updated",
           "event:updated": {
-            "repo:path": "<the previous path of the Primary Resource of the asset>",
-            "storage:region": "<the previous storage region (if the asset was moved to a different region)>"
+            "repo:path": "the_previous_path_of_the_Primary_Resource_of_the_asset",
+            "storage:region": "the_previous_storage_region"
           }
         }
       }
