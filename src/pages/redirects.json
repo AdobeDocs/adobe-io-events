@@ -132,6 +132,10 @@
       "Destination": "/events/docs/guides/using/asset-events/asset-events-actions"
     },
     {
+      "Source": "/events/docs/guides/using/admin-audit-logs",
+      "Destination": "/events/docs/guides/using/admin-audit-logs/"
+    },
+    {
       "Source": "/events/docs/guides/using/aem",
       "Destination": "/events/docs/guides/using/aem/"
     },

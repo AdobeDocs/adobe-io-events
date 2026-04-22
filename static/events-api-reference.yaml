@@ -1006,19 +1006,19 @@ parameters:
   consumerOrgId:
     name: consumerOrgId
     in: path
-    description: Consumer Organization ID (owning the provider)
+    description: Consumer Organization ID
     required: true
     type: string
   projectId:
     name: projectId
     in: path
-    description: Project ID where the event provider belongs
+    description: Project ID
     required: true
     type: string
-  workspaceId:      
+  workspaceId:
     name: workspaceId
     in: path
-    description: Workspace ID where the event provider belongs
+    description: Workspace ID
     required: true
     type: string
   providerId:

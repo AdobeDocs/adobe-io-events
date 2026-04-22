@@ -43,9 +43,9 @@ getAllEventMetadataForProvider(providerId) ⇒ Promise.<object>
                         "href": "https://api.adobe.io/events/providers/<provider-id>/eventmetadata/<event-code-1>"
                     }
                  },
-                "description": "<description>",
-                "label": "<label>",
-                "event_code": "<event-code-1>",
+                "description": "event_description",
+                "label": "event_label",
+                "event_code": "event-code-1",
             },
             ...
          ]
@@ -83,9 +83,9 @@ getEventMetadataForProvider(providerId, eventCode) ⇒ Promise.<object>
       "href": "https://api.adobe.io/events/providers/<provider-id>/eventmetadata/<event-code>"
     }
   },
-  "description": "<description>",
-  "label": "<label>",
-  "event_code": "<event-code>"
+  "description": "event_description",
+  "label": "event_label",
+  "event_code": "event-code"
 }
 ```
 

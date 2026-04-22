@@ -36,11 +36,11 @@ The following shows a sample cloud event accepted by the event receiver:
 
 ```json
 {
-    "id": "<id>",
-    "eventid": "<event-id>",
+    "id": "event_id",
+    "eventid": "event_id",
     "specversion": "1.0",
-    "type": "<event-code>",
-    "source": "urn:uuid:<provider-id>",
+    "type": "event_code",
+    "source": "urn:uuid:provider_id",
     "time": "2020-03-06T05:40:34Z",
     "datacontenttype": "application/json",
     "data": { "hello": "world" } // any json payload

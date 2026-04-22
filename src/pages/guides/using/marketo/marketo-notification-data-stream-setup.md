@@ -90,7 +90,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         "datacontenttype": "application/json",
         "data": {
           "munchkinId": "123-ABC-456",
-          "imsOrgId": "<your_ims_org_id>@AdobeOrg",
+          "imsOrgId": "your_ims_org_id@AdobeOrg",
           "componentType": "web_services",
           "subType": "dailyQuota",
           "eventAction": {
@@ -117,7 +117,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         "datacontenttype": "application/json",
         "data": {
           "munchkinId": "123-ABC-456",
-          "imsOrgId": "<your_ims_org_id>@AdobeOrg",
+          "imsOrgId": "your_ims_org_id@AdobeOrg",
           "componentType": "campaign_abort",
           "subType": "user_campaign_abort",
           "eventAction": {
@@ -147,7 +147,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
       "datacontenttype": "application/json",
       "data": {
         "munchkinId": "123-ABC-456",
-        "imsOrgId": "<your_ims_org_id>@AdobeOrg",
+        "imsOrgId": "your_ims_org_id@AdobeOrg",
         "componentType": "campaign_abort",
         "subType": "user_campaign_abort",
         "eventAction": {

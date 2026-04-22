@@ -125,7 +125,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         }
       ]
     },
-    "recipientclientid": "<your_client_id>"
+    "recipientclientid": "your_client_id"
   },
   {
     "eventid": "97980214-3c8f-4964-88a3-75b42833a1f9",
@@ -177,7 +177,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
         }
       ]
     },
-    "recipientclientid": "<your_client_id>"
+    "recipientclientid": "your_client_id"
   }
 ]
 ````
@@ -235,7 +235,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
       }
     ]
   },
-  "recipientclientid": "<your_client_id>"
+  "recipientclientid": "your_client_id"
 }
 ````
 

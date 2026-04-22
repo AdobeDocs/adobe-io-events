@@ -90,12 +90,12 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                     "componentType": "Email",
                     "eventAction": "approve",
                     "munchkinId": "123-ABC-456",
-                    "imsOrgId": "<your_ims_org_id>@AdobeOrg",
+                    "imsOrgId": "your_ims_org_id@AdobeOrg",
                     "userId": "user@marketo.com"
                 }
             }
         },
-        "recipientclientid": "<your_client_id>"
+        "recipientclientid": "your_client_id"
     },
     {
         "eventid": "e931c3ec-9d76-406b-ac89-626e9650813a",
@@ -112,12 +112,12 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                     "componentType": "Landing Page",
                     "eventAction": "approve",
                     "munchkinId": "123-ABC-456",
-                    "imsOrgId": "<your_ims_org_id>@AdobeOrg",
+                    "imsOrgId": "your_ims_org_id@AdobeOrg",
                     "userId": "user@marketo.com"
                 }
             }
         },
-        "recipientclientid": "<your_client_id>"
+        "recipientclientid": "your_client_id"
     }
 ]
 ````
@@ -140,11 +140,11 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                 "componentType": "Email",
                 "eventAction": "approve",
                 "munchkinId": "123-ABC-456",
-                "imsOrgId": "<your_ims_org_id>@AdobeOrg",
+                "imsOrgId": "your_ims_org_id@AdobeOrg",
                 "userId": "user@marketo.com"
             }
         },
-        "recipientclientid": "<your_client_id>"
+        "recipientclientid": "your_client_id"
     }
 }
 ````

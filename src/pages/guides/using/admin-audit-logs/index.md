@@ -21,7 +21,7 @@ from other event providers in terms of who can create projects that use the even
 providers are available for use by anyone with any developer role. Instead, the audit log event
 provider is limited to use only by:
 
-* **System Administrators**
+* **System administrators**
 * **Admin developers**
 
 System Admins can use all event providers as usual. When creating a project within Adobe
@@ -33,7 +33,7 @@ project. If the provider is not listed, you do not have access.
 Users with developer access to Adobe Developer Console will be able to see the project in read-only
 mode, but will not be able to access the secret required to generate a credential to access.
 
-Instructions for adding Event Providers to a project are at [Add Events to a project](../../guides/services/services-add-event).
+Instructions for adding Event Providers to a project are at [Add Events to a project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-event).
 
 ### Admin Developer User Role
 
