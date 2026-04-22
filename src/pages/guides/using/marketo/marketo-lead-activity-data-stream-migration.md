@@ -7,9 +7,7 @@ description: Guide for migrating from the legacy Lead Activity Data Stream to Ad
 
 This guide provides comprehensive instructions for migrating customers from the legacy Lead Activity Data Stream to the new Adobe I/O Lead Activity Data Stream (LADS).
 
-<InlineAlert variant="info" slots="title, text"/>
-
-Does this affect me?
+## Does this affect me?
 
 This migration affects only a very small subset of customers who were onboarded to the Lead Activity Data Stream before it was integrated with Adobe I/O Events. If you are a newer data streams customer or already manage the Lead Activity Data Stream via I/O Events, this will have no impact on you.
 
@@ -78,19 +76,28 @@ The legacy system sends activities in a batch wrapper format:
     "sourceApplication": "Marketo",
     "munchkinId": "123-ABC-456",
     "messageId": "12345",
-    "messageCreatedDate": "2025-09-10T15:28:49Z",
+    "messageCreatedDate": "2026-04-21T15:28:49Z",
     "activities": [
         {
             "marketoGUID": "12345678-9876-a191-4567-000000054321",
             "leadId": 12345,
-            "activityDate": "2025-09-10T15:26:49Z",
-            "campaignId": 1234,
-            "campaignName": "My Campaign Name.Form",
-            "primaryAttributeValueId": 15,
-            "primaryAttributeValue": "Some asset name",
+            "activityDate": "2026-04-20T18:43:56Z",
+            "primaryAttributeValueId": 1234,
+            "primaryAttributeValue": "Attribute Value",
             "activityTypeId": 3,
             "activityType": "Click Link",
-            "attributes": [...]
+             "attributes": [
+                {
+                  "name": "Link ID",
+                  "dataType": "object",
+                  "value": 1234
+                },
+                {
+                  "name": "Client IP Address",
+                  "dataType": "string",
+                  "value": "11.22.33.44"
+                }
+              ]
         }
     ]
 }
@@ -106,16 +113,15 @@ The new system uses the CloudEvents specification. See [Setting up Marketo Lead 
   "specversion": "1.0",
   "type": "com.adobe.platform.marketo.activity.standard.clicklink",
   "source": "urn:marketo_activity_stream",
-  "id": "570b455e-203f-4983-91a8-5a03f597fda5",
-  "time": "2024-12-17T18:43:56Z",
+  "id": "12345678-9876-a191-4567-000000054321",
+  "time": "2026-04-21T15:28:49Z",
   "datacontenttype": "application/json",
   "data": {
     "munchkinId": "123-ABC-456",
-    "leadId": "1234",
-    "activityDate": "2024-12-17T18:43:56Z",
+    "leadId": "12345",
+    "activityDate": "2026-04-20T18:43:56Z",
     "activityTypeId": 3,
     "activityType": "Click Link",
-    "activityLogItemId": 1234567890,
     "primaryAttributeValueId": 1234,
     "primaryAttributeValue": "Attribute Value",
     "attributes": [
