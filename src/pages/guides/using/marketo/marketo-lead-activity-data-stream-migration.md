@@ -86,6 +86,7 @@ The legacy system sends activities in a batch wrapper format:
             "primaryAttributeValue": "Attribute Value",
             "activityTypeId": 3,
             "activityType": "Click Link",
+            "activityLogItemId": 1234567890,
              "attributes": [
                 {
                   "name": "Link ID",
@@ -122,6 +123,7 @@ The new system uses the CloudEvents specification. See [Setting up Marketo Lead 
     "activityDate": "2026-04-20T18:43:56Z",
     "activityTypeId": 3,
     "activityType": "Click Link",
+    "activityLogItemId": 1234567890,
     "primaryAttributeValueId": 1234,
     "primaryAttributeValue": "Attribute Value",
     "attributes": [
@@ -135,6 +137,7 @@ The new system uses the CloudEvents specification. See [Setting up Marketo Lead 
         "dataType": "string",
         "value": "11.22.33.44"
       }
+      
     ]
   },
   "recipientclientid": "<your_client_id>"
