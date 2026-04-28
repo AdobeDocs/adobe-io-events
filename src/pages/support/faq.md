@@ -302,9 +302,9 @@ To debug successful invocations, relay the `activation_id` of your target user a
 
 Adobe I/O stores 7 days of subscribed events, retrievable via the Journaling API.
 
-### Why do I only get one event, regardless of the `limit` I use?
+### How many events does the `limit` parameter return?
 
-The Journaling API `limit` parameter sets the **maximum** number of events returned. You may receive fewer events than the limit, depending on the incoming traffic. This is expected. For example, you may only see a single event in a journal batch/page even when the journal holds more than 1 event.
+When a `limit` is specified, the Journaling API returns **exactly** the requested number of events, or all remaining events if the end of the journal is reached first. Responses are capped at 1.5 MB regardless of the limit value. Setting an appropriate `limit` is especially useful when experiencing high network latencies, as it reduces the number of round trips needed.
 See the [Journaling API documentation](../guides/api/journaling-api.md#limiting-the-size-of-the-batch) for details.
 
 ### Can I retrieve all events in one request?

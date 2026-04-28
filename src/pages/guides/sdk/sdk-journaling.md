@@ -26,7 +26,7 @@ The following options can be configured while calling the journaling API:
 |---|---|---|
 | [latest] | boolean | *Optional.* By default, the latest is set to false and all events are read from the first valid position in the journal. If set to true, Messages will be read from the latest position. |
 | [since] | string | *Optional.* Provide the position in the journal from where events must be fetched. If not specified and `latest=false`, messages are fetched from the first valid position in the journal. |
-| [limit] | number | Maximum number of events returned in the response. Note: unless the events are created at a high frequency, chances are the number of messages will be less than the specified limit value (see our [Journaling API](../api/journaling-api.md#limiting-the-size-of-the-batch) for more details) |
+| [limit] | number | The exact number of events to return in the response. The API returns exactly this many events, or all remaining events if the end of the journal is reached first. Responses are capped at 1.5 MB regardless of the limit value. See the [Journaling API](../api/journaling-api.md#limiting-the-size-of-the-batch) for more details. |
 | [seek] | string | *Optional.* Start fetching events from a specific point in time, using an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) (e.g., `-PT2H` for 2 hours ago, `-P1D` for 1 day ago). Useful for [time-based queries](../api/journaling-api.md#starting-from-a-specific-point-in-time-with-the-seek-parameter). |
 
 ### EventsJournalPollingOptions

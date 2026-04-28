@@ -15,7 +15,7 @@ Important Takeaways:
 
 ### Webhooks
 
-[Getting Started with Adobe I/O Events Webhooks](../../guides/index.md)
+[Getting Started with Adobe I/O Events Webhooks](../../index.md)
 
 Webhook Endpoint Requirements:
 

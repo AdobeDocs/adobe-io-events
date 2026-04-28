@@ -543,7 +543,7 @@ paths:
           required: false
           type: integer
           format: int32
-          description: Maximum number of events to return in the batch
+          description: Requested number of events to return in the batch. Fewer events may be returned if the total payload size exceeds 1.5MB.
         - name: since
           in: query
           required: true
@@ -574,7 +574,7 @@ paths:
           required: false
           type: integer
           format: int32
-          description: Maximum number of events to return in the batch
+          description: Requested number of events to return in the batch. Fewer events may be returned if the total payload size exceeds 1.5MB.
         - name: since
           in: query
           required: false

@@ -291,18 +291,16 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 
 ### Limiting the size of the batch
 
-When events are created at a high frequency, Journal persists groups of events in its storage units;
-when events are created at a lower rate, these storage units will contain only one event.
+When no `limit` parameter is specified, the API returns a default number of events per request, though it may return more during high-volume periods.
 
-Hence, depending on the traffic of the events associated with your registration,
-the number of events returned in a single response batch varies:
-a batch of events contains at least one event (if you are not already at the end of the journal),
-but there is no pre-defined upper limit.
+To control exactly how many events are returned per request, supply the `limit` query parameter with a positive integer. When specified:
 
-In case you wish to set an upper bound, you can supply the `limit` query parameter with the maximum number
-of events that may be returned by the API.
+- The API returns **exactly** the requested number of events, or all remaining events if the end of the journal is reached first.
+- The response is capped at a maximum of **1.5 MB** regardless of the `limit` value.
 
-Once a `limit` query parameter is supplied, the value of the parameter is retained in the `next` link as well. Hence, you can continue using the `next` link as-is, without needing to construct it. The `limit` query parameter can also be combined with any other query parameter, just make sure that you pass a positive integer as the value.
+This is especially useful when experiencing high network latencies, as setting an appropriate `limit` reduces the number of round trips needed.
+
+Once a `limit` query parameter is supplied, the value is retained in the `next` link for subsequent requests — you can continue using the `next` link as-is without needing to reconstruct it. The `limit` parameter can also be combined with any other query parameter; make sure to pass a positive integer as the value.
 
 For example, here is the same request as before but with the number of events returned limited to just one:
 
@@ -351,88 +349,6 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
    "_page": {
       "last": "camel:5aeb25cc-1b15-4f26-a082-9c213005dba8:ff244403-ca7c-4993-bbda-3c8915ce0b32",
       "count": 1
-   }
-}
-```
-
-NOTE: The `limit` query parameter DOES NOT guarantee that the number of events returned will always be equal to the value supplied.
- This is true even if there are more events to be consumed in the journal.
- The `limit` query parameter only serves as a way to specify an upper bound on the count of events.
-
-For example, our journal above has at least 4 events that we know of, however, even when the `limit` parameter is supplied with the value `3`, we do not get that many events in the respsonse.
-
-```bash
-curl -X GET \
-  https://events-va6.adobe.io/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=3 \
-  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
-  -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
-```
-
-```json
-HTTP/1.1 200 OK
-Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614&limit=3>; rel="next"
-
-{
-   "events":[
-      {
-         "position":"camel:5aeb25cc-1b15-4f26-a082-9c213005dba8:ff244403-ca7c-4993-bbda-3c8915ce0b32",
-         "event":{
-            "@id":"urn:oeid:aem:199e85da-dd54-4966-95ba-13cf544964dc",
-            "@type":"xdmCreated",
-            "activitystreams:published":"2018-03-06T15:19:03-08",
-            "activitystreams:to":{
-               "@type":"xdmImsOrg",
-               "xdmImsOrg:id":"01DC1FC45956A5810A494138@AdobeOrg"
-            },
-            "activitystreams:generator":{
-               "@type":"xdmContentRepository",
-               "xdmContentRepository:root":"http://localhost-roberto-aem63:4502"
-            },
-            "activitystreams:actor":{
-               "@id":"healthcheck-user",
-               "@type":"xdmAemUser"
-            },
-            "activitystreams:object":{
-               "@type":"xdmAsset",
-               "xdmAsset:asset_name":"healthcheck.png",
-               "xdmAsset:path":"/content/dam/healthcheck.png",
-               "xdmAsset:format":"image/png"
-            },
-            "xdmEventEnvelope:objectType":"xdmAsset"
-         }
-      },
-      {
-         "position":"moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614",
-         "event":{
-            "@id":"urn:oeid:aem:61930ae6-ff2a-48fb-881d-078e862c3811",
-            "@type":"xdmCreated",
-            "activitystreams:published":"2018-03-06T15:19:59-08",
-            "activitystreams:to":{
-               "@type":"xdmImsOrg",
-               "xdmImsOrg:id":"01DC1FC45956A5810A494138@AdobeOrg"
-            },
-            "activitystreams:generator":{
-               "@type":"xdmContentRepository",
-               "xdmContentRepository:root":"http://localhost-roberto-aem63:4502"
-            },
-            "activitystreams:actor":{
-               "@id":"healthcheck-user",
-               "@type":"xdmAemUser"
-            },
-            "activitystreams:object":{
-               "@type":"xdmAsset",
-               "xdmAsset:asset_name":"healthcheck.png",
-               "xdmAsset:path":"/content/dam/healthcheck.png",
-               "xdmAsset:format":"image/png"
-            },
-            "xdmEventEnvelope:objectType":"xdmAsset"
-         }
-      }
-   ],
-   "_page": {
-      "last": "moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614",
-      "count": 2
    }
 }
 ```
