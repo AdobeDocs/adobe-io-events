@@ -18,7 +18,7 @@ Each event has an independent retry lifecycle. `Adobe I/O Events` retries each i
 
 *Please note that above retry intervals are not guaranteed and may vary in few exception scenarios.*
 
-`Adobe I/O Events` changes the state of an event registration based on the below criteria:
+`Adobe I/O Events` determines the state of an event registration based on the below criteria:
 
 - **ACTIVE** - Event registration is marked as active when in the last 24 hours there are less than 10 delivery attempts or at least 20% of them are successful.
 - **DISABLED** - Event registration is marked as disabled when in the last 24 hours there are at least 10 delivery attempts and 80% of them are unsuccessful. However, a registration is first moved to an `UNSTABLE` state when the condition is first met while the registration is `ACTIVE`.
