@@ -18,15 +18,14 @@ Each event has an independent retry lifecycle. `Adobe I/O Events` retries each i
 
 *Please note that above retry intervals are not guaranteed and may vary in few exception scenarios.*
 
-`Adobe I/O Events` changes the state of an event registration based on the below criteria:
+`Adobe I/O Events` determines the state of an event registration based on the below criteria:
 
-- **UNSTABLE** - Event registration is marked as unstable when an individual failed event reaches a retry threshold (approximately 30 minutes after initial failure) AND in the last 30 minutes, over 80% of at least 10 deliveries were unsuccessful. 
-- **DISABLED** - Event registration is marked as disabled when an individual failed event reaches the maximum retry threshold (approximately 24 hours after initial failure) AND in the last 24 hours, over 80% of at least 10 deliveries were unsuccessful. 
-- **ACTIVE** - Event registration is marked as active when a successful delivery occurs AND in the last 30 minutes, over 80% of at least 10 deliveries were successful.
+- **ACTIVE** - Event registration is marked as active when in the last 24 hours there are less than 10 delivery attempts or at least 20% of them are successful.
+- **DISABLED** - Event registration is marked as disabled when in the last 24 hours there are at least 10 delivery attempts and 80% of them are unsuccessful. However, a registration is first moved to an `UNSTABLE` state when the condition is first met while the registration is `ACTIVE`.
+- **UNSTABLE** - Event registration is marked as unstable before switching to `DISABLED`. An `UNSTABLE` registration is a registration that met the requirements for being disabled, but I/O Events waits at least for 24 hours to check the status again and transition the registration to the state as indicated by the above definitions (either `ACTIVE` or `DISABLED`).
 
 **Important:**
-- Low-traffic registrations may skip **Unstable** state and transition directly from **Active** to **Disabled** state.
-- For an **Unstable** event registration `Adobe I/O Events` continues attempting delivery.
+- For an **Unstable** event registration `Adobe I/O Events` continues attempting delivery. A registration will have at least 24 hours before being marked as DISABLED. 
 - Recovery from **Disabled** state requires manual re-enablement via Adobe Developer Console.
 - If all retry attempts are exhausted and the event still isn't delivered, `Adobe I/O Events` drops the event.
 
