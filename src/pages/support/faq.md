@@ -290,7 +290,7 @@ No. Adobe I/O Events notifications are sent from AWS and Azure, and their IPs ch
 When registering a webhook, you can choose the delivery style:
 
 - **Single:** One event per HTTP request.
-- **Batch:** Multiple events per request. Batch size is up to 2MB and a maximum of 20 events. Please note that the batch size may vary depending on the incoming traffic.
+- **Batch:** Multiple events per request. Batch size is up to 2MB and a maximum of 100 events. Please note that the batch size may vary depending on the incoming traffic.
 
 ### How can I debug and see logs for successful invocations to my runtime action (configured as webhook)?
 
