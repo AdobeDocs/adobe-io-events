@@ -36,6 +36,7 @@
     - [Adobe Experience Platform Notifications](guides/using/experience-platform-event-setup.md)
     - [Adobe Experience Platform Privacy Service Events](guides/using/privacy-event-setup.md)
     - [Analytics Triggers](guides/using/analytics-triggers-event-setup.md)
+    - [GenStudio Events](guides/using/genstudio/index.md)
     - [Asset Events](guides/using/asset-events/asset-events-landing.md)
       - [Asset Events Configuration](guides/using/asset-events/asset-events-configuration.md)
       - [Asset Events Actions](guides/using/asset-events/asset-events-actions.md)
