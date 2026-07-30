@@ -5,7 +5,7 @@ description: Subscribe to Adobe GenStudio Experience lifecycle events through Ad
 
 # GenStudio Events
 
-Adobe GenStudio for Performance Marketing emits events when approved Experiences are created, have their metadata updated, or are deleted. Subscribe to these events through Adobe I/O Events to react in near real time, instead of polling the [GenStudio Experience API](https://developer.adobe.com/genstudio-api/).
+Adobe GenStudio for Performance Marketing emits events when approved Experiences are created, have their metadata updated, or are deleted. Subscribe to these events through Adobe I/O Events to react in near real time, instead of polling the [GenStudio API](https://developer.adobe.com/genstudio-api/).
 
 ## Provider
 
@@ -61,7 +61,7 @@ For `experience.created` and `experience.metadataUpdated`, `data` is a summary o
 
 `selfLink` points at the Experience — call it with your OAuth Server-to-Server credentials to retrieve the full record. See the [GenStudio API Authentication guide](https://developer.adobe.com/genstudio-api/getting-started/) and [API Reference](https://developer.adobe.com/genstudio-api/api/).
 
-`experience.deleted` cannot be enriched from the index (the Experience no longer exists), so `data` carries only the minimum needed to identify what was removed:
+`experience.deleted` cannot be enriched with additional data (the Experience no longer exists), so `data` carries only the minimum needed to identify what was removed:
 
 ```json
 {
@@ -76,13 +76,13 @@ Events are additive-only — new optional fields may be added to `data` over tim
 
 * **Delivery semantics** — At-least-once. Deduplicate using the event `id`.
 * **Ordering** — Not guaranteed across delivery. Use `time` and `modifiedAt` if you need to reason about sequence.
-* **Source of truth** — The GenStudio Experience API, not the event payload. Treat events as a signal to fetch or re-sync.
+* **Source of truth** — The GenStudio API, not the event payload — events carry only a summary; the API returns the full Experience. Treat events as a signal to fetch or re-sync.
 * **Max payload size** — 64 KB per event.
 
 ## How to subscribe to GenStudio Events in the Adobe Developer Console
 
 1. Visit [https://developer.adobe.com/console/projects](https://developer.adobe.com/console/projects) and create or open a project.
-2. Add a new **Event** service to your workspace. This opens the **Add Event** dialog.
+2. Press **Add to Project** and then  **Event**. This opens the **Add Events** dialog.
 3. Select **GenStudio Events** from the list of available providers.
 4. Select the event types you want to receive (`Experience Created`, `Experience Metadata Updated`, `Experience Deleted`).
 5. Choose an OAuth Server-to-Server credential (or create one) for the registration.
@@ -92,6 +92,6 @@ Events are additive-only — new optional fields may be added to `data` over tim
    * **Adobe I/O Journaling API** — pull events at your own cadence.
    * **Amazon EventBridge** — route events into your AWS account.
 
-Once registered, GenStudio events arriving for your organization appear in the **Event Browser** of your registration, where you can inspect delivery status and payloads.
+For debugging, GenStudio events arriving for your organization appear in the **Event Browser** tab of your registration, where you can inspect delivery status and payloads.
 
 For general background on consuming Adobe I/O Events, see [Introduction to Adobe I/O Events Webhooks](../../index.md) and [Introduction to Journaling](../../journaling-intro.md).
