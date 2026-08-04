@@ -193,7 +193,6 @@ The `data` object contains the following fields:
 | Landing Page Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove                                                                      |
 | List                  | clone, create, delete, rename                                                                                                                           |
 | Marketing Folder      | create, delete, edit                                                                                                                                    |
-| Nurture Program       | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename                                          |
 | Segment               | create, delete, edit, rename                                                                                                                            |
 | Segmentation          | approve, create, delete, draftCreated, draftDiscarded, rename, unapprove                                                                                |
 | Smart Campaign        | abort, activate, clone, create, deactivate, delete, edit, modify campaign schedule, modify flow step action, modify smart list setup, move, rename      |
