@@ -55,6 +55,10 @@ If your webhook endpoint does not acknowledge receipt of the event delivery, Ado
 
 No. Event order is not guaranteed. See the previous answer for details.
 
+### Do the events published prior to time of integration are delivered ?
+
+No. Events are eligible for delivery to a registration, only after the registration is successfully created.
+
 ### What permissions are required to use Adobe I/O Events?
 
 Permissions and entitlements depend on the event provider:
