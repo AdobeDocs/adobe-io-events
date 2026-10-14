@@ -623,6 +623,7 @@
     {
       "page": "/support/faq",
       "avatars": [
+        "https://avatars.githubusercontent.com/u/141328779?v=4",
         "https://avatars.githubusercontent.com/u/636437?v=4",
         "https://avatars.githubusercontent.com/u/6428734?v=4",
         "https://avatars.githubusercontent.com/u/6910192?v=4",
@@ -633,7 +634,7 @@
         "https://avatars.githubusercontent.com/u/148577026?v=4",
         "https://avatars.githubusercontent.com/u/6012307?v=4"
       ],
-      "lastUpdated": "7/8/2026"
+      "lastUpdated": "10/14/2026"
     },
     {
       "page": "/support/tracing",
