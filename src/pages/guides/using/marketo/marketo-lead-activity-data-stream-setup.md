@@ -67,6 +67,8 @@ For basic instructions for this use case, starting from [console.adobe.io](https
 
 <Fragment src="marketo-data-streams-multiple-instances.md"/>
 
+<Fragment src="marketo-data-streams-filtering.md"/>
+
 ### Event Data Structure
 
 Events are structured in JSON format using the [CloudEvents](https://cloudevents.io/) spec
