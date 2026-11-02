@@ -321,6 +321,11 @@ Yes. Use the `seek` parameter with the Journaling API to start from a specific p
 This is especially useful for investigating events within a particular time window.
 See the [Journaling API documentation](../guides/api/journaling-api.md#starting-from-a-specific-point-in-time-with-the-seek-parameter) for examples.
 
+### Why am I getting a `403 Forbidden` error when calling the Journaling API?
+
+This usually means the `I/O Management API` has not been added to your project in the Adobe Developer Console.
+See [Troubleshooting](../guides/api/journaling-api.md#troubleshooting) in the Journaling API documentation for the full list of causes and fixes.
+
 ## Custom Events FAQ
 
 ### Why is my Custom Events Provider not showing up in the Adobe Developer Console?
