@@ -46,7 +46,11 @@ Every event registration has a corresponding unique journaling endpoint URL. Thi
 
 3. Under the Event Delivery Method section, copy the URL for the unique api endpoint.
 
-4. Be sure to add the `I/O Management API` as a service in your integration in order to be able to invoke the journaling API. Click on Add to project > API > I/O Management API.
+4. Add the `I/O Management API` as a service in your project. Click on **Add to project** > **API** > **I/O Management API**.
+
+<InlineAlert variant="warning" slots="text"/>
+
+The `I/O Management API` must be added to your project to call the Journaling API. Without it, journaling requests fail with a `403 Forbidden` error. See [Troubleshooting](#troubleshooting).
 
 ### Obtaining an access token to call the API
 
@@ -524,3 +528,22 @@ HTTP/1.1 204 No Content
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="next"
 Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/validate?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="validate"
 ```
+
+
+## Troubleshooting
+
+### I'm getting a `403 Forbidden` error while calling the Journaling API
+
+A `403` error means your request was understood but you are not authorized to access the journal. The most common cause is that the `I/O Management API` has not been added to your project. 
+**Things to check:**
+
+1. **The `I/O Management API` is added to your project.**
+   1. Open your project in the [Adobe Developer Console](https://developer.adobe.com/console).
+   2. Click **Add to project** > **API**.
+   3. Select **I/O Management API** and complete the configuration, choosing the same credential you use for your Events registration.
+   4. Generate a fresh OAuth Server-to-Server token and retry the request.
+2. **The `x-api-key` matches your project.** It should be the Client ID of the same project that contains the Event registration and the I/O Management API.
+3. **The `x-ims-org-id` matches your organization.** It should be the organization that owns the project (format `some_id@AdobeOrg`).
+4. **The token is current.** If you added the I/O Management API recently, make sure the token was generated after that change, not before.
+
+If you have checked all of the above and still receive a `403`, contact Adobe support with the full request curl (without your token) and the response body.
