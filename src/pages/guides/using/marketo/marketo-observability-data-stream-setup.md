@@ -87,6 +87,7 @@ Basic instructions for this use case, starting from the [developer console](http
 
 <Fragment src="marketo-data-streams-developer-guidelines.md"/>
 <Fragment src="marketo-data-streams-multiple-instances.md"/>
+<Fragment src="marketo-data-streams-filtering.md"/>
 
 ### Event Data Structure Examples
 
